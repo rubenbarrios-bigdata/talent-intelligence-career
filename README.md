@@ -3,6 +3,7 @@
 <div align="center">
 
 [![Live Demo en GitHub Pages](https://img.shields.io/badge/🌐%20Live%20Demo-GitHub%20Pages-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white)](https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/)
+[![Ver CV en HTML](https://img.shields.io/badge/📄%20CV%20en%20HTML-CV__Ruben__Barrios.html-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/CV_Ruben_Barrios.html)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Rubén%20Barrios-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ruben-barrios)
 [![GitHub](https://img.shields.io/badge/GitHub-rubenbarrios--bigdata-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rubenbarrios-bigdata)
 
@@ -23,6 +24,22 @@
 **Data Analyst | Digital Analyst | Business Intelligence & Fraud Prevention**
 
 </div>
+
+---
+
+## 📄 Archivos del CV en HTML Incluidos en el Repositorio
+
+El repositorio incluye el **CV completo en formato HTML nativo**, estructurado como una aplicación web moderna, interactiva, responsiva y auto-contenida:
+
+| Formato | Archivo en el Repositorio | Enlace de Visualización Directa | Descripción |
+| :--- | :--- | :--- | :--- |
+| **CV Web Desktop (HTML Principal)** | [`CV_Ruben_Barrios.html`](CV_Ruben_Barrios.html) & [`index.html`](index.html) | 🌐 [Abrir CV Web en GitHub Pages](https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/CV_Ruben_Barrios.html) | Experiencia interactiva completa: 4 KPIs dinámicos, navegación por anclas, alternador de Modo Oscuro/Claro y filtros de certificaciones. |
+| **CV Web Mobile (HTML)** | [`CV_Ruben_Barrios_Mobile.html`](CV_Ruben_Barrios_Mobile.html) & [`mobile.html`](mobile.html) | 📱 [Abrir versión Mobile en GitHub Pages](https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/CV_Ruben_Barrios_Mobile.html) | Versión adaptada con navegación vertical optimizada para pantallas táctiles de celulares. |
+| **Descarga Directa del Código HTML** | [`CV_Ruben_Barrios.html`](CV_Ruben_Barrios.html) | 📥 [Descargar archivo .html](https://raw.githubusercontent.com/rubenbarrios-bigdata/cv-ruben-barrios/main/CV_Ruben_Barrios.html) | Podés descargarlo y abrirlo con doble clic en cualquier navegador (Chrome, Edge, Safari, Firefox) sin necesidad de internet ni servidores. |
+| **Versión en Documento PDF** | [`CV_Ruben_Barrios_Analista_De_Datos.pdf`](CV_Ruben_Barrios_Analista_De_Datos.pdf) | 📕 [Ver / Descargar PDF](https://github.com/rubenbarrios-bigdata/cv-ruben-barrios/raw/main/CV_Ruben_Barrios_Analista_De_Datos.pdf) | Documento tradicional listo para adjuntar en sistemas de selección ATS o procesos estándar. |
+
+> 💡 **Ventaja de un CV en HTML para un Analista de Datos**:
+> Presentar el currículum en formato HTML demuestra en la práctica conocimientos fundamentales en tecnologías web (DOM, CSS, JavaScript, JSON y APIs), habilidades indispensables para la implementación de analítica digital (GA4, GTM), medición de eventos y desarrollo de interfaces interactivas de Business Intelligence.
 
 ---
 
@@ -101,8 +118,10 @@ Como prueba del criterio analítico y de ingeniería de software, los datos del 
 
 ```
 ├── data.json                   <-- [CAPA DE DATOS] Fuente única de verdad (KPIs y metadata)
-├── index.html                  <-- [CAPA DE PRESENTACIÓN] Estructura semántica + Motor Fetch
-├── mobile.html                 <-- [VISTA MOBILE] Experiencia optimizada para smartphones
+├── CV_Ruben_Barrios.html       <-- [CV EN HTML] Documento web principal con diseño dashboard
+├── index.html                  <-- [PÁGINA RAÍZ] Entry point de GitHub Pages
+├── CV_Ruben_Barrios_Mobile.html<-- [CV HTML MOBILE] Versión adaptada a smartphones
+├── mobile.html                 <-- Alias para versión móvil
 ├── certs_images/               <-- Assets gráficos de credenciales y certificaciones
 └── screenshots/                <-- Capturas del render visual en alta definición
 ```
@@ -121,7 +140,8 @@ Como prueba del criterio analítico y de ingeniería de software, los datos del 
 
 ### 🌐 Acceso al CV en Vivo:
 El CV interactivo se encuentra publicado y operativo a través de **GitHub Pages**:
-👉 **[https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/](https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/)**
+- **Versión Principal**: [https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/](https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/)
+- **Enlace directo al HTML**: [https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/CV_Ruben_Barrios.html](https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/CV_Ruben_Barrios.html)
 
 ### 💼 Cómo destacar este proyecto en LinkedIn:
 
@@ -131,7 +151,7 @@ Para maximizar la visibilidad ante reclutadores técnicos y hiring managers en L
    - En tu perfil de LinkedIn, hacé clic en **Añadir sección** ➔ **Destacados** ➔ **+ Enlaces**.
    - Pegá la URL: `https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/`
    - **Título**: `📊 CV Interactivo — Dashboard de Métricas Profesionales & Data Analytics`
-   - **Descripción**: `Mi CV estructurado como un dashboard ejecutivo con 4 KPIs clave sobre mi trayectoria en prevención de fraudes, finanzas bancarias y analítica de datos.`
+   - **Descripción**: `Mi CV interactivo estructurado como un dashboard ejecutivo con 4 KPIs clave sobre mi trayectoria en prevención de fraudes, finanzas bancarias y analítica de datos.`
    - Podés adjuntar como miniatura la captura `screenshots/01_kpis_dashboard_header.png`.
 
 2. **Enlace de Contacto / Encabezado de Perfil**:
@@ -153,10 +173,14 @@ Para maximizar la visibilidad ante reclutadores técnicos y hiring managers en L
 
 ---
 
-## 💻 Ejecución Local
+## 💻 Visualización y Ejecución Local
 
-Podés clonar y ejecutar este proyecto en tu computadora:
+Podés abrir y ejecutar este proyecto de tres formas sencillas:
 
+### Opción 1: Abrir directamente el archivo HTML (Sin instalar nada)
+Simplemente hacé doble clic en el archivo [`CV_Ruben_Barrios.html`](CV_Ruben_Barrios.html) o [`index.html`](index.html). Se abrirá automáticamente en tu navegador predeterminado (Chrome, Edge, Firefox, etc.).
+
+### Opción 2: Clonar y servir con servidor local
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/rubenbarrios-bigdata/cv-ruben-barrios.git
@@ -164,10 +188,9 @@ git clone https://github.com/rubenbarrios-bigdata/cv-ruben-barrios.git
 # 2. Ingresar a la carpeta
 cd cv-ruben-barrios
 
-# 3. Iniciar un servidor local (por ejemplo con Python)
+# 3. Iniciar un servidor local (con Python)
 python -m http.server 8000
 ```
-
 Luego abrí tu navegador en: `http://localhost:8000`
 
 ---
