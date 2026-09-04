@@ -1,0 +1,2765 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubén David Barrios Bello | CV Mobile</title>
+    <meta name="description" content="CV Profesional de Rubén David Barrios Bello - Data Analyst especializado en Power BI, DAX, SQL, Python, Prevención de Fraudes y Business Intelligence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0f2b48;
+            --primary-light: #1e4a75;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --accent-light: #60a5fa;
+            --accent-subtle: #eff6ff;
+            --bg: #f4f6f9;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 14px -2px rgba(0,0,0,0.08), 0 2px 6px -1px rgba(0,0,0,0.04);
+            --shadow-lg: 0 12px 30px -4px rgba(0,0,0,0.12), 0 4px 10px -2px rgba(0,0,0,0.06);
+            --badge-bg: #e0f2fe;
+            --badge-text: #0369a1;
+            --highlight: #0284c7;
+            --gradient-header: linear-gradient(135deg, #0c1e33 0%, #17385c 50%, #1e4976 100%);
+            --header-glow: rgba(37, 99, 235, 0.25);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --radius-xl: 24px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary: #f1f5f9;
+            --primary-light: #cbd5e1;
+            --accent: #38bdf8;
+            --accent-hover: #0284c7;
+            --accent-light: #7dd3fc;
+            --accent-subtle: rgba(56, 189, 248, 0.12);
+            --bg: #0b0f17;
+            --card-bg: #131b26;
+            --text: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border: #243042;
+            --border-hover: #374760;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+            --shadow-md: 0 6px 18px rgba(0,0,0,0.45);
+            --shadow-lg: 0 14px 34px rgba(0,0,0,0.55);
+            --badge-bg: rgba(56, 189, 248, 0.18);
+            --badge-text: #38bdf8;
+            --highlight: #38bdf8;
+            --gradient-header: linear-gradient(135deg, #070e17 0%, #101c2e 50%, #16263d 100%);
+            --header-glow: rgba(56, 189, 248, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Action Bar */
+        .action-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            transition: var(--transition);
+        }
+
+        [data-theme="dark"] .action-bar {
+            background: rgba(19, 27, 38, 0.85);
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn-action:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary-action {
+            background: var(--accent);
+            color: #ffffff !important;
+            border-color: var(--accent);
+        }
+
+        .btn-primary-action:hover {
+            background: var(--accent-hover);
+            color: #ffffff !important;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 25px 20px 60px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--gradient-header);
+            border-radius: var(--radius-xl);
+            padding: 42px 45px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, var(--header-glow) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .photo-wrapper {
+            position: relative;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .photo {
+            width: 175px;
+            height: 175px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            display: block;
+            transition: var(--transition);
+        }
+
+        .photo:hover {
+            transform: scale(1.03);
+            border-color: var(--accent-light);
+        }
+
+        .status-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 12px;
+            background: #10b981;
+            color: white;
+            padding: 4px 10px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 2px solid #0f2b48;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        .header-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.7rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+            line-height: 1.15;
+            color: #ffffff;
+        }
+
+        .title {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .title-badge {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #93c5fd;
+            border: 1px solid rgba(147, 197, 253, 0.25);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 10px 20px;
+            font-size: 0.88rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #e2e8f0;
+        }
+
+        .contact-item i {
+            width: 20px;
+            text-align: center;
+            color: #60a5fa;
+            font-size: 0.95rem;
+        }
+
+        .contact-item a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .stat-content .stat-number {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.15;
+        }
+
+        .stat-content .stat-label {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        /* Layout Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 430px;
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 28px 30px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            letter-spacing: -0.2px;
+        }
+
+        .section-title-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .summary-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            padding: 20px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .experience-item:first-of-type {
+            padding-top: 0;
+        }
+
+        .experience-item:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+            gap: 15px;
+        }
+
+        .exp-role {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .exp-date {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg);
+            padding: 4px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+            border: 1px solid var(--border);
+        }
+
+        .exp-location {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .exp-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .exp-description li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.91rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .exp-description li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+
+        .achievement-highlight {
+            background: var(--accent-subtle);
+            border-left: 4px solid var(--accent);
+            padding: 12px 16px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin-top: 14px;
+            font-size: 0.88rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .achievement-highlight strong {
+            color: var(--accent);
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .project-item {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            border-left: 4px solid var(--accent);
+            transition: var(--transition);
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .project-item:hover {
+            transform: translateY(-2px) translateX(4px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+            background: var(--card-bg);
+        }
+
+        .project-item:hover .project-name {
+            color: var(--accent);
+        }
+
+        .project-badges-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .project-github-pill {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.08);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .project-item:hover .project-github-pill {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+
+        [data-theme="dark"] .project-github-pill {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            border-color: var(--border);
+        }
+
+        .project-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .project-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--primary);
+        }
+
+        .project-tech-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 12px;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+
+        .project-bullets {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 8px;
+        }
+
+        .project-bullets li {
+            position: relative;
+            padding-left: 18px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 5px;
+        }
+
+        .project-bullets li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .scroll-target-highlight {
+            animation: highlightPulse 2s ease-in-out;
+        }
+
+        @keyframes highlightPulse {
+            0% {
+                box-shadow: 0 0 0 4px var(--accent), 0 10px 25px rgba(37, 99, 235, 0.4);
+                transform: scale(1.01);
+            }
+            50% {
+                box-shadow: 0 0 0 4px var(--accent), 0 10px 30px rgba(37, 99, 235, 0.5);
+                transform: scale(1.01);
+            }
+            100% {
+                box-shadow: var(--shadow-sm);
+                transform: scale(1);
+            }
+        }
+
+        /* Technical Skills */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .skill-group-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .skill-chip {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .skill-chip:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-subtle);
+            transform: translateY(-1px);
+        }
+
+        /* Education */
+        .edu-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .edu-card {
+            background: var(--bg);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: var(--primary);
+            line-height: 1.35;
+        }
+
+        .edu-school {
+            font-size: 0.84rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .edu-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .edu-status {
+            background: #dcfce7;
+            color: #166534;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        [data-theme="dark"] .edu-status {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+        }
+
+        /* ========================================================
+           SISTEMA DE CERTIFICACIONES DESPLEGABLES ("AL SELECCIONAR")
+           ======================================================== */
+        .cert-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .cert-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .filter-btn {
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text-muted);
+            padding: 5px 11px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--text);
+        }
+
+        .filter-btn.active {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+
+        .cert-toggle-all-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .btn-toggle-all {
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.78rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .btn-toggle-all:hover {
+            text-decoration: underline;
+        }
+
+        .cert-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Cada tarjeta desplegable */
+        .cert-item {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+        }
+
+        .cert-item:hover {
+            border-color: var(--accent-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cert-item.open {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Cabecera / Enlace clickeable para desplegar */
+        .cert-header-btn {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 13px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-family: inherit;
+            color: var(--text);
+            transition: background-color 0.2s ease;
+        }
+
+        .cert-header-btn:hover {
+            background: rgba(37, 99, 235, 0.04);
+        }
+
+        [data-theme="dark"] .cert-header-btn:hover {
+            background: rgba(56, 189, 248, 0.05);
+        }
+
+        .cert-title-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 11px;
+            flex: 1;
+        }
+
+        .cert-icon-badge {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+            transition: var(--transition);
+        }
+
+        .cert-item.open .cert-icon-badge {
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        .cert-name {
+            font-weight: 700;
+            font-size: 0.87rem;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .cert-subline {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 3px;
+            font-size: 0.74rem;
+            color: var(--text-muted);
+        }
+
+        .cert-issuer-pill {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .cert-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        .cert-chevron {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s, color 0.2s;
+        }
+
+        .cert-item.open .cert-chevron {
+            transform: rotate(180deg);
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+
+        /* Panel desplegable (Accordion Body) */
+        .cert-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s ease;
+            background: var(--card-bg);
+            border-top: 1px solid transparent;
+            padding: 0 16px;
+        }
+
+        .cert-item.open .cert-content {
+            max-height: 850px;
+            opacity: 1;
+            padding: 14px 16px 18px;
+            border-top-color: var(--border);
+        }
+
+        /* Vista previa de la imagen dentro del panel desplegable */
+        .cert-preview-container {
+            position: relative;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 12px;
+            background: #000;
+        }
+
+        .cert-preview-img {
+            width: 100%;
+            height: auto;
+            max-height: 230px;
+            object-fit: contain;
+            display: block;
+            background: #0c141f;
+            transition: transform 0.3s ease, opacity 0.2s;
+        }
+
+        .cert-preview-container:hover .cert-preview-img {
+            transform: scale(1.02);
+            opacity: 0.92;
+        }
+
+        .cert-preview-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 10px 14px;
+            color: #ffffff;
+            font-size: 0.76rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .cert-preview-container:hover .cert-preview-overlay {
+            opacity: 1;
+        }
+
+        .cert-desc-text {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .cert-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .cert-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            background: var(--bg);
+            color: var(--text-secondary);
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        /* Botones de acción del certificado desplegado */
+        .cert-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .btn-cert-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 7px 13px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .btn-cert-expand {
+            background: var(--accent);
+            color: #ffffff !important;
+            border-color: var(--accent);
+        }
+
+        .btn-cert-expand:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-cert-file {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .btn-cert-file:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-cert-verify {
+            background: #0284c7;
+            color: #ffffff !important;
+            border-color: #0284c7;
+        }
+
+        .btn-cert-verify:hover {
+            background: #0369a1;
+        }
+
+        /* Idiomas & Referencias */
+        .lang-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lang-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.86rem;
+            padding: 8px 12px;
+            background: var(--bg);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+
+        .lang-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .lang-badge {
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+        }
+
+        .ref-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .ref-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 14px;
+        }
+
+        .ref-name {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--primary);
+        }
+
+        .ref-role {
+            font-size: 0.76rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin: 2px 0 6px;
+        }
+
+        .ref-phone {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ========================================================
+         VISOR MODAL LIGHTBOX EN PANTALLA COMPLETA
+         ======================================================== */
+        .cert-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(4, 9, 16, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 20px;
+        }
+
+        .cert-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            max-width: 950px;
+            width: 100%;
+            max-height: 94vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 25px 60px -12px rgba(0,0,0,0.6);
+            transform: scale(0.95);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .cert-modal.active .modal-container {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg);
+            gap: 15px;
+        }
+
+        .modal-title-wrap h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .modal-title-wrap p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .modal-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-close-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .modal-close-btn:hover {
+            background: #ef4444;
+            color: #ffffff;
+            border-color: #ef4444;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            position: relative;
+            background: #060b11;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 360px;
+            max-height: calc(82vh - 120px);
+            overflow: hidden;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: calc(82vh - 120px);
+            object-fit: contain;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.25s ease;
+        }
+
+        /* Botones de navegación Anterior / Siguiente */
+        .modal-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.75);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            backdrop-filter: blur(6px);
+            z-index: 10;
+        }
+
+        .modal-nav-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .modal-nav-btn.prev {
+            left: 16px;
+        }
+
+        .modal-nav-btn.next {
+            right: 16px;
+        }
+
+        .modal-footer {
+            padding: 14px 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .modal-counter {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .modal-footer-btns {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ========================================================
+           RESPONSIVE DESIGN (TABLETS Y SMARTPHONES)
+           ======================================================== */
+        @media (max-width: 992px) {
+            .container {
+                margin: 15px auto;
+                padding: 0 10px;
+            }
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .stats-banner {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+                gap: 20px;
+            }
+            .title {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .contact-grid {
+                justify-items: center;
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 75px; /* Espacio para barra de navegación móvil inferior */
+            }
+            .container {
+                margin: 8px auto;
+                padding: 0 8px;
+            }
+            .card {
+                padding: 20px 16px;
+                margin-bottom: 16px;
+                border-radius: var(--radius-md);
+            }
+            .name {
+                font-size: 1.85rem;
+                line-height: 1.2;
+            }
+            .photo {
+                width: 120px;
+                height: 120px;
+            }
+            .title {
+                font-size: 0.95rem;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            .title-badge {
+                margin-left: 0;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                width: 100%;
+                gap: 10px;
+            }
+            .contact-item {
+                justify-content: center;
+                word-break: break-all;
+            }
+            .action-bar {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                padding: 10px 8px;
+            }
+            .btn-action {
+                font-size: 0.8rem;
+                padding: 7px 12px;
+            }
+            .stats-banner {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 14px 10px;
+            }
+            .stat-number {
+                font-size: 1.4rem;
+            }
+            .stat-label {
+                font-size: 0.72rem;
+            }
+            .exp-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+            .exp-date {
+                align-self: flex-start;
+                margin-top: 2px;
+            }
+            .project-title-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+            .project-badges-group {
+                align-self: flex-start;
+            }
+            .cert-controls {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+            .cert-filters {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 6px;
+                display: flex;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+            }
+            .filter-btn {
+                flex-shrink: 0;
+            }
+            .cert-actions-top {
+                justify-content: space-between;
+                width: 100%;
+            }
+            .ref-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Barra de Acción Rápida Flotante para Móviles */
+            .mobile-quick-dock {
+                display: flex !important;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: var(--card-bg);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-top: 1px solid var(--border);
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+                z-index: 1000;
+                padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .dock-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 3px;
+                color: var(--text-secondary);
+                text-decoration: none;
+                font-size: 0.68rem;
+                font-weight: 600;
+                padding: 4px 8px;
+                border-radius: var(--radius-sm);
+                transition: var(--transition);
+            }
+
+            .dock-item i {
+                font-size: 1.15rem;
+            }
+
+            .dock-item:hover, .dock-item:active {
+                color: var(--accent);
+                transform: translateY(-2px);
+            }
+
+            .dock-whatsapp {
+                color: #25D366;
+            }
+            .dock-whatsapp:hover, .dock-whatsapp:active {
+                color: #128C7E;
+            }
+            .dock-app {
+                color: var(--accent);
+                font-weight: 700;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-banner {
+                grid-template-columns: 1fr;
+            }
+            .name {
+                font-size: 1.6rem;
+            }
+            .photo {
+                width: 105px;
+                height: 105px;
+            }
+        }
+
+        /* Ocultar barra flotante en pantallas de escritorio */
+        .mobile-quick-dock {
+            display: none;
+        }
+
+        /* ========================================================
+           OPTIMIZACIÓN PARA IMPRESIÓN / GUARDAR COMO PDF (Ctrl + P)
+           ======================================================== */
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                font-size: 11pt;
+            }
+            .action-bar,
+            .cert-controls,
+            .cert-chevron,
+            .btn-cert-action,
+            .cert-preview-overlay,
+            .cert-modal,
+            .theme-toggle-btn {
+                display: none !important;
+            }
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+            .header {
+                background: #0f2b48 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                border-radius: 8px;
+                padding: 24px;
+                margin-bottom: 20px;
+            }
+            .header-content h1 {
+                color: #ffffff !important;
+            }
+            .card {
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+                page-break-inside: avoid;
+                margin-bottom: 16px;
+                padding: 16px;
+            }
+            .main-grid {
+                grid-template-columns: 60% 38% !important;
+                gap: 20px;
+            }
+            /* Desplegar todos los certificados en impresión como lista */
+            .cert-content {
+                max-height: none !important;
+                opacity: 1 !important;
+                padding: 10px 0 !important;
+                display: block !important;
+            }
+            .cert-preview-container {
+                max-width: 260px;
+                margin: 8px 0;
+            }
+            .cert-preview-img {
+                max-height: 140px;
+            }
+        }
+
+        /* ========================================================
+           AJUSTES ESPECÍFICOS PARA VERSIÓN MOBILE DEDICADA
+           ======================================================== */
+        body {
+            padding-bottom: 75px !important;
+            background: var(--bg);
+        }
+        .container {
+            max-width: 680px !important;
+            margin: 0 auto !important;
+            padding: 10px 8px !important;
+            box-shadow: none !important;
+        }
+        .main-grid {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+        }
+        .header {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            padding: 30px 18px 24px !important;
+            gap: 16px !important;
+            border-radius: var(--radius-lg) !important;
+        }
+        .photo-wrapper {
+            width: 160px !important;
+            height: 160px !important;
+            margin: 0 auto !important;
+            position: relative !important;
+            flex-shrink: 0 !important;
+            z-index: 2 !important;
+        }
+        .photo {
+            width: 160px !important;
+            height: 160px !important;
+            border-radius: 50% !important;
+            object-fit: cover !important;
+            object-position: center center !important;
+            border: 4px solid rgba(255, 255, 255, 0.5) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+            display: block !important;
+        }
+        .status-badge {
+            position: absolute !important;
+            bottom: 4px !important;
+            right: 8px !important;
+            background: #10b981 !important;
+            color: white !important;
+            padding: 4px 10px !important;
+            font-size: 0.72rem !important;
+            font-weight: 700 !important;
+            border-radius: 20px !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 6px !important;
+            border: 2px solid #0f2b48 !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+            white-space: nowrap !important;
+        }
+        .name {
+            font-size: 2.05rem !important;
+            text-align: center !important;
+            line-height: 1.2 !important;
+            margin-bottom: 8px !important;
+        }
+        .title {
+            font-size: 0.95rem !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            gap: 8px !important;
+            margin-bottom: 16px !important;
+        }
+        .contact-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 8px !important;
+            align-items: center !important;
+            width: 100% !important;
+            font-size: 0.85rem !important;
+        }
+        .contact-item {
+            justify-content: center !important;
+            word-break: break-all !important;
+        }
+        .stats-banner {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+            margin-bottom: 18px !important;
+        }
+        .stat-card {
+            padding: 14px 10px !important;
+        }
+        .stat-number {
+            font-size: 1.35rem !important;
+        }
+        .stat-label {
+            font-size: 0.72rem !important;
+        }
+        .exp-header {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 4px !important;
+        }
+        .exp-date {
+            align-self: flex-start !important;
+            margin-top: 2px !important;
+        }
+        .project-title-row {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 6px !important;
+        }
+        .project-badges-group {
+            align-self: flex-start !important;
+        }
+        .cert-controls {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 10px !important;
+        }
+        .cert-filters {
+            overflow-x: auto !important;
+            white-space: nowrap !important;
+            padding-bottom: 6px !important;
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            -webkit-overflow-scrolling: touch !important;
+            scrollbar-width: thin !important;
+        }
+        .filter-btn {
+            flex-shrink: 0 !important;
+        }
+        .ref-grid {
+            grid-template-columns: 1fr !important;
+        }
+        .skills-grid {
+            grid-template-columns: 1fr !important;
+        }
+        .mobile-quick-dock {
+            display: flex !important;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- Barra Superior de Acciones Mobile -->
+    <div class="action-bar">
+        <a href="index.html" class="btn-action btn-primary-action" onclick="window.location.href='index.html'; return false;" title="Volver a la Versión Completa de Escritorio">
+            <i class="fas fa-desktop"></i>
+            <span>Versión Escritorio</span>
+        </a>
+        <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Alternar Modo Oscuro/Claro">
+            <i class="fas fa-moon" id="themeIcon"></i>
+            <span id="themeText">Modo Oscuro</span>
+        </button>
+        <button class="btn-action btn-primary-action" onclick="window.print()" title="Imprimir o Exportar a PDF">
+            <i class="fas fa-print"></i>
+            <span>Guardar como PDF</span>
+        </button>
+    </div>
+
+    <div class="container">
+
+        <!-- Header Ejecutivo -->
+        <header class="header">
+            <div class="photo-wrapper">
+                <img src="Foto Linkedin 1 (1).png" alt="Rubén David Barrios Bello" class="photo">
+                <div class="status-badge" title="Disponible para roles de Data Analyst & BI">
+                    <span class="status-dot"></span>
+                    <span>Disponible</span>
+                </div>
+            </div>
+            <div class="header-content">
+                <h1 class="name">Rubén David Barrios Bello</h1>
+                <div class="title">
+                    <span>Data Analyst | Digital Analyst | Business Intelligence & Fraud Prevention</span>
+                    <span class="title-badge"><i class="fas fa-chart-pie"></i> Power BI • SQL • Python</span>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Parque Patricios, CABA - Argentina</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+5491170259429">+54 9 11 7025-9429</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:rubendavid1809@gmail.com">rubendavid1809@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/ruben-barrios-1430712ab" target="_blank" rel="noopener">linkedin.com/in/ruben-barrios</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener">github.com/rubenbarrios-bigdata</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Métricas & Logros Clave -->
+        <div class="stats-banner" id="statsBanner">
+            <a href="#exp-fraude" class="stat-card" onclick="scrollToTarget('exp-fraude'); return false;" title="Ver experiencia en Prevención de Fraudes">
+                <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="stat-content">
+                    <div class="stat-number">+4 Años</div>
+                    <div class="stat-label">Analizando Métricas de Fraudes E-Commerce</div>
+                </div>
+            </a>
+            <a href="#logro-fraude" class="stat-card" onclick="scrollToTarget('logro-fraude'); return false;" title="Ver logro en reducción de ratio de fraude">
+                <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="stat-content">
+                    <div class="stat-number">0,150 ➔ 0,030</div>
+                    <div class="stat-label">Reducción Ratio Fraude (-80%)</div>
+                </div>
+            </a>
+            <a href="#exp-bancaria" class="stat-card" onclick="scrollToTarget('exp-bancaria'); return false;" title="Ver experiencia en sector bancario">
+                <div class="stat-icon"><i class="fas fa-university"></i></div>
+                <div class="stat-content">
+                    <div class="stat-number">+12 Años</div>
+                    <div class="stat-label">Sector Bancario<br>Operaciones Internacionales</div>
+                </div>
+            </a>
+            <a href="#certificationsSection" class="stat-card" onclick="scrollToTarget('certificationsSection'); return false;" title="Ver certificaciones especializadas">
+                <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+                <div class="stat-content">
+                    <div class="stat-number">9 Certificaciones</div>
+                    <div class="stat-label">Formación Académica</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Grilla Principal -->
+        <div class="main-grid">
+
+            <!-- Columna Izquierda: Perfil, Experiencia y Proyectos -->
+            <div class="left-column">
+                
+                <!-- Resumen Profesional -->
+                <div class="card">
+                    <h2 class="section-title">
+                        <span class="section-title-left"><i class="fas fa-user-tie"></i>Perfil Profesional</span>
+                    </h2>
+                    <p class="summary-text">
+                        <strong>Analista de Datos</strong> con más de 4 años de experiencia en análisis de métricas de fraude en el sector logística | e-commerce y más de 12 años de trayectoria en el sector bancario, especializado en Comercio Exterior y Operaciones Internacionales.<br><br>
+                        Hoy combino mi experiencia de negocio con el uso profesional y ético de herramientas que me permiten extraer, transformar, cargar, analizar y visualizar datos para comunicar información de valor basada en evidencias. Experiencia comprobada en la reducción de fraudes y costos operativos mediante la detección temprana de patrones, el seguimiento de indicadores y controles periodicos.
+                    </p>
+                </div>
+
+                <!-- Experiencia Laboral -->
+                <div class="card">
+                    <h2 class="section-title">
+                        <span class="section-title-left"><i class="fas fa-briefcase"></i>Experiencia Laboral</span>
+                    </h2>
+
+                    <!-- Innova Lab -->
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-role">Data Analytics (Analítica Digital)</div>
+                                <div class="exp-company"><i class="fas fa-building"></i> Innova Lab</div>
+                            </div>
+                            <span class="exp-date">Feb 2026 - Presente</span>
+                        </div>
+                        <div class="exp-location"><i class="fas fa-map-pin"></i> Greater Buenos Aires, Argentina</div>
+                        <div class="exp-description">
+                            <ul>
+                                <li>Implementación integral de analítica digital con <strong>Google Tag Manager (GTM), Google Analytics 4 (GA4)</strong> y Looker Studio.</li>
+                                <li>Diseño de dashboards interactivos de uso, retención y progreso de usuarios para proyectos analíticos (ej. MVP Mate-Mático).</li>
+                                <li>Consultas y modelado de datos relacionales con <strong>SQL (PostgreSQL, Supabase)</strong> y consultas analíticas en <strong>Google BigQuery</strong>.</li>
+                                <li>Limpieza y preprocesamiento automatizado de fuentes de datos mediante scripts en <strong>Python (pandas, NumPy)</strong>.</li>
+                                <li>Colaboración activa y coordinación cruzada con equipos multidisciplinarios de UX/UI, Backend, Frontend y QA.</li>
+                                <li>Definición, instrumentación y seguimiento continuo de KPIs estratégicos de rendimiento.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Webpack / Mercado Libre Logistics -->
+                    <div class="experience-item" id="exp-fraude">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-role">Analista de Prevención de Fraudes y Reclamos</div>
+                                <div class="exp-company"><i class="fas fa-shield-alt"></i> Webpack S.A. — Mercado Libre Logistics</div>
+                            </div>
+                            <span class="exp-date">Mar 2020 - Oct 2024</span>
+                        </div>
+                        <div class="exp-location"><i class="fas fa-map-pin"></i> Buenos Aires, Argentina (4 años 8 meses)</div>
+                        <div class="exp-description">
+                            <ul>
+                                <li>Responsable absoluto del sector de prevención de fraudes para la logística certificada por Mercado Libre.</li>
+                                <li>Análisis minucioso de métricas de fraude y seguimiento de KPIs mediante tableros de control en <strong>Power BI y Excel avanzado</strong>.</li>
+                                <li>Elaboración de reportes ejecutivos de fraude identificando patrones de comportamiento y anomalías entre vendedores, compradores y transportistas.</li>
+                                <li>Diseño e implementación de un <strong>sistema de monitoreo de reclamos en tiempo real</strong> para tipologías de Cajas Vacías (CV) y Pagó No Recibió (PNR).</li>
+                                <li>Coordinación de protocolos de actuación interdepartamental con operaciones y seguridad patrimonial.</li>
+                            </ul>
+                            <div class="achievement-highlight" id="logro-fraude">
+                                <strong><i class="fas fa-trophy"></i> Logro de Alto Impacto:</strong> Reducción histórica del ratio de fraude de <strong>0,150 a 0,030</strong> (el más bajo del mercado logístico), disminuyendo el gasto mensual por siniestros y posicionando a Webpack como modelo de referencia operativa.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BFC Banco Fondo Común -->
+                    <div class="experience-item" id="exp-bancaria">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-role">Especialista de Comercio Exterior</div>
+                                <div class="exp-company"><i class="fas fa-university"></i> BFC Banco Fondo Común (VP Operaciones Internacionales)</div>
+                            </div>
+                            <span class="exp-date">Jul 2010 - Dic 2017</span>
+                        </div>
+                        <div class="exp-location"><i class="fas fa-map-pin"></i> Caracas, Venezuela (7 años 6 meses)</div>
+                        <div class="exp-description">
+                            <ul>
+                                <li>Gestión integral de importaciones mediante cartas de crédito comerciales, cobranzas documentarias y letras avaladas.</li>
+                                <li>Administración y control de auxiliares contables, conciliaciones financieras bancarias y liquidación de divisas.</li>
+                                <li>Seguimiento exhaustivo de regulaciones cambiarias y normativas de comercio internacional.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Banco Exterior -->
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-role">Analista de Operaciones Internacionales</div>
+                                <div class="exp-company"><i class="fas fa-university"></i> Banco Exterior S.A.</div>
+                            </div>
+                            <span class="exp-date">Jun 2006 - May 2010</span>
+                        </div>
+                        <div class="exp-location"><i class="fas fa-map-pin"></i> Caracas, Venezuela (4 años)</div>
+                        <div class="exp-description">
+                            <ul>
+                                <li>Procesamiento y control de transacciones cambiarias en moneda extranjera y liquidación de operaciones de comercio exterior.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Banco Venezolano de Crédito -->
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-role">Analista de Compras / Representante de Ventas</div>
+                                <div class="exp-company"><i class="fas fa-university"></i> Banco Venezolano de Crédito</div>
+                            </div>
+                            <span class="exp-date">Sep 2002 - Mar 2007</span>
+                        </div>
+                        <div class="exp-location"><i class="fas fa-map-pin"></i> Caracas, Venezuela (4 años 7 meses)</div>
+                        <div class="exp-description">
+                            <ul>
+                                <li>Administración presupuestaria, adquisición de activos operativos y cumplimiento destacado de metas comerciales.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Proyectos Destacados de Análisis de Datos -->
+                <div class="card">
+                    <h2 class="section-title">
+                        <span class="section-title-left"><i class="fas fa-project-diagram"></i>Proyectos de Análisis de Datos</span>
+                        <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener" class="btn-action" style="font-size: 0.75rem; padding: 4px 10px;">
+                            <i class="fab fa-github"></i> Ver Repositorio
+                        </a>
+                    </h2>
+
+                    <div class="project-grid">
+                        <!-- Mate-Mático (MVP Destacado) -->
+                        <a href="https://github.com/rubenbarrios-bigdata/Analitica-Digital-Mate-matico" target="_blank" rel="noopener" class="project-item project-mvp-highlight" title="Ver repositorio en GitHub">
+                            <div class="project-title-row">
+                                <span class="project-name">Mate-Mático – Data Analytics (Innova Lab).</span>
+                                <div class="project-badges-group">
+                                    <span class="project-tech-badge">Jul. 2026 – Ago. 2026 | Proyecto MVP</span>
+                                    <span class="project-github-pill"><i class="fab fa-github"></i> Repositorio <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <ul class="project-bullets">
+                                <li>Implementación de analítica digital con GTM, GA4, Firebase, Supabase, PostgreSQL.</li>
+                                <li>Diseño de dashboard en Looker Studio con KPIs de uso, retención y progreso.</li>
+                                <li>Definición y validación de eventos junto a Backend y QA.</li>
+                                <li>Integración del dashboard dentro de la aplicación mediante embebido.</li>
+                            </ul>
+                        </a>
+
+                        <!-- Dashboard Atención al Cliente -->
+                        <a href="https://github.com/rubenbarrios-bigdata/dashboard-atencion-al-cliente" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
+                            <div class="project-title-row">
+                                <span class="project-name"><i class="fas fa-chart-bar" style="color: var(--accent); margin-right: 6px;"></i> Dashboard Atención al Cliente</span>
+                                <div class="project-badges-group">
+                                    <span class="project-tech-badge">Power BI + DAX</span>
+                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <p class="project-desc">Power BI con DAX y métricas de servicio</p>
+                        </a>
+
+                        <!-- Dashboard Reporte de RRHH -->
+                        <a href="https://github.com/rubenbarrios-bigdata/dashboard-de-recursos-humanos" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
+                            <div class="project-title-row">
+                                <span class="project-name"><i class="fas fa-users" style="color: var(--accent); margin-right: 6px;"></i> Dashboard Reporte de RRHH</span>
+                                <div class="project-badges-group">
+                                    <span class="project-tech-badge">Power BI</span>
+                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <p class="project-desc">Power BI: análisis de headcount, rotación y performance</p>
+                        </a>
+
+                        <!-- Dashboard de Ventas Excel -->
+                        <a href="https://github.com/rubenbarrios-bigdata/dashboard_ventas_excel" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
+                            <div class="project-title-row">
+                                <span class="project-name"><i class="fas fa-file-excel" style="color: var(--accent); margin-right: 6px;"></i> Dashboard de Ventas Excel</span>
+                                <div class="project-badges-group">
+                                    <span class="project-tech-badge">Excel Avanzado</span>
+                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <p class="project-desc">Dashboard de ventas de supermercado en Excel: facturación, ticket promedio, clientes, regiones, envíos y segmentos</p>
+                        </a>
+
+                        <!-- Dashboard Análisis de Indicadores Mundiales -->
+                        <a href="https://github.com/rubenbarrios-bigdata/dashboard-indicadores-mundiales" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
+                            <div class="project-title-row">
+                                <span class="project-name"><i class="fas fa-globe-americas" style="color: var(--accent); margin-right: 6px;"></i> Dashboard Análisis de Indicadores Mundiales</span>
+                                <div class="project-badges-group">
+                                    <span class="project-tech-badge">Power BI + DAX</span>
+                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <p class="project-desc">Power BI + DAX + modelado de datos</p>
+                        </a>
+
+                        <!-- Dashboard Análisis Financiero -->
+                        <a href="https://github.com/rubenbarrios-bigdata/dashboard-analisis-financiero" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
+                            <div class="project-title-row">
+                                <span class="project-name"><i class="fas fa-chart-line" style="color: var(--accent); margin-right: 6px;"></i> Dashboard Análisis Financiero</span>
+                                <div class="project-badges-group">
+                                    <span class="project-tech-badge">Power BI + DAX</span>
+                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <p class="project-desc">Power BI + DAX + modelado de datos (KPIs)</p>
+                        </a>
+
+                        <!-- Proyecto SQL Orders -->
+                        <a href="https://github.com/rubenbarrios-bigdata/proyecto-sql-orders" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
+                            <div class="project-title-row">
+                                <span class="project-name"><i class="fas fa-database" style="color: var(--accent); margin-right: 6px;"></i> Proyecto SQL Orders</span>
+                                <div class="project-badges-group">
+                                    <span class="project-tech-badge">SQL</span>
+                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <p class="project-desc">SQL sobre dataset real</p>
+                        </a>
+
+                        <!-- Análisis Exploratorio de Datos (EDA) -->
+                        <a href="https://github.com/rubenbarrios-bigdata/credit-card-fraud-detection-eda" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
+                            <div class="project-title-row">
+                                <span class="project-name"><i class="fab fa-python" style="color: var(--accent); margin-right: 6px;"></i> Análisis Exploratorio de Datos (EDA)</span>
+                                <div class="project-badges-group">
+                                    <span class="project-tech-badge">Python + Big Data</span>
+                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <p class="project-desc">Python + pandas + Matplotlib + Big Data</p>
+                        </a>
+
+                        <!-- Sistema de Gestión de Inventario -->
+                        <a href="https://github.com/rubenbarrios-bigdata/sistema-gestion-inventario" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
+                            <div class="project-title-row">
+                                <span class="project-name"><i class="fas fa-boxes" style="color: var(--accent); margin-right: 6px;"></i> Sistema de Gestión de Inventario</span>
+                                <div class="project-badges-group">
+                                    <span class="project-tech-badge">Python + SQLite</span>
+                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <p class="project-desc">Inventario de productos mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar), utilizando una base de datos SQLite.</p>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Columna Derecha: Habilidades, Educación, Certificaciones Desplegables, Idiomas y Referencias -->
+            <div class="right-column">
+                
+                <!-- Habilidades Técnicas -->
+                <div class="card">
+                    <h2 class="section-title">
+                        <span class="section-title-left"><i class="fas fa-tools"></i>Habilidades Técnicas</span>
+                    </h2>
+                    <div class="skills-container">
+                        <div>
+                            <div class="skill-group-title"><i class="fas fa-database"></i> Business Intelligence & Data</div>
+                            <div class="skill-chips">
+                                <span class="skill-chip"><i class="fas fa-chart-bar"></i> Power BI</span>
+                                <span class="skill-chip">DAX Avanzado</span>
+                                <span class="skill-chip">Power Query</span>
+                                <span class="skill-chip"><i class="fas fa-table"></i> SQL / MySQL</span>
+                                <span class="skill-chip">PostgreSQL</span>
+                                <span class="skill-chip">Excel Avanzado</span>
+                                <span class="skill-chip">ETL Modeling</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="skill-group-title"><i class="fas fa-code"></i> Programación & Ciencia de Datos</div>
+                            <div class="skill-chips">
+                                <span class="skill-chip"><i class="fab fa-python"></i> Python</span>
+                                <span class="skill-chip">pandas</span>
+                                <span class="skill-chip">NumPy</span>
+                                <span class="skill-chip">Matplotlib</span>
+                                <span class="skill-chip">VS Code</span>
+                                <span class="skill-chip">Jupyter</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="skill-group-title"><i class="fas fa-cloud"></i> Cloud & Analítica Digital</div>
+                            <div class="skill-chips">
+                                <span class="skill-chip">Google BigQuery</span>
+                                <span class="skill-chip">Looker Studio</span>
+                                <span class="skill-chip">Google Analytics 4 (GA4)</span>
+                                <span class="skill-chip">Google Tag Manager (GTM)</span>
+                                <span class="skill-chip">Firebase</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="skill-group-title"><i class="fas fa-brain"></i> IA Generativa & Automatización</div>
+                            <div class="skill-chips">
+                                <span class="skill-chip">ChatGPT</span>
+                                <span class="skill-chip">Microsoft Copilot</span>
+                                <span class="skill-chip">Google Gemini</span>
+                                <span class="skill-chip">Claude</span>
+                                <span class="skill-chip">Antigravity</span>
+                                <span class="skill-chip">Make (Integromat)</span>
+                                <span class="skill-chip">NotebookLM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN DE CERTIFICACIONES DESPLEGABLES -->
+                <div class="card" id="certificationsSection">
+                    <h2 class="section-title">
+                        <span class="section-title-left"><i class="fas fa-certificate"></i>Certificaciones</span>
+                        <span class="title-badge" id="certCountBadge">9 Disponibles</span>
+                    </h2>
+
+                    <div class="cert-controls">
+                        <!-- Filtros por categoría -->
+                        <div class="cert-filters">
+                            <button class="filter-btn active" onclick="filterCerts('all', this)">Todos (9)</button>
+                            <button class="filter-btn" onclick="filterCerts('data', this)">Data & BI (4)</button>
+                            <button class="filter-btn" onclick="filterCerts('ia', this)">IA & ML (3)</button>
+                            <button class="filter-btn" onclick="filterCerts('code', this)">Programación (1)</button>
+                            <button class="filter-btn" onclick="filterCerts('remote', this)">Trabajo Remoto (1)</button>
+                        </div>
+
+                        <!-- Barra de alternancia global -->
+                        <div class="cert-toggle-all-row">
+                            <span>Haz clic en cualquier certificado para desplegar</span>
+                            <button class="btn-toggle-all" id="btnToggleAll" onclick="toggleAllCertificates()">
+                                <i class="fas fa-angles-down"></i> <span id="toggleAllText">Desplegar todos</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Acordeón de Certificaciones -->
+                    <div class="cert-accordion" id="certAccordion">
+                        <!-- Generado dinámicamente con JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Educación -->
+                <div class="card">
+                    <h2 class="section-title">
+                        <span class="section-title-left"><i class="fas fa-graduation-cap"></i>Educación</span>
+                    </h2>
+                    <div class="edu-timeline">
+                        <div class="edu-card">
+                            <div class="edu-degree">Tecnicatura en Ciencia de Datos e Inteligencia Artificial</div>
+                            <div class="edu-school">IFTS N° 11 (Instituto de Formación Técnica Superior)</div>
+                            <div class="edu-meta">
+                                <span>2026 - Presente</span>
+                                <span class="edu-status">En Curso (1° Año)</span>
+                            </div>
+                        </div>
+
+                        <div class="edu-card">
+                            <div class="edu-degree">Programación con Python + IA</div>
+                            <div class="edu-school">Talento Tech</div>
+                            <div class="edu-meta">
+                                <span>2026</span>
+                                <span class="edu-status">Finalizado</span>
+                            </div>
+                        </div>
+
+                        <div class="edu-card">
+                            <div class="edu-degree">Lic. en Administración de Recursos Materiales y Financieros</div>
+                            <div class="edu-school">Universidad Nacional Experimental Simón Rodríguez</div>
+                            <div class="edu-meta">
+                                <span>2008 - 2012</span>
+                                <span>Graduado</span>
+                            </div>
+                        </div>
+
+                        <div class="edu-card">
+                            <div class="edu-degree">T.S.U. en Administración de Recursos Físicos y Financieros</div>
+                            <div class="edu-school">Colegio Universitario Fermín Toro</div>
+                            <div class="edu-meta">
+                                <span>2002 - 2005</span>
+                                <span>Graduado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Idiomas -->
+                <div class="card">
+                    <h2 class="section-title">
+                        <span class="section-title-left"><i class="fas fa-language"></i>Idiomas</span>
+                    </h2>
+                    <div class="lang-list">
+                        <div class="lang-row">
+                            <span class="lang-name">Español</span>
+                            <span class="lang-badge">Nativo / C2</span>
+                        </div>
+                        <div class="lang-row">
+                            <span class="lang-name">Inglés</span>
+                            <span class="lang-badge">Técnico / Básico A2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Referencias Laborales -->
+                <div class="card">
+                    <h2 class="section-title">
+                        <span class="section-title-left"><i class="fas fa-user-check"></i>Referencias</span>
+                    </h2>
+                    <div class="ref-grid">
+                        <div class="ref-card">
+                            <div class="ref-name">Ismar Moreno</div>
+                            <div class="ref-role">IT Project Management</div>
+                            <div class="ref-phone"><i class="fas fa-phone"></i> +54 11 3677-6488</div>
+                        </div>
+                        <div class="ref-card">
+                            <div class="ref-name">Cesar Sevayos</div>
+                            <div class="ref-role">IT Developer</div>
+                            <div class="ref-phone"><i class="fas fa-phone"></i> +54 11 2824-6254</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>CV Web Profesional • Rubén David Barrios Bello • Actualizado 2026</p>
+            <p style="margin-top: 6px;">
+                <a href="https://linkedin.com/in/ruben-barrios-1430712ab" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> • 
+                <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a> • 
+                <a href="mailto:rubendavid1809@gmail.com"><i class="fas fa-envelope"></i> Contacto directo</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- ========================================================
+         MODAL LIGHTBOX VISOR EN PANTALLA COMPLETA
+         ======================================================== -->
+    <div class="cert-modal" id="certModal" onclick="handleModalBackdropClick(event)">
+        <div class="modal-container" id="modalContainer">
+            
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <h3 id="modalCertTitle">Certificado</h3>
+                    <p id="modalCertIssuer">Emisor • Fecha</p>
+                </div>
+                <div class="modal-header-actions">
+                    <a id="modalDirectFileBtn" href="#" target="_blank" class="btn-action" style="font-size: 0.78rem; padding: 6px 12px;">
+                        <i class="fas fa-external-link-alt"></i> <span>Abrir original</span>
+                    </a>
+                    <button class="modal-close-btn" onclick="closeCertModal()" title="Cerrar (Esc)">&times;</button>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <button class="modal-nav-btn prev" onclick="navigateModal(-1)" title="Anterior (←)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <img id="modalCertImage" class="modal-image" src="" alt="Certificado en alta resolución">
+                
+                <button class="modal-nav-btn next" onclick="navigateModal(1)" title="Siguiente (→)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <div class="modal-counter" id="modalCounter">Certificado 1 de 9</div>
+                <div class="modal-footer-btns">
+                    <a id="modalCredlyBtn" href="#" target="_blank" class="btn-action" style="display: none; background: #0284c7; color: white;">
+                        <i class="fas fa-award"></i> <span>Verificar Credly</span>
+                    </a>
+                    <button class="btn-action" onclick="closeCertModal()">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================================================
+         LÓGICA JAVASCRIPT: DESPLIEGUE, FILTROS, TEMA Y MODAL
+         ======================================================== -->
+    <script>
+        // ==========================================
+        // DATA LAYER: Carga Dinámica de KPIs (Mentalidad Dashboard)
+        // Demuestra separación estricta de Capa de Datos (data.json) y Capa de Presentación
+        // ==========================================
+        async function loadKpis() {
+            const banner = document.getElementById('statsBanner');
+            if (!banner) return;
+            try {
+                const response = await fetch('./data.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                if (data && data.kpis && data.kpis.length > 0) {
+                    renderKpis(data.kpis, banner);
+                    console.log('%c[Data Layer] %c4 KPIs estratégicos cargados exitosamente desde data.json', 'color: #0284c7; font-weight: bold;', 'color: #10b981; font-weight: bold;', data.kpis);
+                }
+            } catch (err) {
+                console.warn('[Data Layer] Fallback activo: Visualizando KPIs base pre-renderizados (Modo local file:// o sin red):', err);
+            }
+        }
+
+        function renderKpis(kpis, container) {
+            container.innerHTML = kpis.map(kpi => `
+                <a href="#${kpi.target}" class="stat-card" onclick="scrollToTarget('${kpi.target}'); return false;" title="${kpi.tooltip}" data-kpi-id="${kpi.id}">
+                    <div class="stat-icon"><i class="${kpi.icon}"></i></div>
+                    <div class="stat-content">
+                        <div class="stat-number">${kpi.number}</div>
+                        <div class="stat-label">${kpi.label}</div>
+                    </div>
+                </a>
+            `).join('');
+            container.setAttribute('data-loaded-from', 'data.json');
+        }
+
+        // Catálogo de Certificados
+        const certificates = [
+            {
+                id: "cert-analytics-way",
+                title: "Analítica Digital",
+                issuer: "Analytics Way",
+                date: "31 Ago 2026",
+                category: "data",
+                icon: "fa-compass",
+                image: "certs_images/Certificado Analytics Way Ruben David Barrios Bello (1).png",
+                file: "certs_images/Certificado Analytics Way Ruben David Barrios Bello (1).png",
+                skills: ["Digital Analytics", "Estrategia de Datos", "KPIs de Negocio"],
+                description: "Certificación profesional en enfoque estratégico de datos, gobernanza y metodologías analíticas para resolución de problemas de negocio.",
+                verifyUrl: null
+            },
+            {
+                id: "cert-python",
+                title: "Iniciación a la Programación con Python",
+                issuer: "Talento Tech",
+                date: "04 Ago 2026",
+                category: "code",
+                icon: "fa-code",
+                image: "certs_images/Certificado_Iniciacion_Programacion_Python (1).png",
+                file: "Certificado_Iniciacion_Programacion_Python (1).pdf",
+                skills: ["Python", "Algoritmos", "Estructuras de Control", "Data Cleaning"],
+                description: "Certificación oficial en fundamentos de programación, desarrollo de algoritmos y procesamiento de datos mediante Python.",
+                verifyUrl: "https://openbadgefactory.com/obv3/credentials/259eee6dd489fd820853500df752d511535d2f31",
+                verifyText: "Verificar Credencial"
+            },
+            {
+                id: "cert-remotos-academy",
+                title: "Participante VIP – Entrenamiento Intensivo de Trabajo Remoto",
+                issuer: "Remotos Academy",
+                date: "Feb 2026",
+                category: "remote",
+                icon: "fa-laptop-house",
+                image: "certs_images/Certificado_Remotos_Academy_Participante_VIP.png",
+                file: "https://profiles.badgeclaimed.com/user-141662/badges/urn:uuid:1610898b-df27-4b69-853a-84ed1ccc04a3.html",
+                skills: ["Trabajo Remoto", "Herramientas Digitales", "Empleabilidad Global", "Productividad"],
+                description: "Insignia y credencial oficial verificada expedida por Remotos Academy. Certifica la participación activa y finalización del Entrenamiento Intensivo de Trabajo Remoto (3 días), reconociendo fundamentos de empleabilidad remota, herramientas digitales esenciales y mentalidad profesional.",
+                verifyUrl: "https://profiles.badgeclaimed.com/user-141662/badges/urn:uuid:1610898b-df27-4b69-853a-84ed1ccc04a3.html",
+                verifyText: "Verificar Credencial"
+            },
+            {
+                id: "cert-data-analyst",
+                title: "Análisis de Datos: Excel, Power BI, SQL, Python",
+                issuer: "IPS DATAX",
+                date: "04 Feb 2026 • 50 Horas",
+                category: "data",
+                icon: "fa-chart-pie",
+                image: "certs_images/Certificado Analisis de Datos IPS DATAX (1).png",
+                file: "Certificado Analisis de Datos IPS DATAX (1).pdf",
+                skills: ["Power BI", "SQL", "Python", "Excel Avanzado", "ETL"],
+                description: "Especialización técnica en extracción, transformación y modelado de datos empresariales, consultas SQL y creación de paneles en Power BI.",
+                verifyUrl: null
+            },
+            {
+                id: "cert-ia-trabajo",
+                title: "Inteligencia Artificial Aplicada al Trabajo",
+                issuer: "IPS DATAX",
+                date: "Ene 2026 • 20 Horas",
+                category: "ia",
+                icon: "fa-brain",
+                image: "certs_images/Inteligencia Artificial Aplicada al Trabajo.png",
+                file: "Inteligencia Artificial Aplicada al Trabajo.pdf",
+                skills: ["ChatGPT", "Microsoft Copilot", "Google Gemini", "Make (Integromat)"],
+                description: "Programa práctico de 20 horas enfocado en la implementación de asistentes IA y flujos automatizados con Make para optimizar la productividad.",
+                verifyUrl: null
+            },
+            {
+                id: "cert-ibm-ai",
+                title: "Artificial Intelligence Fundamentals",
+                issuer: "IBM SkillsBuild",
+                date: "25 Nov 2025",
+                category: "ia",
+                icon: "fa-robot",
+                image: "certs_images/IBM-Artificial Intelligence Fundamentals (1).png",
+                file: "IBM-Artificial Intelligence Fundamentals (1).pdf",
+                skills: ["Inteligencia Artificial", "Machine Learning", "Ética en IA", "Deep Learning"],
+                description: "Insignia oficial expedida por IBM SkillsBuild que certifica conocimientos fundamentales de IA, algoritmos y aplicaciones prácticas en la industria.",
+                verifyUrl: "https://www.credly.com/badges/c82f7eab-ce9d-4a2b-b3ec-96d8f580afcb",
+                verifyText: "Verificar en Credly"
+            },
+            {
+                id: "cert-ia-leaders",
+                title: "IA Leaders",
+                issuer: "IA Leaders",
+                date: "23 Sep 2025",
+                category: "ia",
+                icon: "fa-users-cog",
+                image: "certs_images/Certificado IA Leaders (2).png",
+                file: "Certificado IA Leaders (2).pdf",
+                skills: ["Liderazgo en IA", "Estrategias GenAI", "Adopción Tecnológica"],
+                description: "Certificación en liderazgo de transformación digital, integración de herramientas de inteligencia artificial y toma de decisiones tecnológicas.",
+                verifyUrl: null
+            },
+            {
+                id: "cert-powerbi-daxus",
+                title: "Acelerador de Carrera con Power BI + IA",
+                issuer: "Daxus Latam",
+                date: "30 Ago 2025 • 8 Horas",
+                category: "data",
+                icon: "fa-bolt",
+                image: "certs_images/Certificado Power BI+IA Daxus Latam (1).png",
+                file: "Certificado Power BI+IA Daxus Latam (1).pdf",
+                skills: ["Power BI", "DAX Avanzado", "Copilot BI", "Data Analytics"],
+                description: "Entrenamiento intensivo en diseño de reportes ejecutivos con Power BI, fórmulas DAX de alto rendimiento e uso de IA generativa aplicada al análisis de datos.",
+                verifyUrl: null
+            },
+            {
+                id: "cert-powerbi-wavebi",
+                title: "Power BI Business Intelligence & Big Data",
+                issuer: "WaveBI",
+                date: "01 Ago 2023",
+                category: "data",
+                icon: "fa-chart-line",
+                image: "certs_images/Certificado Power BI-WaveBI.png",
+                file: "Certificado Power BI-WaveBI.pdf",
+                skills: ["Business Intelligence", "DAX", "Modelado de Datos", "Storytelling"],
+                description: "Certificado de aprobación en Business Intelligence, modelado dimensional (esquema estrella) y cuadros de mando en Power BI.",
+                verifyUrl: "http://www.wavebi.com.ar",
+                verifyText: "Visitar WaveBI"
+            }
+        ];
+
+        let currentModalIndex = 0;
+        let allExpanded = false;
+        let currentCategory = 'all';
+
+        // Renderizar acordeón de certificados
+        function renderCertificates(filter = 'all') {
+            const container = document.getElementById('certAccordion');
+            container.innerHTML = '';
+
+            const filtered = filter === 'all' 
+                ? certificates 
+                : certificates.filter(c => c.category === filter);
+
+            document.getElementById('certCountBadge').innerText = `${filtered.length} Disponibles`;
+
+            filtered.forEach((cert) => {
+                const globalIndex = certificates.findIndex(c => c.id === cert.id);
+                
+                const item = document.createElement('div');
+                item.className = 'cert-item';
+                item.id = `item-${cert.id}`;
+                item.setAttribute('data-category', cert.category);
+
+                item.innerHTML = `
+                    <button class="cert-header-btn" onclick="toggleCert('${cert.id}')" aria-expanded="false" title="Haz clic para desplegar u ocultar detalles">
+                        <div class="cert-title-block">
+                            <div class="cert-icon-badge">
+                                <i class="fas ${cert.icon}"></i>
+                            </div>
+                            <div>
+                                <div class="cert-name">${cert.title}</div>
+                                <div class="cert-subline">
+                                    <span class="cert-issuer-pill">${cert.issuer}</span>
+                                    <span>•</span>
+                                    <span>${cert.date}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cert-indicator">
+                            <span class="cert-chevron"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                    </button>
+
+                    <div class="cert-content" id="content-${cert.id}">
+                        <div class="cert-preview-container" onclick="openCertModal(${globalIndex})" title="Clic para ampliar en pantalla completa">
+                            <img src="${cert.image}" alt="${cert.title}" class="cert-preview-img" loading="lazy">
+                            <div class="cert-preview-overlay">
+                                <span><i class="fas fa-search-plus"></i> Clic para ampliar en pantalla completa</span>
+                                <span><i class="fas fa-expand"></i></span>
+                            </div>
+                        </div>
+
+                        <p class="cert-desc-text">${cert.description}</p>
+
+                        <div class="cert-tags-row">
+                            ${cert.skills.map(s => `<span class="cert-tag"><i class="fas fa-check-circle" style="color:var(--accent); font-size:0.68rem;"></i> ${s}</span>`).join('')}
+                        </div>
+
+                        <div class="cert-actions">
+                            <button class="btn-cert-action btn-cert-expand" onclick="openCertModal(${globalIndex})">
+                                <i class="fas fa-search-plus"></i> Ampliar pantalla completa
+                            </button>
+                            <a href="${cert.file}" target="_blank" rel="noopener" class="btn-cert-action btn-cert-file">
+                                <i class="fas ${cert.file.endsWith('.pdf') ? 'fa-file-pdf' : (cert.file.startsWith('http') ? 'fa-external-link-alt' : 'fa-image')}"></i> ${cert.file.startsWith('http') ? 'Ver credencial oficial' : 'Ver documento original'}
+                            </a>
+                            ${cert.verifyUrl ? `
+                                <a href="${cert.verifyUrl}" target="_blank" rel="noopener" class="btn-cert-action btn-cert-verify">
+                                    <i class="fas fa-award"></i> ${cert.verifyText || 'Credencial Credly'}
+                                </a>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(item);
+            });
+        }
+
+        // Alternar despliegue de un certificado específico
+        function toggleCert(id) {
+            const item = document.getElementById(`item-${id}`);
+            if (!item) return;
+
+            const isOpen = item.classList.contains('open');
+            const headerBtn = item.querySelector('.cert-header-btn');
+
+            if (isOpen) {
+                item.classList.remove('open');
+                if (headerBtn) headerBtn.setAttribute('aria-expanded', 'false');
+            } else {
+                item.classList.add('open');
+                if (headerBtn) headerBtn.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        // Alternar desplegar todos o colapsar todos
+        function toggleAllCertificates() {
+            const items = document.querySelectorAll('.cert-item');
+            const btn = document.getElementById('btnToggleAll');
+            const label = document.getElementById('toggleAllText');
+
+            allExpanded = !allExpanded;
+
+            items.forEach(item => {
+                const headerBtn = item.querySelector('.cert-header-btn');
+                if (allExpanded) {
+                    item.classList.add('open');
+                    if (headerBtn) headerBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    item.classList.remove('open');
+                    if (headerBtn) headerBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            if (allExpanded) {
+                label.innerText = 'Colapsar todos';
+                btn.innerHTML = '<i class="fas fa-angles-up"></i> <span id="toggleAllText">Colapsar todos</span>';
+            } else {
+                label.innerText = 'Desplegar todos';
+                btn.innerHTML = '<i class="fas fa-angles-down"></i> <span id="toggleAllText">Desplegar todos</span>';
+            }
+        }
+
+        // Filtrar certificados por categoría
+        function filterCerts(cat, btnElement) {
+            currentCategory = cat;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            if (btnElement) btnElement.classList.add('active');
+
+            renderCertificates(cat);
+            allExpanded = false;
+            document.getElementById('toggleAllText').innerText = 'Desplegar todos';
+        }
+
+        // ==========================================
+        // FUNCIONALIDADES DEL MODAL LIGHTBOX
+        // ==========================================
+        function openCertModal(index) {
+            currentModalIndex = index;
+            updateModalContent();
+            const modal = document.getElementById('certModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertModal() {
+            const modal = document.getElementById('certModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateModalContent() {
+            const cert = certificates[currentModalIndex];
+            if (!cert) return;
+
+            document.getElementById('modalCertTitle').innerText = cert.title;
+            document.getElementById('modalCertIssuer').innerText = `${cert.issuer} • ${cert.date}`;
+            document.getElementById('modalCertImage').src = cert.image;
+            document.getElementById('modalCertImage').alt = cert.title;
+            document.getElementById('modalCounter').innerText = `Certificado ${currentModalIndex + 1} de ${certificates.length}`;
+
+            const directBtn = document.getElementById('modalDirectFileBtn');
+            directBtn.href = cert.file;
+
+            const credlyBtn = document.getElementById('modalCredlyBtn');
+            if (cert.verifyUrl) {
+                credlyBtn.href = cert.verifyUrl;
+                credlyBtn.style.display = 'inline-flex';
+                credlyBtn.querySelector('span').innerText = cert.verifyText || 'Verificar Credly';
+            } else {
+                credlyBtn.style.display = 'none';
+            }
+        }
+
+        function navigateModal(direction) {
+            currentModalIndex = (currentModalIndex + direction + certificates.length) % certificates.length;
+            updateModalContent();
+        }
+
+        function handleModalBackdropClick(e) {
+            if (e.target.id === 'certModal') {
+                closeCertModal();
+            }
+        }
+
+        // Atajos de teclado para el modal
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('certModal');
+            if (!modal.classList.contains('active')) return;
+
+            if (e.key === 'Escape') closeCertModal();
+            if (e.key === 'ArrowLeft') navigateModal(-1);
+            if (e.key === 'ArrowRight') navigateModal(1);
+        });
+
+        // ==========================================
+        // CAMBIO DE TEMA (CLARO / OSCURO)
+        // ==========================================
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeButton(savedTheme);
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        }
+
+        function updateThemeButton(theme) {
+            const icon = document.getElementById('themeIcon');
+            const text = document.getElementById('themeText');
+            if (icon) {
+                icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            }
+            if (text) {
+                text.innerText = theme === 'dark' ? 'Modo Claro' : 'Modo Oscuro';
+            } else {
+                const btn = document.getElementById('themeToggleBtn');
+                if (btn) {
+                    const span = btn.querySelector('span');
+                    if (span) span.innerText = theme === 'dark' ? 'Modo Claro' : 'Modo Oscuro';
+                }
+            }
+        }
+
+        // Navegación suave con realce visual a las secciones desde los KPIs
+        function scrollToTarget(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.classList.remove('scroll-target-highlight');
+            void el.offsetWidth;
+            el.classList.add('scroll-target-highlight');
+        }
+
+        // Inicializar al cargar el documento
+        document.addEventListener('DOMContentLoaded', () => {
+            loadKpis();
+            initTheme();
+            renderCertificates('all');
+
+            // Abrir por defecto el primer certificado para mostrar de inmediato la funcionalidad
+            setTimeout(() => {
+                const firstCert = document.querySelector('.cert-item');
+                if (firstCert) {
+                    firstCert.classList.add('open');
+                    const btn = firstCert.querySelector('.cert-header-btn');
+                    if (btn) btn.setAttribute('aria-expanded', 'true');
+                }
+            }, 300);
+        });
+    </script>
+
+    <!-- Barra Flotante Inferior de Contacto Rápido Móvil -->
+    <nav class="mobile-quick-dock" aria-label="Contacto Rápido Móvil">
+        <a href="https://wa.me/5491170259429?text=Hola%20Rub%C3%A9n,%20vi%20tu%20CV%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" rel="noopener" class="dock-item dock-whatsapp" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+        <a href="tel:+5491170259429" class="dock-item" title="Llamar">
+            <i class="fas fa-phone-alt"></i>
+            <span>Llamar</span>
+        </a>
+        <a href="mailto:rubendavid1809@gmail.com" class="dock-item" title="Email">
+            <i class="fas fa-envelope"></i>
+            <span>Email</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ruben-barrios-1430712ab/" target="_blank" rel="noopener" class="dock-item" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+        </a>
+        <a href="index.html" class="dock-item dock-app" onclick="window.location.href='index.html'; return false;" title="Ver Versión de Escritorio">
+            <i class="fas fa-desktop"></i>
+            <span>Escritorio</span>
+        </a>
+    </nav>
+</body>
+</html>

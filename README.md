@@ -1,0 +1,182 @@
+# 📊 CV Interactivo: Rubén David Barrios Bello
+
+<div align="center">
+
+[![Live Demo en GitHub Pages](https://img.shields.io/badge/🌐%20Live%20Demo-GitHub%20Pages-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white)](https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Rubén%20Barrios-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ruben-barrios)
+[![GitHub](https://img.shields.io/badge/GitHub-rubenbarrios--bigdata-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rubenbarrios-bigdata)
+
+<br>
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript ES6+](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![JSON Data Layer](https://img.shields.io/badge/Architecture-Data%20Layer%20(JSON)-000000?style=flat-square&logo=json&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
+![SQL](https://img.shields.io/badge/SQL-MySQL%20%7C%20PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white)
+![Python](https://img.shields.io/badge/Python-Data%20Stack-3776AB?style=flat-square&logo=python&logoColor=white)
+
+<br>
+
+### 💡 *"CV con mentalidad de dashboard — 4 KPIs clave sobre mi perfil profesional"*
+
+**Data Analyst | Digital Analyst | Business Intelligence & Fraud Prevention**
+
+</div>
+
+---
+
+## 🎯 El Enfoque: "CV con Mentalidad de Dashboard"
+
+En el análisis de datos, el valor no reside únicamente en listar responsabilidades acumuladas, sino en **comunicar métricas de impacto, ratios de eficiencia y evidencia cuantificable** desde el primer contacto visual.
+
+Este CV fue concebido e implementado bajo los principios de diseño de un **Executive Dashboard**:
+- **Consumo rápido de insights**: El reclutador o líder de datos visualiza de inmediato 4 indicadores clave que resumen más de 16 años de trayectoria profesional combinada.
+- **Trazabilidad y navegación orientada a métricas**: Cada tarjeta de KPI actúa como un elemento interactivo que redirige hacia el contexto específico del proyecto o logro que respalda ese número.
+- **Mentalidad analítica en el código**: Demuestra cómo un analista aborda un producto digital, aplicando estándares modernos de desacoplamiento de datos y diseño responsive.
+
+---
+
+## 📈 Los 4 KPIs Estratégicos
+
+| KPI | Métrica Clave | Enfoque de Negocio & Impacto Analítico |
+| :---: | :---: | :--- |
+| <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/shield-halved.svg" width="22" height="22"></div> | **`+4 Años`**<br><sub>Fraudes E-Commerce</sub> | **Detección temprana y control de riesgos:** Análisis de métricas transaccionales, detección de anomalías y prevención de contracargos en operaciones de alto volumen para logística y comercio electrónico. |
+| <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/chart-line.svg" width="22" height="22"></div> | **`0,150 ➔ 0,030`**<br><sub>Reducción Ratio Fraude</sub> | **Impacto económico directo:** Descenso del **80%** en el ratio de fraude mediante la optimización de reglas de negocio, scoring predictivo y seguimiento periódico de indicadores de riesgo. |
+| <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/building-columns.svg" width="22" height="22"></div> | **`+12 Años`**<br><sub>Sector Bancario</sub> | **Sólido criterio de negocio y finanzas:** Dominio operativo en Comercio Exterior, Operaciones Internacionales, conciliaciones transaccionales y normativas cambiarias bancarias. |
+| <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/certificate.svg" width="22" height="22"></div> | **`9 Certificaciones`**<br><sub>Formación Especializada</sub> | **Actualización técnica constante:** Certificaciones oficiales en Python, SQL, Power BI, DAX Avanzado, Analítica Digital e Inteligencia Artificial (IBM, IPS DATAX, WaveBI, Daxus Latam, Analytics Way). |
+
+---
+
+## 📸 Capturas de Pantalla del CV Renderizado
+
+### 1. Banner Ejecutivo de KPIs y Perfil Profesional
+Visualización en modo claro destacando los 4 indicadores clave y la síntesis de perfil:
+
+<div align="center">
+  <img src="screenshots/01_kpis_dashboard_header.png" alt="KPIs Dashboard Header" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+</div>
+
+---
+
+### 2. Vista Panorámica Desktop (Experiencia Laboral y Stack Técnico)
+Distribución tipo dashboard de dos columnas con experiencia estructurada y matriz de habilidades:
+
+<div align="center">
+  <img src="screenshots/02_cv_desktop_panoramic.png" alt="CV Desktop Panoramic" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+</div>
+
+---
+
+### 3. Modo Oscuro (Dark Theme Ejecutivo)
+Soporte completo para tema oscuro con paleta HSL optimizada para reducir fatiga visual y resaltar contrastes analíticos:
+
+<div align="center">
+  <img src="screenshots/03_dark_mode_view.png" alt="Modo Oscuro Dashboard" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+</div>
+
+---
+
+### 4. Centro Interactivo de Certificaciones con Filtros por Categoría
+Explorador interactivo con filtrado dinámico (`Data & BI`, `IA & ML`, `Programación`, `Trabajo Remoto`) y enlaces a credenciales oficiales verificadas (Credly, BadgeClaimed, OpenBadgeFactory):
+
+<div align="center">
+  <img src="screenshots/04_certificaciones_interactivas.png" alt="Certificaciones Interactivas" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+</div>
+
+---
+
+### 5. Experiencia Mobile Optimizada
+Diseño responsivo nativo adaptado a dispositivos móviles para lectura ágil durante procesos de selección:
+
+<div align="center">
+  <img src="screenshots/05_mobile_view.png" alt="Mobile View" width="380" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+</div>
+
+---
+
+## 🏗️ Arquitectura Técnica: Separación de Capas (Data Layer vs. Presentation)
+
+Como prueba del criterio analítico y de ingeniería de software, los datos del dashboard no están rígidamente acoplados al documento HTML. Se implementó una **arquitectura desacoplada**:
+
+```
+├── data.json                   <-- [CAPA DE DATOS] Fuente única de verdad (KPIs y metadata)
+├── index.html                  <-- [CAPA DE PRESENTACIÓN] Estructura semántica + Motor Fetch
+├── mobile.html                 <-- [VISTA MOBILE] Experiencia optimizada para smartphones
+├── certs_images/               <-- Assets gráficos de credenciales y certificaciones
+└── screenshots/                <-- Capturas del render visual en alta definición
+```
+
+### ¿Cómo funciona la carga dinámica?
+1. **Fuente de Datos Centralizada (`data.json`)**:
+   Las métricas, descripciones, tooltips e iconos se administran en un esquema JSON estructurado. Modificar un KPI no requiere editar la plantilla HTML.
+2. **Consumo Asíncrono (`fetch API`)**:
+   Al inicializarse la página en GitHub Pages, una función asíncrona (`async/await`) consume `data.json` e inyecta dinámicamente las tarjetas de indicadores en el contenedor `#statsBanner`.
+3. **Resiliencia con Fallback Progresivo**:
+   Si el archivo se abre localmente por doble clic (`file:///`) en un entorno donde las políticas de seguridad CORS del navegador restringen peticiones locales, el sistema activa automáticamente un fallback pre-renderizado, garantizando que el usuario jamás vea un estado en blanco o roto.
+
+---
+
+## 🔗 Despliegue en GitHub Pages & LinkedIn
+
+### 🌐 Acceso al CV en Vivo:
+El CV interactivo se encuentra publicado y operativo a través de **GitHub Pages**:
+👉 **[https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/](https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/)**
+
+### 💼 Cómo destacar este proyecto en LinkedIn:
+
+Para maximizar la visibilidad ante reclutadores técnicos y hiring managers en LinkedIn:
+
+1. **Sección "Destacados" (Featured) del Perfil de LinkedIn**:
+   - En tu perfil de LinkedIn, hacé clic en **Añadir sección** ➔ **Destacados** ➔ **+ Enlaces**.
+   - Pegá la URL: `https://rubenbarrios-bigdata.github.io/cv-ruben-barrios/`
+   - **Título**: `📊 CV Interactivo — Dashboard de Métricas Profesionales & Data Analytics`
+   - **Descripción**: `Mi CV estructurado como un dashboard ejecutivo con 4 KPIs clave sobre mi trayectoria en prevención de fraudes, finanzas bancarias y analítica de datos.`
+   - Podés adjuntar como miniatura la captura `screenshots/01_kpis_dashboard_header.png`.
+
+2. **Enlace de Contacto / Encabezado de Perfil**:
+   - Editá tu información de contacto en LinkedIn.
+   - En el campo **Sitio Web**, seleccioná tipo *"Portafolio"* o *"Personal"* e ingresá el link de GitHub Pages.
+
+3. **Publicación en el Feed de LinkedIn (Post de Alto Impacto)**:
+   - Compartí una breve reflexión sobre por qué los analistas de datos deberían estructurar su experiencia orientada a KPIs y métricas cuantificables, adjuntando la captura en modo oscuro y el enlace a la versión interactiva.
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Frontend Core**: HTML5 Semántico, CSS3 Moderno (Variables CSS / Tokens de Diseño, Glassmorphism, CSS Grid & Flexbox).
+- **Lógica & Reactividad**: JavaScript Vanilla (ES6+) con `fetch API`, `async/await`, y persistencia de temas mediante `localStorage`.
+- **Capa de Datos**: JSON estructurado (`data.json`) desacoplado de la UI.
+- **Tipografía & Estética**: Google Fonts (*Inter*, *Playfair Display*), FontAwesome 6.
+- **Exportabilidad**: Hojas de estilo `@media print` optimizadas para generar PDF limpio sin cortes indeseados.
+
+---
+
+## 💻 Ejecución Local
+
+Podés clonar y ejecutar este proyecto en tu computadora:
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/rubenbarrios-bigdata/cv-ruben-barrios.git
+
+# 2. Ingresar a la carpeta
+cd cv-ruben-barrios
+
+# 3. Iniciar un servidor local (por ejemplo con Python)
+python -m http.server 8000
+```
+
+Luego abrí tu navegador en: `http://localhost:8000`
+
+---
+
+## 📩 Contacto
+
+- **Nombre**: Rubén David Barrios Bello
+- **Ubicación**: Parque Patricios, CABA — Argentina
+- **Teléfono**: [+54 9 11 7025-9429](tel:+5491170259429)
+- **Email**: [rubendavid1809@gmail.com](mailto:rubendavid1809@gmail.com)
+- **LinkedIn**: [linkedin.com/in/ruben-barrios](https://www.linkedin.com/in/ruben-barrios)
+- **GitHub**: [github.com/rubenbarrios-bigdata](https://github.com/rubenbarrios-bigdata)

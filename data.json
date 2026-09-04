@@ -1,0 +1,55 @@
+{
+  "profile": {
+    "name": "Rubén David Barrios Bello",
+    "title": "Data Analyst | Digital Analyst | Business Intelligence & Fraud Prevention",
+    "location": "Parque Patricios, CABA - Argentina",
+    "phone": "+54 9 11 7025-9429",
+    "email": "rubendavid1809@gmail.com",
+    "linkedin": "https://linkedin.com/in/ruben-barrios",
+    "github": "https://github.com/rubenbarrios-bigdata",
+    "status": "Disponible",
+    "statusTitle": "Disponible para roles de Data Analyst & BI"
+  },
+  "kpis": [
+    {
+      "id": "kpi-fraude",
+      "number": "+4 Años",
+      "label": "Analizando Métricas de Fraudes E-Commerce",
+      "icon": "fas fa-shield-alt",
+      "target": "exp-fraude",
+      "tooltip": "Ver experiencia en Prevención de Fraudes",
+      "category": "Experiencia Especializada",
+      "impact": "Monitoreo continuo de transacciones, detección temprana de patrones anómalos y mitigación de contracargos en operaciones de alto volumen."
+    },
+    {
+      "id": "kpi-ratio",
+      "number": "0,150 ➔ 0,030",
+      "label": "Reducción Ratio Fraude (-80%)",
+      "icon": "fas fa-chart-line",
+      "target": "logro-fraude",
+      "tooltip": "Ver logro en reducción de ratio de fraude",
+      "category": "Impacto de Negocio",
+      "impact": "Optimización de reglas y scoring de riesgo reduciendo drásticamente las pérdidas económicas directas y falsos positivos."
+    },
+    {
+      "id": "kpi-bancaria",
+      "number": "+12 Años",
+      "label": "Sector Bancario<br>Operaciones Internacionales",
+      "icon": "fas fa-university",
+      "target": "exp-bancaria",
+      "tooltip": "Ver experiencia en sector bancario",
+      "category": "Trayectoria Financiera",
+      "impact": "Sólida comprensión del negocio financiero, comercio exterior, normativas cambiarias, conciliaciones y trazabilidad de fondos."
+    },
+    {
+      "id": "kpi-certificaciones",
+      "number": "9 Certificaciones",
+      "label": "Formación Académica",
+      "icon": "fas fa-certificate",
+      "target": "certificationsSection",
+      "tooltip": "Ver certificaciones especializadas",
+      "category": "Capacitación Continua",
+      "impact": "Especializaciones técnicas en Python, SQL, Power BI, DAX, IA Generativa (IBM, IPS DATAX, WaveBI, Daxus Latam, Analytics Way)."
+    }
+  ]
+}
