@@ -1356,176 +1356,453 @@
             }
         }
 
+        /* Ocultar etiquetas móviles en escritorio por defecto */
+        .btn-text-mobile {
+            display: none;
+        }
+
         @media (max-width: 768px) {
+            html, body {
+                width: 100% !important;
+                max-width: 100vw !important;
+                overflow-x: hidden !important;
+            }
             body {
-                padding-bottom: 75px; /* Espacio para barra de navegación móvil inferior */
+                padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
             }
+
+            /* Barra de texto adaptable en móviles */
+            .btn-text-desktop {
+                display: none !important;
+            }
+            .btn-text-mobile {
+                display: inline !important;
+            }
+
+            /* Barra Superior de Acciones Mobile Fija */
+            .action-bar {
+                position: sticky !important;
+                top: 0 !important;
+                z-index: 100 !important;
+                backdrop-filter: blur(14px) !important;
+                -webkit-backdrop-filter: blur(14px) !important;
+                background: rgba(255, 255, 255, 0.92) !important;
+                border-bottom: 1px solid var(--border) !important;
+                padding: 5px 6px !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                gap: 4px !important;
+                width: 100% !important;
+                height: 43px !important;
+                box-sizing: border-box !important;
+            }
+            [data-theme="dark"] .action-bar {
+                background: rgba(19, 27, 38, 0.92) !important;
+            }
+            .action-bar .btn-action {
+                flex: 1 1 0 !important;
+                min-width: 0 !important;
+                padding: 4px 2px !important;
+                font-size: 0.68rem !important;
+                font-weight: 600 !important;
+                justify-content: center !important;
+                border-radius: var(--radius-sm) !important;
+                white-space: nowrap !important;
+                gap: 3px !important;
+                height: 31px !important;
+                box-sizing: border-box !important;
+            }
+            .action-bar .btn-action i {
+                font-size: 0.72rem !important;
+                flex-shrink: 0 !important;
+            }
+            .action-bar .btn-action span {
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                white-space: nowrap !important;
+            }
+
             .container {
-                margin: 8px auto;
-                padding: 0 8px;
+                margin: 0 auto !important;
+                padding: 8px 10px 30px !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                overflow-x: hidden !important;
             }
-            .card {
-                padding: 20px 16px;
-                margin-bottom: 16px;
-                border-radius: var(--radius-md);
+
+            /* Header Ejecutivo Mobile */
+            .header {
+                padding: 16px 14px 18px !important;
+                gap: 12px !important;
+                margin-bottom: 12px !important;
+                border-radius: var(--radius-lg) !important;
+                flex-direction: column !important;
+                text-align: center !important;
             }
-            .name {
-                font-size: 1.85rem;
-                line-height: 1.2;
+            .photo-wrapper {
+                margin-bottom: 4px !important;
             }
             .photo {
-                width: 120px;
-                height: 120px;
+                width: 100px !important;
+                height: 100px !important;
+                border-width: 3px !important;
+            }
+            .status-badge {
+                bottom: 4px !important;
+                right: 4px !important;
+                padding: 3px 8px !important;
+                font-size: 0.65rem !important;
+            }
+            .name {
+                font-size: 1.42rem !important;
+                line-height: 1.18 !important;
+                margin-bottom: 4px !important;
+                word-break: break-word !important;
             }
             .title {
-                font-size: 0.95rem;
-                flex-direction: column;
-                align-items: center;
-                gap: 8px;
+                font-size: 0.82rem !important;
+                margin-bottom: 10px !important;
+                gap: 5px !important;
+                flex-direction: column !important;
+                align-items: center !important;
             }
             .title-badge {
-                margin-left: 0;
+                font-size: 0.72rem !important;
+                padding: 3px 9px !important;
+                margin-left: 0 !important;
             }
             .contact-grid {
-                grid-template-columns: 1fr;
-                width: 100%;
-                gap: 10px;
+                grid-template-columns: 1fr !important;
+                gap: 5px !important;
+                font-size: 0.76rem !important;
+                width: 100% !important;
             }
             .contact-item {
-                justify-content: center;
-                word-break: break-all;
+                justify-content: center !important;
+                word-break: break-word !important;
+                overflow-wrap: anywhere !important;
+                text-align: center !important;
             }
-            .action-bar {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 8px;
-                padding: 10px 8px;
-            }
-            .btn-action {
-                font-size: 0.8rem;
-                padding: 7px 12px;
-            }
+
+            /* Dashboard KPIs Banner */
             .stats-banner {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 7px !important;
+                margin-bottom: 12px !important;
+                width: 100% !important;
             }
             .stat-card {
-                padding: 14px 10px;
+                padding: 9px 8px !important;
+                gap: 7px !important;
+                box-sizing: border-box !important;
+                border-radius: var(--radius-md) !important;
+                min-width: 0 !important;
+                align-items: center !important;
+            }
+            .stat-icon {
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 0.88rem !important;
+                border-radius: 8px !important;
+                flex-shrink: 0 !important;
+            }
+            .stat-content {
+                min-width: 0 !important;
+                overflow: hidden !important;
             }
             .stat-number {
-                font-size: 1.4rem;
+                font-size: clamp(0.78rem, 3.2vw, 0.92rem) !important;
+                line-height: 1.15 !important;
+                white-space: normal !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
             }
             .stat-label {
-                font-size: 0.72rem;
+                font-size: 0.68rem !important;
+                margin-top: 1px !important;
+                line-height: 1.15 !important;
+            }
+
+            /* Layout Grid & Tarjetas */
+            .main-grid {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+                width: 100% !important;
+            }
+            .card {
+                padding: 15px 13px !important;
+                margin-bottom: 12px !important;
+                border-radius: var(--radius-md) !important;
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+            }
+            .section-title {
+                font-size: 1.05rem !important;
+                margin-bottom: 12px !important;
+                gap: 7px !important;
+                flex-wrap: wrap !important;
+            }
+
+            /* Experiencia y Proyectos */
+            .exp-item {
+                padding-left: 14px !important;
+                margin-bottom: 16px !important;
             }
             .exp-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 2px !important;
+            }
+            .exp-title {
+                font-size: 0.92rem !important;
+            }
+            .exp-company {
+                font-size: 0.80rem !important;
             }
             .exp-date {
-                align-self: flex-start;
-                margin-top: 2px;
+                font-size: 0.70rem !important;
+                margin-top: 2px !important;
+            }
+            .exp-desc {
+                font-size: 0.80rem !important;
+                line-height: 1.45 !important;
+            }
+            .exp-desc li {
+                margin-bottom: 4px !important;
+            }
+            .project-card {
+                padding: 13px !important;
+                margin-bottom: 12px !important;
             }
             .project-title-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 6px;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 5px !important;
+            }
+            .project-name {
+                font-size: 0.90rem !important;
+                word-break: break-word !important;
             }
             .project-badges-group {
-                align-self: flex-start;
+                flex-wrap: wrap !important;
+                gap: 4px !important;
+                align-self: flex-start !important;
             }
+            .project-tech-badge {
+                font-size: 0.65rem !important;
+                padding: 2px 7px !important;
+                white-space: normal !important;
+                word-break: break-word !important;
+            }
+            .project-desc {
+                font-size: 0.78rem !important;
+                line-height: 1.45 !important;
+            }
+
+            /* Certificaciones */
             .cert-controls {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 10px;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 8px !important;
+                margin-bottom: 10px !important;
             }
             .cert-filters {
-                overflow-x: auto;
-                white-space: nowrap;
-                padding-bottom: 6px;
-                display: flex;
-                flex-wrap: nowrap;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: thin;
+                overflow-x: auto !important;
+                white-space: nowrap !important;
+                padding-bottom: 4px !important;
+                display: flex !important;
+                gap: 5px !important;
+                -webkit-overflow-scrolling: touch !important;
+                scrollbar-width: none !important;
+            }
+            .cert-filters::-webkit-scrollbar {
+                display: none !important;
             }
             .filter-btn {
-                flex-shrink: 0;
+                padding: 4px 9px !important;
+                font-size: 0.70rem !important;
+                flex-shrink: 0 !important;
             }
             .cert-actions-top {
-                justify-content: space-between;
-                width: 100%;
+                justify-content: space-between !important;
+                width: 100% !important;
+            }
+            .cert-header-btn {
+                padding: 9px 10px !important;
+                gap: 7px !important;
+            }
+            .cert-icon-badge {
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 0.80rem !important;
+                border-radius: 7px !important;
+            }
+            .cert-name {
+                font-size: 0.80rem !important;
+                word-break: break-word !important;
+                line-height: 1.25 !important;
+            }
+            .cert-subline {
+                font-size: 0.68rem !important;
+                gap: 5px !important;
+            }
+            .cert-preview-img {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                object-fit: contain !important;
+            }
+            .cert-actions {
+                flex-direction: column !important;
+                gap: 5px !important;
+                margin-top: 8px !important;
+            }
+            .btn-cert-action {
+                width: 100% !important;
+                font-size: 0.72rem !important;
+                padding: 6px 10px !important;
+                justify-content: center !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Habilidades y Referencias */
+            .skills-grid {
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
+            }
+            .skill-category {
+                padding: 11px !important;
+            }
+            .skill-cat-title {
+                font-size: 0.84rem !important;
+            }
+            .skill-tag {
+                font-size: 0.68rem !important;
+                padding: 3px 8px !important;
             }
             .ref-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
+                gap: 8px !important;
             }
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .ref-card {
+                padding: 10px 12px !important;
+            }
+            .ref-name {
+                font-size: 0.86rem !important;
+            }
+            .ref-role, .ref-phone {
+                font-size: 0.74rem !important;
             }
 
-            /* Barra de Acción Rápida Flotante para Móviles */
+            /* Modal Lightbox Adaptado */
+            .cert-modal {
+                padding: 10px !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                box-sizing: border-box !important;
+            }
+            .modal-container {
+                max-width: 100% !important;
+                width: 100% !important;
+                max-height: 90vh !important;
+                border-radius: var(--radius-md) !important;
+                margin: auto !important;
+            }
+            .modal-header {
+                padding: 9px 12px !important;
+                gap: 6px !important;
+            }
+            .modal-title-wrap h3 {
+                font-size: 0.86rem !important;
+            }
+            .modal-title-wrap p {
+                font-size: 0.68rem !important;
+            }
+            .modal-body {
+                padding: 6px !important;
+            }
+            .modal-nav-btn {
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 0.9rem !important;
+            }
+            .modal-footer {
+                padding: 8px 12px !important;
+                flex-direction: column !important;
+                gap: 6px !important;
+                align-items: center !important;
+            }
+            .modal-counter {
+                font-size: 0.72rem !important;
+            }
+            .modal-footer-btns {
+                width: 100% !important;
+                justify-content: center !important;
+                gap: 6px !important;
+            }
+            .modal-footer-btns .btn-action {
+                font-size: 0.72rem !important;
+                padding: 5px 10px !important;
+            }
+
+            /* Barra Rápida Flotante Inferior */
             .mobile-quick-dock {
                 display: flex !important;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background: var(--card-bg);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                border-top: 1px solid var(--border);
-                box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-                z-index: 1000;
-                padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
-                justify-content: space-around;
-                align-items: center;
+                position: fixed !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                background: var(--card-bg) !important;
+                backdrop-filter: blur(14px) !important;
+                -webkit-backdrop-filter: blur(14px) !important;
+                border-top: 1px solid var(--border) !important;
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.1) !important;
+                z-index: 1000 !important;
+                padding: 5px 4px calc(5px + env(safe-area-inset-bottom, 0px)) !important;
+                justify-content: space-around !important;
+                align-items: center !important;
+                box-sizing: border-box !important;
             }
-
             .dock-item {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 3px;
-                color: var(--text-secondary);
-                text-decoration: none;
-                font-size: 0.68rem;
-                font-weight: 600;
-                padding: 4px 8px;
-                border-radius: var(--radius-sm);
-                transition: var(--transition);
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 2px !important;
+                color: var(--text-secondary) !important;
+                text-decoration: none !important;
+                font-size: 0.62rem !important;
+                font-weight: 600 !important;
+                padding: 3px 4px !important;
+                border-radius: var(--radius-sm) !important;
+                transition: var(--transition) !important;
             }
-
             .dock-item i {
-                font-size: 1.15rem;
+                font-size: 1.05rem !important;
             }
-
             .dock-item:hover, .dock-item:active {
-                color: var(--accent);
-                transform: translateY(-2px);
+                color: var(--accent) !important;
+                transform: translateY(-2px) !important;
             }
-
             .dock-whatsapp {
-                color: #25D366;
+                color: #25D366 !important;
             }
             .dock-whatsapp:hover, .dock-whatsapp:active {
-                color: #128C7E;
+                color: #128C7E !important;
             }
             .dock-app {
-                color: var(--accent);
-                font-weight: 700;
+                color: var(--accent) !important;
+                font-weight: 700 !important;
             }
         }
 
         @media (max-width: 480px) {
-            .stats-banner {
-                grid-template-columns: 1fr;
-            }
             .name {
-                font-size: 1.6rem;
+                font-size: 1.38rem !important;
             }
             .photo {
-                width: 105px;
-                height: 105px;
+                width: 95px !important;
+                height: 95px !important;
             }
         }
 
@@ -1601,19 +1878,23 @@
     <div class="action-bar">
         <a href="CV_Ruben_Barrios_Mobile.html" class="btn-action" title="Abrir versión optimizada para celulares">
             <i class="fas fa-mobile-screen-button"></i>
-            <span>Versión Mobile</span>
+            <span class="btn-text-desktop">Versión Mobile</span>
+            <span class="btn-text-mobile">App</span>
         </a>
         <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Alternar Modo Oscuro/Claro">
             <i class="fas fa-moon" id="themeIcon"></i>
-            <span id="themeText">Modo Oscuro</span>
+            <span id="themeText" class="btn-text-desktop">Modo Oscuro</span>
+            <span id="themeTextMobile" class="btn-text-mobile">Tema</span>
         </button>
-                <a href="CV_Ruben_Barrios.html" download="CV_Ruben_Barrios.html" class="btn-action" title="Descargar archivo CV en HTML">
+        <a href="CV_Ruben_Barrios.html" download="CV_Ruben_Barrios.html" class="btn-action" title="Descargar archivo CV en HTML">
             <i class="fas fa-file-code"></i>
-            <span>Descargar HTML</span>
+            <span class="btn-text-desktop">Descargar HTML</span>
+            <span class="btn-text-mobile">HTML</span>
         </a>
         <button class="btn-action btn-primary-action" onclick="window.print()" title="Imprimir o Exportar a PDF">
             <i class="fas fa-print"></i>
-            <span>Guardar como PDF</span>
+            <span class="btn-text-desktop">Guardar como PDF</span>
+            <span class="btn-text-mobile">PDF</span>
         </button>
     </div>
 
@@ -2554,17 +2835,15 @@
         function updateThemeButton(theme) {
             const icon = document.getElementById('themeIcon');
             const text = document.getElementById('themeText');
+            const textMobile = document.getElementById('themeTextMobile');
             if (icon) {
                 icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
             }
             if (text) {
                 text.innerText = theme === 'dark' ? 'Modo Claro' : 'Modo Oscuro';
-            } else {
-                const btn = document.getElementById('themeToggleBtn');
-                if (btn) {
-                    const span = btn.querySelector('span');
-                    if (span) span.innerText = theme === 'dark' ? 'Modo Claro' : 'Modo Oscuro';
-                }
+            }
+            if (textMobile) {
+                textMobile.innerText = theme === 'dark' ? 'Claro' : 'Tema';
             }
         }
 
