@@ -1886,11 +1886,6 @@
             <span id="themeText" class="btn-text-desktop">Modo Oscuro</span>
             <span id="themeTextMobile" class="btn-text-mobile">Tema</span>
         </button>
-        <a href="CV_Ruben_Barrios.html" download="CV_Ruben_Barrios.html" class="btn-action" title="Descargar archivo CV en HTML">
-            <i class="fas fa-file-code"></i>
-            <span class="btn-text-desktop">Descargar HTML</span>
-            <span class="btn-text-mobile">HTML</span>
-        </a>
         <button class="btn-action btn-primary-action" onclick="window.print()" title="Imprimir o Exportar a PDF">
             <i class="fas fa-print"></i>
             <span class="btn-text-desktop">Guardar como PDF</span>
@@ -2862,16 +2857,6 @@
             loadKpis();
             initTheme();
             renderCertificates('all');
-
-            // Abrir por defecto el primer certificado para mostrar de inmediato la funcionalidad
-            setTimeout(() => {
-                const firstCert = document.querySelector('.cert-item');
-                if (firstCert) {
-                    firstCert.classList.add('open');
-                    const btn = firstCert.querySelector('.cert-header-btn');
-                    if (btn) btn.setAttribute('aria-expanded', 'true');
-                }
-            }, 300);
         });
     </script>
 

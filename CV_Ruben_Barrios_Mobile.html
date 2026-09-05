@@ -2311,10 +2311,6 @@
             <i class="fas fa-file-pdf"></i>
             <span>PDF</span>
         </button>
-        <a href="CV_Ruben_Barrios.html" download="CV_Ruben_Barrios.html" class="btn-action" title="Descargar archivo CV en HTML">
-            <i class="fas fa-file-code"></i>
-            <span>HTML</span>
-        </a>
     </div>
 
     <div class="container">
@@ -3283,16 +3279,6 @@
             loadKpis();
             initTheme();
             renderCertificates('all');
-
-            // Abrir por defecto el primer certificado para mostrar de inmediato la funcionalidad
-            setTimeout(() => {
-                const firstCert = document.querySelector('.cert-item');
-                if (firstCert) {
-                    firstCert.classList.add('open');
-                    const btn = firstCert.querySelector('.cert-header-btn');
-                    if (btn) btn.setAttribute('aria-expanded', 'true');
-                }
-            }, 300);
         });
     </script>
 
