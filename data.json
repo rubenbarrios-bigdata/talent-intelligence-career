@@ -15,7 +15,7 @@
       "id": "kpi-fraude",
       "number": "+4 Años",
       "label": "Analizando Métricas de Fraudes E-Commerce",
-      "icon": "fas fa-chart-bar",
+      "icon": "fas fa-chart-column",
       "target": "exp-fraude",
       "tooltip": "Ver experiencia en Prevención de Fraudes",
       "category": "Experiencia Especializada",
