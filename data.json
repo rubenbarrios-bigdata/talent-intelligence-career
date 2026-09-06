@@ -43,7 +43,7 @@
     },
     {
       "id": "kpi-certificaciones",
-      "number": "9 Certificaciones",
+      "number": "9 Certificados",
       "label": "Formación Académica",
       "icon": "fas fa-certificate",
       "target": "certificationsSection",
