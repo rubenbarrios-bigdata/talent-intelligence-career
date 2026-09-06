@@ -80,6 +80,7 @@
             line-height: 1.6;
             transition: background-color 0.3s ease, color 0.3s ease;
             -webkit-font-smoothing: antialiased;
+            padding-bottom: calc(75px + env(safe-area-inset-bottom, 0px));
         }
 
         /* Top Action Bar */
@@ -1547,6 +1548,7 @@
                 font-size: 11pt;
             }
             .action-bar,
+            .mobile-quick-dock,
             .cert-controls,
             .cert-chevron,
             .btn-cert-action,
@@ -2268,7 +2270,7 @@
             padding: 5px 10px !important;
         }
 
-        /* Barra Rápida Flotante Inferior */
+        /* Barra Rápida Flotante Inferior (Móvil y Escritorio) */
         .mobile-quick-dock {
             display: flex !important;
             position: fixed !important;
@@ -2294,6 +2296,28 @@
 
         .dock-item i {
             font-size: 1.05rem !important;
+        }
+
+        @media (min-width: 769px) {
+            .mobile-quick-dock {
+                bottom: 18px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: auto !important;
+                border-radius: 40px !important;
+                border: 1px solid var(--border) !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+                padding: 8px 22px !important;
+                gap: 16px !important;
+            }
+            .dock-item {
+                font-size: 0.68rem !important;
+                padding: 4px 10px !important;
+                gap: 3px !important;
+            }
+            .dock-item i {
+                font-size: 1.15rem !important;
+            }
         }
     </style>
 
@@ -2330,29 +2354,13 @@
             <div class="header-content">
                 <h1 class="name">Rubén David Barrios Bello</h1>
                 <div class="title">
-                    <span>Data Analyst | Digital Analyst | Business Intelligence & Fraud Prevention</span>
-                    <span class="title-badge"><i class="fas fa-chart-pie"></i> Power BI • SQL • Python</span>
+                    <span>Data Analyst | Digital Analyst | Business Intelligence & Fraud Prevention | Lic. en Banca y Finanzas</span>
+                    <span class="title-badge"><i class="fas fa-chart-pie"></i> Power BI • Excel • SQL • Python • BigQuery • GTM • GA4 • Data Studio</span>
                 </div>
                 <div class="contact-grid">
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Parque Patricios, CABA - Argentina</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <a href="tel:+5491170259429">+54 9 11 7025-9429</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:rubendavid1809@gmail.com">rubendavid1809@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="https://linkedin.com/in/ruben-barrios-1430712ab" target="_blank" rel="noopener">linkedin.com/in/ruben-barrios</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener">github.com/rubenbarrios-bigdata</a>
                     </div>
                 </div>
             </div>
@@ -2425,7 +2433,7 @@
                         <div class="exp-location"><i class="fas fa-map-pin"></i> Buenos Aires, Argentina</div>
                         <div class="exp-description">
                             <ul>
-                                <li>Implementación integral de analítica digital con <strong>Google Tag Manager (GTM), Google Analytics 4 (GA4)</strong> y Looker Studio.</li>
+                                <li>Implementación integral de analítica digital con <strong>Google Tag Manager (GTM), Google Analytics 4 (GA4)</strong> y Data Studio.</li>
                                 <li>Diseño de dashboards interactivos de uso, retención y progreso de usuarios para proyectos analíticos (ej. MVP Mate-Mático).</li>
                                 <li>Consultas y modelado de datos relacionales con <strong>SQL (PostgreSQL, Supabase)</strong> y consultas analíticas en <strong>Google BigQuery</strong>.</li>
                                 <li>Limpieza y preprocesamiento automatizado de fuentes de datos mediante scripts en <strong>Python (pandas, NumPy)</strong>.</li>
@@ -2820,9 +2828,10 @@
         <footer class="footer">
             <p>CV Web Profesional • Rubén David Barrios Bello • Actualizado 2026</p>
             <p style="margin-top: 6px;">
+                <a href="tel:+5491170259429"><i class="fas fa-phone-alt"></i> +54 9 11 7025-9429</a> • 
+                <a href="mailto:rubendavid1809@gmail.com"><i class="fas fa-envelope"></i> Contacto directo</a> • 
                 <a href="https://linkedin.com/in/ruben-barrios-1430712ab" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> • 
-                <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a> • 
-                <a href="mailto:rubendavid1809@gmail.com"><i class="fas fa-envelope"></i> Contacto directo</a>
+                <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
             </p>
         </footer>
 
@@ -3285,8 +3294,8 @@
         });
     </script>
 
-    <!-- Barra Flotante Inferior de Contacto Rápido Móvil -->
-    <nav class="mobile-quick-dock" aria-label="Contacto Rápido Móvil">
+    <!-- Barra Flotante Inferior de Contacto Rápido -->
+    <nav class="mobile-quick-dock" aria-label="Contacto Rápido">
         <a href="https://wa.me/5491170259429?text=Hola%20Rub%C3%A9n,%20vi%20tu%20CV%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" rel="noopener" class="dock-item dock-whatsapp" title="WhatsApp">
             <i class="fab fa-whatsapp"></i>
             <span>WhatsApp</span>
@@ -3302,6 +3311,10 @@
         <a href="https://www.linkedin.com/in/ruben-barrios-1430712ab/" target="_blank" rel="noopener" class="dock-item" title="LinkedIn">
             <i class="fab fa-linkedin"></i>
             <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener" class="dock-item" title="GitHub">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
         </a>
         <a href="index.html" class="dock-item dock-app" onclick="window.location.href='index.html'; return false;" title="Ver Versión de Escritorio">
             <i class="fas fa-desktop"></i>

@@ -80,6 +80,7 @@
             line-height: 1.6;
             transition: background-color 0.3s ease, color 0.3s ease;
             -webkit-font-smoothing: antialiased;
+            padding-bottom: calc(75px + env(safe-area-inset-bottom, 0px));
         }
 
         /* Top Action Bar */
@@ -1749,53 +1750,29 @@
                 padding: 5px 10px !important;
             }
 
-            /* Barra Rápida Flotante Inferior */
+            /* Barra Rápida Flotante Inferior en Móviles */
             .mobile-quick-dock {
-                display: flex !important;
-                position: fixed !important;
                 bottom: 0 !important;
                 left: 0 !important;
+                transform: none !important;
                 width: 100% !important;
-                background: var(--card-bg) !important;
-                backdrop-filter: blur(14px) !important;
-                -webkit-backdrop-filter: blur(14px) !important;
+                border-radius: 0 !important;
+                border-left: none !important;
+                border-right: none !important;
+                border-bottom: none !important;
                 border-top: 1px solid var(--border) !important;
                 box-shadow: 0 -4px 20px rgba(0,0,0,0.1) !important;
-                z-index: 1000 !important;
                 padding: 5px 4px calc(5px + env(safe-area-inset-bottom, 0px)) !important;
                 justify-content: space-around !important;
-                align-items: center !important;
-                box-sizing: border-box !important;
+                gap: 0 !important;
             }
             .dock-item {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
+                font-size: 0.60rem !important;
+                padding: 3px 2px !important;
                 gap: 2px !important;
-                color: var(--text-secondary) !important;
-                text-decoration: none !important;
-                font-size: 0.62rem !important;
-                font-weight: 600 !important;
-                padding: 3px 4px !important;
-                border-radius: var(--radius-sm) !important;
-                transition: var(--transition) !important;
             }
             .dock-item i {
-                font-size: 1.05rem !important;
-            }
-            .dock-item:hover, .dock-item:active {
-                color: var(--accent) !important;
-                transform: translateY(-2px) !important;
-            }
-            .dock-whatsapp {
-                color: #25D366 !important;
-            }
-            .dock-whatsapp:hover, .dock-whatsapp:active {
-                color: #128C7E !important;
-            }
-            .dock-app {
-                color: var(--accent) !important;
-                font-weight: 700 !important;
+                font-size: 1.02rem !important;
             }
         }
 
@@ -1809,9 +1786,60 @@
             }
         }
 
-        /* Ocultar barra flotante en pantallas de escritorio */
+        /* Barra flotante inferior disponible en pantallas de escritorio */
         .mobile-quick-dock {
-            display: none;
+            display: flex;
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            padding: 8px 22px;
+            gap: 16px;
+            align-items: center;
+            box-sizing: border-box;
+            transition: var(--transition);
+        }
+
+        .dock-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+
+        .dock-item i {
+            font-size: 1.15rem;
+        }
+
+        .dock-item:hover, .dock-item:active {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .dock-whatsapp {
+            color: #25D366;
+        }
+        .dock-whatsapp:hover, .dock-whatsapp:active {
+            color: #128C7E;
+        }
+
+        .dock-app {
+            color: var(--accent);
+            font-weight: 700;
         }
 
         /* ========================================================
@@ -1824,6 +1852,7 @@
                 font-size: 11pt;
             }
             .action-bar,
+            .mobile-quick-dock,
             .cert-controls,
             .cert-chevron,
             .btn-cert-action,
@@ -1882,12 +1911,12 @@
         <a href="CV_Ruben_Barrios_Mobile.html" class="btn-action" title="Abrir versión optimizada para celulares">
             <i class="fas fa-mobile-screen-button"></i>
             <span class="btn-text-desktop">Versión Mobile</span>
-            <span class="btn-text-mobile">App</span>
+            <span class="btn-text-mobile">Mobile</span>
         </a>
         <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Alternar Modo Oscuro/Claro">
             <i class="fas fa-moon" id="themeIcon"></i>
             <span id="themeText" class="btn-text-desktop">Modo Oscuro</span>
-            <span id="themeTextMobile" class="btn-text-mobile">Tema</span>
+            <span id="themeTextMobile" class="btn-text-mobile">Oscuro</span>
         </button>
         <button class="btn-action btn-primary-action" onclick="window.print()" title="Imprimir o Exportar a PDF">
             <i class="fas fa-print"></i>
@@ -1910,29 +1939,13 @@
             <div class="header-content">
                 <h1 class="name">Rubén David Barrios Bello</h1>
                 <div class="title">
-                    <span>Data Analyst | Digital Analyst | Business Intelligence & Fraud Prevention</span>
-                    <span class="title-badge"><i class="fas fa-chart-pie"></i> Power BI • SQL • Python</span>
+                    <span>Data Analyst | Digital Analyst | Business Intelligence & Fraud Prevention | Lic. en Banca y Finanzas</span>
+                    <span class="title-badge"><i class="fas fa-chart-pie"></i> Power BI • Excel • SQL • Python • BigQuery • GTM • GA4 • Data Studio</span>
                 </div>
                 <div class="contact-grid">
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Parque Patricios, CABA - Argentina</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <a href="tel:+5491170259429">+54 9 11 7025-9429</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:rubendavid1809@gmail.com">rubendavid1809@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="https://linkedin.com/in/ruben-barrios-1430712ab" target="_blank" rel="noopener">linkedin.com/in/ruben-barrios</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener">github.com/rubenbarrios-bigdata</a>
                     </div>
                 </div>
             </div>
@@ -2005,7 +2018,7 @@
                         <div class="exp-location"><i class="fas fa-map-pin"></i> Buenos Aires, Argentina</div>
                         <div class="exp-description">
                             <ul>
-                                <li>Implementación integral de analítica digital con <strong>Google Tag Manager (GTM), Google Analytics 4 (GA4)</strong> y Looker Studio.</li>
+                                <li>Implementación integral de analítica digital con <strong>Google Tag Manager (GTM), Google Analytics 4 (GA4)</strong> y Data Studio.</li>
                                 <li>Diseño de dashboards interactivos de uso, retención y progreso de usuarios para proyectos analíticos (ej. MVP Mate-Mático).</li>
                                 <li>Consultas y modelado de datos relacionales con <strong>SQL (PostgreSQL, Supabase)</strong> y consultas analíticas en <strong>Google BigQuery</strong>.</li>
                                 <li>Limpieza y preprocesamiento automatizado de fuentes de datos mediante scripts en <strong>Python (pandas, NumPy)</strong>.</li>
@@ -2400,9 +2413,10 @@
         <footer class="footer">
             <p>CV Web Profesional • Rubén David Barrios Bello • Actualizado 2026</p>
             <p style="margin-top: 6px;">
+                <a href="tel:+5491170259429"><i class="fas fa-phone-alt"></i> +54 9 11 7025-9429</a> • 
+                <a href="mailto:rubendavid1809@gmail.com"><i class="fas fa-envelope"></i> Contacto directo</a> • 
                 <a href="https://linkedin.com/in/ruben-barrios-1430712ab" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> • 
-                <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a> • 
-                <a href="mailto:rubendavid1809@gmail.com"><i class="fas fa-envelope"></i> Contacto directo</a>
+                <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
             </p>
         </footer>
 
@@ -2841,7 +2855,7 @@
                 text.innerText = theme === 'dark' ? 'Modo Claro' : 'Modo Oscuro';
             }
             if (textMobile) {
-                textMobile.innerText = theme === 'dark' ? 'Claro' : 'Tema';
+                textMobile.innerText = theme === 'dark' ? 'Claro' : 'Oscuro';
             }
         }
 
@@ -2863,8 +2877,8 @@
         });
     </script>
 
-    <!-- Barra Flotante Inferior de Contacto Rápido Móvil -->
-    <nav class="mobile-quick-dock" aria-label="Contacto Rápido Móvil">
+    <!-- Barra Flotante Inferior de Contacto Rápido -->
+    <nav class="mobile-quick-dock" aria-label="Contacto Rápido">
         <a href="https://wa.me/5491170259429?text=Hola%20Rub%C3%A9n,%20vi%20tu%20CV%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" rel="noopener" class="dock-item dock-whatsapp" title="WhatsApp">
             <i class="fab fa-whatsapp"></i>
             <span>WhatsApp</span>
@@ -2881,9 +2895,13 @@
             <i class="fab fa-linkedin"></i>
             <span>LinkedIn</span>
         </a>
-        <a href="CV_Ruben_Barrios_Mobile.html" class="dock-item dock-app" title="Versión App Móvil">
-            <i class="fas fa-mobile-alt"></i>
-            <span>Modo App</span>
+        <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener" class="dock-item" title="GitHub">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+        </a>
+        <a href="CV_Ruben_Barrios_Mobile.html" class="dock-item dock-app" title="Versión Mobile">
+            <i class="fas fa-mobile-screen-button"></i>
+            <span>Mobile</span>
         </a>
     </nav>
 </body>
