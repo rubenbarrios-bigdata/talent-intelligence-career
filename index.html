@@ -1750,7 +1750,88 @@
                 padding: 5px 10px !important;
             }
 
-            /* Barra Rápida Flotante Inferior en Móviles */
+        }
+
+        @media (max-width: 480px) {
+            .name {
+                font-size: 1.38rem !important;
+            }
+            .photo {
+                width: 95px !important;
+                height: 95px !important;
+            }
+        }
+
+        /* Barra Flotante Inferior de Contacto Rápido (Desktop y Mobile) */
+        .mobile-quick-dock {
+            display: flex !important;
+            position: fixed !important;
+            bottom: 18px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: auto !important;
+            background: var(--card-bg) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 40px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+            z-index: 1000 !important;
+            padding: 8px 22px !important;
+            gap: 16px !important;
+            align-items: center !important;
+            box-sizing: border-box !important;
+            transition: var(--transition) !important;
+        }
+
+        .dock-item,
+        a.dock-item,
+        a.dock-item:visited {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 3px !important;
+            color: var(--text-secondary) !important;
+            text-decoration: none !important;
+            font-size: 0.68rem !important;
+            font-weight: 600 !important;
+            padding: 4px 10px !important;
+            border-radius: var(--radius-sm) !important;
+            transition: var(--transition) !important;
+        }
+
+        .dock-item i {
+            font-size: 1.15rem !important;
+        }
+
+        .dock-item:hover,
+        .dock-item:active,
+        a.dock-item:hover,
+        a.dock-item:active {
+            color: var(--accent) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .dock-whatsapp,
+        a.dock-whatsapp,
+        a.dock-whatsapp:visited {
+            color: #25D366 !important;
+        }
+        .dock-whatsapp:hover,
+        .dock-whatsapp:active,
+        a.dock-whatsapp:hover,
+        a.dock-whatsapp:active {
+            color: #128C7E !important;
+        }
+
+        .dock-app,
+        a.dock-app,
+        a.dock-app:visited {
+            color: var(--accent) !important;
+            font-weight: 700 !important;
+        }
+
+        @media (max-width: 768px) {
             .mobile-quick-dock {
                 bottom: 0 !important;
                 left: 0 !important;
@@ -1766,7 +1847,9 @@
                 justify-content: space-around !important;
                 gap: 0 !important;
             }
-            .dock-item {
+            .dock-item,
+            a.dock-item,
+            a.dock-item:visited {
                 font-size: 0.60rem !important;
                 padding: 3px 2px !important;
                 gap: 2px !important;
@@ -1774,72 +1857,6 @@
             .dock-item i {
                 font-size: 1.02rem !important;
             }
-        }
-
-        @media (max-width: 480px) {
-            .name {
-                font-size: 1.38rem !important;
-            }
-            .photo {
-                width: 95px !important;
-                height: 95px !important;
-            }
-        }
-
-        /* Barra flotante inferior disponible en pantallas de escritorio */
-        .mobile-quick-dock {
-            display: flex;
-            position: fixed;
-            bottom: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border);
-            border-radius: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            padding: 8px 22px;
-            gap: 16px;
-            align-items: center;
-            box-sizing: border-box;
-            transition: var(--transition);
-        }
-
-        .dock-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.68rem;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: var(--radius-sm);
-            transition: var(--transition);
-        }
-
-        .dock-item i {
-            font-size: 1.15rem;
-        }
-
-        .dock-item:hover, .dock-item:active {
-            color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .dock-whatsapp {
-            color: #25D366;
-        }
-        .dock-whatsapp:hover, .dock-whatsapp:active {
-            color: #128C7E;
-        }
-
-        .dock-app {
-            color: var(--accent);
-            font-weight: 700;
         }
 
         /* ========================================================
@@ -1918,11 +1935,11 @@
             <span id="themeText" class="btn-text-desktop">Modo Oscuro</span>
             <span id="themeTextMobile" class="btn-text-mobile">Oscuro</span>
         </button>
-        <button class="btn-action btn-primary-action" onclick="window.print()" title="Imprimir o Exportar a PDF">
-            <i class="fas fa-print"></i>
-            <span class="btn-text-desktop">Guardar como PDF</span>
+        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-primary-action" title="Descargar CV en PDF">
+            <i class="fas fa-file-pdf"></i>
+            <span class="btn-text-desktop">Descargar PDF</span>
             <span class="btn-text-mobile">PDF</span>
-        </button>
+        </a>
     </div>
 
     <div class="container">
@@ -2078,9 +2095,9 @@
                                 <div class="exp-role">Analista de Operaciones Internacionales</div>
                                 <div class="exp-company"><i class="fas fa-university"></i> Banco Exterior S.A.</div>
                             </div>
-                            <span class="exp-date">Jun 2006 - May 2010</span>
+                            <span class="exp-date">Jun 2007 - May 2010</span>
                         </div>
-                        <div class="exp-location"><i class="fas fa-map-pin"></i> Caracas, Venezuela (4 años)</div>
+                        <div class="exp-location"><i class="fas fa-map-pin"></i> Caracas, Venezuela (3 años)</div>
                         <div class="exp-description">
                             <ul>
                                 <li>Procesamiento y control de transacciones cambiarias en moneda extranjera y liquidación de operaciones de comercio exterior.</li>

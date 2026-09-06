@@ -1467,57 +1467,7 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Barra de Acción Rápida Flotante para Móviles */
-            .mobile-quick-dock {
-                display: flex !important;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                background: var(--card-bg);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                border-top: 1px solid var(--border);
-                box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-                z-index: 1000;
-                padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
-                justify-content: space-around;
-                align-items: center;
-            }
 
-            .dock-item {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 3px;
-                color: var(--text-secondary);
-                text-decoration: none;
-                font-size: 0.68rem;
-                font-weight: 600;
-                padding: 4px 8px;
-                border-radius: var(--radius-sm);
-                transition: var(--transition);
-            }
-
-            .dock-item i {
-                font-size: 1.15rem;
-            }
-
-            .dock-item:hover, .dock-item:active {
-                color: var(--accent);
-                transform: translateY(-2px);
-            }
-
-            .dock-whatsapp {
-                color: #25D366;
-            }
-            .dock-whatsapp:hover, .dock-whatsapp:active {
-                color: #128C7E;
-            }
-            .dock-app {
-                color: var(--accent);
-                font-weight: 700;
-            }
         }
 
         @media (max-width: 480px) {
@@ -2270,53 +2220,100 @@
             padding: 5px 10px !important;
         }
 
-        /* Barra Rápida Flotante Inferior (Móvil y Escritorio) */
+        /* Barra Flotante Inferior de Contacto Rápido (Desktop y Mobile) */
         .mobile-quick-dock {
             display: flex !important;
             position: fixed !important;
-            bottom: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            padding: 5px 4px calc(5px + env(safe-area-inset-bottom, 0px)) !important;
+            bottom: 18px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: auto !important;
             background: var(--card-bg) !important;
-            backdrop-filter: blur(14px) !important;
-            -webkit-backdrop-filter: blur(14px) !important;
-            border-top: 1px solid var(--border) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 40px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
             z-index: 1000 !important;
-            justify-content: space-around !important;
+            padding: 8px 22px !important;
+            gap: 16px !important;
             align-items: center !important;
             box-sizing: border-box !important;
+            transition: var(--transition) !important;
         }
 
-        .dock-item {
-            padding: 3px 4px !important;
-            font-size: 0.62rem !important;
-            gap: 2px !important;
+        .dock-item,
+        a.dock-item,
+        a.dock-item:visited {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 3px !important;
+            color: var(--text-secondary) !important;
+            text-decoration: none !important;
+            font-size: 0.68rem !important;
+            font-weight: 600 !important;
+            padding: 4px 10px !important;
+            border-radius: var(--radius-sm) !important;
+            transition: var(--transition) !important;
         }
 
         .dock-item i {
-            font-size: 1.05rem !important;
+            font-size: 1.15rem !important;
         }
 
-        @media (min-width: 769px) {
+        .dock-item:hover,
+        .dock-item:active,
+        a.dock-item:hover,
+        a.dock-item:active {
+            color: var(--accent) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .dock-whatsapp,
+        a.dock-whatsapp,
+        a.dock-whatsapp:visited {
+            color: #25D366 !important;
+        }
+        .dock-whatsapp:hover,
+        .dock-whatsapp:active,
+        a.dock-whatsapp:hover,
+        a.dock-whatsapp:active {
+            color: #128C7E !important;
+        }
+
+        .dock-app,
+        a.dock-app,
+        a.dock-app:visited {
+            color: var(--accent) !important;
+            font-weight: 700 !important;
+        }
+
+        @media (max-width: 768px) {
             .mobile-quick-dock {
-                bottom: 18px !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                width: auto !important;
-                border-radius: 40px !important;
-                border: 1px solid var(--border) !important;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
-                padding: 8px 22px !important;
-                gap: 16px !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                transform: none !important;
+                width: 100% !important;
+                border-radius: 0 !important;
+                border-left: none !important;
+                border-right: none !important;
+                border-bottom: none !important;
+                border-top: 1px solid var(--border) !important;
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.1) !important;
+                padding: 5px 4px calc(5px + env(safe-area-inset-bottom, 0px)) !important;
+                justify-content: space-around !important;
+                gap: 0 !important;
             }
-            .dock-item {
-                font-size: 0.68rem !important;
-                padding: 4px 10px !important;
-                gap: 3px !important;
+            .dock-item,
+            a.dock-item,
+            a.dock-item:visited {
+                font-size: 0.60rem !important;
+                padding: 3px 2px !important;
+                gap: 2px !important;
             }
             .dock-item i {
-                font-size: 1.15rem !important;
+                font-size: 1.02rem !important;
             }
         }
     </style>
@@ -2334,10 +2331,10 @@
             <i class="fas fa-moon" id="themeIcon"></i>
             <span id="themeText">Oscuro</span>
         </button>
-        <button class="btn-action" onclick="window.print()" title="Imprimir o Guardar como PDF">
+        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action" title="Descargar CV en PDF">
             <i class="fas fa-file-pdf"></i>
             <span>PDF</span>
-        </button>
+        </a>
     </div>
 
     <div class="container">
@@ -2493,9 +2490,9 @@
                                 <div class="exp-role">Analista de Operaciones Internacionales</div>
                                 <div class="exp-company"><i class="fas fa-university"></i> Banco Exterior S.A.</div>
                             </div>
-                            <span class="exp-date">Jun 2006 - May 2010</span>
+                            <span class="exp-date">Jun 2007 - May 2010</span>
                         </div>
-                        <div class="exp-location"><i class="fas fa-map-pin"></i> Caracas, Venezuela (4 años)</div>
+                        <div class="exp-location"><i class="fas fa-map-pin"></i> Caracas, Venezuela (3 años)</div>
                         <div class="exp-description">
                             <ul>
                                 <li>Procesamiento y control de transacciones cambiarias en moneda extranjera y liquidación de operaciones de comercio exterior.</li>
