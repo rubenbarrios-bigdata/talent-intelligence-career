@@ -2400,9 +2400,9 @@
             <button type="button" class="lang-btn active" id="langBtnEs" onclick="setLanguage('es')" title="Ver en Español">ES</button>
             <button type="button" class="lang-btn" id="langBtnEn" onclick="setLanguage('en')" title="View in English">EN</button>
         </div>
-        <a href="index.html" class="btn-action btn-primary-action" onclick="window.location.href='index.html'; return false;" title="Volver a la Versión Completa de Escritorio">
+        <a href="index.html" class="btn-action btn-primary-action" id="btnDeskLink" onclick="window.location.href='index.html'; return false;" title="Volver a la Versión Completa de Escritorio">
             <i class="fas fa-desktop"></i>
-            <span id="dockViewText">Escritorio</span>
+            <span id="btnDeskText">Escritorio</span>
         </a>
         <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Alternar Modo Oscuro/Claro">
             <i class="fas fa-moon" id="themeIcon"></i>
@@ -3195,15 +3195,15 @@
                         </div>
 
                         <div class="cert-actions">
-                            <button class="btn-cert-action btn-cert-expand" onclick="openCertModal(${globalIndex})">
-                                <i class="fas fa-search-plus"></i> Ampliar pantalla completa
+                            <button class="btn-cert-action btn-cert-expand" onclick="openCertModal(${globalIndex})" title="${lang === 'en' ? 'Click to expand fullscreen' : 'Clic para ampliar en pantalla completa'}">
+                                <i class="fas fa-search-plus"></i> ${lang === 'en' ? 'Expand fullscreen' : 'Ampliar pantalla completa'}
                             </button>
                             <a href="${cert.file}" target="_blank" rel="noopener" class="btn-cert-action btn-cert-file">
-                                <i class="fas ${cert.file.endsWith('.pdf') ? 'fa-file-pdf' : (cert.file.startsWith('http') ? 'fa-external-link-alt' : 'fa-image')}"></i> ${cert.file.startsWith('http') ? 'Ver credencial oficial' : 'Ver documento original'}
+                                <i class="fas ${cert.file.endsWith('.pdf') ? 'fa-file-pdf' : (cert.file.startsWith('http') ? 'fa-external-link-alt' : 'fa-image')}"></i> ${cert.file.startsWith('http') ? (lang === 'en' ? 'View official credential' : 'Ver credencial oficial') : (lang === 'en' ? 'View original document' : 'Ver documento original')}
                             </a>
                             ${cert.verifyUrl ? `
                                 <a href="${cert.verifyUrl}" target="_blank" rel="noopener" class="btn-cert-action btn-cert-verify">
-                                    <i class="fas fa-award"></i> ${cert.verifyText || 'Credencial Credly'}
+                                    <i class="fas fa-award"></i> ${lang === 'en' ? (cert.verifyText === 'Visitar WaveBI' ? 'Visit WaveBI' : (cert.verifyText ? 'Verify Credential' : 'Credly Credential')) : (cert.verifyText || 'Credencial Credly')}
                                 </a>
                             ` : ''}
                         </div>
@@ -3396,7 +3396,9 @@
                 themeDarkMob: 'Oscuro',
                 themeLightDesk: 'Modo Claro',
                 themeLightMob: 'Claro',
-                btnMobileDesk: 'Versión Mobile',
+                btnMobileDesk: 'Versión Móvil',
+                btnMobileMob: 'Móvil',
+                btnDeskTitle: 'Volver a la Versión Completa de Escritorio',
                 btnDeskDesk: 'Versión Escritorio',
                 pdfHref: 'CV_Ruben_Barrios_Analista_De_Datos.pdf',
                 pdfDownload: 'CV_Ruben_Barrios_Analista_De_Datos.pdf',
@@ -3483,7 +3485,9 @@
                 dockWa: 'WhatsApp',
                 dockCall: 'Llamar',
                 dockEmail: 'Email',
-                dockMobile: 'Mobile',
+                dockMobile: 'Móvil',
+                dockMobileTitle: 'Versión Móvil',
+                dockCallTitle: 'Llamar a Rubén Barrios',
                 dockDesk: 'Escritorio'
             },
             en: {
@@ -3498,6 +3502,8 @@
                 themeLightDesk: 'Light Mode',
                 themeLightMob: 'Light',
                 btnMobileDesk: 'Mobile Version',
+                btnMobileMob: 'Mobile',
+                btnDeskTitle: 'Return to Full Desktop Version',
                 btnDeskDesk: 'Desktop Version',
                 pdfHref: 'CV_Ruben_Barrios_Data_Analyst.pdf',
                 pdfDownload: 'CV_Ruben_Barrios_Data_Analyst.pdf',
@@ -3585,6 +3591,8 @@
                 dockCall: 'Call',
                 dockEmail: 'Email',
                 dockMobile: 'Mobile',
+                dockMobileTitle: 'Mobile Version',
+                dockCallTitle: 'Call Rubén Barrios',
                 dockDesk: 'Desktop'
             }
         };
@@ -3645,11 +3653,11 @@
             const theme = document.documentElement.getAttribute('data-theme') || 'light';
             updateThemeButton(theme);
 
-            const btnMobileText = document.getElementById('btnMobileTextDesktop');
-            if (btnMobileText) {
-                const isMobilePage = window.location.pathname.includes('Mobile') || window.location.pathname.includes('mobile');
-                btnMobileText.innerText = isMobilePage ? t.btnDeskDesk : t.btnMobileDesk;
-            }
+            const btnDeskLink = document.getElementById('btnDeskLink');
+            if (btnDeskLink && t.btnDeskTitle) btnDeskLink.title = t.btnDeskTitle;
+
+            const btnDeskText = document.getElementById('btnDeskText');
+            if (btnDeskText) btnDeskText.innerText = t.dockDesk;
 
             // PDF Download button
             const pdfBtn = document.getElementById('pdfDownloadBtn');
@@ -3841,14 +3849,18 @@
             const dockEmail = document.getElementById('dockEmailText');
             if (dockEmail) dockEmail.innerText = t.dockEmail;
 
+            const dockCallLink = document.getElementById('dockCallLink');
+            if (dockCallLink && t.dockCallTitle) dockCallLink.title = t.dockCallTitle;
+
+            const dockViewLink = document.getElementById('dockViewLink');
+            if (dockViewLink && t.dockMobileTitle) dockViewLink.title = t.dockMobileTitle;
+
             const dockView = document.getElementById('dockViewText');
-            if (dockView) {
-                const isMobilePage = window.location.pathname.includes('Mobile') || window.location.pathname.includes('mobile');
-                dockView.innerText = isMobilePage ? t.dockDesk : t.dockMobile;
-            }
+            if (dockView) dockView.innerText = t.dockMobile;
 
             // Load and render KPIs for this language
             loadKpis(lang);
+            if (typeof renderCertificates === 'function') renderCertificates(currentCategory || 'all');
         }
 
         // Inicializar al cargar el documento
@@ -3866,7 +3878,7 @@
             <i class="fab fa-whatsapp"></i>
             <span id="dockWaText">WhatsApp</span>
         </a>
-        <a href="tel:+5491170259429" class="dock-item" title="Llamar">
+        <a href="tel:+5491170259429" class="dock-item" id="dockCallLink" title="Llamar">
             <i class="fas fa-phone-alt"></i>
             <span id="dockCallText">Llamar</span>
         </a>
@@ -3882,9 +3894,9 @@
             <i class="fab fa-github"></i>
             <span>GitHub</span>
         </a>
-        <a href="index.html" class="dock-item dock-app" onclick="window.location.href='index.html'; return false;" title="Ver Versión de Escritorio">
-            <i class="fas fa-desktop"></i>
-            <span>Escritorio</span>
+        <a href="CV_Ruben_Barrios_Mobile.html" class="dock-item dock-app" id="dockViewLink" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" title="Versión Móvil">
+            <i class="fas fa-mobile-screen-button"></i>
+            <span id="dockViewText">Móvil</span>
         </a>
     </nav>
 </body>
