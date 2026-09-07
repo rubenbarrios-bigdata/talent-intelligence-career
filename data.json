@@ -42,14 +42,14 @@
       "impact": "Sólida comprensión del negocio financiero, comercio exterior, normativas cambiarias, conciliaciones y trazabilidad de fondos."
     },
     {
-      "id": "kpi-certificaciones",
-      "number": "9 Certificados",
-      "label": "Formación Académica",
-      "icon": "fas fa-certificate",
-      "target": "certificationsSection",
-      "tooltip": "Ver certificaciones especializadas",
-      "category": "Capacitación Continua",
-      "impact": "Especializaciones técnicas en Python, SQL, Power BI, DAX, IA Generativa (IBM, IPS DATAX, WaveBI, Daxus Latam, Analytics Way)."
+      "id": "kpi-proyectos",
+      "number": "9 Proyectos",
+      "label": "Análisis de Datos",
+      "icon": "fas fa-diagram-project",
+      "target": "proyectosSection",
+      "tooltip": "Ver proyectos de Análisis de Datos",
+      "category": "Proyectos & Portafolio",
+      "impact": "Desarrollo de soluciones analíticas y dashboards interactivos en Power BI, Excel avanzado, SQL, Python, GTM, GA4 y Data Studio."
     }
   ]
 }
