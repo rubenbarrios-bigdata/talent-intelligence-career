@@ -619,6 +619,22 @@
             animation: highlightPulse 2s ease-in-out;
         }
 
+        #proyectosSection,
+        #certificationsSection,
+        .experience-item,
+        .achievement-highlight {
+            scroll-margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            #proyectosSection,
+            #certificationsSection,
+            .experience-item,
+            .achievement-highlight {
+                scroll-margin-top: 70px;
+            }
+        }
+
         @keyframes highlightPulse {
             0% {
                 box-shadow: 0 0 0 4px var(--accent), 0 10px 25px rgba(37, 99, 235, 0.4);
@@ -3277,7 +3293,8 @@
         function scrollToTarget(id) {
             const el = document.getElementById(id);
             if (!el) return;
-            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const blockAlign = (id === 'proyectosSection' || id === 'certificationsSection') ? 'start' : 'center';
+            el.scrollIntoView({ behavior: 'smooth', block: blockAlign });
             el.classList.remove('scroll-target-highlight');
             void el.offsetWidth;
             el.classList.add('scroll-target-highlight');
