@@ -2442,6 +2442,29 @@
         }
     </style>
 
+    <!-- Redirección inteligente de dispositivo (Móvil por defecto en celular, Escritorio en PC) -->
+    <script>
+        (function() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                const view = params.get('view');
+                if (view === 'mobile') {
+                    try { sessionStorage.setItem('preferred_view', 'mobile'); } catch(e) {}
+                    return;
+                }
+                const sessionView = (function() { try { return sessionStorage.getItem('preferred_view'); } catch(e) { return null; } })();
+                if (sessionView === 'mobile') return;
+
+                const isDesktop = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent || '')) && window.innerWidth > 768;
+                if (isDesktop) {
+                    const lang = params.get('lang') || 'es';
+                    const isLocal = window.location.pathname && window.location.pathname.toLowerCase().includes('cv_ruben_barrios');
+                    const target = isLocal ? 'CV_Ruben_Barrios.html' : 'index.html';
+                    window.location.replace(target + '?lang=' + encodeURIComponent(lang));
+                }
+            } catch(e) {}
+        })();
+    </script>
 </head>
 <body>
 
@@ -2880,15 +2903,44 @@
                     <h2 class="section-title">
                         <span class="section-title-left" id="eduTitle"><i class="fas fa-graduation-cap"></i>Educación</span>
                     </h2>
-                    <div class="edu-timeline">
+                                        <div class="edu-timeline">
                         <div class="edu-card">
                             <div class="edu-degree" id="eduDeg1">Tecnicatura en Ciencia de Datos e Inteligencia Artificial</div>
-                            <div class="edu-school">IFTS N° 11 (Instituto de Formación Técnica Superior)</div>
+                            <div class="edu-school" id="eduSchool1">IFTS N° 11 (Instituto de Formación Técnica Superior)</div>
                             <div class="edu-meta">
                                 <span id="eduDate1">2026 - Presente</span>
                                 <span class="edu-status" id="eduStatus1">En Curso (1° Año)</span>
                             </div>
                         </div>
+
+                        <div class="edu-card">
+                            <div class="edu-degree" id="eduDeg2">Programación con Python + IA</div>
+                            <div class="edu-school" id="eduSchool2">Talento Tech</div>
+                            <div class="edu-meta">
+                                <span id="eduDate2">2026</span>
+                                <span class="edu-status" id="eduStatus2">Finalizado</span>
+                            </div>
+                        </div>
+
+                        <div class="edu-card">
+                            <div class="edu-degree" id="eduDeg3">Lic. en Administración de Recursos Materiales y Financieros</div>
+                            <div class="edu-school" id="eduSchool3">Universidad Nacional Experimental Simón Rodríguez</div>
+                            <div class="edu-meta">
+                                <span id="eduDate3">2008 - 2012</span>
+                                <span class="edu-status" id="eduStatus3">Graduado</span>
+                            </div>
+                        </div>
+
+                        <div class="edu-card">
+                            <div class="edu-degree" id="eduDeg4">T.S.U. en Administración de Recursos Físicos y Financieros</div>
+                            <div class="edu-school" id="eduSchool4">Colegio Universitario Fermín Toro</div>
+                            <div class="edu-meta">
+                                <span id="eduDate4">2002 - 2005</span>
+                                <span class="edu-status" id="eduStatus4">Graduado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                         <div class="edu-card">
                             <div class="edu-degree" id="eduDeg2">Programación con Python + IA</div>
@@ -3810,13 +3862,23 @@
                 filterBi: 'Power BI & BI',
                 filterAi: 'IA & Futuro',
                 filterProg: 'Programación',
-                eduTitle: '<i class="fas fa-graduation-cap"></i>Educación',
+                                                eduTitle: '<i class="fas fa-graduation-cap"></i>Educación',
                 eduDeg1: 'Tecnicatura en Ciencia de Datos e Inteligencia Artificial',
+                eduSchool1: 'IFTS N° 11 (Instituto de Formación Técnica Superior)',
                 eduDate1: '2026 - Presente',
-                eduDeg2: 'Licenciatura en Administración de Recursos Materiales y Financieros',
-                eduDate2: 'Graduado',
-                eduDeg3: 'T.S.U. en Administración de Recursos Físicos y Financieros',
-                eduDate3: 'Graduado',
+                eduStatus1: 'En Curso (1° Año)',
+                eduDeg2: 'Programación con Python + IA',
+                eduSchool2: 'Talento Tech',
+                eduDate2: '2026',
+                eduStatus2: 'Finalizado',
+                eduDeg3: 'Lic. en Administración de Recursos Materiales y Financieros',
+                eduSchool3: 'Universidad Nacional Experimental Simón Rodríguez',
+                eduDate3: '2008 - 2012',
+                eduStatus3: 'Graduado',
+                eduDeg4: 'T.S.U. en Administración de Recursos Físicos y Financieros',
+                eduSchool4: 'Colegio Universitario Fermín Toro',
+                eduDate4: '2002 - 2005',
+                eduStatus4: 'Graduado',
                 langTitle: '<i class="fas fa-language"></i>Idiomas',
                 langEsBadge: 'Nativo / C2',
                 langEnName: 'Inglés',
@@ -3920,11 +3982,21 @@
                 filterProg: 'Programming',
                 eduTitle: '<i class="fas fa-graduation-cap"></i>Education',
                 eduDeg1: 'Associate Degree in Data Science & Artificial Intelligence',
+                eduSchool1: 'IFTS Nº 11 (Higher Technical Training Institute)',
                 eduDate1: '2026 - Present',
-                eduDeg2: 'B.A. in Materials & Financial Resources Administration',
-                eduDate2: 'Graduated',
-                eduDeg3: 'Associate Degree in Physical & Financial Resources Administration',
-                eduDate3: 'Graduated',
+                eduStatus1: 'In Progress (1st Year)',
+                eduDeg2: 'Python Programming + AI',
+                eduSchool2: 'Talento Tech',
+                eduDate2: '2026',
+                eduStatus2: 'Completed',
+                eduDeg3: 'B.A. in Materials & Financial Resources Administration',
+                eduSchool3: 'Universidad Nacional Experimental Simón Rodríguez',
+                eduDate3: '2008 - 2012',
+                eduStatus3: 'Graduated',
+                eduDeg4: 'Associate Degree in Physical & Financial Resources Administration',
+                eduSchool4: 'Colegio Universitario Fermín Toro',
+                eduDate4: '2002 - 2005',
+                eduStatus4: 'Graduated',
                 langTitle: '<i class="fas fa-language"></i>Languages',
                 langEsBadge: 'Native / C2',
                 langEnName: 'English',
@@ -3963,9 +4035,10 @@
 
         function goToDesktop() {
             const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
+            try { sessionStorage.setItem('preferred_view', 'desktop'); } catch(e) {}
             const isLocalCV = window.location.pathname && window.location.pathname.toLowerCase().includes('cv_ruben_barrios');
             const target = isLocalCV ? 'CV_Ruben_Barrios.html' : 'index.html';
-            window.location.href = target + '?lang=' + encodeURIComponent(lang);
+            window.location.href = target + '?view=desktop&lang=' + encodeURIComponent(lang);
         }
 
                 // Control del Botón Flotante para Volver Arriba al Principio del CV
@@ -3993,11 +4066,7 @@
                     return langParam;
                 }
             } catch (e) {}
-            try {
-                return localStorage.getItem('cv_lang') || 'es';
-            } catch (e) {
-                return 'es';
-            }
+            return 'es';
         }
 
         function setLanguage(lang) {
@@ -4186,24 +4255,24 @@
             const filterProg = document.getElementById('filterBtnProg');
             if (filterProg) filterProg.innerText = t.filterProg;
 
-            // Educación
-            const eduTitle = document.getElementById('eduTitle');
-            if (eduTitle) eduTitle.innerHTML = t.eduTitle;
-
-            const eduDeg1 = document.getElementById('eduDeg1');
-            if (eduDeg1) eduDeg1.innerText = t.eduDeg1;
-            const eduDate1 = document.getElementById('eduDate1');
-            if (eduDate1) eduDate1.innerText = t.eduDate1;
-
-            const eduDeg2 = document.getElementById('eduDeg2');
-            if (eduDeg2) eduDeg2.innerText = t.eduDeg2;
-            const eduDate2 = document.getElementById('eduDate2');
-            if (eduDate2) eduDate2.innerText = t.eduDate2;
-
-            const eduDeg3 = document.getElementById('eduDeg3');
-            if (eduDeg3) eduDeg3.innerText = t.eduDeg3;
-            const eduDate3 = document.getElementById('eduDate3');
-            if (eduDate3) eduDate3.innerText = t.eduDate3;
+                        // Educación (Traducción integral de carreras, instituciones, fechas y estados)
+            const eduFields = [
+                'eduTitle',
+                'eduDeg1', 'eduSchool1', 'eduDate1', 'eduStatus1',
+                'eduDeg2', 'eduSchool2', 'eduDate2', 'eduStatus2',
+                'eduDeg3', 'eduSchool3', 'eduDate3', 'eduStatus3',
+                'eduDeg4', 'eduSchool4', 'eduDate4', 'eduStatus4'
+            ];
+            eduFields.forEach(field => {
+                const el = document.getElementById(field);
+                if (el && t[field] !== undefined) {
+                    if (field === 'eduTitle') {
+                        el.innerHTML = t[field];
+                    } else {
+                        el.innerText = t[field];
+                    }
+                }
+            });
 
             // Idiomas
             const langTitle = document.getElementById('langTitle');
