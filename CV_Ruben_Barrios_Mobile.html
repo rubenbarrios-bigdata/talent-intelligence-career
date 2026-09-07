@@ -2400,7 +2400,7 @@
             <button type="button" class="lang-btn active" id="langBtnEs" onclick="setLanguage('es')" title="Ver en Español">ES</button>
             <button type="button" class="lang-btn" id="langBtnEn" onclick="setLanguage('en')" title="View in English">EN</button>
         </div>
-        <a href="index.html" class="btn-action btn-primary-action" id="btnDeskLink" onclick="window.location.href='index.html'; return false;" title="Volver a la Versión Completa de Escritorio">
+        <a href="index.html" class="btn-action btn-primary-action" id="btnDeskLink" onclick="goToDesktop(); return false;" title="Volver a la Versión Completa de Escritorio">
             <i class="fas fa-desktop"></i>
             <span id="btnDeskText">Escritorio</span>
         </a>
@@ -3488,7 +3488,8 @@
                 dockMobile: 'Móvil',
                 dockMobileTitle: 'Versión Móvil',
                 dockCallTitle: 'Llamar a Rubén Barrios',
-                dockDesk: 'Escritorio'
+                dockDesk: 'Escritorio',
+                dockDeskTitle: 'Volver a la Versión Completa de Escritorio'
             },
             en: {
                 htmlLang: 'en',
@@ -3593,7 +3594,8 @@
                 dockMobile: 'Mobile',
                 dockMobileTitle: 'Mobile Version',
                 dockCallTitle: 'Call Rubén Barrios',
-                dockDesk: 'Desktop'
+                dockDesk: 'Desktop',
+                dockDeskTitle: 'Return to Full Desktop Version'
             }
         };
 
@@ -3612,13 +3614,40 @@
             ]
         };
 
+        function goToDesktop() {
+            const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
+            const isLocalCV = window.location.pathname && window.location.pathname.toLowerCase().includes('cv_ruben_barrios');
+            const target = isLocalCV ? 'CV_Ruben_Barrios.html' : 'index.html';
+            window.location.href = target + '?lang=' + encodeURIComponent(lang);
+        }
+
         function getCurrentLanguage() {
-            return localStorage.getItem('cv_lang') || 'es';
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const langParam = urlParams.get('lang');
+                if (langParam === 'es' || langParam === 'en') {
+                    return langParam;
+                }
+            } catch (e) {}
+            try {
+                return localStorage.getItem('cv_lang') || 'es';
+            } catch (e) {
+                return 'es';
+            }
         }
 
         function setLanguage(lang) {
             if (lang !== 'es' && lang !== 'en') lang = 'es';
-            localStorage.setItem('cv_lang', lang);
+            try {
+                localStorage.setItem('cv_lang', lang);
+            } catch (e) {}
+            try {
+                if (window.history && window.history.replaceState) {
+                    const newUrl = new URL(window.location.href);
+                    newUrl.searchParams.set('lang', lang);
+                    window.history.replaceState(null, '', newUrl.toString());
+                }
+            } catch (e) {}
             document.documentElement.setAttribute('lang', lang);
 
             // Toggle language buttons active state
@@ -3853,10 +3882,10 @@
             if (dockCallLink && t.dockCallTitle) dockCallLink.title = t.dockCallTitle;
 
             const dockViewLink = document.getElementById('dockViewLink');
-            if (dockViewLink && t.dockMobileTitle) dockViewLink.title = t.dockMobileTitle;
+            if (dockViewLink && (t.dockDeskTitle || t.btnDeskTitle)) dockViewLink.title = t.dockDeskTitle || t.btnDeskTitle;
 
             const dockView = document.getElementById('dockViewText');
-            if (dockView) dockView.innerText = t.dockMobile;
+            if (dockView) dockView.innerText = t.dockDesk;
 
             // Load and render KPIs for this language
             loadKpis(lang);
@@ -3894,9 +3923,9 @@
             <i class="fab fa-github"></i>
             <span>GitHub</span>
         </a>
-        <a href="CV_Ruben_Barrios_Mobile.html" class="dock-item dock-app" id="dockViewLink" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" title="Versión Móvil">
-            <i class="fas fa-mobile-screen-button"></i>
-            <span id="dockViewText">Móvil</span>
+        <a href="index.html" class="dock-item dock-app" id="dockViewLink" onclick="goToDesktop(); return false;" title="Volver a la Versión Completa de Escritorio">
+            <i class="fas fa-desktop"></i>
+            <span id="dockViewText">Escritorio</span>
         </a>
     </nav>
 </body>

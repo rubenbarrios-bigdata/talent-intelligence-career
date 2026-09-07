@@ -2002,7 +2002,7 @@
             <button type="button" class="lang-btn active" id="langBtnEs" onclick="setLanguage('es')" title="Ver en Español">ES</button>
             <button type="button" class="lang-btn" id="langBtnEn" onclick="setLanguage('en')" title="View in English">EN</button>
         </div>
-        <a href="CV_Ruben_Barrios_Mobile.html" class="btn-action" id="btnMobileLink" title="Abrir versión optimizada para celulares">
+        <a href="CV_Ruben_Barrios_Mobile.html" class="btn-action" id="btnMobileLink" onclick="goToMobile(); return false;" title="Abrir versión optimizada para celulares">
             <i class="fas fa-mobile-screen-button"></i>
             <span class="btn-text-desktop" id="btnMobileTextDesktop">Versión Móvil</span>
             <span class="btn-text-mobile" id="btnMobileTextMobile">Móvil</span>
@@ -3221,13 +3221,40 @@
             ]
         };
 
+        function goToMobile() {
+            const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
+            const isLocalCV = window.location.pathname && window.location.pathname.toLowerCase().includes('cv_ruben_barrios');
+            const target = isLocalCV ? 'CV_Ruben_Barrios_Mobile.html' : 'mobile.html';
+            window.location.href = target + '?lang=' + encodeURIComponent(lang);
+        }
+
         function getCurrentLanguage() {
-            return localStorage.getItem('cv_lang') || 'es';
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const langParam = urlParams.get('lang');
+                if (langParam === 'es' || langParam === 'en') {
+                    return langParam;
+                }
+            } catch (e) {}
+            try {
+                return localStorage.getItem('cv_lang') || 'es';
+            } catch (e) {
+                return 'es';
+            }
         }
 
         function setLanguage(lang) {
             if (lang !== 'es' && lang !== 'en') lang = 'es';
-            localStorage.setItem('cv_lang', lang);
+            try {
+                localStorage.setItem('cv_lang', lang);
+            } catch (e) {}
+            try {
+                if (window.history && window.history.replaceState) {
+                    const newUrl = new URL(window.location.href);
+                    newUrl.searchParams.set('lang', lang);
+                    window.history.replaceState(null, '', newUrl.toString());
+                }
+            } catch (e) {}
             document.documentElement.setAttribute('lang', lang);
 
             // Toggle language buttons active state
@@ -3506,7 +3533,7 @@
             <i class="fab fa-github"></i>
             <span>GitHub</span>
         </a>
-        <a href="CV_Ruben_Barrios_Mobile.html" class="dock-item dock-app" id="dockViewLink" title="Versión Móvil">
+        <a href="CV_Ruben_Barrios_Mobile.html" class="dock-item dock-app" id="dockViewLink" onclick="goToMobile(); return false;" title="Versión Móvil">
             <i class="fas fa-mobile-screen-button"></i>
             <span id="dockViewText">Móvil</span>
         </a>
