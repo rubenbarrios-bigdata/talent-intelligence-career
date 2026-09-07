@@ -621,6 +621,7 @@
 
         #proyectosSection,
         #certificationsSection,
+        #exp-bancaria,
         .experience-item,
         .achievement-highlight {
             scroll-margin-top: 80px;
@@ -629,6 +630,7 @@
         @media (max-width: 768px) {
             #proyectosSection,
             #certificationsSection,
+            #exp-bancaria,
             .experience-item,
             .achievement-highlight {
                 scroll-margin-top: 70px;
@@ -2085,8 +2087,17 @@
                         </div>
                     </div>
 
+                </div>
+
+                <!-- Sector Bancario: Operaciones Internacionales (+12 Años) -->
+                <div class="card" id="exp-bancaria">
+                    <h2 class="section-title">
+                        <span class="section-title-left"><i class="fas fa-university"></i>Sector Bancario — Operaciones Internacionales</span>
+                        <span class="badge" style="background: var(--badge-bg); color: var(--badge-text); font-size: 0.82rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 6px;"><i class="fas fa-business-time"></i> +12 Años</span>
+                    </h2>
+
                     <!-- BFC Banco Fondo Común -->
-                    <div class="experience-item" id="exp-bancaria">
+                    <div class="experience-item">
                         <div class="exp-header">
                             <div>
                                 <div class="exp-role">Especialista de Comercio Exterior</div>
@@ -2896,7 +2907,7 @@
         function scrollToTarget(id) {
             const el = document.getElementById(id);
             if (!el) return;
-            const blockAlign = (id === 'proyectosSection' || id === 'certificationsSection') ? 'start' : 'center';
+            const blockAlign = (id === 'proyectosSection' || id === 'certificationsSection' || id === 'exp-bancaria') ? 'start' : 'center';
             el.scrollIntoView({ behavior: 'smooth', block: blockAlign });
             el.classList.remove('scroll-target-highlight');
             void el.offsetWidth;
