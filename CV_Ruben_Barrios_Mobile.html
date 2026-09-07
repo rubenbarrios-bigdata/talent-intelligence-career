@@ -1561,24 +1561,24 @@
             display: none;
         }
 
-                /* Botón Flotante para Subir a los KPIs */
-        .btn-scroll-kpi {
+                /* Botón Flotante para Volver Arriba al Principio del CV */
+        .btn-scroll-top {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 990;
+            bottom: 28px;
+            right: 28px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            z-index: 999;
             display: flex;
             align-items: center;
-            gap: 7px;
-            padding: 9px 15px;
+            justify-content: center;
             background: var(--card-bg, #ffffff);
             color: var(--accent, #0284c7);
-            border: 1.5px solid var(--accent, #0284c7);
-            border-radius: 50px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16), 0 0 10px rgba(56, 189, 248, 0.25);
+            border: 2px solid var(--accent, #0284c7);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18), 0 0 10px rgba(56, 189, 248, 0.25);
             cursor: pointer;
-            font-size: 0.82rem;
-            font-weight: 700;
+            font-size: 1.15rem;
             opacity: 0;
             visibility: hidden;
             transform: translateY(16px);
@@ -1587,26 +1587,27 @@
             -webkit-backdrop-filter: blur(8px);
         }
 
-        .btn-scroll-kpi.visible {
+        .btn-scroll-top.visible {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        .btn-scroll-kpi:hover,
-        .btn-scroll-kpi:active {
+        .btn-scroll-top:hover,
+        .btn-scroll-top:active {
             background: var(--accent, #0284c7);
             color: #ffffff !important;
-            box-shadow: 0 6px 22px rgba(2, 132, 199, 0.45);
-            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(2, 132, 199, 0.45);
+            transform: translateY(-3px) scale(1.05);
         }
 
         @media (max-width: 768px) {
-            .btn-scroll-kpi {
-                bottom: 74px !important;
-                right: 16px !important;
-                padding: 7px 13px;
-                font-size: 0.78rem;
+            .btn-scroll-top {
+                bottom: 78px !important;
+                right: 18px !important;
+                width: 44px;
+                height: 44px;
+                font-size: 1.05rem;
             }
         }
 
@@ -1621,7 +1622,7 @@
             }
             .action-bar,
             .mobile-quick-dock,
-            .btn-scroll-kpi,
+            .btn-scroll-top,
             .cert-controls,
             .cert-chevron,
             .btn-cert-action,
@@ -3245,192 +3246,6 @@
             }).join('');
         }
 
-                // Datos Multilingües de Proyectos
-        const projectsData = [
-            {
-                name: {
-                    es: "Mate-Mático – Data Analytics (Innova Lab).",
-                    en: "Mate-Mático – Data Analytics (Innova Lab)"
-                },
-                url: "https://github.com/rubenbarrios-bigdata/Analitica-Digital-Mate-matico",
-                isMvp: true,
-                badge: {
-                    es: "Jul. 2026 – Ago. 2026 | Proyecto MVP",
-                    en: "Jul 2026 – Aug 2026 | MVP Project"
-                },
-                pillText: {
-                    es: "Repositorio",
-                    en: "Repository"
-                },
-                bullets: {
-                    es: [
-                        "Implementación de analítica digital con GTM, GA4, Firebase, Supabase, PostgreSQL.",
-                        "Diseño de dashboard en Looker Studio con KPIs de uso, retención y progreso.",
-                        "Definición y validación de eventos junto a Backend y QA.",
-                        "Integración del dashboard dentro de la aplicación mediante embebido."
-                    ],
-                    en: [
-                        "Comprehensive digital analytics implementation with GTM, GA4, Firebase, Supabase, and PostgreSQL.",
-                        "Interactive Looker Studio dashboard design tracking usage, retention, and learning progress KPIs.",
-                        "Custom event specification, instrumentation, and QA validation across technical teams.",
-                        "Direct in-app dashboard embedding and analytical reporting integration."
-                    ]
-                }
-            },
-            {
-                name: {
-                    es: "Dashboard Atención al Cliente",
-                    en: "Customer Service Analytics Dashboard"
-                },
-                icon: "fas fa-chart-bar",
-                url: "https://github.com/rubenbarrios-bigdata/dashboard-atencion-al-cliente",
-                badge: "Power BI + DAX",
-                desc: {
-                    es: "Power BI con DAX y métricas de servicio",
-                    en: "Power BI with DAX calculations and service performance metrics"
-                }
-            },
-            {
-                name: {
-                    es: "Dashboard Reporte de RRHH",
-                    en: "HR Analytics Dashboard"
-                },
-                icon: "fas fa-users",
-                url: "https://github.com/rubenbarrios-bigdata/dashboard-de-recursos-humanos",
-                badge: "Power BI",
-                desc: {
-                    es: "Power BI: análisis de headcount, rotación y performance",
-                    en: "Power BI: headcount analysis, turnover rates, and talent performance"
-                }
-            },
-            {
-                name: {
-                    es: "Dashboard de Ventas Excel",
-                    en: "Excel Sales Analytics Dashboard"
-                },
-                icon: "fas fa-file-excel",
-                url: "https://github.com/rubenbarrios-bigdata/dashboard_ventas_excel",
-                badge: {
-                    es: "Excel Avanzado",
-                    en: "Advanced Excel"
-                },
-                desc: {
-                    es: "Dashboard de ventas de supermercado en Excel: facturación, ticket promedio, clientes, regiones, envíos y segmentos",
-                    en: "Supermarket sales dashboard in Excel: revenue, average order value, customer segments, regions, shipping, and categories"
-                }
-            },
-            {
-                name: {
-                    es: "Dashboard Análisis de Indicadores Mundiales",
-                    en: "World Indicators Analytics Dashboard"
-                },
-                icon: "fas fa-globe-americas",
-                url: "https://github.com/rubenbarrios-bigdata/dashboard-indicadores-mundiales",
-                badge: "Power BI + DAX",
-                desc: {
-                    es: "Power BI + DAX + modelado de datos",
-                    en: "Power BI + DAX + dimensional data modeling for global development indicators"
-                }
-            },
-            {
-                name: {
-                    es: "Dashboard Análisis Financiero",
-                    en: "Financial Analytics Dashboard"
-                },
-                icon: "fas fa-chart-line",
-                url: "https://github.com/rubenbarrios-bigdata/dashboard-analisis-financiero",
-                badge: "Power BI + DAX",
-                desc: {
-                    es: "Power BI + DAX + modelado de datos (KPIs)",
-                    en: "Power BI + DAX + financial data modeling and executive balance KPIs"
-                }
-            },
-            {
-                name: {
-                    es: "Proyecto SQL Orders",
-                    en: "SQL Orders Analysis Project"
-                },
-                icon: "fas fa-database",
-                url: "https://github.com/rubenbarrios-bigdata/proyecto-sql-orders",
-                badge: "SQL",
-                desc: {
-                    es: "SQL sobre dataset real",
-                    en: "Advanced SQL queries, aggregations, and business logic on real transaction dataset"
-                }
-            },
-            {
-                name: {
-                    es: "Análisis Exploratorio de Datos (EDA)",
-                    en: "Exploratory Data Analysis (EDA) - Fraud Detection"
-                },
-                icon: "fab fa-python",
-                url: "https://github.com/rubenbarrios-bigdata/credit-card-fraud-detection-eda",
-                badge: "Python + Big Data",
-                desc: {
-                    es: "Python + pandas + Matplotlib + Big Data",
-                    en: "Python + pandas + Matplotlib + statistical anomaly analysis on Big Data transactions"
-                }
-            },
-            {
-                name: {
-                    es: "Sistema de Gestión de Inventario",
-                    en: "Inventory Management System"
-                },
-                icon: "fas fa-boxes",
-                url: "https://github.com/rubenbarrios-bigdata/sistema-gestion-inventario",
-                badge: "Python + SQLite",
-                desc: {
-                    es: "Inventario de productos mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar), utilizando una base de datos SQLite.",
-                    en: "Product inventory tracking system featuring CRUD operations (Create, Read, Update, Delete) with SQLite database."
-                }
-            }
-        ];
-
-        function renderProjects(lang = 'es') {
-            const grid = document.getElementById('projectGrid') || document.querySelector('#proyectosSection .project-grid');
-            if (!grid) return;
-            const isEn = lang === 'en';
-            grid.innerHTML = projectsData.map(p => {
-                const title = typeof p.name === 'object' ? (p.name[lang] || p.name.es) : p.name;
-                const repoTitle = isEn ? 'View repository on GitHub' : 'Ver repositorio en GitHub';
-                const iconHtml = p.icon ? `<i class="${p.icon}" style="color: var(--accent); margin-right: 6px;"></i> ` : '';
-                const badgeText = typeof p.badge === 'object' ? (p.badge[lang] || p.badge.es) : p.badge;
-                
-                if (p.isMvp) {
-                    const pill = typeof p.pillText === 'object' ? (p.pillText[lang] || p.pillText.es) : (p.pillText || 'Repositorio');
-                    const bullets = typeof p.bullets === 'object' && !Array.isArray(p.bullets) ? (p.bullets[lang] || p.bullets.es) : p.bullets;
-                    return `
-                        <a href="${p.url}" target="_blank" rel="noopener" class="project-item project-mvp-highlight" title="${repoTitle}">
-                            <div class="project-title-row">
-                                <span class="project-name">${title}</span>
-                                <div class="project-badges-group">
-                                    <span class="project-tech-badge">${badgeText}</span>
-                                    <span class="project-github-pill"><i class="fab fa-github"></i> ${pill} <i class="fas fa-external-link-alt"></i></span>
-                                </div>
-                            </div>
-                            <ul class="project-bullets">
-                                ${bullets.map(b => `<li>${b}</li>`).join('')}
-                            </ul>
-                        </a>
-                    `;
-                }
-
-                const descText = typeof p.desc === 'object' ? (p.desc[lang] || p.desc.es) : p.desc;
-                return `
-                    <a href="${p.url}" target="_blank" rel="noopener" class="project-item" title="${repoTitle}">
-                        <div class="project-title-row">
-                            <span class="project-name">${iconHtml}${title}</span>
-                            <div class="project-badges-group">
-                                <span class="project-tech-badge">${badgeText}</span>
-                                <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
-                            </div>
-                        </div>
-                        <p class="project-desc">${descText}</p>
-                    </a>
-                `;
-            }).join('');
-        }
-
         // Catálogo de Certificados Multilingüe
         const certificates = [
             {
@@ -4018,8 +3833,8 @@
                 dockCallTitle: 'Llamar a Rubén Barrios',
                 dockDesk: 'Escritorio',
                 dockDeskTitle: 'Volver a la Versión Completa de Escritorio',
-                scrollKpiTitle: 'Subir a Métricas Clave (KPIs)',
-                scrollKpiText: 'KPIs'
+                scrollTopTitle: 'Volver arriba al principio del CV',
+                
             },
             en: {
                 htmlLang: 'en',
@@ -4126,8 +3941,8 @@
                 dockCallTitle: 'Call Rubén Barrios',
                 dockDesk: 'Desktop',
                 dockDeskTitle: 'Return to Full Desktop Version',
-                scrollKpiTitle: 'Back to Key Metrics (KPIs)',
-                scrollKpiText: 'KPIs'
+                scrollTopTitle: 'Back to top of resume',
+                
             }
         };
 
@@ -4153,23 +3968,16 @@
             window.location.href = target + '?lang=' + encodeURIComponent(lang);
         }
 
-                // Control del Botón Flotante Subir a KPIs
-        function scrollToKpis() {
-            const kpiBanner = document.getElementById('statsBanner');
-            if (kpiBanner) {
-                kpiBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+                // Control del Botón Flotante para Volver Arriba al Principio del CV
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function initScrollKpiButton() {
-            const btn = document.getElementById('btnScrollKpi');
+        function initScrollTopButton() {
+            const btn = document.getElementById('btnScrollTop');
             if (!btn) return;
             window.addEventListener('scroll', () => {
-                const kpiBanner = document.getElementById('statsBanner');
-                const trigger = kpiBanner ? (kpiBanner.offsetTop + kpiBanner.offsetHeight) : 350;
-                if (window.scrollY > trigger + 40) {
+                if (window.scrollY > 250) {
                     btn.classList.add('visible');
                 } else {
                     btn.classList.remove('visible');
@@ -4448,11 +4256,9 @@
             renderProjects(lang);
             if (typeof renderCertificates === 'function') renderCertificates(currentCategory || 'all');
 
-            // Floating scroll to KPI button text
-            const scrollKpiBtn = document.getElementById('btnScrollKpi');
-            if (scrollKpiBtn && t.scrollKpiTitle) scrollKpiBtn.setAttribute('title', t.scrollKpiTitle);
-            const scrollKpiText = document.getElementById('scrollKpiText');
-            if (scrollKpiText && t.scrollKpiText) scrollKpiText.innerText = t.scrollKpiText;
+            // Floating scroll to top button tooltip
+            const scrollTopBtn = document.getElementById('btnScrollTop');
+            if (scrollTopBtn && t.scrollTopTitle) scrollTopBtn.setAttribute('title', t.scrollTopTitle);
 
             const toggleAllText = document.getElementById('toggleAllText');
             if (toggleAllText) {
@@ -4463,7 +4269,7 @@
         // Inicializar al cargar el documento
         document.addEventListener('DOMContentLoaded', () => {
             initTheme();
-            initScrollKpiButton();
+            initScrollTopButton();
             const savedLang = getCurrentLanguage();
             setLanguage(savedLang);
             renderProjects(savedLang);
@@ -4498,10 +4304,9 @@
             <span id="dockViewText">Escritorio</span>
         </a>
     </nav>
-    <!-- Botón Flotante para Subir a los KPIs -->
-    <button type="button" class="btn-scroll-kpi" id="btnScrollKpi" onclick="scrollToKpis()" aria-label="Subir a los KPIs" title="Subir a Métricas Clave (KPIs)">
-        <i class="fas fa-chevron-up"></i>
-        <span id="scrollKpiText">KPIs</span>
+    <!-- Botón Flotante para Volver Arriba al Principio del CV -->
+    <button type="button" class="btn-scroll-top" id="btnScrollTop" onclick="scrollToTop()" aria-label="Volver arriba al principio del CV" title="Volver arriba al principio del CV">
+        <i class="fas fa-arrow-up"></i>
     </button>
 </body>
 </html>
