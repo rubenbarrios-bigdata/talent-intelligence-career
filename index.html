@@ -550,6 +550,35 @@
             color: var(--accent);
         }
 
+        .achievement-kpi-link {
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .kpi-badge-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            color: var(--accent);
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .kpi-badge-link:hover {
+            border-color: var(--accent);
+            background: var(--accent-subtle);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
         /* Projects */
         .project-grid {
             display: grid;
@@ -678,7 +707,8 @@
         #certificationsSection,
         #exp-bancaria,
         .experience-item,
-        .achievement-highlight {
+        .achievement-highlight,
+        .stat-card {
             scroll-margin-top: 80px;
         }
 
@@ -687,7 +717,8 @@
             #certificationsSection,
             #exp-bancaria,
             .experience-item,
-            .achievement-highlight {
+            .achievement-highlight,
+            .stat-card {
                 scroll-margin-top: 70px;
             }
         }
@@ -2124,28 +2155,28 @@
 
         <!-- Métricas & Logros Clave -->
         <div class="stats-banner" id="statsBanner">
-            <a href="#exp-fraude" class="stat-card" onclick="scrollToTarget('exp-fraude'); return false;" title="Ver experiencia en Prevención de Fraudes">
+            <a href="#exp-fraude" class="stat-card" id="kpi-fraude" onclick="scrollToTarget('exp-fraude'); return false;" title="Ver experiencia en Prevención de Fraudes">
                 <div class="stat-icon"><i class="fas fa-chart-column"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">+4 Años</div>
                     <div class="stat-label">Analizando Métricas de Fraudes E-Commerce</div>
                 </div>
             </a>
-            <a href="#logro-fraude" class="stat-card" onclick="scrollToTarget('logro-fraude'); return false;" title="Ver logro en reducción de ratio de fraude">
+            <a href="#logro-fraude" class="stat-card" id="kpi-ratio" onclick="scrollToTarget('logro-fraude'); return false;" title="Ver logro en reducción de ratio de fraude">
                 <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">0,150 ➔ 0,030</div>
                     <div class="stat-label">Reducción Ratio Fraude (-80%)</div>
                 </div>
             </a>
-            <a href="#exp-bancaria" class="stat-card" onclick="scrollToTarget('exp-bancaria'); return false;" title="Ver experiencia en sector bancario">
+            <a href="#exp-bancaria" class="stat-card" id="kpi-bancaria" onclick="scrollToTarget('exp-bancaria'); return false;" title="Ver experiencia en sector bancario">
                 <div class="stat-icon"><i class="fas fa-university"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">+15 Años</div>
                     <div class="stat-label">Sector Bancario<br>Operaciones Internacionales</div>
                 </div>
             </a>
-            <a href="#proyectosSection" class="stat-card" onclick="scrollToTarget('proyectosSection'); return false;" title="Ver proyectos de Análisis de Datos">
+            <a href="#proyectosSection" class="stat-card" id="kpi-proyectos" onclick="scrollToTarget('proyectosSection'); return false;" title="Ver proyectos de Análisis de Datos">
                 <div class="stat-icon"><i class="fas fa-diagram-project"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">9 Proyectos</div>
@@ -2209,16 +2240,23 @@
                             <span class="exp-date">Mar 2020 - Oct 2024</span>
                         </div>
                         <div class="exp-location" id="webpackLoc"><i class="fas fa-map-pin"></i> Buenos Aires, Argentina (4 años 8 meses)</div>
-                        <div class="exp-description" id="webpackDesc">
-                            <ul>
-                                <li>Responsable absoluto del sector de prevención de fraudes para la logística certificada por Mercado Libre.</li>
-                                <li>Análisis minucioso de métricas de fraude y seguimiento de KPIs mediante tableros de control en <strong>Power BI y Excel avanzado</strong>.</li>
-                                <li>Elaboración de reportes ejecutivos de fraude identificando patrones de comportamiento y anomalías entre vendedores, compradores y transportistas.</li>
-                                <li>Diseño e implementación de un <strong>sistema de monitoreo de reclamos en tiempo real</strong> para tipologías de Cajas Vacías (CV) y Pagó No Recibió (PNR).</li>
-                                <li>Coordinación de protocolos de actuación interdepartamental con operaciones y seguridad patrimonial.</li>
-                            </ul>
-                            <div class="achievement-highlight" id="logro-fraude">
+                        <div class="exp-description">
+                            <div id="webpackDesc">
+                                <ul>
+                                    <li>Responsable absoluto del sector de prevención de fraudes para la logística certificada por Mercado Libre.</li>
+                                    <li>Análisis minucioso de métricas de fraude y seguimiento de KPIs mediante tableros de control en <strong>Power BI y Excel avanzado</strong>.</li>
+                                    <li>Elaboración de reportes ejecutivos de fraude identificando patrones de comportamiento y anomalías entre vendedores, compradores y transportistas.</li>
+                                    <li>Diseño e implementación de un <strong>sistema de monitoreo de reclamos en tiempo real</strong> para tipologías de Cajas Vacías (CV) y Pagó No Recibió (PNR).</li>
+                                    <li>Coordinación de protocolos de actuación interdepartamental con operaciones y seguridad patrimonial.</li>
+                                </ul>
+                            </div>
+                            <div class="achievement-highlight" id="logro-fraude" data-kpi="kpi-ratio" title="Logro vinculado al KPI de Reducción de Ratio de Fraude">
                                 <strong><i class="fas fa-trophy"></i> Logro de Alto Impacto:</strong> Reducción histórica del ratio de fraude de <strong>0,150 a 0,030</strong> (el más bajo del mercado logístico), disminuyendo el gasto mensual por siniestros y posicionando a Webpack como modelo de referencia operativa.
+                                <div class="achievement-kpi-link">
+                                    <a href="#kpi-ratio" onclick="scrollToTarget('kpi-ratio'); return false;" class="kpi-badge-link" title="Ver métrica vinculada en el panel de KPIs">
+                                        <i class="fas fa-chart-line"></i> <span>Métrica vinculada al KPI: <strong>0,150 ➔ 0,030 (-80%)</strong></span> <i class="fas fa-arrow-up"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2680,7 +2718,7 @@
 
         function renderKpis(kpis, container) {
             container.innerHTML = kpis.map(kpi => `
-                <a href="#${kpi.target}" class="stat-card" onclick="scrollToTarget('${kpi.target}'); return false;" title="${kpi.tooltip}" data-kpi-id="${kpi.id}">
+                <a href="#${kpi.target}" class="stat-card" id="${kpi.id}" onclick="scrollToTarget('${kpi.target}'); return false;" title="${kpi.tooltip}" data-kpi-id="${kpi.id}">
                     <div class="stat-icon"><i class="${kpi.icon}"></i></div>
                     <div class="stat-content">
                         <div class="stat-number">${kpi.number}</div>
@@ -3401,7 +3439,12 @@
                     <li>Diseño e implementación de un <strong>sistema de monitoreo de reclamos en tiempo real</strong> para tipologías de Cajas Vacías (CV) y Pagó No Recibió (PNR).</li>
                     <li>Coordinación de protocolos de actuación interdepartamental con operaciones y seguridad patrimonial.</li>
                 </ul>`,
-                webpackAchievement: '<strong><i class="fas fa-trophy"></i> Logro de Alto Impacto:</strong> Reducción histórica del ratio de fraude de <strong>0,150 a 0,030</strong> (el más bajo del mercado logístico), disminuyendo el gasto mensual por siniestros y posicionando a Webpack como modelo de referencia operativa.',
+                webpackAchievement: `<strong><i class="fas fa-trophy"></i> Logro de Alto Impacto:</strong> Reducción histórica del ratio de fraude de <strong>0,150 a 0,030</strong> (el más bajo del mercado logístico), disminuyendo el gasto mensual por siniestros y posicionando a Webpack como modelo de referencia operativa.
+                <div class="achievement-kpi-link">
+                    <a href="#kpi-ratio" onclick="scrollToTarget('kpi-ratio'); return false;" class="kpi-badge-link" title="Ver métrica vinculada en el panel de KPIs">
+                        <i class="fas fa-chart-line"></i> <span>Métrica vinculada al KPI: <strong>0,150 ➔ 0,030 (-80%)</strong></span> <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>`,
                 bancariaTitle: '<i class="fas fa-university"></i>Sector Bancario — Operaciones Internacionales',
                 bancariaBadge: '<i class="fas fa-business-time"></i> +15 Años',
                 bfcRole: 'Especialista de Comercio Exterior',
@@ -3518,7 +3561,12 @@
                     <li>Designed and deployed a <strong>real-time claims monitoring system</strong> for Empty Box (CV) and Paid Not Received (PNR) fraud typologies.</li>
                     <li>Coordinated interdepartmental response protocols with operations, asset protection, and corporate security.</li>
                 </ul>`,
-                webpackAchievement: '<strong><i class="fas fa-trophy"></i> High-Impact Achievement:</strong> Historical reduction of the fraud ratio from <strong>0.150 to 0.030</strong> (the lowest benchmark in the logistics industry), drastically lowering monthly incident losses and establishing Webpack as an operational standard.',
+                webpackAchievement: `<strong><i class="fas fa-trophy"></i> High-Impact Achievement:</strong> Historical reduction of the fraud ratio from <strong>0.150 to 0.030</strong> (the lowest benchmark in the logistics industry), drastically lowering monthly incident losses and establishing Webpack as an operational standard.
+                <div class="achievement-kpi-link">
+                    <a href="#kpi-ratio" onclick="scrollToTarget('kpi-ratio'); return false;" class="kpi-badge-link" title="View metric in KPIs panel">
+                        <i class="fas fa-chart-line"></i> <span>Linked KPI Metric: <strong>0.150 ➔ 0.030 (-80%)</strong></span> <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>`,
                 bancariaTitle: '<i class="fas fa-university"></i>Banking Sector — International Operations',
                 bancariaBadge: '<i class="fas fa-business-time"></i> +15 Years',
                 bfcRole: 'Foreign Trade Specialist',
