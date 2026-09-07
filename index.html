@@ -84,6 +84,61 @@
         }
 
         /* Top Action Bar */
+                /* Language Switcher */
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 20px;
+            padding: 2px;
+            gap: 2px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        [data-theme="light"] .lang-switch {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.12);
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-btn:hover {
+            color: var(--accent);
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: #ffffff !important;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .lang-switch {
+                padding: 1px;
+            }
+            .lang-btn {
+                padding: 4px 8px;
+                font-size: 0.72rem;
+            }
+        }
+
         .action-bar {
             position: sticky;
             top: 0;
@@ -1943,9 +1998,13 @@
 
     <!-- Barra Superior de Acciones -->
     <div class="action-bar">
+        <div class="lang-switch" id="langSwitch" role="group" aria-label="Language Selector">
+            <button type="button" class="lang-btn active" id="langBtnEs" onclick="setLanguage('es')" title="Ver en Español">ES</button>
+            <button type="button" class="lang-btn" id="langBtnEn" onclick="setLanguage('en')" title="View in English">EN</button>
+        </div>
         <a href="CV_Ruben_Barrios_Mobile.html" class="btn-action" title="Abrir versión optimizada para celulares">
             <i class="fas fa-mobile-screen-button"></i>
-            <span class="btn-text-desktop">Versión Mobile</span>
+            <span class="btn-text-desktop" id="btnMobileTextDesktop">Versión Mobile</span>
             <span class="btn-text-mobile">Mobile</span>
         </a>
         <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Alternar Modo Oscuro/Claro">
@@ -1953,10 +2012,10 @@
             <span id="themeText" class="btn-text-desktop">Modo Oscuro</span>
             <span id="themeTextMobile" class="btn-text-mobile">Oscuro</span>
         </button>
-        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-primary-action" title="Descargar CV en PDF">
+        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-primary-action" id="pdfDownloadBtn" title="Descargar CV en PDF">
             <i class="fas fa-file-pdf"></i>
-            <span class="btn-text-desktop">Descargar PDF</span>
-            <span class="btn-text-mobile">PDF</span>
+            <span class="btn-text-desktop" id="pdfBtnTextDesktop">Descargar PDF</span>
+            <span class="btn-text-mobile" id="pdfBtnTextMobile">PDF</span>
         </a>
     </div>
 
@@ -1966,21 +2025,21 @@
         <header class="header">
             <div class="photo-wrapper">
                 <img src="Foto Linkedin 1 (1).png" alt="Rubén David Barrios Bello" class="photo">
-                <div class="status-badge" title="Disponible para roles de Data Analyst & BI">
+                <div class="status-badge" id="statusBadge" title="Disponible para roles de Data Analyst & BI">
                     <span class="status-dot"></span>
-                    <span>Disponible</span>
+                    <span id="statusText">Disponible</span>
                 </div>
             </div>
             <div class="header-content">
                 <h1 class="name">Rubén David Barrios Bello</h1>
                 <div class="title">
-                    <span>Data Analyst | Digital Analyst | Business Intelligence | Fraud Prevention | Lic. en Banca y Finanzas</span>
+                    <span id="headerTitleSpan">Data Analyst | Digital Analyst | Business Intelligence | Fraud Prevention | Lic. en Banca y Finanzas</span>
                     <span class="title-badge"><i class="fas fa-chart-pie"></i> Power BI • Excel • SQL • Python • BigQuery • GTM • GA4 • Data Studio</span>
                 </div>
                 <div class="contact-grid">
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Parque Patricios, CABA - Argentina</span>
+                        <span id="headerLocation">Parque Patricios, CABA - Argentina</span>
                     </div>
                 </div>
             </div>
@@ -2027,9 +2086,9 @@
                 <!-- Resumen Profesional -->
                 <div class="card">
                     <h2 class="section-title">
-                        <span class="section-title-left"><i class="fas fa-user-tie"></i>Perfil Profesional</span>
+                        <span class="section-title-left" id="perfilTitle"><i class="fas fa-user-tie"></i>Perfil Profesional</span>
                     </h2>
-                    <p class="summary-text">
+                    <p class="summary-text" id="perfilSummaryText">
                         <strong>Analista de Datos</strong> con más de 4 años de experiencia en análisis de métricas de fraude en los sectores logística y e-commerce, y más de 15 años de trayectoria en el sector bancario, específicamente en Comercio Exterior y Operaciones Internacionales.<br><br>
                         Hoy combino mi experiencia de negocio con herramientas como Power BI, Excel, SQL y Python para extraer, transformar y visualizar datos que se traducen en decisiones basadas en evidencia. Asimismo, sumo experiencia en analítica digital utilizando herramientas como GTM, GA4, BigQuery y Data Studio, aplicando ese mismo criterio analítico al comportamiento de usuarios y seguimiento de KPIs de productos.
                     </p>
@@ -2038,7 +2097,7 @@
                 <!-- Experiencia Laboral -->
                 <div class="card">
                     <h2 class="section-title">
-                        <span class="section-title-left"><i class="fas fa-briefcase"></i>Experiencia Laboral</span>
+                        <span class="section-title-left" id="expLaboralTitle"><i class="fas fa-briefcase"></i>Experiencia Laboral</span>
                     </h2>
 
                     <!-- Innova Lab -->
@@ -2048,10 +2107,10 @@
                                 <div class="exp-role">Data Analyst</div>
                                 <div class="exp-company"><i class="fas fa-building"></i> Innova Lab</div>
                             </div>
-                            <span class="exp-date">Feb 2026 - Presente</span>
+                            <span class="exp-date" id="innovaDate">Feb 2026 - Presente</span>
                         </div>
                         <div class="exp-location"><i class="fas fa-map-pin"></i> Buenos Aires, Argentina</div>
-                        <div class="exp-description">
+                        <div class="exp-description" id="innovaDesc">
                             <ul>
                                 <li>Implementación integral de analítica digital con <strong>Google Tag Manager (GTM), Google Analytics 4 (GA4)</strong> y Data Studio.</li>
                                 <li>Diseño de dashboards interactivos de uso, retención y progreso de usuarios para proyectos analíticos (ej. MVP Mate-Mático).</li>
@@ -2067,13 +2126,13 @@
                     <div class="experience-item" id="exp-fraude">
                         <div class="exp-header">
                             <div>
-                                <div class="exp-role">Analista de Prevención de Fraudes y Reclamos</div>
+                                <div class="exp-role" id="webpackRole">Analista de Prevención de Fraudes y Reclamos</div>
                                 <div class="exp-company"><i class="fas fa-chart-column"></i> Webpack S.R.L. — Mercado Libre Logistics</div>
                             </div>
                             <span class="exp-date">Mar 2020 - Oct 2024</span>
                         </div>
-                        <div class="exp-location"><i class="fas fa-map-pin"></i> Buenos Aires, Argentina (4 años 8 meses)</div>
-                        <div class="exp-description">
+                        <div class="exp-location" id="webpackLoc"><i class="fas fa-map-pin"></i> Buenos Aires, Argentina (4 años 8 meses)</div>
+                        <div class="exp-description" id="webpackDesc">
                             <ul>
                                 <li>Responsable absoluto del sector de prevención de fraudes para la logística certificada por Mercado Libre.</li>
                                 <li>Análisis minucioso de métricas de fraude y seguimiento de KPIs mediante tableros de control en <strong>Power BI y Excel avanzado</strong>.</li>
@@ -2092,21 +2151,21 @@
                 <!-- Sector Bancario: Operaciones Internacionales (+15 Años) -->
                 <div class="card" id="exp-bancaria">
                     <h2 class="section-title">
-                        <span class="section-title-left"><i class="fas fa-university"></i>Sector Bancario — Operaciones Internacionales</span>
-                        <span class="badge" style="background: var(--badge-bg); color: var(--badge-text); font-size: 0.82rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 6px;"><i class="fas fa-business-time"></i> +15 Años</span>
+                        <span class="section-title-left" id="bancariaTitle"><i class="fas fa-university"></i>Sector Bancario — Operaciones Internacionales</span>
+                        <span class="badge" style="background: var(--badge-bg); color: var(--badge-text); font-size: 0.82rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 6px;" id="bancariaBadge"><i class="fas fa-business-time"></i> +15 Años</span>
                     </h2>
 
                     <!-- BFC Banco Fondo Común -->
                     <div class="experience-item">
                         <div class="exp-header">
                             <div>
-                                <div class="exp-role">Especialista de Comercio Exterior</div>
-                                <div class="exp-company"><i class="fas fa-university"></i> BFC Banco Fondo Común (VP Operaciones Internacionales)</div>
+                                <div class="exp-role" id="bfcRole">Especialista de Comercio Exterior</div>
+                                <div class="exp-company" id="bfcCompany"><i class="fas fa-university"></i> BFC Banco Fondo Común (VP Operaciones Internacionales)</div>
                             </div>
-                            <span class="exp-date">Jul 2010 - Dic 2017</span>
+                            <span class="exp-date" id="bfcDate">Jul 2010 - Dic 2017</span>
                         </div>
-                        <div class="exp-location"><i class="fas fa-map-pin"></i> Caracas, Venezuela (7 años 6 meses)</div>
-                        <div class="exp-description">
+                        <div class="exp-location" id="bfcLoc"><i class="fas fa-map-pin"></i> Caracas, Venezuela (7 años 6 meses)</div>
+                        <div class="exp-description" id="bfcDesc">
                             <ul>
                                 <li>Gestión integral de importaciones mediante cartas de crédito comerciales, cobranzas documentarias y letras avaladas.</li>
                                 <li>Administración y control de auxiliares contables, conciliaciones financieras bancarias y liquidación de divisas.</li>
@@ -2119,13 +2178,13 @@
                     <div class="experience-item">
                         <div class="exp-header">
                             <div>
-                                <div class="exp-role">Analista de Operaciones Internacionales</div>
-                                <div class="exp-company"><i class="fas fa-university"></i> Banco Exterior S.A. (VP Operaciones Internacionales)</div>
+                                <div class="exp-role" id="extRole">Analista de Operaciones Internacionales</div>
+                                <div class="exp-company" id="extCompany"><i class="fas fa-university"></i> Banco Exterior S.A. (VP Operaciones Internacionales)</div>
                             </div>
-                            <span class="exp-date">Jun 2007 - May 2010</span>
+                            <span class="exp-date" id="extDate">Jun 2007 - May 2010</span>
                         </div>
-                        <div class="exp-location"><i class="fas fa-map-pin"></i> Caracas, Venezuela (3 años)</div>
-                        <div class="exp-description">
+                        <div class="exp-location" id="extLoc"><i class="fas fa-map-pin"></i> Caracas, Venezuela (3 años)</div>
+                        <div class="exp-description" id="extDesc">
                             <ul>
                                 <li>Procesamiento y control de transacciones cambiarias en moneda extranjera y liquidación de operaciones de comercio exterior.</li>
                             </ul>
@@ -2136,13 +2195,13 @@
                     <div class="experience-item">
                         <div class="exp-header">
                             <div>
-                                <div class="exp-role">Analista de Compras / Representante de Ventas</div>
-                                <div class="exp-company"><i class="fas fa-university"></i> Banco Venezolano de Crédito</div>
+                                <div class="exp-role" id="bvcRole">Analista de Compras / Representante de Ventas</div>
+                                <div class="exp-company" id="bvcCompany"><i class="fas fa-university"></i> Banco Venezolano de Crédito</div>
                             </div>
-                            <span class="exp-date">Sep 2002 - Mar 2007</span>
+                            <span class="exp-date" id="bvcDate">Sep 2002 - Mar 2007</span>
                         </div>
-                        <div class="exp-location"><i class="fas fa-map-pin"></i> Caracas, Venezuela (4 años 7 meses)</div>
-                        <div class="exp-description">
+                        <div class="exp-location" id="bvcLoc"><i class="fas fa-map-pin"></i> Caracas, Venezuela (4 años 7 meses)</div>
+                        <div class="exp-description" id="bvcDesc">
                             <ul>
                                 <li>Administración presupuestaria, adquisición de activos operativos y cumplimiento destacado de metas comerciales.</li>
                             </ul>
@@ -2154,9 +2213,9 @@
                 <!-- Proyectos Destacados de Análisis de Datos -->
                 <div class="card" id="proyectosSection">
                     <h2 class="section-title">
-                        <span class="section-title-left"><i class="fas fa-project-diagram"></i>Proyectos de Análisis de Datos</span>
+                        <span class="section-title-left" id="proyectosTitle"><i class="fas fa-project-diagram"></i>Proyectos de Análisis de Datos</span>
                         <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener" class="btn-action" style="font-size: 0.75rem; padding: 4px 10px;">
-                            <i class="fab fa-github"></i> Ver Repositorio
+                            <span id="repoBtnText"><i class="fab fa-github"></i> Ver Repositorio</span>
                         </a>
                     </h2>
 
@@ -2284,11 +2343,11 @@
                 <!-- Habilidades Técnicas -->
                 <div class="card">
                     <h2 class="section-title">
-                        <span class="section-title-left"><i class="fas fa-tools"></i>Habilidades Técnicas</span>
+                        <span class="section-title-left" id="skillsTitle"><i class="fas fa-tools"></i>Habilidades Técnicas</span>
                     </h2>
                     <div class="skills-container">
                         <div>
-                            <div class="skill-group-title"><i class="fas fa-database"></i> Business Intelligence & Data</div>
+                            <div class="skill-group-title" id="skillGroup1"><i class="fas fa-database"></i> Business Intelligence & Data</div>
                             <div class="skill-chips">
                                 <span class="skill-chip"><i class="fas fa-chart-bar"></i> Power BI</span>
                                 <span class="skill-chip">DAX Avanzado</span>
@@ -2341,23 +2400,23 @@
                 <!-- SECCIÓN DE CERTIFICACIONES DESPLEGABLES -->
                 <div class="card" id="certificationsSection">
                     <h2 class="section-title">
-                        <span class="section-title-left"><i class="fas fa-certificate"></i>Certificados</span>
+                        <span class="section-title-left" id="certTitle"><i class="fas fa-certificate"></i>Certificados</span>
                         <span class="title-badge" id="certCountBadge">9 Disponibles</span>
                     </h2>
 
                     <div class="cert-controls">
                         <!-- Filtros por categoría -->
                         <div class="cert-filters">
-                            <button class="filter-btn active" onclick="filterCerts('all', this)">Todos (9)</button>
-                            <button class="filter-btn" onclick="filterCerts('data', this)">Data & BI (4)</button>
-                            <button class="filter-btn" onclick="filterCerts('ia', this)">IA & ML (3)</button>
-                            <button class="filter-btn" onclick="filterCerts('code', this)">Programación (1)</button>
-                            <button class="filter-btn" onclick="filterCerts('remote', this)">Trabajo Remoto (1)</button>
+                            <button class="filter-btn active" id="filterBtnAll" onclick="filterCerts('all', this)">Todos (9)</button>
+                            <button class="filter-btn" id="filterBtnData" onclick="filterCerts('data', this)">Data & BI (4)</button>
+                            <button class="filter-btn" id="filterBtnAi" onclick="filterCerts('ia', this)">IA & ML (3)</button>
+                            <button class="filter-btn" id="filterBtnProg" onclick="filterCerts('code', this)">Programación (1)</button>
+                            <button class="filter-btn" id="filterBtnRemote" onclick="filterCerts('remote', this)">Trabajo Remoto (1)</button>
                         </div>
 
                         <!-- Barra de alternancia global -->
                         <div class="cert-toggle-all-row">
-                            <span>Haz clic en cualquier certificado para desplegar</span>
+                            <span id="certInstructionText">Haz clic en cualquier certificado para desplegar</span>
                             <button class="btn-toggle-all" id="btnToggleAll" onclick="toggleAllCertificates()">
                                 <i class="fas fa-angles-down"></i> <span id="toggleAllText">Desplegar todos</span>
                             </button>
@@ -2373,29 +2432,29 @@
                 <!-- Educación -->
                 <div class="card">
                     <h2 class="section-title">
-                        <span class="section-title-left"><i class="fas fa-graduation-cap"></i>Educación</span>
+                        <span class="section-title-left" id="eduTitle"><i class="fas fa-graduation-cap"></i>Educación</span>
                     </h2>
                     <div class="edu-timeline">
                         <div class="edu-card">
-                            <div class="edu-degree">Tecnicatura en Ciencia de Datos e Inteligencia Artificial</div>
+                            <div class="edu-degree" id="eduDeg1">Tecnicatura en Ciencia de Datos e Inteligencia Artificial</div>
                             <div class="edu-school">IFTS N° 11 (Instituto de Formación Técnica Superior)</div>
                             <div class="edu-meta">
-                                <span>2026 - Presente</span>
-                                <span class="edu-status">En Curso (1° Año)</span>
+                                <span id="eduDate1">2026 - Presente</span>
+                                <span class="edu-status" id="eduStatus1">En Curso (1° Año)</span>
                             </div>
                         </div>
 
                         <div class="edu-card">
-                            <div class="edu-degree">Programación con Python + IA</div>
+                            <div class="edu-degree" id="eduDeg2">Programación con Python + IA</div>
                             <div class="edu-school">Talento Tech</div>
                             <div class="edu-meta">
                                 <span>2026</span>
-                                <span class="edu-status">Finalizado</span>
+                                <span class="edu-status" id="eduStatus2">Finalizado</span>
                             </div>
                         </div>
 
                         <div class="edu-card">
-                            <div class="edu-degree">Lic. en Administración de Recursos Materiales y Financieros</div>
+                            <div class="edu-degree" id="eduDeg3">Lic. en Administración de Recursos Materiales y Financieros</div>
                             <div class="edu-school">Universidad Nacional Experimental Simón Rodríguez</div>
                             <div class="edu-meta">
                                 <span>2008 - 2012</span>
@@ -2404,7 +2463,7 @@
                         </div>
 
                         <div class="edu-card">
-                            <div class="edu-degree">T.S.U. en Administración de Recursos Físicos y Financieros</div>
+                            <div class="edu-degree" id="eduDeg4">T.S.U. en Administración de Recursos Físicos y Financieros</div>
                             <div class="edu-school">Colegio Universitario Fermín Toro</div>
                             <div class="edu-meta">
                                 <span>2002 - 2005</span>
@@ -2417,16 +2476,16 @@
                 <!-- Idiomas -->
                 <div class="card">
                     <h2 class="section-title">
-                        <span class="section-title-left"><i class="fas fa-language"></i>Idiomas</span>
+                        <span class="section-title-left" id="langTitle"><i class="fas fa-language"></i>Idiomas</span>
                     </h2>
                     <div class="lang-list">
                         <div class="lang-row">
-                            <span class="lang-name">Español</span>
-                            <span class="lang-badge">Nativo / C2</span>
+                            <span class="lang-name" id="langEsName">Español</span>
+                            <span class="lang-badge" id="langEsBadge">Nativo / C2</span>
                         </div>
                         <div class="lang-row">
-                            <span class="lang-name">Inglés</span>
-                            <span class="lang-badge">Técnico / Básico A2</span>
+                            <span class="lang-name" id="langEnName">Inglés</span>
+                            <span class="lang-badge" id="langEnBadge">Técnico / Básico A2</span>
                         </div>
                     </div>
                 </div>
@@ -2434,7 +2493,7 @@
                 <!-- Referencias Laborales -->
                 <div class="card">
                     <h2 class="section-title">
-                        <span class="section-title-left"><i class="fas fa-user-check"></i>Referencias</span>
+                        <span class="section-title-left" id="refTitle"><i class="fas fa-user-check"></i>Referencias</span>
                     </h2>
                     <div class="ref-grid">
                         <div class="ref-card">
@@ -2455,10 +2514,10 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p>CV Web Profesional • Rubén David Barrios Bello • Actualizado 2026</p>
+            <p id="footerCopy">CV Web Profesional • Rubén David Barrios Bello • Actualizado 2026</p>
             <p style="margin-top: 6px;">
                 <a href="tel:+5491170259429"><i class="fas fa-phone-alt"></i> +54 9 11 7025-9429</a> • 
-                <a href="mailto:rubendavid1809@gmail.com"><i class="fas fa-envelope"></i> Contacto directo</a> • 
+                <a href="mailto:rubendavid1809@gmail.com"><i class="fas fa-envelope"></i> <span id="footerContactText">Contacto directo</span></a> • 
                 <a href="https://linkedin.com/in/ruben-barrios-1430712ab" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a> • 
                 <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
             </p>
@@ -2520,21 +2579,25 @@
         // DATA LAYER: Carga Dinámica de KPIs (Mentalidad Dashboard)
         // Demuestra separación estricta de Capa de Datos (data.json) y Capa de Presentación
         // ==========================================
-        async function loadKpis() {
+        async function loadKpis(lang = null) {
             const banner = document.getElementById('statsBanner');
             if (!banner) return;
+            const currentLang = lang || getCurrentLanguage();
+            const dataFile = currentLang === 'en' ? './data_en.json' : './data.json';
             try {
-                const response = await fetch('./data.json');
+                const response = await fetch(dataFile);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
                 if (data && data.kpis && data.kpis.length > 0) {
                     renderKpis(data.kpis, banner);
-                    console.log('%c[Data Layer] %c4 KPIs estratégicos cargados exitosamente desde data.json', 'color: #0284c7; font-weight: bold;', 'color: #10b981; font-weight: bold;', data.kpis);
+                    console.log(`%c[Data Layer] %c4 KPIs estratégicos cargados exitosamente desde ${dataFile}`, 'color: #0284c7; font-weight: bold;', 'color: #10b981; font-weight: bold;', data.kpis);
                 }
             } catch (err) {
-                console.warn('[Data Layer] Fallback activo: Visualizando KPIs base pre-renderizados (Modo local file:// o sin red):', err);
+                console.warn('[Data Layer] Fallback activo: Visualizando KPIs base pre-renderizados:', err);
+                const list = fallbackKpis[currentLang] || fallbackKpis.es;
+                renderKpis(list, banner);
             }
         }
 
@@ -2689,7 +2752,9 @@
                 ? certificates 
                 : certificates.filter(c => c.category === filter);
 
-            document.getElementById('certCountBadge').innerText = `${filtered.length} Disponibles`;
+            const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
+            const countSuffix = lang === 'en' ? 'Available' : 'Disponibles';
+            document.getElementById('certCountBadge').innerText = `${filtered.length} ${countSuffix}`;
 
             filtered.forEach((cert) => {
                 const globalIndex = certificates.findIndex(c => c.id === cert.id);
@@ -2892,14 +2957,24 @@
             const icon = document.getElementById('themeIcon');
             const text = document.getElementById('themeText');
             const textMobile = document.getElementById('themeTextMobile');
+            const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
+            const isDark = theme === 'dark';
             if (icon) {
-                icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
             }
             if (text) {
-                text.innerText = theme === 'dark' ? 'Modo Claro' : 'Modo Oscuro';
+                if (lang === 'en') {
+                    text.innerText = isDark ? 'Light Mode' : 'Dark Mode';
+                } else {
+                    text.innerText = isDark ? 'Modo Claro' : 'Modo Oscuro';
+                }
             }
             if (textMobile) {
-                textMobile.innerText = theme === 'dark' ? 'Claro' : 'Oscuro';
+                if (lang === 'en') {
+                    textMobile.innerText = isDark ? 'Light' : 'Dark';
+                } else {
+                    textMobile.innerText = isDark ? 'Claro' : 'Oscuro';
+                }
             }
         }
 
@@ -2914,10 +2989,482 @@
             el.classList.add('scroll-target-highlight');
         }
 
+
+        // ==========================================
+        // DICCIONARIO Y MOTOR DE INTERNACIONALIZACIÓN (i18n)
+        // ==========================================
+        const i18n = {
+            es: {
+                htmlLang: 'es',
+                metaDesc: 'CV Web Profesional de Rubén David Barrios Bello - Data Analyst, Business Intelligence & Fraud Prevention.',
+                headerTitle: 'Data Analyst | Digital Analyst | Business Intelligence | Fraud Prevention | Lic. en Banca y Finanzas',
+                headerLocation: 'Parque Patricios, CABA - Argentina',
+                statusText: 'Disponible',
+                statusTitle: 'Disponible para roles de Data Analyst & BI',
+                themeDarkDesk: 'Modo Oscuro',
+                themeDarkMob: 'Oscuro',
+                themeLightDesk: 'Modo Claro',
+                themeLightMob: 'Claro',
+                btnMobileDesk: 'Versión Mobile',
+                btnDeskDesk: 'Versión Escritorio',
+                pdfHref: 'CV_Ruben_Barrios_Analista_De_Datos.pdf',
+                pdfDownload: 'CV_Ruben_Barrios_Analista_De_Datos.pdf',
+                pdfTitle: 'Descargar CV en PDF',
+                pdfTextDesk: 'Descargar PDF',
+                pdfTextMob: 'PDF',
+                perfilTitle: '<i class="fas fa-user-tie"></i>Perfil Profesional',
+                perfilText: '<strong>Analista de Datos</strong> con más de 4 años de experiencia en análisis de métricas de fraude en los sectores logística y e-commerce, y más de 15 años de trayectoria en el sector bancario, específicamente en Comercio Exterior y Operaciones Internacionales.<br><br>Hoy combino mi experiencia de negocio con herramientas como Power BI, Excel, SQL y Python para extraer, transformar y visualizar datos que se traducen en decisiones basadas en evidencia. Asimismo, sumo experiencia en analítica digital utilizando herramientas como GTM, GA4, BigQuery y Data Studio, aplicando ese mismo criterio analítico al comportamiento de usuarios y seguimiento de KPIs de productos.',
+                expLaboralTitle: '<i class="fas fa-briefcase"></i>Experiencia Laboral',
+                innovaDate: 'Feb 2026 - Presente',
+                innovaDesc: `<ul>
+                    <li>Implementación integral de analítica digital con <strong>Google Tag Manager (GTM), Google Analytics 4 (GA4)</strong> y Data Studio.</li>
+                    <li>Diseño de dashboards interactivos de uso, retención y progreso de usuarios para proyectos analíticos (ej. MVP Mate-Mático).</li>
+                    <li>Consultas y modelado de datos relacionales con <strong>SQL (PostgreSQL, Supabase)</strong> y consultas analíticas en <strong>Google BigQuery</strong>.</li>
+                    <li>Limpieza y preprocesamiento automatizado de fuentes de datos mediante scripts en <strong>Python (pandas, NumPy)</strong>.</li>
+                    <li>Colaboración activa y coordinación cruzada con equipos multidisciplinarios de UX/UI, Backend, Frontend y QA.</li>
+                    <li>Definición, instrumentación y seguimiento continuo de KPIs estratégicos de rendimiento.</li>
+                </ul>`,
+                webpackRole: 'Analista de Prevención de Fraudes y Reclamos',
+                webpackLoc: '<i class="fas fa-map-pin"></i> Buenos Aires, Argentina (4 años 8 meses)',
+                webpackDesc: `<ul>
+                    <li>Responsable absoluto del sector de prevención de fraudes para la logística certificada por Mercado Libre.</li>
+                    <li>Análisis minucioso de métricas de fraude y seguimiento de KPIs mediante tableros de control en <strong>Power BI y Excel avanzado</strong>.</li>
+                    <li>Elaboración de reportes ejecutivos de fraude identificando patrones de comportamiento y anomalías entre vendedores, compradores y transportistas.</li>
+                    <li>Diseño e implementación de un <strong>sistema de monitoreo de reclamos en tiempo real</strong> para tipologías de Cajas Vacías (CV) y Pagó No Recibió (PNR).</li>
+                    <li>Coordinación de protocolos de actuación interdepartamental con operaciones y seguridad patrimonial.</li>
+                </ul>`,
+                webpackAchievement: '<strong><i class="fas fa-trophy"></i> Logro de Alto Impacto:</strong> Reducción histórica del ratio de fraude de <strong>0,150 a 0,030</strong> (el más bajo del mercado logístico), disminuyendo el gasto mensual por siniestros y posicionando a Webpack como modelo de referencia operativa.',
+                bancariaTitle: '<i class="fas fa-university"></i>Sector Bancario — Operaciones Internacionales',
+                bancariaBadge: '<i class="fas fa-business-time"></i> +15 Años',
+                bfcRole: 'Especialista de Comercio Exterior',
+                bfcCompany: '<i class="fas fa-university"></i> BFC Banco Fondo Común (VP Operaciones Internacionales)',
+                bfcDate: 'Jul 2010 - Dic 2017',
+                bfcLoc: '<i class="fas fa-map-pin"></i> Caracas, Venezuela (7 años 6 meses)',
+                bfcDesc: `<ul>
+                    <li>Gestión integral de importaciones mediante cartas de crédito comerciales, cobranzas documentarias y letras avaladas.</li>
+                    <li>Administración y control de auxiliares contables, conciliaciones financieras bancarias y liquidación de divisas.</li>
+                    <li>Seguimiento exhaustivo de regulaciones cambiarias y normativas de comercio internacional.</li>
+                </ul>`,
+                extRole: 'Analista de Operaciones Internacionales',
+                extCompany: '<i class="fas fa-university"></i> Banco Exterior S.A. (VP Operaciones Internacionales)',
+                extDate: 'Jun 2007 - May 2010',
+                extLoc: '<i class="fas fa-map-pin"></i> Caracas, Venezuela (3 años)',
+                extDesc: `<ul>
+                    <li>Procesamiento y control de transacciones cambiarias en moneda extranjera y liquidación de operaciones de comercio exterior.</li>
+                </ul>`,
+                bvcRole: 'Analista de Compras / Representante de Ventas',
+                bvcCompany: '<i class="fas fa-university"></i> Banco Venezolano de Crédito',
+                bvcDate: 'Sep 2002 - Mar 2007',
+                bvcLoc: '<i class="fas fa-map-pin"></i> Caracas, Venezuela (4 años 7 meses)',
+                bvcDesc: `<ul>
+                    <li>Administración presupuestaria, adquisición de activos operativos y cumplimiento destacado de metas comerciales.</li>
+                </ul>`,
+                proyectosTitle: '<i class="fas fa-project-diagram"></i>Proyectos de Análisis de Datos',
+                repoBtnText: '<i class="fab fa-github"></i> Ver Repositorio',
+                skillsTitle: '<i class="fas fa-tools"></i>Habilidades Técnicas',
+                skillGroup1: '<i class="fas fa-database"></i> Business Intelligence & Data',
+                skillGroup2: '<i class="fas fa-chart-line"></i> Analítica Digital & Tracking',
+                skillGroup3: '<i class="fas fa-code"></i> Lenguajes & Bases de Datos',
+                skillGroup4: '<i class="fas fa-laptop-code"></i> Herramientas & Entornos',
+                skillGroup5: '<i class="fas fa-lightbulb"></i> Metodologías & Soft Skills',
+                certTitle: '<i class="fas fa-certificate"></i>Certificados',
+                certCountBadgeSuffix: 'Disponibles',
+                filterAll: 'Todos',
+                filterData: 'Análisis de Datos',
+                filterBi: 'Power BI & BI',
+                filterAi: 'IA & Futuro',
+                filterProg: 'Programación',
+                eduTitle: '<i class="fas fa-graduation-cap"></i>Educación',
+                eduDeg1: 'Tecnicatura en Ciencia de Datos e Inteligencia Artificial',
+                eduDate1: '2026 - Presente',
+                eduDeg2: 'Licenciatura en Administración de Recursos Materiales y Financieros',
+                eduDate2: 'Graduado',
+                eduDeg3: 'T.S.U. en Administración de Recursos Físicos y Financieros',
+                eduDate3: 'Graduado',
+                langTitle: '<i class="fas fa-language"></i>Idiomas',
+                langEsBadge: 'Nativo / C2',
+                langEnName: 'Inglés',
+                langEnBadge: 'Técnico / Lectura y Documentación',
+                refTitle: '<i class="fas fa-user-check"></i>Referencias',
+                refRole: 'IT Project Management',
+                footerCopy: 'CV Web Profesional • Rubén David Barrios Bello • Actualizado 2026',
+                footerContact: 'Contacto directo',
+                dockWa: 'WhatsApp',
+                dockCall: 'Llamar',
+                dockEmail: 'Email',
+                dockMobile: 'Mobile',
+                dockDesk: 'Escritorio'
+            },
+            en: {
+                htmlLang: 'en',
+                metaDesc: 'Professional Web Resume of Rubén David Barrios Bello - Data Analyst, Business Intelligence & Fraud Prevention.',
+                headerTitle: 'Data Analyst | Digital Analyst | Business Intelligence | Fraud Prevention | B.A. in Banking and Finance',
+                headerLocation: 'Parque Patricios, Buenos Aires - Argentina',
+                statusText: 'Available',
+                statusTitle: 'Available for Data Analyst & BI roles',
+                themeDarkDesk: 'Dark Mode',
+                themeDarkMob: 'Dark',
+                themeLightDesk: 'Light Mode',
+                themeLightMob: 'Light',
+                btnMobileDesk: 'Mobile Version',
+                btnDeskDesk: 'Desktop Version',
+                pdfHref: 'CV_Ruben_Barrios_Data_Analyst.pdf',
+                pdfDownload: 'CV_Ruben_Barrios_Data_Analyst.pdf',
+                pdfTitle: 'Download Resume in PDF',
+                pdfTextDesk: 'Download Resume',
+                pdfTextMob: 'PDF',
+                perfilTitle: '<i class="fas fa-user-tie"></i>Professional Summary',
+                perfilText: '<strong>Data Analyst</strong> with over 4 years of experience analyzing fraud metrics in the logistics and e-commerce sectors, and over 15 years of experience in the banking sector, specifically in Foreign Trade and International Operations.<br><br>I combine business experience with tools such as Power BI, Excel, SQL, and Python to extract, transform, and visualize data that translate into evidence-based decisions. I also bring experience in digital analytics using tools such as GTM, GA4, BigQuery, and Data Studio, applying that same analytical approach to user behavior analysis and product KPI tracking.',
+                expLaboralTitle: '<i class="fas fa-briefcase"></i>Work Experience',
+                innovaDate: 'Feb 2026 - Present',
+                innovaDesc: `<ul>
+                    <li>End-to-end digital analytics implementation with <strong>Google Tag Manager (GTM), Google Analytics 4 (GA4)</strong>, and Data Studio.</li>
+                    <li>Design of interactive dashboards tracking usage, user retention, and progress KPIs for analytics products (e.g., Mate-Mático MVP).</li>
+                    <li>Relational data modeling and queries with <strong>SQL (PostgreSQL, Supabase)</strong> and analytical querying in <strong>Google BigQuery</strong>.</li>
+                    <li>Automated data cleaning and preprocessing pipelines using <strong>Python (pandas, NumPy)</strong> scripts.</li>
+                    <li>Active cross-functional collaboration and alignment with UX/UI, Backend, Frontend, and QA engineering teams.</li>
+                    <li>Definition, instrumentation, and continuous tracking of strategic performance KPIs.</li>
+                </ul>`,
+                webpackRole: 'Fraud Prevention & Claims Analyst',
+                webpackLoc: '<i class="fas fa-map-pin"></i> Buenos Aires, Argentina (4 years 8 months)',
+                webpackDesc: `<ul>
+                    <li>Fully accountable for the fraud prevention department within Mercado Libre certified logistics operations.</li>
+                    <li>In-depth fraud metric analysis and KPI tracking through executive control dashboards in <strong>Power BI and advanced Excel</strong>.</li>
+                    <li>Developed executive fraud intelligence reports uncovering anomalies and behavior patterns across sellers, buyers, and couriers.</li>
+                    <li>Designed and deployed a <strong>real-time claims monitoring system</strong> for Empty Box (CV) and Paid Not Received (PNR) fraud typologies.</li>
+                    <li>Coordinated interdepartmental response protocols with operations, asset protection, and corporate security.</li>
+                </ul>`,
+                webpackAchievement: '<strong><i class="fas fa-trophy"></i> High-Impact Achievement:</strong> Historical reduction of the fraud ratio from <strong>0.150 to 0.030</strong> (the lowest benchmark in the logistics industry), drastically lowering monthly incident losses and establishing Webpack as an operational standard.',
+                bancariaTitle: '<i class="fas fa-university"></i>Banking Sector — International Operations',
+                bancariaBadge: '<i class="fas fa-business-time"></i> +15 Years',
+                bfcRole: 'Foreign Trade Specialist',
+                bfcCompany: '<i class="fas fa-university"></i> BFC Banco Fondo Común (VP International Operations)',
+                bfcDate: 'Jul 2010 - Dec 2017',
+                bfcLoc: '<i class="fas fa-map-pin"></i> Caracas, Venezuela (7 years 6 months)',
+                bfcDesc: `<ul>
+                    <li>End-to-end import management via commercial letters of credit, documentary collections, and guaranteed drafts.</li>
+                    <li>Administration and auditing of accounting subledgers, bank financial reconciliations, and foreign currency settlements.</li>
+                    <li>Thorough monitoring of international trade regulations, exchange control frameworks, and compliance standards.</li>
+                </ul>`,
+                extRole: 'International Operations Analyst',
+                extCompany: '<i class="fas fa-university"></i> Banco Exterior S.A. (VP International Operations)',
+                extDate: 'Jun 2007 - May 2010',
+                extLoc: '<i class="fas fa-map-pin"></i> Caracas, Venezuela (3 years)',
+                extDesc: `<ul>
+                    <li>Processing and control of foreign currency exchange transactions and settlement of international trade operations.</li>
+                </ul>`,
+                bvcRole: 'Procurement Analyst / Sales Representative',
+                bvcCompany: '<i class="fas fa-university"></i> Banco Venezolano de Crédito',
+                bvcDate: 'Sep 2002 - Mar 2007',
+                bvcLoc: '<i class="fas fa-map-pin"></i> Caracas, Venezuela (4 years 7 months)',
+                bvcDesc: `<ul>
+                    <li>Budget administration, procurement of operational assets, and outstanding achievement of commercial sales quotas.</li>
+                </ul>`,
+                proyectosTitle: '<i class="fas fa-project-diagram"></i>Data Analysis Projects',
+                repoBtnText: '<i class="fab fa-github"></i> View Repository',
+                skillsTitle: '<i class="fas fa-tools"></i>Technical Skills',
+                skillGroup1: '<i class="fas fa-database"></i> Business Intelligence & Data',
+                skillGroup2: '<i class="fas fa-chart-line"></i> Digital Analytics & Tracking',
+                skillGroup3: '<i class="fas fa-code"></i> Languages & Databases',
+                skillGroup4: '<i class="fas fa-laptop-code"></i> Tools & Environments',
+                skillGroup5: '<i class="fas fa-lightbulb"></i> Methodologies & Soft Skills',
+                certTitle: '<i class="fas fa-certificate"></i>Certifications',
+                certCountBadgeSuffix: 'Available',
+                filterAll: 'All',
+                filterData: 'Data Analysis',
+                filterBi: 'Power BI & BI',
+                filterAi: 'AI & Future',
+                filterProg: 'Programming',
+                eduTitle: '<i class="fas fa-graduation-cap"></i>Education',
+                eduDeg1: 'Associate Degree in Data Science & Artificial Intelligence',
+                eduDate1: '2026 - Present',
+                eduDeg2: 'B.A. in Materials & Financial Resources Administration',
+                eduDate2: 'Graduated',
+                eduDeg3: 'Associate Degree in Physical & Financial Resources Administration',
+                eduDate3: 'Graduated',
+                langTitle: '<i class="fas fa-language"></i>Languages',
+                langEsBadge: 'Native / C2',
+                langEnName: 'English',
+                langEnBadge: 'Technical / Reading & Documentation',
+                refTitle: '<i class="fas fa-user-check"></i>References',
+                refRole: 'IT Project Management',
+                footerCopy: 'Professional Web Resume • Rubén David Barrios Bello • Updated 2026',
+                footerContact: 'Direct Contact',
+                dockWa: 'WhatsApp',
+                dockCall: 'Call',
+                dockEmail: 'Email',
+                dockMobile: 'Mobile',
+                dockDesk: 'Desktop'
+            }
+        };
+
+        const fallbackKpis = {
+            es: [
+                { id: "kpi-fraude", number: "+4 Años", label: "Analizando Métricas de Fraudes E-Commerce", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "Ver experiencia en Prevención de Fraudes" },
+                { id: "kpi-ratio", number: "0,150 ➔ 0,030", label: "Reducción Ratio Fraude (-80%)", icon: "fas fa-chart-line", target: "logro-fraude", tooltip: "Ver logro en reducción de ratio de fraude" },
+                { id: "kpi-bancaria", number: "+15 Años", label: "Sector Bancario<br>Operaciones Internacionales", icon: "fas fa-university", target: "exp-bancaria", tooltip: "Ver experiencia en sector bancario" },
+                { id: "kpi-proyectos", number: "9 Proyectos", label: "Análisis de Datos", icon: "fas fa-diagram-project", target: "proyectosSection", tooltip: "Ver proyectos de Análisis de Datos" }
+            ],
+            en: [
+                { id: "kpi-fraude", number: "+4 Years", label: "Analyzing E-Commerce Fraud Metrics", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "View Fraud Prevention experience" },
+                { id: "kpi-ratio", number: "0.150 ➔ 0.030", label: "Fraud Ratio Reduction (-80%)", icon: "fas fa-chart-line", target: "logro-fraude", tooltip: "View high-impact achievement in fraud reduction" },
+                { id: "kpi-bancaria", number: "+15 Years", label: "Banking Sector<br>International Operations", icon: "fas fa-university", target: "exp-bancaria", tooltip: "View banking sector experience" },
+                { id: "kpi-proyectos", number: "9 Projects", label: "Data Analysis", icon: "fas fa-diagram-project", target: "proyectosSection", tooltip: "View Data Analysis projects" }
+            ]
+        };
+
+        function getCurrentLanguage() {
+            return localStorage.getItem('cv_lang') || 'es';
+        }
+
+        function setLanguage(lang) {
+            if (lang !== 'es' && lang !== 'en') lang = 'es';
+            localStorage.setItem('cv_lang', lang);
+            document.documentElement.setAttribute('lang', lang);
+
+            // Toggle language buttons active state
+            const btnEs = document.getElementById('langBtnEs');
+            const btnEn = document.getElementById('langBtnEn');
+            if (btnEs && btnEn) {
+                btnEs.classList.toggle('active', lang === 'es');
+                btnEn.classList.toggle('active', lang === 'en');
+            }
+
+            const t = i18n[lang];
+            if (!t) return;
+
+            // Meta description for SEO
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute('content', t.metaDesc);
+
+            // Header & Profile
+            const headerTitle = document.getElementById('headerTitleSpan');
+            if (headerTitle) headerTitle.innerText = t.headerTitle;
+
+            const headerLoc = document.getElementById('headerLocation');
+            if (headerLoc) headerLoc.innerText = t.headerLocation;
+
+            const statusText = document.getElementById('statusText');
+            if (statusText) statusText.innerText = t.statusText;
+
+            const statusBadge = document.getElementById('statusBadge');
+            if (statusBadge) statusBadge.setAttribute('title', t.statusTitle);
+
+            // Action bar - Theme and Mobile buttons
+            const theme = document.documentElement.getAttribute('data-theme') || 'light';
+            updateThemeButton(theme);
+
+            const btnMobileText = document.getElementById('btnMobileTextDesktop');
+            if (btnMobileText) {
+                const isMobilePage = window.location.pathname.includes('Mobile') || window.location.pathname.includes('mobile');
+                btnMobileText.innerText = isMobilePage ? t.btnDeskDesk : t.btnMobileDesk;
+            }
+
+            // PDF Download button
+            const pdfBtn = document.getElementById('pdfDownloadBtn');
+            const pdfDesk = document.getElementById('pdfBtnTextDesktop');
+            const pdfMob = document.getElementById('pdfBtnTextMobile');
+            if (pdfBtn) {
+                pdfBtn.href = t.pdfHref;
+                pdfBtn.setAttribute('download', t.pdfDownload);
+                pdfBtn.setAttribute('title', t.pdfTitle);
+            }
+            if (pdfDesk) pdfDesk.innerText = t.pdfTextDesk;
+            if (pdfMob) pdfMob.innerText = t.pdfTextMob;
+
+            // Perfil Profesional
+            const perfilTitle = document.getElementById('perfilTitle');
+            if (perfilTitle) perfilTitle.innerHTML = t.perfilTitle;
+
+            const perfilText = document.getElementById('perfilSummaryText');
+            if (perfilText) perfilText.innerHTML = t.perfilText;
+
+            // Experiencia Laboral
+            const expLaboralTitle = document.getElementById('expLaboralTitle');
+            if (expLaboralTitle) expLaboralTitle.innerHTML = t.expLaboralTitle;
+
+            const innovaDate = document.getElementById('innovaDate');
+            if (innovaDate) innovaDate.innerText = t.innovaDate;
+
+            const innovaDesc = document.getElementById('innovaDesc');
+            if (innovaDesc) innovaDesc.innerHTML = t.innovaDesc;
+
+            const webpackRole = document.getElementById('webpackRole');
+            if (webpackRole) webpackRole.innerText = t.webpackRole;
+
+            const webpackLoc = document.getElementById('webpackLoc');
+            if (webpackLoc) webpackLoc.innerHTML = t.webpackLoc;
+
+            const webpackDesc = document.getElementById('webpackDesc');
+            if (webpackDesc) webpackDesc.innerHTML = t.webpackDesc;
+
+            const logroFraude = document.getElementById('logro-fraude');
+            if (logroFraude) logroFraude.innerHTML = t.webpackAchievement;
+
+            // Sector Bancario
+            const bancariaTitle = document.getElementById('bancariaTitle');
+            if (bancariaTitle) bancariaTitle.innerHTML = t.bancariaTitle;
+
+            const bancariaBadge = document.getElementById('bancariaBadge');
+            if (bancariaBadge) bancariaBadge.innerHTML = t.bancariaBadge;
+
+            const bfcRole = document.getElementById('bfcRole');
+            if (bfcRole) bfcRole.innerText = t.bfcRole;
+
+            const bfcCompany = document.getElementById('bfcCompany');
+            if (bfcCompany) bfcCompany.innerHTML = t.bfcCompany;
+
+            const bfcDate = document.getElementById('bfcDate');
+            if (bfcDate) bfcDate.innerText = t.bfcDate;
+
+            const bfcLoc = document.getElementById('bfcLoc');
+            if (bfcLoc) bfcLoc.innerHTML = t.bfcLoc;
+
+            const bfcDesc = document.getElementById('bfcDesc');
+            if (bfcDesc) bfcDesc.innerHTML = t.bfcDesc;
+
+            const extRole = document.getElementById('extRole');
+            if (extRole) extRole.innerText = t.extRole;
+
+            const extCompany = document.getElementById('extCompany');
+            if (extCompany) extCompany.innerHTML = t.extCompany;
+
+            const extDate = document.getElementById('extDate');
+            if (extDate) extDate.innerText = t.extDate;
+
+            const extLoc = document.getElementById('extLoc');
+            if (extLoc) extLoc.innerHTML = t.extLoc;
+
+            const extDesc = document.getElementById('extDesc');
+            if (extDesc) extDesc.innerHTML = t.extDesc;
+
+            const bvcRole = document.getElementById('bvcRole');
+            if (bvcRole) bvcRole.innerText = t.bvcRole;
+
+            const bvcCompany = document.getElementById('bvcCompany');
+            if (bvcCompany) bvcCompany.innerHTML = t.bvcCompany;
+
+            const bvcDate = document.getElementById('bvcDate');
+            if (bvcDate) bvcDate.innerText = t.bvcDate;
+
+            const bvcLoc = document.getElementById('bvcLoc');
+            if (bvcLoc) bvcLoc.innerHTML = t.bvcLoc;
+
+            const bvcDesc = document.getElementById('bvcDesc');
+            if (bvcDesc) bvcDesc.innerHTML = t.bvcDesc;
+
+            // Proyectos
+            const proyectosTitle = document.getElementById('proyectosTitle');
+            if (proyectosTitle) proyectosTitle.innerHTML = t.proyectosTitle;
+
+            const repoBtnText = document.getElementById('repoBtnText');
+            if (repoBtnText) repoBtnText.innerHTML = t.repoBtnText;
+
+            // Habilidades
+            const skillsTitle = document.getElementById('skillsTitle');
+            if (skillsTitle) skillsTitle.innerHTML = t.skillsTitle;
+
+            for (let i = 1; i <= 5; i++) {
+                const el = document.getElementById(`skillGroup${i}`);
+                if (el && t[`skillGroup${i}`]) el.innerHTML = t[`skillGroup${i}`];
+            }
+
+            // Certificados
+            const certTitle = document.getElementById('certTitle');
+            if (certTitle) certTitle.innerHTML = t.certTitle;
+
+            const certBadge = document.getElementById('certCountBadge');
+            if (certBadge) {
+                const num = certBadge.innerText.split(' ')[0] || '9';
+                certBadge.innerText = `${num} ${t.certCountBadgeSuffix}`;
+            }
+
+            const filterAll = document.getElementById('filterBtnAll');
+            if (filterAll) filterAll.innerText = `${t.filterAll} (9)`;
+
+            const filterData = document.getElementById('filterBtnData');
+            if (filterData) filterData.innerText = t.filterData;
+
+            const filterBi = document.getElementById('filterBtnBi');
+            if (filterBi) filterBi.innerText = t.filterBi;
+
+            const filterAi = document.getElementById('filterBtnAi');
+            if (filterAi) filterAi.innerText = t.filterAi;
+
+            const filterProg = document.getElementById('filterBtnProg');
+            if (filterProg) filterProg.innerText = t.filterProg;
+
+            // Educación
+            const eduTitle = document.getElementById('eduTitle');
+            if (eduTitle) eduTitle.innerHTML = t.eduTitle;
+
+            const eduDeg1 = document.getElementById('eduDeg1');
+            if (eduDeg1) eduDeg1.innerText = t.eduDeg1;
+            const eduDate1 = document.getElementById('eduDate1');
+            if (eduDate1) eduDate1.innerText = t.eduDate1;
+
+            const eduDeg2 = document.getElementById('eduDeg2');
+            if (eduDeg2) eduDeg2.innerText = t.eduDeg2;
+            const eduDate2 = document.getElementById('eduDate2');
+            if (eduDate2) eduDate2.innerText = t.eduDate2;
+
+            const eduDeg3 = document.getElementById('eduDeg3');
+            if (eduDeg3) eduDeg3.innerText = t.eduDeg3;
+            const eduDate3 = document.getElementById('eduDate3');
+            if (eduDate3) eduDate3.innerText = t.eduDate3;
+
+            // Idiomas
+            const langTitle = document.getElementById('langTitle');
+            if (langTitle) langTitle.innerHTML = t.langTitle;
+
+            const langEsBadge = document.getElementById('langEsBadge');
+            if (langEsBadge) langEsBadge.innerText = t.langEsBadge;
+
+            const langEnName = document.getElementById('langEnName');
+            if (langEnName) langEnName.innerText = t.langEnName;
+
+            const langEnBadge = document.getElementById('langEnBadge');
+            if (langEnBadge) langEnBadge.innerText = t.langEnBadge;
+
+            // Referencias
+            const refTitle = document.getElementById('refTitle');
+            if (refTitle) refTitle.innerHTML = t.refTitle;
+
+            const refRole = document.getElementById('refRole');
+            if (refRole) refRole.innerText = t.refRole;
+
+            // Footer
+            const footerCopy = document.getElementById('footerCopy');
+            if (footerCopy) footerCopy.innerText = t.footerCopy;
+
+            const footerContact = document.getElementById('footerContactText');
+            if (footerContact) footerContact.innerText = t.footerContact;
+
+            // Quick Dock
+            const dockWa = document.getElementById('dockWaText');
+            if (dockWa) dockWa.innerText = t.dockWa;
+
+            const dockCall = document.getElementById('dockCallText');
+            if (dockCall) dockCall.innerText = t.dockCall;
+
+            const dockEmail = document.getElementById('dockEmailText');
+            if (dockEmail) dockEmail.innerText = t.dockEmail;
+
+            const dockView = document.getElementById('dockViewText');
+            if (dockView) {
+                const isMobilePage = window.location.pathname.includes('Mobile') || window.location.pathname.includes('mobile');
+                dockView.innerText = isMobilePage ? t.dockDesk : t.dockMobile;
+            }
+
+            // Load and render KPIs for this language
+            loadKpis(lang);
+        }
+
         // Inicializar al cargar el documento
         document.addEventListener('DOMContentLoaded', () => {
-            loadKpis();
             initTheme();
+            const savedLang = getCurrentLanguage();
+            setLanguage(savedLang);
             renderCertificates('all');
         });
     </script>
@@ -2926,15 +3473,15 @@
     <nav class="mobile-quick-dock" aria-label="Contacto Rápido">
         <a href="https://wa.me/5491170259429?text=Hola%20Rub%C3%A9n,%20vi%20tu%20CV%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" rel="noopener" class="dock-item dock-whatsapp" title="WhatsApp">
             <i class="fab fa-whatsapp"></i>
-            <span>WhatsApp</span>
+            <span id="dockWaText">WhatsApp</span>
         </a>
         <a href="tel:+5491170259429" class="dock-item" title="Llamar">
             <i class="fas fa-phone-alt"></i>
-            <span>Llamar</span>
+            <span id="dockCallText">Llamar</span>
         </a>
         <a href="mailto:rubendavid1809@gmail.com" class="dock-item" title="Email">
             <i class="fas fa-envelope"></i>
-            <span>Email</span>
+            <span id="dockEmailText">Email</span>
         </a>
         <a href="https://www.linkedin.com/in/ruben-barrios-1430712ab/" target="_blank" rel="noopener" class="dock-item" title="LinkedIn">
             <i class="fab fa-linkedin"></i>
@@ -2946,7 +3493,7 @@
         </a>
         <a href="CV_Ruben_Barrios_Mobile.html" class="dock-item dock-app" title="Versión Mobile">
             <i class="fas fa-mobile-screen-button"></i>
-            <span>Mobile</span>
+            <span id="dockViewText">Mobile</span>
         </a>
     </nav>
 </body>

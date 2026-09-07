@@ -1,0 +1,55 @@
+{
+  "profile": {
+    "name": "Rubén David Barrios Bello",
+    "title": "Data Analyst | Digital Analyst | Business Intelligence | Fraud Prevention | B.A. in Banking and Finance",
+    "location": "Parque Patricios, Buenos Aires - Argentina",
+    "phone": "+54 9 11 7025-9429",
+    "email": "rubendavid1809@gmail.com",
+    "linkedin": "https://linkedin.com/in/ruben-barrios",
+    "github": "https://github.com/rubenbarrios-bigdata",
+    "status": "Available",
+    "statusTitle": "Available for Data Analyst & BI roles"
+  },
+  "kpis": [
+    {
+      "id": "kpi-fraude",
+      "number": "+4 Years",
+      "label": "Analyzing E-Commerce Fraud Metrics",
+      "icon": "fas fa-chart-column",
+      "target": "exp-fraude",
+      "tooltip": "View Fraud Prevention experience",
+      "category": "Specialized Experience",
+      "impact": "Continuous transaction monitoring, early anomaly detection, and chargeback mitigation in high-volume operations."
+    },
+    {
+      "id": "kpi-ratio",
+      "number": "0.150 ➔ 0.030",
+      "label": "Fraud Ratio Reduction (-80%)",
+      "icon": "fas fa-chart-line",
+      "target": "logro-fraude",
+      "tooltip": "View high-impact achievement in fraud reduction",
+      "category": "Business Impact",
+      "impact": "Risk scoring and rule optimization drastically reducing direct financial losses and false positives."
+    },
+    {
+      "id": "kpi-bancaria",
+      "number": "+15 Years",
+      "label": "Banking Sector<br>International Operations",
+      "icon": "fas fa-university",
+      "target": "exp-bancaria",
+      "tooltip": "View banking sector experience",
+      "category": "Financial Career",
+      "impact": "Deep business and financial expertise, foreign trade, exchange regulations, reconciliations, and fund traceability."
+    },
+    {
+      "id": "kpi-proyectos",
+      "number": "9 Projects",
+      "label": "Data Analysis",
+      "icon": "fas fa-diagram-project",
+      "target": "proyectosSection",
+      "tooltip": "View Data Analysis projects",
+      "category": "Projects & Portfolio",
+      "impact": "Development of analytics solutions and interactive dashboards in Power BI, advanced Excel, SQL, Python, GTM, GA4, and Data Studio."
+    }
+  ]
+}
