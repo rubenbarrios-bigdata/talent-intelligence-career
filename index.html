@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2044,7 +2044,8 @@
             }
         }
     </style>
-    <!-- Redirección inteligente de dispositivo (Escritorio por defecto en PC, Móvil en celular) -->
+    
+    <!-- Redirección inteligente de dispositivo (Escritorio por defecto en PC, Móvil en celular en idioma ES) -->
     <script>
         (function() {
             try {
@@ -2059,10 +2060,12 @@
 
                 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent || '') || window.innerWidth <= 768;
                 if (isMobile) {
-                    const lang = params.get('lang') || 'es';
-                    const isLocal = window.location.pathname && window.location.pathname.toLowerCase().includes('cv_ruben_barrios');
+                    const lang = params.get('lang') === 'en' ? 'en' : 'es';
+                    const pathname = (window.location.pathname || '').toLowerCase();
+                    const isLocal = pathname.includes('cv_ruben_barrios') || pathname.endsWith('.html');
                     const target = isLocal ? 'CV_Ruben_Barrios_Mobile.html' : 'mobile.html';
-                    window.location.replace(target + '?lang=' + encodeURIComponent(lang));
+                    const targetUrl = target + (lang === 'en' ? '?lang=en' : '');
+                    window.location.replace(targetUrl);
                 }
             } catch(e) {}
         })();
@@ -2503,15 +2506,15 @@
                     </div>
                 </div>
 
-                <!-- Educación -->
+                                <!-- Educación -->
                 <div class="card">
                     <h2 class="section-title">
                         <span class="section-title-left" id="eduTitle"><i class="fas fa-graduation-cap"></i>Educación</span>
                     </h2>
-                                        <div class="edu-timeline">
+                    <div class="edu-timeline">
                         <div class="edu-card">
                             <div class="edu-degree" id="eduDeg1">Tecnicatura en Ciencia de Datos e Inteligencia Artificial</div>
-                            <div class="edu-school" id="eduSchool1">IFTS N° 11 (Instituto de Formación Técnica Superior)</div>
+                            <div class="edu-school" id="eduSchool1">IFTS Nº 11 (Instituto de Formación Técnica Superior)</div>
                             <div class="edu-meta">
                                 <span id="eduDate1">2026 - Presente</span>
                                 <span class="edu-status" id="eduStatus1">En Curso (1° Año)</span>
@@ -2542,35 +2545,6 @@
                             <div class="edu-meta">
                                 <span id="eduDate4">2002 - 2005</span>
                                 <span class="edu-status" id="eduStatus4">Graduado</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                        <div class="edu-card">
-                            <div class="edu-degree" id="eduDeg2">Programación con Python + IA</div>
-                            <div class="edu-school">Talento Tech</div>
-                            <div class="edu-meta">
-                                <span>2026</span>
-                                <span class="edu-status" id="eduStatus2">Finalizado</span>
-                            </div>
-                        </div>
-
-                        <div class="edu-card">
-                            <div class="edu-degree" id="eduDeg3">Lic. en Administración de Recursos Materiales y Financieros</div>
-                            <div class="edu-school">Universidad Nacional Experimental Simón Rodríguez</div>
-                            <div class="edu-meta">
-                                <span>2008 - 2012</span>
-                                <span>Graduado</span>
-                            </div>
-                        </div>
-
-                        <div class="edu-card">
-                            <div class="edu-degree" id="eduDeg4">T.S.U. en Administración de Recursos Físicos y Financieros</div>
-                            <div class="edu-school">Colegio Universitario Fermín Toro</div>
-                            <div class="edu-meta">
-                                <span>2002 - 2005</span>
-                                <span>Graduado</span>
                             </div>
                         </div>
                     </div>
@@ -3331,44 +3305,41 @@
             if (e.key === 'ArrowRight') navigateModal(1);
         });
 
-        // ==========================================
-        // CAMBIO DE TEMA (CLARO / OSCURO)
+                // ==========================================
+        // CAMBIO DE TEMA (CLARO / OSCURO) - OSCURO POR DEFECTO
         // ==========================================
         function initTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            updateThemeButton(savedTheme);
+            const savedTheme = localStorage.getItem('cv_theme_choice');
+            const theme = savedTheme === 'light' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeButton(theme);
         }
 
         function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+            localStorage.setItem('cv_theme_choice', newTheme);
             updateThemeButton(newTheme);
         }
 
         function updateThemeButton(theme) {
             const icon = document.getElementById('themeIcon');
             const text = document.getElementById('themeText');
-            const textMobile = document.getElementById('themeTextMobile');
-            const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
             const isDark = theme === 'dark';
+            const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
+            const lightText = lang === 'en' ? 'Light' : 'Claro';
+            const darkText = lang === 'en' ? 'Dark' : 'Oscuro';
             if (icon) {
                 icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
             }
             if (text) {
-                if (lang === 'en') {
-                    text.innerText = isDark ? 'Light Mode' : 'Dark Mode';
-                } else {
-                    text.innerText = isDark ? 'Modo Claro' : 'Modo Oscuro';
-                }
-            }
-            if (textMobile) {
-                if (lang === 'en') {
-                    textMobile.innerText = isDark ? 'Light' : 'Dark';
-                } else {
-                    textMobile.innerText = isDark ? 'Claro' : 'Oscuro';
+                text.innerText = isDark ? lightText : darkText;
+            } else {
+                const btn = document.getElementById('themeToggleBtn');
+                if (btn) {
+                    const span = btn.querySelector('span');
+                    if (span) span.innerText = isDark ? lightText : darkText;
                 }
             }
         }
@@ -3665,14 +3636,15 @@
             }, { passive: true });
         }
 
-        function getCurrentLanguage() {
+                function getCurrentLanguage() {
             try {
                 const urlParams = new URLSearchParams(window.location.search);
                 const langParam = urlParams.get('lang');
-                if (langParam === 'es' || langParam === 'en') {
-                    return langParam;
+                if (langParam === 'en') {
+                    return 'en';
                 }
             } catch (e) {}
+            // Por defecto en computadora y celular siempre abre en Español (ES)
             return 'es';
         }
 
@@ -3684,7 +3656,11 @@
             try {
                 if (window.history && window.history.replaceState) {
                     const newUrl = new URL(window.location.href);
-                    newUrl.searchParams.set('lang', lang);
+                    if (lang === 'en') {
+                        newUrl.searchParams.set('lang', 'en');
+                    } else {
+                        newUrl.searchParams.delete('lang');
+                    }
                     window.history.replaceState(null, '', newUrl.toString());
                 }
             } catch (e) {}
