@@ -1561,6 +1561,55 @@
             display: none;
         }
 
+                /* Botón Flotante para Subir a los KPIs */
+        .btn-scroll-kpi {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 990;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 15px;
+            background: var(--card-bg, #ffffff);
+            color: var(--accent, #0284c7);
+            border: 1.5px solid var(--accent, #0284c7);
+            border-radius: 50px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16), 0 0 10px rgba(56, 189, 248, 0.25);
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 700;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .btn-scroll-kpi.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .btn-scroll-kpi:hover,
+        .btn-scroll-kpi:active {
+            background: var(--accent, #0284c7);
+            color: #ffffff !important;
+            box-shadow: 0 6px 22px rgba(2, 132, 199, 0.45);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .btn-scroll-kpi {
+                bottom: 74px !important;
+                right: 16px !important;
+                padding: 7px 13px;
+                font-size: 0.78rem;
+            }
+        }
+
         /* ========================================================
            OPTIMIZACIÓN PARA IMPRESIÓN / GUARDAR COMO PDF (Ctrl + P)
            ======================================================== */
@@ -1572,6 +1621,7 @@
             }
             .action-bar,
             .mobile-quick-dock,
+            .btn-scroll-kpi,
             .cert-controls,
             .cert-chevron,
             .btn-cert-action,
@@ -2614,7 +2664,7 @@
                         </a>
                     </h2>
 
-                    <div class="project-grid">
+                    <div class="project-grid" id="projectGrid">
                         <!-- Mate-Mático (MVP Destacado) -->
                         <a href="https://github.com/rubenbarrios-bigdata/Analitica-Digital-Mate-matico" target="_blank" rel="noopener" class="project-item project-mvp-highlight" title="Ver repositorio en GitHub">
                             <div class="project-title-row">
@@ -2933,20 +2983,20 @@
                 </div>
                 <div class="modal-header-actions">
                     <a id="modalDirectFileBtn" href="#" target="_blank" class="btn-action" style="font-size: 0.78rem; padding: 6px 12px;">
-                        <i class="fas fa-external-link-alt"></i> <span>Abrir original</span>
+                        <i class="fas fa-external-link-alt"></i> <span id="modalDirectFileBtnText">Abrir original</span>
                     </a>
-                    <button class="modal-close-btn" onclick="closeCertModal()" title="Cerrar (Esc)">&times;</button>
+                    <button class="modal-close-btn" id="modalCloseBtn" onclick="closeCertModal()" title="Cerrar (Esc)">&times;</button>
                 </div>
             </div>
 
             <div class="modal-body">
-                <button class="modal-nav-btn prev" onclick="navigateModal(-1)" title="Anterior (←)">
+                <button class="modal-nav-btn prev" id="modalPrevBtn" onclick="navigateModal(-1)" title="Anterior (←)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 
                 <img id="modalCertImage" class="modal-image" src="" alt="Certificado en alta resolución">
                 
-                <button class="modal-nav-btn next" onclick="navigateModal(1)" title="Siguiente (→)">
+                <button class="modal-nav-btn next" id="modalNextBtn" onclick="navigateModal(1)" title="Siguiente (→)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -2957,8 +3007,8 @@
                     <a id="modalCredlyBtn" href="#" target="_blank" class="btn-action" style="display: none; background: #0284c7; color: white;">
                         <i class="fas fa-award"></i> <span>Verificar Credly</span>
                     </a>
-                    <button class="btn-action" onclick="closeCertModal()">
-                        Cerrar
+                    <button class="btn-action" id="modalFooterCloseBtn" onclick="closeCertModal()">
+                        <i class="fas fa-times"></i> <span id="modalFooterCloseBtnText">Cerrar</span>
                     </button>
                 </div>
             </div>
@@ -3009,128 +3059,554 @@
             container.setAttribute('data-loaded-from', 'data.json');
         }
 
-        // Catálogo de Certificados
+                // Datos Multilingües de Proyectos
+        const projectsData = [
+            {
+                name: {
+                    es: "Mate-Mático – Data Analytics (Innova Lab).",
+                    en: "Mate-Mático – Data Analytics (Innova Lab)"
+                },
+                url: "https://github.com/rubenbarrios-bigdata/Analitica-Digital-Mate-matico",
+                isMvp: true,
+                badge: {
+                    es: "Jul. 2026 – Ago. 2026 | Proyecto MVP",
+                    en: "Jul 2026 – Aug 2026 | MVP Project"
+                },
+                pillText: {
+                    es: "Repositorio",
+                    en: "Repository"
+                },
+                bullets: {
+                    es: [
+                        "Implementación de analítica digital con GTM, GA4, Firebase, Supabase, PostgreSQL.",
+                        "Diseño de dashboard en Looker Studio con KPIs de uso, retención y progreso.",
+                        "Definición y validación de eventos junto a Backend y QA.",
+                        "Integración del dashboard dentro de la aplicación mediante embebido."
+                    ],
+                    en: [
+                        "Comprehensive digital analytics implementation with GTM, GA4, Firebase, Supabase, and PostgreSQL.",
+                        "Interactive Looker Studio dashboard design tracking usage, retention, and learning progress KPIs.",
+                        "Custom event specification, instrumentation, and QA validation across technical teams.",
+                        "Direct in-app dashboard embedding and analytical reporting integration."
+                    ]
+                }
+            },
+            {
+                name: {
+                    es: "Dashboard Atención al Cliente",
+                    en: "Customer Service Analytics Dashboard"
+                },
+                icon: "fas fa-chart-bar",
+                url: "https://github.com/rubenbarrios-bigdata/dashboard-atencion-al-cliente",
+                badge: "Power BI + DAX",
+                desc: {
+                    es: "Power BI con DAX y métricas de servicio",
+                    en: "Power BI with DAX calculations and service performance metrics"
+                }
+            },
+            {
+                name: {
+                    es: "Dashboard Reporte de RRHH",
+                    en: "HR Analytics Dashboard"
+                },
+                icon: "fas fa-users",
+                url: "https://github.com/rubenbarrios-bigdata/dashboard-de-recursos-humanos",
+                badge: "Power BI",
+                desc: {
+                    es: "Power BI: análisis de headcount, rotación y performance",
+                    en: "Power BI: headcount analysis, turnover rates, and talent performance"
+                }
+            },
+            {
+                name: {
+                    es: "Dashboard de Ventas Excel",
+                    en: "Excel Sales Analytics Dashboard"
+                },
+                icon: "fas fa-file-excel",
+                url: "https://github.com/rubenbarrios-bigdata/dashboard_ventas_excel",
+                badge: {
+                    es: "Excel Avanzado",
+                    en: "Advanced Excel"
+                },
+                desc: {
+                    es: "Dashboard de ventas de supermercado en Excel: facturación, ticket promedio, clientes, regiones, envíos y segmentos",
+                    en: "Supermarket sales dashboard in Excel: revenue, average order value, customer segments, regions, shipping, and categories"
+                }
+            },
+            {
+                name: {
+                    es: "Dashboard Análisis de Indicadores Mundiales",
+                    en: "World Indicators Analytics Dashboard"
+                },
+                icon: "fas fa-globe-americas",
+                url: "https://github.com/rubenbarrios-bigdata/dashboard-indicadores-mundiales",
+                badge: "Power BI + DAX",
+                desc: {
+                    es: "Power BI + DAX + modelado de datos",
+                    en: "Power BI + DAX + dimensional data modeling for global development indicators"
+                }
+            },
+            {
+                name: {
+                    es: "Dashboard Análisis Financiero",
+                    en: "Financial Analytics Dashboard"
+                },
+                icon: "fas fa-chart-line",
+                url: "https://github.com/rubenbarrios-bigdata/dashboard-analisis-financiero",
+                badge: "Power BI + DAX",
+                desc: {
+                    es: "Power BI + DAX + modelado de datos (KPIs)",
+                    en: "Power BI + DAX + financial data modeling and executive balance KPIs"
+                }
+            },
+            {
+                name: {
+                    es: "Proyecto SQL Orders",
+                    en: "SQL Orders Analysis Project"
+                },
+                icon: "fas fa-database",
+                url: "https://github.com/rubenbarrios-bigdata/proyecto-sql-orders",
+                badge: "SQL",
+                desc: {
+                    es: "SQL sobre dataset real",
+                    en: "Advanced SQL queries, aggregations, and business logic on real transaction dataset"
+                }
+            },
+            {
+                name: {
+                    es: "Análisis Exploratorio de Datos (EDA)",
+                    en: "Exploratory Data Analysis (EDA) - Fraud Detection"
+                },
+                icon: "fab fa-python",
+                url: "https://github.com/rubenbarrios-bigdata/credit-card-fraud-detection-eda",
+                badge: "Python + Big Data",
+                desc: {
+                    es: "Python + pandas + Matplotlib + Big Data",
+                    en: "Python + pandas + Matplotlib + statistical anomaly analysis on Big Data transactions"
+                }
+            },
+            {
+                name: {
+                    es: "Sistema de Gestión de Inventario",
+                    en: "Inventory Management System"
+                },
+                icon: "fas fa-boxes",
+                url: "https://github.com/rubenbarrios-bigdata/sistema-gestion-inventario",
+                badge: "Python + SQLite",
+                desc: {
+                    es: "Inventario de productos mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar), utilizando una base de datos SQLite.",
+                    en: "Product inventory tracking system featuring CRUD operations (Create, Read, Update, Delete) with SQLite database."
+                }
+            }
+        ];
+
+        function renderProjects(lang = 'es') {
+            const grid = document.getElementById('projectGrid') || document.querySelector('#proyectosSection .project-grid');
+            if (!grid) return;
+            const isEn = lang === 'en';
+            grid.innerHTML = projectsData.map(p => {
+                const title = typeof p.name === 'object' ? (p.name[lang] || p.name.es) : p.name;
+                const repoTitle = isEn ? 'View repository on GitHub' : 'Ver repositorio en GitHub';
+                const iconHtml = p.icon ? `<i class="${p.icon}" style="color: var(--accent); margin-right: 6px;"></i> ` : '';
+                const badgeText = typeof p.badge === 'object' ? (p.badge[lang] || p.badge.es) : p.badge;
+                
+                if (p.isMvp) {
+                    const pill = typeof p.pillText === 'object' ? (p.pillText[lang] || p.pillText.es) : (p.pillText || 'Repositorio');
+                    const bullets = typeof p.bullets === 'object' && !Array.isArray(p.bullets) ? (p.bullets[lang] || p.bullets.es) : p.bullets;
+                    return `
+                        <a href="${p.url}" target="_blank" rel="noopener" class="project-item project-mvp-highlight" title="${repoTitle}">
+                            <div class="project-title-row">
+                                <span class="project-name">${title}</span>
+                                <div class="project-badges-group">
+                                    <span class="project-tech-badge">${badgeText}</span>
+                                    <span class="project-github-pill"><i class="fab fa-github"></i> ${pill} <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <ul class="project-bullets">
+                                ${bullets.map(b => `<li>${b}</li>`).join('')}
+                            </ul>
+                        </a>
+                    `;
+                }
+
+                const descText = typeof p.desc === 'object' ? (p.desc[lang] || p.desc.es) : p.desc;
+                return `
+                    <a href="${p.url}" target="_blank" rel="noopener" class="project-item" title="${repoTitle}">
+                        <div class="project-title-row">
+                            <span class="project-name">${iconHtml}${title}</span>
+                            <div class="project-badges-group">
+                                <span class="project-tech-badge">${badgeText}</span>
+                                <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                            </div>
+                        </div>
+                        <p class="project-desc">${descText}</p>
+                    </a>
+                `;
+            }).join('');
+        }
+
+                // Datos Multilingües de Proyectos
+        const projectsData = [
+            {
+                name: {
+                    es: "Mate-Mático – Data Analytics (Innova Lab).",
+                    en: "Mate-Mático – Data Analytics (Innova Lab)"
+                },
+                url: "https://github.com/rubenbarrios-bigdata/Analitica-Digital-Mate-matico",
+                isMvp: true,
+                badge: {
+                    es: "Jul. 2026 – Ago. 2026 | Proyecto MVP",
+                    en: "Jul 2026 – Aug 2026 | MVP Project"
+                },
+                pillText: {
+                    es: "Repositorio",
+                    en: "Repository"
+                },
+                bullets: {
+                    es: [
+                        "Implementación de analítica digital con GTM, GA4, Firebase, Supabase, PostgreSQL.",
+                        "Diseño de dashboard en Looker Studio con KPIs de uso, retención y progreso.",
+                        "Definición y validación de eventos junto a Backend y QA.",
+                        "Integración del dashboard dentro de la aplicación mediante embebido."
+                    ],
+                    en: [
+                        "Comprehensive digital analytics implementation with GTM, GA4, Firebase, Supabase, and PostgreSQL.",
+                        "Interactive Looker Studio dashboard design tracking usage, retention, and learning progress KPIs.",
+                        "Custom event specification, instrumentation, and QA validation across technical teams.",
+                        "Direct in-app dashboard embedding and analytical reporting integration."
+                    ]
+                }
+            },
+            {
+                name: {
+                    es: "Dashboard Atención al Cliente",
+                    en: "Customer Service Analytics Dashboard"
+                },
+                icon: "fas fa-chart-bar",
+                url: "https://github.com/rubenbarrios-bigdata/dashboard-atencion-al-cliente",
+                badge: "Power BI + DAX",
+                desc: {
+                    es: "Power BI con DAX y métricas de servicio",
+                    en: "Power BI with DAX calculations and service performance metrics"
+                }
+            },
+            {
+                name: {
+                    es: "Dashboard Reporte de RRHH",
+                    en: "HR Analytics Dashboard"
+                },
+                icon: "fas fa-users",
+                url: "https://github.com/rubenbarrios-bigdata/dashboard-de-recursos-humanos",
+                badge: "Power BI",
+                desc: {
+                    es: "Power BI: análisis de headcount, rotación y performance",
+                    en: "Power BI: headcount analysis, turnover rates, and talent performance"
+                }
+            },
+            {
+                name: {
+                    es: "Dashboard de Ventas Excel",
+                    en: "Excel Sales Analytics Dashboard"
+                },
+                icon: "fas fa-file-excel",
+                url: "https://github.com/rubenbarrios-bigdata/dashboard_ventas_excel",
+                badge: {
+                    es: "Excel Avanzado",
+                    en: "Advanced Excel"
+                },
+                desc: {
+                    es: "Dashboard de ventas de supermercado en Excel: facturación, ticket promedio, clientes, regiones, envíos y segmentos",
+                    en: "Supermarket sales dashboard in Excel: revenue, average order value, customer segments, regions, shipping, and categories"
+                }
+            },
+            {
+                name: {
+                    es: "Dashboard Análisis de Indicadores Mundiales",
+                    en: "World Indicators Analytics Dashboard"
+                },
+                icon: "fas fa-globe-americas",
+                url: "https://github.com/rubenbarrios-bigdata/dashboard-indicadores-mundiales",
+                badge: "Power BI + DAX",
+                desc: {
+                    es: "Power BI + DAX + modelado de datos",
+                    en: "Power BI + DAX + dimensional data modeling for global development indicators"
+                }
+            },
+            {
+                name: {
+                    es: "Dashboard Análisis Financiero",
+                    en: "Financial Analytics Dashboard"
+                },
+                icon: "fas fa-chart-line",
+                url: "https://github.com/rubenbarrios-bigdata/dashboard-analisis-financiero",
+                badge: "Power BI + DAX",
+                desc: {
+                    es: "Power BI + DAX + modelado de datos (KPIs)",
+                    en: "Power BI + DAX + financial data modeling and executive balance KPIs"
+                }
+            },
+            {
+                name: {
+                    es: "Proyecto SQL Orders",
+                    en: "SQL Orders Analysis Project"
+                },
+                icon: "fas fa-database",
+                url: "https://github.com/rubenbarrios-bigdata/proyecto-sql-orders",
+                badge: "SQL",
+                desc: {
+                    es: "SQL sobre dataset real",
+                    en: "Advanced SQL queries, aggregations, and business logic on real transaction dataset"
+                }
+            },
+            {
+                name: {
+                    es: "Análisis Exploratorio de Datos (EDA)",
+                    en: "Exploratory Data Analysis (EDA) - Fraud Detection"
+                },
+                icon: "fab fa-python",
+                url: "https://github.com/rubenbarrios-bigdata/credit-card-fraud-detection-eda",
+                badge: "Python + Big Data",
+                desc: {
+                    es: "Python + pandas + Matplotlib + Big Data",
+                    en: "Python + pandas + Matplotlib + statistical anomaly analysis on Big Data transactions"
+                }
+            },
+            {
+                name: {
+                    es: "Sistema de Gestión de Inventario",
+                    en: "Inventory Management System"
+                },
+                icon: "fas fa-boxes",
+                url: "https://github.com/rubenbarrios-bigdata/sistema-gestion-inventario",
+                badge: "Python + SQLite",
+                desc: {
+                    es: "Inventario de productos mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar), utilizando una base de datos SQLite.",
+                    en: "Product inventory tracking system featuring CRUD operations (Create, Read, Update, Delete) with SQLite database."
+                }
+            }
+        ];
+
+        function renderProjects(lang = 'es') {
+            const grid = document.getElementById('projectGrid') || document.querySelector('#proyectosSection .project-grid');
+            if (!grid) return;
+            const isEn = lang === 'en';
+            grid.innerHTML = projectsData.map(p => {
+                const title = typeof p.name === 'object' ? (p.name[lang] || p.name.es) : p.name;
+                const repoTitle = isEn ? 'View repository on GitHub' : 'Ver repositorio en GitHub';
+                const iconHtml = p.icon ? `<i class="${p.icon}" style="color: var(--accent); margin-right: 6px;"></i> ` : '';
+                const badgeText = typeof p.badge === 'object' ? (p.badge[lang] || p.badge.es) : p.badge;
+                
+                if (p.isMvp) {
+                    const pill = typeof p.pillText === 'object' ? (p.pillText[lang] || p.pillText.es) : (p.pillText || 'Repositorio');
+                    const bullets = typeof p.bullets === 'object' && !Array.isArray(p.bullets) ? (p.bullets[lang] || p.bullets.es) : p.bullets;
+                    return `
+                        <a href="${p.url}" target="_blank" rel="noopener" class="project-item project-mvp-highlight" title="${repoTitle}">
+                            <div class="project-title-row">
+                                <span class="project-name">${title}</span>
+                                <div class="project-badges-group">
+                                    <span class="project-tech-badge">${badgeText}</span>
+                                    <span class="project-github-pill"><i class="fab fa-github"></i> ${pill} <i class="fas fa-external-link-alt"></i></span>
+                                </div>
+                            </div>
+                            <ul class="project-bullets">
+                                ${bullets.map(b => `<li>${b}</li>`).join('')}
+                            </ul>
+                        </a>
+                    `;
+                }
+
+                const descText = typeof p.desc === 'object' ? (p.desc[lang] || p.desc.es) : p.desc;
+                return `
+                    <a href="${p.url}" target="_blank" rel="noopener" class="project-item" title="${repoTitle}">
+                        <div class="project-title-row">
+                            <span class="project-name">${iconHtml}${title}</span>
+                            <div class="project-badges-group">
+                                <span class="project-tech-badge">${badgeText}</span>
+                                <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                            </div>
+                        </div>
+                        <p class="project-desc">${descText}</p>
+                    </a>
+                `;
+            }).join('');
+        }
+
+        // Catálogo de Certificados Multilingüe
         const certificates = [
             {
                 id: "cert-analytics-way",
-                title: "Analítica Digital",
+                title: { es: "Analítica Digital", en: "Digital Analytics" },
                 issuer: "Analytics Way",
-                date: "31 Ago 2026",
+                date: { es: "31 Ago 2026", en: "Aug 31, 2026" },
                 category: "data",
                 icon: "fa-compass",
                 image: "certs_images/Certificado Analytics Way Ruben David Barrios Bello (1).png",
                 file: "certs_images/Certificado Analytics Way Ruben David Barrios Bello (1).png",
-                skills: ["Digital Analytics", "Estrategia de Datos", "KPIs de Negocio"],
-                description: "Certificación profesional en enfoque estratégico de datos, gobernanza y metodologías analíticas para resolución de problemas de negocio.",
+                skills: {
+                    es: ["Digital Analytics", "Estrategia de Datos", "KPIs de Negocio"],
+                    en: ["Digital Analytics", "Data Strategy", "Business KPIs"]
+                },
+                description: {
+                    es: "Certificación profesional en enfoque estratégico de datos, gobernanza y metodologías analíticas para resolución de problemas de negocio.",
+                    en: "Professional certification in strategic data focus, data governance, and analytical frameworks for business problem solving."
+                },
                 verifyUrl: null
             },
             {
                 id: "cert-python",
-                title: "Iniciación a la Programación con Python",
+                title: { es: "Iniciación a la Programación con Python", en: "Introduction to Programming with Python" },
                 issuer: "Talento Tech",
-                date: "04 Ago 2026",
+                date: { es: "04 Ago 2026", en: "Aug 04, 2026" },
                 category: "code",
                 icon: "fa-code",
                 image: "certs_images/Certificado_Iniciacion_Programacion_Python (1).png",
                 file: "Certificado_Iniciacion_Programacion_Python (1).pdf",
-                skills: ["Python", "Algoritmos", "Estructuras de Control", "Data Cleaning"],
-                description: "Certificación oficial en fundamentos de programación, desarrollo de algoritmos y procesamiento de datos mediante Python.",
+                skills: {
+                    es: ["Python", "Algoritmos", "Estructuras de Control", "Data Cleaning"],
+                    en: ["Python", "Algorithms", "Control Flow", "Data Cleaning"]
+                },
+                description: {
+                    es: "Certificación oficial en fundamentos de programación, desarrollo de algoritmos y procesamiento de datos mediante Python.",
+                    en: "Official certification in programming fundamentals, algorithm development, and data manipulation using Python."
+                },
                 verifyUrl: "https://openbadgefactory.com/obv3/credentials/259eee6dd489fd820853500df752d511535d2f31",
-                verifyText: "Verificar Credencial"
+                verifyText: { es: "Verificar Credencial", en: "Verify Credential" }
             },
             {
                 id: "cert-remotos-academy",
-                title: "Participante VIP – Entrenamiento Intensivo de Trabajo Remoto",
+                title: { es: "Participante VIP – Entrenamiento Intensivo de Trabajo Remoto", en: "VIP Participant – Remote Work Intensive Bootcamp" },
                 issuer: "Remotos Academy",
-                date: "Feb 2026",
+                date: { es: "Feb 2026", en: "Feb 2026" },
                 category: "remote",
                 icon: "fa-laptop-house",
                 image: "certs_images/Certificado_Remotos_Academy_Participante_VIP.png",
                 file: "https://profiles.badgeclaimed.com/user-141662/badges/urn:uuid:1610898b-df27-4b69-853a-84ed1ccc04a3.html",
-                skills: ["Trabajo Remoto", "Herramientas Digitales", "Empleabilidad Global", "Productividad"],
-                description: "Insignia y credencial oficial verificada expedida por Remotos Academy. Certifica la participación activa y finalización del Entrenamiento Intensivo de Trabajo Remoto (3 días), reconociendo fundamentos de empleabilidad remota, herramientas digitales esenciales y mentalidad profesional.",
+                skills: {
+                    es: ["Trabajo Remoto", "Herramientas Digitales", "Empleabilidad Global", "Productividad"],
+                    en: ["Remote Work", "Digital Tools", "Global Employability", "Productivity"]
+                },
+                description: {
+                    es: "Insignia y credencial oficial verificada expedida por Remotos Academy. Certifica la participación activa y finalización del Entrenamiento Intensivo de Trabajo Remoto (3 días), reconociendo fundamentos de empleabilidad remota, herramientas digitales esenciales y mentalidad profesional.",
+                    en: "Official verified badge and credential issued by Remotos Academy. Certifies active participation and completion of the Remote Work Intensive Bootcamp (3 days), recognizing remote employability fundamentals, digital collaboration tools, and professional mindset."
+                },
                 verifyUrl: "https://profiles.badgeclaimed.com/user-141662/badges/urn:uuid:1610898b-df27-4b69-853a-84ed1ccc04a3.html",
-                verifyText: "Verificar Credencial"
+                verifyText: { es: "Verificar Credencial", en: "Verify Credential" }
             },
             {
                 id: "cert-data-analyst",
-                title: "Análisis de Datos: Excel, Power BI, SQL, Python",
+                title: { es: "Análisis de Datos: Excel, Power BI, SQL, Python", en: "Data Analytics: Excel, Power BI, SQL, Python" },
                 issuer: "IPS DATAX",
-                date: "04 Feb 2026 • 50 Horas",
+                date: { es: "04 Feb 2026 • 50 Horas", en: "Feb 04, 2026 • 50 Hours" },
                 category: "data",
                 icon: "fa-chart-pie",
                 image: "certs_images/Certificado Analisis de Datos IPS DATAX (1).png",
                 file: "Certificado Analisis de Datos IPS DATAX (1).pdf",
-                skills: ["Power BI", "SQL", "Python", "Excel Avanzado", "ETL"],
-                description: "Especialización técnica en extracción, transformación y modelado de datos empresariales, consultas SQL y creación de paneles en Power BI.",
+                skills: {
+                    es: ["Power BI", "SQL", "Python", "Excel Avanzado", "ETL"],
+                    en: ["Power BI", "SQL", "Python", "Advanced Excel", "ETL"]
+                },
+                description: {
+                    es: "Especialización técnica en extracción, transformación y modelado de datos empresariales, consultas SQL y creación de paneles en Power BI.",
+                    en: "Technical specialization in business data extraction, transformation, data modeling, SQL queries, and executive Power BI dashboards."
+                },
                 verifyUrl: null
             },
             {
                 id: "cert-ia-trabajo",
-                title: "Inteligencia Artificial Aplicada al Trabajo",
+                title: { es: "Inteligencia Artificial Aplicada al Trabajo", en: "Artificial Intelligence Applied to Work" },
                 issuer: "IPS DATAX",
-                date: "Ene 2026 • 20 Horas",
+                date: { es: "Ene 2026 • 20 Horas", en: "Jan 2026 • 20 Hours" },
                 category: "ia",
                 icon: "fa-brain",
                 image: "certs_images/Inteligencia Artificial Aplicada al Trabajo.png",
                 file: "Inteligencia Artificial Aplicada al Trabajo.pdf",
-                skills: ["ChatGPT", "Microsoft Copilot", "Google Gemini", "Make (Integromat)"],
-                description: "Programa práctico de 20 horas enfocado en la implementación de asistentes IA y flujos automatizados con Make para optimizar la productividad.",
+                skills: {
+                    es: ["ChatGPT", "Microsoft Copilot", "Google Gemini", "Make (Integromat)"],
+                    en: ["ChatGPT", "Microsoft Copilot", "Google Gemini", "Make (Integromat)"]
+                },
+                description: {
+                    es: "Programa práctico de 20 horas enfocado en la implementación de asistentes IA y flujos automatizados con Make para optimizar la productividad.",
+                    en: "20-hour hands-on program focused on AI assistant deployment and automated workflows with Make to maximize operational productivity."
+                },
                 verifyUrl: null
             },
             {
                 id: "cert-ibm-ai",
-                title: "Artificial Intelligence Fundamentals",
+                title: { es: "Artificial Intelligence Fundamentals", en: "Artificial Intelligence Fundamentals" },
                 issuer: "IBM SkillsBuild",
-                date: "25 Nov 2025",
+                date: { es: "25 Nov 2025", en: "Nov 25, 2025" },
                 category: "ia",
                 icon: "fa-robot",
                 image: "certs_images/IBM-Artificial Intelligence Fundamentals (1).png",
                 file: "IBM-Artificial Intelligence Fundamentals (1).pdf",
-                skills: ["Inteligencia Artificial", "Machine Learning", "Ética en IA", "Deep Learning"],
-                description: "Insignia oficial expedida por IBM SkillsBuild que certifica conocimientos fundamentales de IA, algoritmos y aplicaciones prácticas en la industria.",
+                skills: {
+                    es: ["Inteligencia Artificial", "Machine Learning", "Ética en IA", "Deep Learning"],
+                    en: ["Artificial Intelligence", "Machine Learning", "AI Ethics", "Deep Learning"]
+                },
+                description: {
+                    es: "Insignia oficial expedida por IBM SkillsBuild que certifica conocimientos fundamentales de IA, algoritmos y aplicaciones prácticas en la industria.",
+                    en: "Official badge issued by IBM SkillsBuild certifying foundational AI concepts, algorithms, and practical industry applications."
+                },
                 verifyUrl: "https://www.credly.com/badges/c82f7eab-ce9d-4a2b-b3ec-96d8f580afcb",
-                verifyText: "Verificar en Credly"
+                verifyText: { es: "Verificar en Credly", en: "Verify on Credly" }
             },
             {
                 id: "cert-ia-leaders",
-                title: "IA Leaders",
+                title: { es: "IA Leaders", en: "AI Leaders" },
                 issuer: "IA Leaders",
-                date: "23 Sep 2025",
+                date: { es: "23 Sep 2025", en: "Sep 23, 2025" },
                 category: "ia",
                 icon: "fa-users-cog",
                 image: "certs_images/Certificado IA Leaders (2).png",
                 file: "Certificado IA Leaders (2).pdf",
-                skills: ["Liderazgo en IA", "Estrategias GenAI", "Adopción Tecnológica"],
-                description: "Certificación en liderazgo de transformación digital, integración de herramientas de inteligencia artificial y toma de decisiones tecnológicas.",
+                skills: {
+                    es: ["Liderazgo en IA", "Estrategias GenAI", "Adopción Tecnológica"],
+                    en: ["AI Leadership", "GenAI Strategies", "Technology Adoption"]
+                },
+                description: {
+                    es: "Certificación en liderazgo de transformación digital, integración de herramientas de inteligencia artificial y toma de decisiones tecnológicas.",
+                    en: "Certification in digital transformation leadership, generative AI tool integration, and strategic technology decision-making."
+                },
                 verifyUrl: null
             },
             {
                 id: "cert-powerbi-daxus",
-                title: "Acelerador de Carrera con Power BI + IA",
+                title: { es: "Acelerador de Carrera con Power BI + IA", en: "Career Accelerator with Power BI + AI" },
                 issuer: "Daxus Latam",
-                date: "30 Ago 2025 • 8 Horas",
+                date: { es: "30 Ago 2025 • 8 Horas", en: "Aug 30, 2025 • 8 Hours" },
                 category: "data",
                 icon: "fa-bolt",
                 image: "certs_images/Certificado Power BI+IA Daxus Latam (1).png",
                 file: "Certificado Power BI+IA Daxus Latam (1).pdf",
-                skills: ["Power BI", "DAX Avanzado", "Copilot BI", "Data Analytics"],
-                description: "Entrenamiento intensivo en diseño de reportes ejecutivos con Power BI, fórmulas DAX de alto rendimiento e uso de IA generativa aplicada al análisis de datos.",
+                skills: {
+                    es: ["Power BI", "DAX Avanzado", "Copilot BI", "Data Analytics"],
+                    en: ["Power BI", "Advanced DAX", "Copilot BI", "Data Analytics"]
+                },
+                description: {
+                    es: "Entrenamiento intensivo en diseño de reportes ejecutivos con Power BI, fórmulas DAX de alto rendimiento e uso de IA generativa aplicada al análisis de datos.",
+                    en: "Intensive bootcamp on executive Power BI reports, high-performance DAX formulas, and generative AI applied to data analytics."
+                },
                 verifyUrl: null
             },
             {
                 id: "cert-powerbi-wavebi",
-                title: "Power BI Business Intelligence & Big Data",
+                title: { es: "Power BI Business Intelligence & Big Data", en: "Power BI Business Intelligence & Big Data" },
                 issuer: "WaveBI",
-                date: "01 Ago 2023",
+                date: { es: "01 Ago 2023", en: "Aug 01, 2023" },
                 category: "data",
                 icon: "fa-chart-line",
                 image: "certs_images/Certificado Power BI-WaveBI.png",
                 file: "Certificado Power BI-WaveBI.pdf",
-                skills: ["Business Intelligence", "DAX", "Modelado de Datos", "Storytelling"],
-                description: "Certificado de aprobación en Business Intelligence, modelado dimensional (esquema estrella) y cuadros de mando en Power BI.",
+                skills: {
+                    es: ["Business Intelligence", "DAX", "Modelado de Datos", "Storytelling"],
+                    en: ["Business Intelligence", "DAX", "Data Modeling", "Storytelling"]
+                },
+                description: {
+                    es: "Certificado de aprobación en Business Intelligence, modelado dimensional (esquema estrella) y cuadros de mando en Power BI.",
+                    en: "Certificate of completion in Business Intelligence, dimensional modeling (star schema), and executive Power BI dashboards."
+                },
                 verifyUrl: "http://www.wavebi.com.ar",
-                verifyText: "Visitar WaveBI"
+                verifyText: { es: "Visitar WaveBI", en: "Visit WaveBI" }
             }
         ];
 
@@ -3141,6 +3617,7 @@
         // Renderizar acordeón de certificados
         function renderCertificates(filter = 'all') {
             const container = document.getElementById('certAccordion');
+            if (!container) return;
             container.innerHTML = '';
 
             const filtered = filter === 'all' 
@@ -3149,10 +3626,17 @@
 
             const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
             const countSuffix = lang === 'en' ? 'Available' : 'Disponibles';
-            document.getElementById('certCountBadge').innerText = `${filtered.length} ${countSuffix}`;
+            const countBadge = document.getElementById('certCountBadge');
+            if (countBadge) countBadge.innerText = `${filtered.length} ${countSuffix}`;
 
             filtered.forEach((cert) => {
                 const globalIndex = certificates.findIndex(c => c.id === cert.id);
+                const title = typeof cert.title === 'object' ? (cert.title[lang] || cert.title.es) : cert.title;
+                const issuer = typeof cert.issuer === 'object' ? (cert.issuer[lang] || cert.issuer.es) : cert.issuer;
+                const date = typeof cert.date === 'object' ? (cert.date[lang] || cert.date.es) : cert.date;
+                const description = typeof cert.description === 'object' ? (cert.description[lang] || cert.description.es) : cert.description;
+                const skills = typeof cert.skills === 'object' && !Array.isArray(cert.skills) ? (cert.skills[lang] || cert.skills.es) : cert.skills;
+                const verifyText = typeof cert.verifyText === 'object' ? (cert.verifyText[lang] || cert.verifyText.es) : (cert.verifyText || (lang === 'en' ? 'Verify Credential' : 'Verificar Credencial'));
                 
                 const item = document.createElement('div');
                 item.className = 'cert-item';
@@ -3160,17 +3644,17 @@
                 item.setAttribute('data-category', cert.category);
 
                 item.innerHTML = `
-                    <button class="cert-header-btn" onclick="toggleCert('${cert.id}')" aria-expanded="false" title="Haz clic para desplegar u ocultar detalles">
+                    <button class="cert-header-btn" onclick="toggleCert('${cert.id}')" aria-expanded="false" title="${lang === 'en' ? 'Click to expand or collapse details' : 'Haz clic para desplegar u ocultar detalles'}">
                         <div class="cert-title-block">
                             <div class="cert-icon-badge">
                                 <i class="fas ${cert.icon}"></i>
                             </div>
                             <div>
-                                <div class="cert-name">${cert.title}</div>
+                                <div class="cert-name">${title}</div>
                                 <div class="cert-subline">
-                                    <span class="cert-issuer-pill">${cert.issuer}</span>
+                                    <span class="cert-issuer-pill">${issuer}</span>
                                     <span>•</span>
-                                    <span>${cert.date}</span>
+                                    <span>${date}</span>
                                 </div>
                             </div>
                         </div>
@@ -3180,18 +3664,18 @@
                     </button>
 
                     <div class="cert-content" id="content-${cert.id}">
-                        <div class="cert-preview-container" onclick="openCertModal(${globalIndex})" title="Clic para ampliar en pantalla completa">
-                            <img src="${cert.image}" alt="${cert.title}" class="cert-preview-img" loading="lazy">
+                        <div class="cert-preview-container" onclick="openCertModal(${globalIndex})" title="${lang === 'en' ? 'Click to expand fullscreen' : 'Clic para ampliar en pantalla completa'}">
+                            <img src="${cert.image}" alt="${title}" class="cert-preview-img" loading="lazy">
                             <div class="cert-preview-overlay">
-                                <span><i class="fas fa-search-plus"></i> Clic para ampliar en pantalla completa</span>
+                                <span><i class="fas fa-search-plus"></i> ${lang === 'en' ? 'Click to expand fullscreen' : 'Clic para ampliar en pantalla completa'}</span>
                                 <span><i class="fas fa-expand"></i></span>
                             </div>
                         </div>
 
-                        <p class="cert-desc-text">${cert.description}</p>
+                        <p class="cert-desc-text">${description}</p>
 
                         <div class="cert-tags-row">
-                            ${cert.skills.map(s => `<span class="cert-tag"><i class="fas fa-check-circle" style="color:var(--accent); font-size:0.68rem;"></i> ${s}</span>`).join('')}
+                            ${skills.map(s => `<span class="cert-tag"><i class="fas fa-check-circle" style="color:var(--accent); font-size:0.68rem;"></i> ${s}</span>`).join('')}
                         </div>
 
                         <div class="cert-actions">
@@ -3203,7 +3687,7 @@
                             </a>
                             ${cert.verifyUrl ? `
                                 <a href="${cert.verifyUrl}" target="_blank" rel="noopener" class="btn-cert-action btn-cert-verify">
-                                    <i class="fas fa-award"></i> ${lang === 'en' ? (cert.verifyText === 'Visitar WaveBI' ? 'Visit WaveBI' : (cert.verifyText ? 'Verify Credential' : 'Credly Credential')) : (cert.verifyText || 'Credencial Credly')}
+                                    <i class="fas fa-award"></i> ${verifyText}
                                 </a>
                             ` : ''}
                         </div>
@@ -3250,12 +3734,16 @@
                 }
             });
 
+            const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
+            const collapseText = lang === 'en' ? 'Collapse all' : 'Colapsar todos';
+            const expandText = lang === 'en' ? 'Expand all' : 'Desplegar todos';
+
             if (allExpanded) {
-                label.innerText = 'Colapsar todos';
-                btn.innerHTML = '<i class="fas fa-angles-up"></i> <span id="toggleAllText">Colapsar todos</span>';
+                if (label) label.innerText = collapseText;
+                if (btn) btn.innerHTML = `<i class="fas fa-angles-up"></i> <span id="toggleAllText">${collapseText}</span>`;
             } else {
-                label.innerText = 'Desplegar todos';
-                btn.innerHTML = '<i class="fas fa-angles-down"></i> <span id="toggleAllText">Desplegar todos</span>';
+                if (label) label.innerText = expandText;
+                if (btn) btn.innerHTML = `<i class="fas fa-angles-down"></i> <span id="toggleAllText">${expandText}</span>`;
             }
         }
 
@@ -3267,7 +3755,9 @@
 
             renderCertificates(cat);
             allExpanded = false;
-            document.getElementById('toggleAllText').innerText = 'Desplegar todos';
+            const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
+            const toggleAllEl = document.getElementById('toggleAllText');
+            if (toggleAllEl) toggleAllEl.innerText = lang === 'en' ? 'Expand all' : 'Desplegar todos';
         }
 
         // ==========================================
@@ -3277,13 +3767,13 @@
             currentModalIndex = index;
             updateModalContent();
             const modal = document.getElementById('certModal');
-            modal.classList.add('active');
+            if (modal) modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         function closeCertModal() {
             const modal = document.getElementById('certModal');
-            modal.classList.remove('active');
+            if (modal) modal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
@@ -3291,22 +3781,60 @@
             const cert = certificates[currentModalIndex];
             if (!cert) return;
 
-            document.getElementById('modalCertTitle').innerText = cert.title;
-            document.getElementById('modalCertIssuer').innerText = `${cert.issuer} • ${cert.date}`;
-            document.getElementById('modalCertImage').src = cert.image;
-            document.getElementById('modalCertImage').alt = cert.title;
-            document.getElementById('modalCounter').innerText = `Certificado ${currentModalIndex + 1} de ${certificates.length}`;
+            const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
+            const title = typeof cert.title === 'object' ? (cert.title[lang] || cert.title.es) : cert.title;
+            const issuer = typeof cert.issuer === 'object' ? (cert.issuer[lang] || cert.issuer.es) : cert.issuer;
+            const date = typeof cert.date === 'object' ? (cert.date[lang] || cert.date.es) : cert.date;
+            const verifyText = typeof cert.verifyText === 'object' ? (cert.verifyText[lang] || cert.verifyText.es) : (cert.verifyText || (lang === 'en' ? 'Verify Credential' : 'Verificar Credly'));
+
+            const titleEl = document.getElementById('modalCertTitle');
+            if (titleEl) titleEl.innerText = title;
+
+            const issuerEl = document.getElementById('modalCertIssuer');
+            if (issuerEl) issuerEl.innerText = `${issuer} • ${date}`;
+
+            const imgEl = document.getElementById('modalCertImage');
+            if (imgEl) {
+                imgEl.src = cert.image;
+                imgEl.alt = title;
+            }
+            
+            const counterEl = document.getElementById('modalCounter');
+            if (counterEl) {
+                counterEl.innerText = lang === 'en'
+                    ? `Certificate ${currentModalIndex + 1} of ${certificates.length}`
+                    : `Certificado ${currentModalIndex + 1} de ${certificates.length}`;
+            }
 
             const directBtn = document.getElementById('modalDirectFileBtn');
-            directBtn.href = cert.file;
+            if (directBtn) {
+                directBtn.href = cert.file;
+                const directText = document.getElementById('modalDirectFileBtnText') || directBtn.querySelector('span');
+                if (directText) directText.innerText = lang === 'en' ? 'Open original' : 'Abrir original';
+            }
+
+            const closeBtn = document.getElementById('modalCloseBtn');
+            if (closeBtn) closeBtn.setAttribute('title', lang === 'en' ? 'Close (Esc)' : 'Cerrar (Esc)');
+
+            const prevBtn = document.getElementById('modalPrevBtn');
+            if (prevBtn) prevBtn.setAttribute('title', lang === 'en' ? 'Previous (←)' : 'Anterior (←)');
+
+            const nextBtn = document.getElementById('modalNextBtn');
+            if (nextBtn) nextBtn.setAttribute('title', lang === 'en' ? 'Next (→)' : 'Siguiente (→)');
+
+            const footerCloseText = document.getElementById('modalFooterCloseBtnText');
+            if (footerCloseText) footerCloseText.innerText = lang === 'en' ? 'Close' : 'Cerrar';
 
             const credlyBtn = document.getElementById('modalCredlyBtn');
-            if (cert.verifyUrl) {
-                credlyBtn.href = cert.verifyUrl;
-                credlyBtn.style.display = 'inline-flex';
-                credlyBtn.querySelector('span').innerText = cert.verifyText || 'Verificar Credly';
-            } else {
-                credlyBtn.style.display = 'none';
+            if (credlyBtn) {
+                if (cert.verifyUrl) {
+                    credlyBtn.href = cert.verifyUrl;
+                    credlyBtn.style.display = 'inline-flex';
+                    const credlyText = credlyBtn.querySelector('span');
+                    if (credlyText) credlyText.innerText = verifyText;
+                } else {
+                    credlyBtn.style.display = 'none';
+                }
             }
         }
 
@@ -3489,7 +4017,9 @@
                 dockMobileTitle: 'Versión Móvil',
                 dockCallTitle: 'Llamar a Rubén Barrios',
                 dockDesk: 'Escritorio',
-                dockDeskTitle: 'Volver a la Versión Completa de Escritorio'
+                dockDeskTitle: 'Volver a la Versión Completa de Escritorio',
+                scrollKpiTitle: 'Subir a Métricas Clave (KPIs)',
+                scrollKpiText: 'KPIs'
             },
             en: {
                 htmlLang: 'en',
@@ -3595,7 +4125,9 @@
                 dockMobileTitle: 'Mobile Version',
                 dockCallTitle: 'Call Rubén Barrios',
                 dockDesk: 'Desktop',
-                dockDeskTitle: 'Return to Full Desktop Version'
+                dockDeskTitle: 'Return to Full Desktop Version',
+                scrollKpiTitle: 'Back to Key Metrics (KPIs)',
+                scrollKpiText: 'KPIs'
             }
         };
 
@@ -3619,6 +4151,30 @@
             const isLocalCV = window.location.pathname && window.location.pathname.toLowerCase().includes('cv_ruben_barrios');
             const target = isLocalCV ? 'CV_Ruben_Barrios.html' : 'index.html';
             window.location.href = target + '?lang=' + encodeURIComponent(lang);
+        }
+
+                // Control del Botón Flotante Subir a KPIs
+        function scrollToKpis() {
+            const kpiBanner = document.getElementById('statsBanner');
+            if (kpiBanner) {
+                kpiBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function initScrollKpiButton() {
+            const btn = document.getElementById('btnScrollKpi');
+            if (!btn) return;
+            window.addEventListener('scroll', () => {
+                const kpiBanner = document.getElementById('statsBanner');
+                const trigger = kpiBanner ? (kpiBanner.offsetTop + kpiBanner.offsetHeight) : 350;
+                if (window.scrollY > trigger + 40) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            }, { passive: true });
         }
 
         function getCurrentLanguage() {
@@ -3889,14 +4445,28 @@
 
             // Load and render KPIs for this language
             loadKpis(lang);
+            renderProjects(lang);
             if (typeof renderCertificates === 'function') renderCertificates(currentCategory || 'all');
+
+            // Floating scroll to KPI button text
+            const scrollKpiBtn = document.getElementById('btnScrollKpi');
+            if (scrollKpiBtn && t.scrollKpiTitle) scrollKpiBtn.setAttribute('title', t.scrollKpiTitle);
+            const scrollKpiText = document.getElementById('scrollKpiText');
+            if (scrollKpiText && t.scrollKpiText) scrollKpiText.innerText = t.scrollKpiText;
+
+            const toggleAllText = document.getElementById('toggleAllText');
+            if (toggleAllText) {
+                toggleAllText.innerText = allExpanded ? (lang === 'en' ? 'Collapse all' : 'Colapsar todos') : (lang === 'en' ? 'Expand all' : 'Desplegar todos');
+            }
         }
 
         // Inicializar al cargar el documento
         document.addEventListener('DOMContentLoaded', () => {
             initTheme();
+            initScrollKpiButton();
             const savedLang = getCurrentLanguage();
             setLanguage(savedLang);
+            renderProjects(savedLang);
             renderCertificates('all');
         });
     </script>
@@ -3928,5 +4498,10 @@
             <span id="dockViewText">Escritorio</span>
         </a>
     </nav>
+    <!-- Botón Flotante para Subir a los KPIs -->
+    <button type="button" class="btn-scroll-kpi" id="btnScrollKpi" onclick="scrollToKpis()" aria-label="Subir a los KPIs" title="Subir a Métricas Clave (KPIs)">
+        <i class="fas fa-chevron-up"></i>
+        <span id="scrollKpiText">KPIs</span>
+    </button>
 </body>
 </html>
