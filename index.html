@@ -82,6 +82,7 @@
             line-height: 1.6;
             transition: background-color 0.3s ease, color 0.3s ease;
             -webkit-font-smoothing: antialiased;
+            padding-top: 56px;
             padding-bottom: calc(75px + env(safe-area-inset-bottom, 0px));
         }
 
@@ -142,22 +143,29 @@
         }
 
         .action-bar {
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.85);
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.88);
             border-bottom: 1px solid var(--border);
-            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            padding: 10px 24px;
             display: flex;
             justify-content: flex-end;
+            align-items: center;
             gap: 12px;
+            box-sizing: border-box;
             transition: var(--transition);
         }
 
         [data-theme="dark"] .action-bar {
-            background: rgba(19, 27, 38, 0.85);
+            background: rgba(11, 15, 23, 0.9);
+            box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
         }
 
         .btn-action {
@@ -483,6 +491,7 @@
         }
 
         .card {
+            scroll-margin-top: 60px !important;
             background: var(--card-bg);
             border-radius: var(--radius-lg);
             padding: 28px 30px;
@@ -1593,6 +1602,7 @@
                 overflow-x: hidden !important;
             }
             body {
+                padding-top: 48px !important;
                 padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important;
             }
 
@@ -1606,24 +1616,28 @@
 
             /* Barra Superior de Acciones Mobile Fija */
             .action-bar {
-                position: sticky !important;
+                position: fixed !important;
                 top: 0 !important;
-                z-index: 100 !important;
-                backdrop-filter: blur(14px) !important;
-                -webkit-backdrop-filter: blur(14px) !important;
-                background: rgba(255, 255, 255, 0.92) !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 1000 !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                background: rgba(255, 255, 255, 0.94) !important;
                 border-bottom: 1px solid var(--border) !important;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
                 padding: 5px 6px !important;
                 display: flex !important;
                 justify-content: space-between !important;
                 align-items: center !important;
                 gap: 4px !important;
                 width: 100% !important;
-                height: 43px !important;
+                height: 44px !important;
                 box-sizing: border-box !important;
             }
             [data-theme="dark"] .action-bar {
-                background: rgba(19, 27, 38, 0.92) !important;
+                background: rgba(11, 15, 23, 0.94) !important;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4) !important;
             }
             .action-bar .btn-action {
                 flex: 1 1 0 !important;
@@ -2566,7 +2580,7 @@
                                     <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
                                 </div>
                             </div>
-                            <p class="project-desc">Inventario de productos mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar), utilizando una base de datos SQLite.</p>
+                            <p class="project-desc">Inventario de productos mediante operaciones CRUD (Create, Read, Update, Delete), utilizando una base de datos SQLite.</p>
                         </a>
                     </div>
                 </div>
@@ -2980,7 +2994,7 @@
                 url: "https://github.com/rubenbarrios-bigdata/sistema-gestion-inventario",
                 badge: "Python + SQLite",
                 desc: {
-                    es: "Inventario de productos mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar), utilizando una base de datos SQLite.",
+                    es: "Inventario de productos mediante operaciones CRUD (Create, Read, Update, Delete), utilizando una base de datos SQLite.",
                     en: "Product inventory tracking system featuring CRUD operations (Create, Read, Update, Delete) with SQLite database."
                 }
             }
