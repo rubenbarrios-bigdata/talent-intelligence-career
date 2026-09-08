@@ -2230,10 +2230,10 @@
             <span class="btn-text-desktop" id="btnMobileTextDesktop">Versión Móvil</span>
             <span class="btn-text-mobile" id="btnMobileTextMobile">Móvil</span>
         </a>
-        <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Alternar Modo Oscuro/Claro">
-            <i class="fas fa-moon" id="themeIcon"></i>
-            <span id="themeText" class="btn-text-desktop">Modo Oscuro</span>
-            <span id="themeTextMobile" class="btn-text-mobile">Oscuro</span>
+        <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar a Modo Claro">
+            <i class="fas fa-sun" id="themeIcon"></i>
+            <span id="themeText" class="btn-text-desktop">Modo Claro</span>
+            <span id="themeTextMobile" class="btn-text-mobile">Claro</span>
         </button>
         <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" title="Descargar CV en PDF">
             <i class="fas fa-file-pdf"></i>
@@ -3491,22 +3491,27 @@
 
         function updateThemeButton(theme) {
             const icon = document.getElementById('themeIcon');
-            const text = document.getElementById('themeText');
+            const textDesk = document.getElementById('themeText');
+            const textMob = document.getElementById('themeTextMobile');
             const isDark = theme === 'dark';
             const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
-            const lightText = lang === 'en' ? 'Light' : 'Claro';
-            const darkText = lang === 'en' ? 'Dark' : 'Oscuro';
+            const dict = (typeof i18n !== 'undefined' && i18n[lang]) ? i18n[lang] : null;
+
+            const deskLabel = isDark ? (dict ? dict.themeLightDesk : 'Modo Claro') : (dict ? dict.themeDarkDesk : 'Modo Oscuro');
+            const mobLabel = isDark ? (dict ? dict.themeLightMob : 'Claro') : (dict ? dict.themeDarkMob : 'Oscuro');
+
             if (icon) {
                 icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
             }
-            if (text) {
-                text.innerText = isDark ? lightText : darkText;
-            } else {
-                const btn = document.getElementById('themeToggleBtn');
-                if (btn) {
-                    const span = btn.querySelector('span');
-                    if (span) span.innerText = isDark ? lightText : darkText;
-                }
+            if (textDesk) {
+                textDesk.innerText = deskLabel;
+            }
+            if (textMob) {
+                textMob.innerText = mobLabel;
+            }
+            const btn = document.getElementById('themeToggleBtn');
+            if (btn) {
+                btn.title = isDark ? (lang === 'en' ? 'Switch to Light Mode' : 'Cambiar a Modo Claro') : (lang === 'en' ? 'Switch to Dark Mode' : 'Cambiar a Modo Oscuro');
             }
         }
 

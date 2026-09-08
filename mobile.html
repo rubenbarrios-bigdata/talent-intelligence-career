@@ -2627,9 +2627,9 @@
             <i class="fas fa-desktop"></i>
             <span id="btnDeskText">Escritorio</span>
         </a>
-        <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Alternar Modo Oscuro/Claro">
-            <i class="fas fa-moon" id="themeIcon"></i>
-            <span id="themeText">Oscuro</span>
+        <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar a Modo Claro">
+            <i class="fas fa-sun" id="themeIcon"></i>
+            <span id="themeText">Claro</span>
         </button>
         <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" title="Descargar CV en PDF">
             <i class="fas fa-file-pdf"></i>
@@ -3896,12 +3896,10 @@
             }
             if (text) {
                 text.innerText = isDark ? lightText : darkText;
-            } else {
-                const btn = document.getElementById('themeToggleBtn');
-                if (btn) {
-                    const span = btn.querySelector('span');
-                    if (span) span.innerText = isDark ? lightText : darkText;
-                }
+            }
+            const btn = document.getElementById('themeToggleBtn');
+            if (btn) {
+                btn.title = isDark ? (lang === 'en' ? 'Switch to Light Mode' : 'Cambiar a Modo Claro') : (lang === 'en' ? 'Switch to Dark Mode' : 'Cambiar a Modo Oscuro');
             }
         }
 
