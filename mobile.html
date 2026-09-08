@@ -714,6 +714,50 @@
             border-color: var(--border);
         }
 
+        .project-pbi-pill {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #ffffff !important;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            box-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
+            transition: var(--transition);
+        }
+
+        .project-pbi-pill:hover {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            transform: translateY(-1px) scale(1.03);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.45);
+            color: #ffffff !important;
+        }
+
+        [data-theme="dark"] .project-pbi-pill {
+            background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);
+            color: #ffffff !important;
+            border-color: rgba(245, 158, 11, 0.5);
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
+        }
+
+        [data-theme="dark"] .project-pbi-pill:hover {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            box-shadow: 0 4px 14px rgba(251, 191, 36, 0.55);
+            color: #ffffff !important;
+        }
+
+        .project-github-pill:hover {
+            background: var(--accent) !important;
+            color: #ffffff !important;
+            border-color: var(--accent) !important;
+            transform: translateY(-1px) scale(1.03);
+        }
+
+
         .project-title-row {
             display: flex;
             justify-content: space-between;
@@ -2819,28 +2863,30 @@
                         </a>
 
                         <!-- Dashboard Atención al Cliente -->
-                        <a href="https://github.com/rubenbarrios-bigdata/dashboard-atencion-al-cliente" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
+                        <div class="project-item" onclick="window.open('https://app.powerbi.com/view?r=eyJrIjoiM2JlOTkzNzYtYzhkZS00NWJiLWExMDgtMDVlMTU5NGU1MmIyIiwidCI6IjgxY2NjYzQzLWI1NjEtNDFmNy05NDgwLWU5ZThmMDI3YzQ0MyIsImMiOjR9', '_blank', 'noopener')" title="Abrir dashboard interactivo" role="link" tabindex="0">
                             <div class="project-title-row">
                                 <span class="project-name"><i class="fas fa-chart-bar" style="color: var(--accent); margin-right: 6px;"></i> Dashboard Atención al Cliente</span>
                                 <div class="project-badges-group">
                                     <span class="project-tech-badge">Power BI + DAX</span>
-                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                    <a href="https://app.powerbi.com/view?r=eyJrIjoiM2JlOTkzNzYtYzhkZS00NWJiLWExMDgtMDVlMTU5NGU1MmIyIiwidCI6IjgxY2NjYzQzLWI1NjEtNDFmNy05NDgwLWU5ZThmMDI3YzQ0MyIsImMiOjR9" target="_blank" rel="noopener" class="project-pbi-pill" title="Ver Dashboard en vivo en Power BI" onclick="event.stopPropagation();"><i class="fas fa-chart-pie"></i> Ver Dashboard <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i></a>
+                                    <a href="https://github.com/rubenbarrios-bigdata/dashboard-atencion-al-cliente" target="_blank" rel="noopener" class="project-github-pill" title="Ver repositorio en GitHub" onclick="event.stopPropagation();"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i></a>
                                 </div>
                             </div>
                             <p class="project-desc">Power BI con DAX y métricas de servicio</p>
-                        </a>
+                        </div>
 
                         <!-- Dashboard Reporte de RRHH -->
-                        <a href="https://github.com/rubenbarrios-bigdata/dashboard-de-recursos-humanos" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
+                        <div class="project-item" onclick="window.open('https://app.powerbi.com/view?r=eyJrIjoiYTBhZjUyMmYtYjMwZi00YmUwLWE4ZDQtZWEwYWQ2MjU1ZTljIiwidCI6IjgxY2NjYzQzLWI1NjEtNDFmNy05NDgwLWU5ZThmMDI3YzQ0MyIsImMiOjR9', '_blank', 'noopener')" title="Abrir dashboard interactivo" role="link" tabindex="0">
                             <div class="project-title-row">
                                 <span class="project-name"><i class="fas fa-users" style="color: var(--accent); margin-right: 6px;"></i> Dashboard Reporte de RRHH</span>
                                 <div class="project-badges-group">
                                     <span class="project-tech-badge">Power BI + DAX</span>
-                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                    <a href="https://app.powerbi.com/view?r=eyJrIjoiYTBhZjUyMmYtYjMwZi00YmUwLWE4ZDQtZWEwYWQ2MjU1ZTljIiwidCI6IjgxY2NjYzQzLWI1NjEtNDFmNy05NDgwLWU5ZThmMDI3YzQ0MyIsImMiOjR9" target="_blank" rel="noopener" class="project-pbi-pill" title="Ver Dashboard en vivo en Power BI" onclick="event.stopPropagation();"><i class="fas fa-chart-pie"></i> Ver Dashboard <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i></a>
+                                    <a href="https://github.com/rubenbarrios-bigdata/dashboard-de-recursos-humanos" target="_blank" rel="noopener" class="project-github-pill" title="Ver repositorio en GitHub" onclick="event.stopPropagation();"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i></a>
                                 </div>
                             </div>
                             <p class="project-desc">Power BI: análisis de headcount, rotación y performance</p>
-                        </a>
+                        </div>
 
                         <!-- Dashboard de Ventas Excel -->
                         <a href="https://github.com/rubenbarrios-bigdata/dashboard_ventas_excel" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
@@ -2848,35 +2894,37 @@
                                 <span class="project-name"><i class="fas fa-file-excel" style="color: var(--accent); margin-right: 6px;"></i> Dashboard de Ventas Excel</span>
                                 <div class="project-badges-group">
                                     <span class="project-tech-badge">Excel Avanzado</span>
-                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i></span>
                                 </div>
                             </div>
                             <p class="project-desc">Dashboard de ventas de supermercado en Excel: facturación, ticket promedio, clientes, regiones, envíos y segmentos</p>
                         </a>
 
                         <!-- Dashboard Análisis de Indicadores Mundiales -->
-                        <a href="https://github.com/rubenbarrios-bigdata/dashboard-indicadores-mundiales" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
+                        <div class="project-item" onclick="window.open('https://app.powerbi.com/view?r=eyJrIjoiMmNiYTkyNzctNDM3My00MTUzLWJiZTQtMjBkYWIzMmZhNjhhIiwidCI6IjgxY2NjYzQzLWI1NjEtNDFmNy05NDgwLWU5ZThmMDI3YzQ0MyIsImMiOjR9', '_blank', 'noopener')" title="Abrir dashboard interactivo" role="link" tabindex="0">
                             <div class="project-title-row">
                                 <span class="project-name"><i class="fas fa-globe-americas" style="color: var(--accent); margin-right: 6px;"></i> Dashboard Análisis de Indicadores Mundiales</span>
                                 <div class="project-badges-group">
                                     <span class="project-tech-badge">Power BI + DAX</span>
-                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMmNiYTkyNzctNDM3My00MTUzLWJiZTQtMjBkYWIzMmZhNjhhIiwidCI6IjgxY2NjYzQzLWI1NjEtNDFmNy05NDgwLWU5ZThmMDI3YzQ0MyIsImMiOjR9" target="_blank" rel="noopener" class="project-pbi-pill" title="Ver Dashboard en vivo en Power BI" onclick="event.stopPropagation();"><i class="fas fa-chart-pie"></i> Ver Dashboard <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i></a>
+                                    <a href="https://github.com/rubenbarrios-bigdata/dashboard-indicadores-mundiales" target="_blank" rel="noopener" class="project-github-pill" title="Ver repositorio en GitHub" onclick="event.stopPropagation();"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i></a>
                                 </div>
                             </div>
                             <p class="project-desc">Power BI + DAX + modelado de datos</p>
-                        </a>
+                        </div>
 
                         <!-- Dashboard Análisis Financiero -->
-                        <a href="https://github.com/rubenbarrios-bigdata/dashboard-analisis-financiero" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
+                        <div class="project-item" onclick="window.open('https://app.powerbi.com/view?r=eyJrIjoiODA3OGI5MjQtMzcxNi00MjcxLWI2NDQtNjg4NWQzYWI0OTRmIiwidCI6IjgxY2NjYzQzLWI1NjEtNDFmNy05NDgwLWU5ZThmMDI3YzQ0MyIsImMiOjR9', '_blank', 'noopener')" title="Abrir dashboard interactivo" role="link" tabindex="0">
                             <div class="project-title-row">
                                 <span class="project-name"><i class="fas fa-chart-line" style="color: var(--accent); margin-right: 6px;"></i> Dashboard Análisis Financiero</span>
                                 <div class="project-badges-group">
                                     <span class="project-tech-badge">Power BI + DAX</span>
-                                    <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                    <a href="https://app.powerbi.com/view?r=eyJrIjoiODA3OGI5MjQtMzcxNi00MjcxLWI2NDQtNjg4NWQzYWI0OTRmIiwidCI6IjgxY2NjYzQzLWI1NjEtNDFmNy05NDgwLWU5ZThmMDI3YzQ0MyIsImMiOjR9" target="_blank" rel="noopener" class="project-pbi-pill" title="Ver Dashboard en vivo en Power BI" onclick="event.stopPropagation();"><i class="fas fa-chart-pie"></i> Ver Dashboard <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i></a>
+                                    <a href="https://github.com/rubenbarrios-bigdata/dashboard-analisis-financiero" target="_blank" rel="noopener" class="project-github-pill" title="Ver repositorio en GitHub" onclick="event.stopPropagation();"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i></a>
                                 </div>
                             </div>
                             <p class="project-desc">Power BI + DAX + modelado de datos (KPIs)</p>
-                        </a>
+                        </div>
 
                         <!-- Proyecto SQL Orders -->
                         <a href="https://github.com/rubenbarrios-bigdata/proyecto-sql-orders" target="_blank" rel="noopener" class="project-item" title="Ver repositorio en GitHub">
@@ -3225,6 +3273,7 @@
                 },
                 icon: "fas fa-chart-bar",
                 url: "https://github.com/rubenbarrios-bigdata/dashboard-atencion-al-cliente",
+                pbiUrl: "https://app.powerbi.com/view?r=eyJrIjoiM2JlOTkzNzYtYzhkZS00NWJiLWExMDgtMDVlMTU5NGU1MmIyIiwidCI6IjgxY2NjYzQzLWI1NjEtNDFmNy05NDgwLWU5ZThmMDI3YzQ0MyIsImMiOjR9",
                 badge: "Power BI + DAX",
                 desc: {
                     es: "Power BI con DAX y métricas de servicio",
@@ -3238,6 +3287,7 @@
                 },
                 icon: "fas fa-users",
                 url: "https://github.com/rubenbarrios-bigdata/dashboard-de-recursos-humanos",
+                pbiUrl: "https://app.powerbi.com/view?r=eyJrIjoiYTBhZjUyMmYtYjMwZi00YmUwLWE4ZDQtZWEwYWQ2MjU1ZTljIiwidCI6IjgxY2NjYzQzLWI1NjEtNDFmNy05NDgwLWU5ZThmMDI3YzQ0MyIsImMiOjR9",
                 badge: "Power BI + DAX",
                 desc: {
                     es: "Power BI: análisis de headcount, rotación y performance",
@@ -3267,6 +3317,7 @@
                 },
                 icon: "fas fa-globe-americas",
                 url: "https://github.com/rubenbarrios-bigdata/dashboard-indicadores-mundiales",
+                pbiUrl: "https://app.powerbi.com/view?r=eyJrIjoiMmNiYTkyNzctNDM3My00MTUzLWJiZTQtMjBkYWIzMmZhNjhhIiwidCI6IjgxY2NjYzQzLWI1NjEtNDFmNy05NDgwLWU5ZThmMDI3YzQ0MyIsImMiOjR9",
                 badge: "Power BI + DAX",
                 desc: {
                     es: "Power BI + DAX + modelado de datos",
@@ -3280,6 +3331,7 @@
                 },
                 icon: "fas fa-chart-line",
                 url: "https://github.com/rubenbarrios-bigdata/dashboard-analisis-financiero",
+                pbiUrl: "https://app.powerbi.com/view?r=eyJrIjoiODA3OGI5MjQtMzcxNi00MjcxLWI2NDQtNjg4NWQzYWI0OTRmIiwidCI6IjgxY2NjYzQzLWI1NjEtNDFmNy05NDgwLWU5ZThmMDI3YzQ0MyIsImMiOjR9",
                 badge: "Power BI + DAX",
                 desc: {
                     es: "Power BI + DAX + modelado de datos (KPIs)",
@@ -3334,6 +3386,8 @@
             grid.innerHTML = projectsData.map(p => {
                 const title = typeof p.name === 'object' ? (p.name[lang] || p.name.es) : p.name;
                 const repoTitle = isEn ? 'View repository on GitHub' : 'Ver repositorio en GitHub';
+                const pbiTitle = isEn ? 'Open interactive dashboard' : 'Abrir dashboard interactivo';
+                const liveDemoText = isEn ? 'Live Dashboard' : 'Ver Dashboard';
                 const iconHtml = p.icon ? `<i class="${p.icon}" style="color: var(--accent); margin-right: 6px;"></i> ` : '';
                 const badgeText = typeof p.badge === 'object' ? (p.badge[lang] || p.badge.es) : p.badge;
                 
@@ -3341,33 +3395,45 @@
                     const pill = typeof p.pillText === 'object' ? (p.pillText[lang] || p.pillText.es) : (p.pillText || 'Repositorio');
                     const bullets = typeof p.bullets === 'object' && !Array.isArray(p.bullets) ? (p.bullets[lang] || p.bullets.es) : p.bullets;
                     return `
-                        <a href="${p.url}" target="_blank" rel="noopener" class="project-item project-mvp-highlight" title="${repoTitle}">
+                        <div class="project-item project-mvp-highlight" onclick="window.open('${p.url}', '_blank', 'noopener')" title="${repoTitle}" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.open('${p.url}', '_blank', 'noopener');}">
                             <div class="project-title-row">
                                 <span class="project-name">${title}</span>
                                 <div class="project-badges-group">
                                     <span class="project-tech-badge">${badgeText}</span>
-                                    <span class="project-github-pill"><i class="fab fa-github"></i> ${pill} <i class="fas fa-external-link-alt"></i></span>
+                                    <a href="${p.url}" target="_blank" rel="noopener" class="project-github-pill" onclick="event.stopPropagation();"><i class="fab fa-github"></i> ${pill} <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i></a>
                                 </div>
                             </div>
                             <ul class="project-bullets">
                                 ${bullets.map(b => `<li>${b}</li>`).join('')}
                             </ul>
-                        </a>
+                        </div>
                     `;
                 }
 
                 const descText = typeof p.desc === 'object' ? (p.desc[lang] || p.desc.es) : p.desc;
+                const pbiBtnHtml = p.pbiUrl ? `
+                    <a href="${p.pbiUrl}" target="_blank" rel="noopener" class="project-pbi-pill" title="${pbiTitle}" onclick="event.stopPropagation();">
+                        <i class="fas fa-chart-pie"></i> ${liveDemoText} <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i>
+                    </a>
+                ` : '';
+
+                const mainTargetUrl = p.pbiUrl || p.url;
+                const mainTargetTitle = p.pbiUrl ? pbiTitle : repoTitle;
+
                 return `
-                    <a href="${p.url}" target="_blank" rel="noopener" class="project-item" title="${repoTitle}">
+                    <div class="project-item" onclick="window.open('${mainTargetUrl}', '_blank', 'noopener')" title="${mainTargetTitle}" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.open('${mainTargetUrl}', '_blank', 'noopener');}">
                         <div class="project-title-row">
                             <span class="project-name">${iconHtml}${title}</span>
                             <div class="project-badges-group">
                                 <span class="project-tech-badge">${badgeText}</span>
-                                <span class="project-github-pill"><i class="fab fa-github"></i> <i class="fas fa-external-link-alt"></i></span>
+                                ${pbiBtnHtml}
+                                <a href="${p.url}" target="_blank" rel="noopener" class="project-github-pill" title="${repoTitle}" onclick="event.stopPropagation();">
+                                    <i class="fab fa-github"></i> <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i>
+                                </a>
                             </div>
                         </div>
                         <p class="project-desc">${descText}</p>
-                    </a>
+                    </div>
                 `;
             }).join('');
         }
