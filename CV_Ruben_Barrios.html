@@ -182,14 +182,85 @@
         }
 
         .btn-primary-action {
-            background: var(--accent);
+            background: #2563eb !important;
             color: #ffffff !important;
-            border-color: var(--accent);
+            border-color: #2563eb !important;
+        }
+
+        .btn-primary-action i,
+        .btn-primary-action span {
+            color: #ffffff !important;
         }
 
         .btn-primary-action:hover {
-            background: var(--accent-hover);
+            background: #1d4ed8 !important;
+            border-color: #1d4ed8 !important;
             color: #ffffff !important;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Botón PDF estilo Adobe Acrobat Red con micro-animación al tocarlo */
+        .btn-pdf-action {
+            background: #e1251b !important;
+            color: #ffffff !important;
+            border-color: #e1251b !important;
+            box-shadow: 0 2px 6px rgba(225, 37, 27, 0.28);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .btn-pdf-action i,
+        .btn-pdf-action span {
+            color: #ffffff !important;
+        }
+
+        .btn-pdf-action i {
+            display: inline-block;
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .btn-pdf-action:hover {
+            background: #c51912 !important;
+            border-color: #c51912 !important;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(225, 37, 27, 0.42);
+        }
+
+        .btn-pdf-action:hover i {
+            transform: scale(1.15) rotate(-6deg);
+        }
+
+        /* Movimiento interactivo al tocarlo / presionarlo (tap, active o click) */
+        .btn-pdf-action:active,
+        .btn-pdf-action.pdf-touch-active {
+            animation: pdfTouchMotion 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+            background: #a8130c !important;
+            border-color: #a8130c !important;
+            box-shadow: 0 1px 4px rgba(168, 19, 12, 0.4) !important;
+        }
+
+        .btn-pdf-action:active i,
+        .btn-pdf-action.pdf-touch-active i {
+            animation: pdfIconMotion 0.45s ease-in-out;
+        }
+
+        @keyframes pdfTouchMotion {
+            0% { transform: scale(1); }
+            30% { transform: scale(0.92) translateY(2px); }
+            60% { transform: scale(1.05) translateY(-2px); }
+            85% { transform: scale(0.98) translateY(0); }
+            100% { transform: scale(1) translateY(0); }
+        }
+
+        @keyframes pdfIconMotion {
+            0% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.22) rotate(-14deg); }
+            55% { transform: scale(1.22) rotate(12deg); }
+            75% { transform: scale(1.12) rotate(-5deg); }
+            100% { transform: scale(1) rotate(0deg); }
         }
 
         .container {
@@ -2110,7 +2181,7 @@
             <button type="button" class="lang-btn active" id="langBtnEs" onclick="setLanguage('es')" title="Ver en Español">ES</button>
             <button type="button" class="lang-btn" id="langBtnEn" onclick="setLanguage('en')" title="View in English">EN</button>
         </div>
-        <a href="CV_Ruben_Barrios_Mobile.html" class="btn-action" id="btnMobileLink" onclick="goToMobile(); return false;" title="Abrir versión optimizada para celulares">
+        <a href="CV_Ruben_Barrios_Mobile.html" class="btn-action btn-primary-action" id="btnMobileLink" onclick="goToMobile(); return false;" title="Abrir versión optimizada para celulares">
             <i class="fas fa-mobile-screen-button"></i>
             <span class="btn-text-desktop" id="btnMobileTextDesktop">Versión Móvil</span>
             <span class="btn-text-mobile" id="btnMobileTextMobile">Móvil</span>
@@ -2120,7 +2191,7 @@
             <span id="themeText" class="btn-text-desktop">Modo Oscuro</span>
             <span id="themeTextMobile" class="btn-text-mobile">Oscuro</span>
         </button>
-        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-primary-action" id="pdfDownloadBtn" title="Descargar CV en PDF">
+        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" title="Descargar CV en PDF">
             <i class="fas fa-file-pdf"></i>
             <span class="btn-text-desktop" id="pdfBtnTextDesktop">Descargar PDF</span>
             <span class="btn-text-mobile" id="pdfBtnTextMobile">PDF</span>
@@ -3969,10 +4040,25 @@
             }
         }
 
+        function initPdfButtonMotion() {
+            const pdfBtn = document.getElementById('pdfDownloadBtn');
+            if (!pdfBtn) return;
+            const triggerMotion = () => {
+                pdfBtn.classList.remove('pdf-touch-active');
+                void pdfBtn.offsetWidth;
+                pdfBtn.classList.add('pdf-touch-active');
+                setTimeout(() => {
+                    pdfBtn.classList.remove('pdf-touch-active');
+                }, 450);
+            };
+            pdfBtn.addEventListener('pointerdown', triggerMotion, { passive: true });
+        }
+
         // Inicializar al cargar el documento
         document.addEventListener('DOMContentLoaded', () => {
             initTheme();
             initScrollTopButton();
+            initPdfButtonMotion();
             const savedLang = getCurrentLanguage();
             setLanguage(savedLang);
             renderProjects(savedLang);
