@@ -2270,7 +2270,9 @@
                     const pathname = (window.location.pathname || '').toLowerCase();
                     const isLocal = pathname.includes('cv_ruben_barrios') || (window.location.protocol === 'file:');
                     const target = isLocal ? 'CV_Ruben_Barrios_Mobile.html' : 'mobile.html';
-                    const search = window.location.search || '';
+                    const params = new URLSearchParams(window.location.search);
+                    if (!params.has('v')) params.set('v', '2');
+                    const search = params.toString() ? ('?' + params.toString()) : '';
                     const hash = window.location.hash || '';
                     return target + search + hash;
                 }
