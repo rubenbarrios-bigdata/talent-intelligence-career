@@ -216,14 +216,14 @@
             transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
         }
 
-        [data-theme="light"] .action-bar .btn-action {
+        [data-theme="light"] .action-bar .btn-action:not(.btn-pdf-action) {
             background: rgba(0, 0, 0, 0.05) !important;
             border-color: rgba(0, 0, 0, 0.12) !important;
             color: var(--text) !important;
         }
 
-        .action-bar .btn-action:hover,
-        .action-bar .btn-action:active {
+        .action-bar .btn-action:not(.btn-pdf-action):hover,
+        .action-bar .btn-action:not(.btn-pdf-action):active {
             border-color: var(--accent) !important;
             color: var(--accent) !important;
             background: rgba(37, 99, 235, 0.12) !important;
@@ -260,37 +260,57 @@
             box-shadow: var(--shadow-sm);
         }
 
-        /* Botón PDF estilizado con el mismo diseño glass capsule que el selector ES/EN y Tema */
-        .btn-pdf-action {
+        /* Botón PDF estilo Adobe Acrobat Red con tamaño exacto capsule */
+        .btn-pdf-action,
+        .action-bar .btn-pdf-action,
+        [data-theme="light"] .action-bar .btn-pdf-action,
+        [data-theme="dark"] .action-bar .btn-pdf-action {
+            background: #e1251b !important;
+            border: 1px solid #e1251b !important;
+            color: #ffffff !important;
+            box-shadow: 0 2px 6px rgba(225, 37, 27, 0.3) !important;
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
             transform: none !important;
         }
 
+        .btn-pdf-action i,
+        .btn-pdf-action span,
+        .action-bar .btn-pdf-action i,
+        .action-bar .btn-pdf-action span {
+            color: #ffffff !important;
+        }
+
         .btn-pdf-action i {
             display: inline-block;
             font-size: 0.80rem;
-            color: inherit !important;
             transform: none !important;
-        }
-
-        .btn-pdf-action span {
-            color: inherit !important;
         }
 
         .btn-pdf-action:hover,
         .btn-pdf-action:active,
-        .btn-pdf-action.pdf-touch-active {
+        .btn-pdf-action.pdf-touch-active,
+        .action-bar .btn-pdf-action:hover,
+        .action-bar .btn-pdf-action:active {
+            background: #c51912 !important;
+            border-color: #c51912 !important;
+            color: #ffffff !important;
+            box-shadow: 0 3px 8px rgba(225, 37, 27, 0.45) !important;
             transform: none !important;
             animation: none !important;
         }
 
         .btn-pdf-action:hover i,
         .btn-pdf-action:active i,
-        .btn-pdf-action.pdf-touch-active i {
+        .btn-pdf-action:hover span,
+        .btn-pdf-action:active span,
+        .btn-pdf-action.pdf-touch-active i,
+        .btn-pdf-action.pdf-touch-active span,
+        .action-bar .btn-pdf-action:hover i,
+        .action-bar .btn-pdf-action:hover span {
+            color: #ffffff !important;
             transform: none !important;
             animation: none !important;
-            color: inherit !important;
         }
 
         .container {
@@ -1654,7 +1674,7 @@
                 display: inline !important;
             }
 
-            /* Barra Superior de Acciones Mobile Fija */
+            /* Barra Superior de Acciones Mobile Fija: ES/EN izquierda, Tema centro, PDF derecha */
             .action-bar {
                 position: fixed !important;
                 top: 0 !important;
@@ -1666,11 +1686,10 @@
                 background: rgba(255, 255, 255, 0.94) !important;
                 border-bottom: 1px solid var(--border) !important;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
-                padding: 7px 12px !important;
-                display: flex !important;
-                justify-content: flex-end !important;
+                padding: 7px 14px !important;
+                display: grid !important;
+                grid-template-columns: 1fr auto 1fr !important;
                 align-items: center !important;
-                gap: 6px !important;
                 width: 100% !important;
                 height: 44px !important;
                 box-sizing: border-box !important;
@@ -1690,6 +1709,7 @@
                 padding: 1px !important;
                 border-radius: 20px !important;
                 box-sizing: border-box !important;
+                justify-self: start !important;
                 flex: 0 0 auto !important;
             }
             .action-bar .lang-btn {
@@ -1698,6 +1718,12 @@
                 font-weight: 700 !important;
                 border-radius: 16px !important;
                 height: 25px !important;
+            }
+            .action-bar #themeToggleBtn {
+                justify-self: center !important;
+            }
+            .action-bar #pdfDownloadBtn {
+                justify-self: end !important;
             }
             .action-bar .btn-action {
                 flex: 0 0 auto !important;
@@ -2298,7 +2324,7 @@
                     const isLocal = pathname.includes('cv_ruben_barrios') || (window.location.protocol === 'file:');
                     const target = isLocal ? 'CV_Ruben_Barrios_Mobile.html' : 'mobile.html';
                     const params = new URLSearchParams(window.location.search);
-                    if (!params.has('v') || params.get('v') === '2') params.set('v', '3');
+                    if (!params.has('v') || params.get('v') === '2' || params.get('v') === '3') params.set('v', '4');
                     const search = params.toString() ? ('?' + params.toString()) : '';
                     const hash = window.location.hash || '';
                     return target + search + hash;
