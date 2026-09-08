@@ -34,7 +34,7 @@
     {
       "id": "kpi-bancaria",
       "number": "+15 Years",
-      "label": "Banking Sector<br>International Operations",
+      "label": "Banking Sector",
       "icon": "fas fa-university",
       "target": "exp-bancaria",
       "tooltip": "View banking sector experience",

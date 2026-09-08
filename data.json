@@ -34,7 +34,7 @@
     {
       "id": "kpi-bancaria",
       "number": "+15 Años",
-      "label": "Sector Bancario<br>Operaciones Internacionales",
+      "label": "Sector Bancario",
       "icon": "fas fa-university",
       "target": "exp-bancaria",
       "tooltip": "Ver experiencia en sector bancario",
