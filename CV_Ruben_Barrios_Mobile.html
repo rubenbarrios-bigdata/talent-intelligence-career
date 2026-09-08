@@ -2624,28 +2624,50 @@
     </style>
 
     
-    <!-- Redirección inteligente de dispositivo (Móvil por defecto en celular, Escritorio en PC en idioma ES) -->
+    <!-- Detección y Redirección Automática Responsive (Móvil en Celulares, Escritorio en PC) -->
     <script>
         (function() {
             try {
-                const params = new URLSearchParams(window.location.search);
-                const view = params.get('view');
-                if (view === 'mobile') {
-                    try { sessionStorage.setItem('preferred_view', 'mobile'); } catch(e) {}
+                // Limpiar preferencias manuales anteriores para priorizar detección 100% automática
+                try {
+                    sessionStorage.removeItem('preferred_view');
+                    localStorage.removeItem('preferred_view');
+                } catch(e) {}
+
+                function isDesktopDevice() {
+                    const ua = navigator.userAgent || navigator.vendor || window.opera || '';
+                    const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(ua);
+                    const width = window.innerWidth || (document.documentElement && document.documentElement.clientWidth) || screen.width;
+                    return !isMobileUA && (width > 768);
+                }
+
+                function getDesktopTarget() {
+                    const pathname = (window.location.pathname || '').toLowerCase();
+                    const isLocal = pathname.includes('cv_ruben_barrios') || (window.location.protocol === 'file:');
+                    const target = isLocal ? 'CV_Ruben_Barrios.html' : 'index.html';
+                    const search = window.location.search || '';
+                    const hash = window.location.hash || '';
+                    return target + search + hash;
+                }
+
+                if (isDesktopDevice()) {
+                    window.location.replace(getDesktopTarget());
                     return;
                 }
-                const sessionView = (function() { try { return sessionStorage.getItem('preferred_view'); } catch(e) { return null; } })();
-                if (sessionView === 'mobile') return;
 
-                const isDesktop = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent || '')) && window.innerWidth > 768;
-                if (isDesktop) {
-                    const lang = params.get('lang') === 'en' ? 'en' : 'es';
-                    const pathname = (window.location.pathname || '').toLowerCase();
-                    const isLocal = pathname.includes('cv_ruben_barrios') || pathname.endsWith('.html');
-                    const target = isLocal ? 'CV_Ruben_Barrios.html' : 'index.html';
-                    const targetUrl = target + (lang === 'en' ? '?lang=en' : '');
-                    window.location.replace(targetUrl);
-                }
+                // Listener para redimensionamiento dinámico en navegadores de PC
+                let resizeTimer;
+                window.addEventListener('resize', function() {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(function() {
+                        const curW = window.innerWidth || (document.documentElement && document.documentElement.clientWidth) || screen.width;
+                        const ua = navigator.userAgent || '';
+                        const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(ua);
+                        if (!isMobileUA && curW > 768) {
+                            window.location.replace(getDesktopTarget());
+                        }
+                    }, 150);
+                });
             } catch(e) {}
         })();
     </script>
@@ -2658,10 +2680,6 @@
             <button type="button" class="lang-btn active" id="langBtnEs" onclick="setLanguage('es')" title="Ver en Español">ES</button>
             <button type="button" class="lang-btn" id="langBtnEn" onclick="setLanguage('en')" title="View in English">EN</button>
         </div>
-        <a href="index.html" class="btn-action btn-primary-action" id="btnDeskLink" onclick="goToDesktop(); return false;" title="Volver a la Versión Completa de Escritorio">
-            <i class="fas fa-desktop"></i>
-            <span id="btnDeskText" translate="no">Escritorio</span>
-        </a>
         <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar a Modo Claro">
             <i class="fas fa-sun" id="themeIcon"></i>
             <span id="themeText" translate="no">Claro</span>
@@ -3965,10 +3983,6 @@
                 themeDarkMob: 'Oscuro',
                 themeLightDesk: 'Modo Claro',
                 themeLightMob: 'Claro',
-                btnMobileDesk: 'Versión Móvil',
-                btnMobileMob: 'Móvil',
-                btnDeskTitle: 'Volver a la Versión Completa de Escritorio',
-                btnDeskDesk: 'Versión Escritorio',
                 pdfHref: 'CV_Ruben_Barrios_Analista_De_Datos.pdf',
                 pdfDownload: 'CV_Ruben_Barrios_Analista_De_Datos.pdf',
                 pdfTitle: 'Descargar CV en PDF',
@@ -4065,11 +4079,7 @@
                 dockWa: 'WhatsApp',
                 dockCall: 'Llamar',
                 dockEmail: 'Email',
-                dockMobile: 'Móvil',
-                dockMobileTitle: 'Versión Móvil',
                 dockCallTitle: 'Llamar a Rubén Barrios',
-                dockDesk: 'Escritorio',
-                dockDeskTitle: 'Volver a la Versión Completa de Escritorio',
                 scrollTopTitle: 'Volver arriba al principio del CV',
                 
             },
@@ -4084,10 +4094,6 @@
                 themeDarkMob: 'Dark',
                 themeLightDesk: 'Light Mode',
                 themeLightMob: 'Light',
-                btnMobileDesk: 'Mobile Version',
-                btnMobileMob: 'Mobile',
-                btnDeskTitle: 'Return to Full Desktop Version',
-                btnDeskDesk: 'Desktop Version',
                 pdfHref: 'CV_Ruben_Barrios_Data_Analyst.pdf',
                 pdfDownload: 'CV_Ruben_Barrios_Data_Analyst.pdf',
                 pdfTitle: 'Download Resume in PDF',
@@ -4184,11 +4190,7 @@
                 dockWa: 'WhatsApp',
                 dockCall: 'Call',
                 dockEmail: 'Email',
-                dockMobile: 'Mobile',
-                dockMobileTitle: 'Mobile Version',
                 dockCallTitle: 'Call Rubén Barrios',
-                dockDesk: 'Desktop',
-                dockDeskTitle: 'Return to Full Desktop Version',
                 scrollTopTitle: 'Back to top of resume',
                 
             }
@@ -4209,15 +4211,7 @@
             ]
         };
 
-        function goToDesktop() {
-            const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
-            try { sessionStorage.setItem('preferred_view', 'desktop'); } catch(e) {}
-            const isLocalCV = window.location.pathname && window.location.pathname.toLowerCase().includes('cv_ruben_barrios');
-            const target = isLocalCV ? 'CV_Ruben_Barrios.html' : 'index.html';
-            window.location.href = target + '?view=desktop&lang=' + encodeURIComponent(lang);
-        }
-
-                // Control del Botón Flotante para Volver Arriba al Principio del CV
+        // Control del Botón Flotante para Volver Arriba al Principio del CV
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -4292,15 +4286,9 @@
             const statusBadge = document.getElementById('statusBadge');
             if (statusBadge) statusBadge.setAttribute('title', t.statusTitle);
 
-            // Action bar - Theme and Mobile buttons
+            // Action bar - Theme button
             const theme = document.documentElement.getAttribute('data-theme') || 'light';
             updateThemeButton(theme);
-
-            const btnDeskLink = document.getElementById('btnDeskLink');
-            if (btnDeskLink && t.btnDeskTitle) btnDeskLink.title = t.btnDeskTitle;
-
-            const btnDeskText = document.getElementById('btnDeskText');
-            if (btnDeskText) btnDeskText.innerText = t.dockDesk;
 
             // PDF Download button
             const pdfBtn = document.getElementById('pdfDownloadBtn');
@@ -4494,12 +4482,6 @@
             const dockCallLink = document.getElementById('dockCallLink');
             if (dockCallLink && t.dockCallTitle) dockCallLink.title = t.dockCallTitle;
 
-            const dockViewLink = document.getElementById('dockViewLink');
-            if (dockViewLink && (t.dockDeskTitle || t.btnDeskTitle)) dockViewLink.title = t.dockDeskTitle || t.btnDeskTitle;
-
-            const dockView = document.getElementById('dockViewText');
-            if (dockView) dockView.innerText = t.dockDesk;
-
             // Load and render KPIs for this language
             loadKpis(lang);
             renderProjects(lang);
@@ -4552,10 +4534,6 @@
         <a href="https://github.com/rubenbarrios-bigdata" target="_blank" rel="noopener" class="dock-item" title="GitHub">
             <i class="fab fa-github"></i>
             <span>GitHub</span>
-        </a>
-        <a href="index.html" class="dock-item dock-app" id="dockViewLink" onclick="goToDesktop(); return false;" title="Volver a la Versión Completa de Escritorio">
-            <i class="fas fa-desktop"></i>
-            <span id="dockViewText" translate="no">Escritorio</span>
         </a>
     </nav>
     <!-- Botón Flotante para Volver Arriba al Principio del CV -->
