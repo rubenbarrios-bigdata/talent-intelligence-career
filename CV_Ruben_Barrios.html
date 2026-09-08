@@ -191,6 +191,26 @@
             transform: none !important;
         }
 
+        .action-bar .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 5px 12px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border-radius: 20px;
+            height: 31px;
+            box-sizing: border-box;
+            line-height: 1.2;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .action-bar .btn-action i {
+            font-size: 0.80rem;
+        }
+
         .btn-action:hover,
         .btn-action:active {
             border-color: var(--accent);
@@ -1655,18 +1675,18 @@
             .action-bar .btn-action {
                 flex: 1 1 0 !important;
                 min-width: 0 !important;
-                padding: 4px 2px !important;
-                font-size: 0.68rem !important;
-                font-weight: 600 !important;
+                padding: 4px 8px !important;
+                font-size: 0.72rem !important;
+                font-weight: 700 !important;
                 justify-content: center !important;
-                border-radius: var(--radius-sm) !important;
+                border-radius: 16px !important;
                 white-space: nowrap !important;
-                gap: 3px !important;
-                height: 31px !important;
+                gap: 4px !important;
+                height: 29px !important;
                 box-sizing: border-box !important;
             }
             .action-bar .btn-action i {
-                font-size: 0.72rem !important;
+                font-size: 0.76rem !important;
                 flex-shrink: 0 !important;
             }
             .action-bar .btn-action span {
@@ -2285,12 +2305,12 @@
         </div>
         <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar a Modo Claro">
             <i class="fas fa-sun" id="themeIcon"></i>
-            <span id="themeText" translate="no" class="btn-text-desktop">Modo Claro</span>
+            <span id="themeText" translate="no" class="btn-text-desktop">Claro</span>
             <span id="themeTextMobile" translate="no" class="btn-text-mobile">Claro</span>
         </button>
         <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" title="Descargar CV en PDF">
             <i class="fas fa-file-pdf"></i>
-            <span class="btn-text-desktop" id="pdfBtnTextDesktop">Descargar PDF</span>
+            <span class="btn-text-desktop" id="pdfBtnTextDesktop">PDF</span>
             <span class="btn-text-mobile" id="pdfBtnTextMobile">PDF</span>
         </a>
     </div>
@@ -3591,14 +3611,14 @@
                 headerLocation: 'Parque Patricios, CABA - Argentina',
                 statusText: 'Disponible',
                 statusTitle: 'Disponible para roles de Data Analyst & BI',
-                themeDarkDesk: 'Modo Oscuro',
+                themeDarkDesk: 'Oscuro',
                 themeDarkMob: 'Oscuro',
-                themeLightDesk: 'Modo Claro',
+                themeLightDesk: 'Claro',
                 themeLightMob: 'Claro',
                 pdfHref: 'CV_Ruben_Barrios_Analista_De_Datos.pdf',
                 pdfDownload: 'CV_Ruben_Barrios_Analista_De_Datos.pdf',
                 pdfTitle: 'Descargar CV en PDF',
-                pdfTextDesk: 'Descargar PDF',
+                pdfTextDesk: 'PDF',
                 pdfTextMob: 'PDF',
                 perfilTitle: '<i class="fas fa-user-tie"></i>Perfil Profesional',
                 perfilText: '<strong>Analista de Datos</strong> con más de 4 años de experiencia en análisis de métricas de fraude en los sectores logística y e-commerce, y más de 15 años de trayectoria en el sector bancario, específicamente en Comercio Exterior y Operaciones Internacionales.<br><br>Hoy combino mi experiencia de negocio con herramientas como Power BI, Excel, SQL y Python para extraer, transformar y visualizar datos que se traducen en decisiones basadas en evidencia. Asimismo, sumo experiencia en analítica digital utilizando herramientas como GTM, GA4, BigQuery y Data Studio, aplicando ese mismo criterio analítico al comportamiento de usuarios y seguimiento de KPIs de productos.',
@@ -3702,14 +3722,14 @@
                 headerLocation: 'Parque Patricios, Buenos Aires - Argentina',
                 statusText: 'Available',
                 statusTitle: 'Available for Data Analyst & BI roles',
-                themeDarkDesk: 'Dark Mode',
+                themeDarkDesk: 'Dark',
                 themeDarkMob: 'Dark',
-                themeLightDesk: 'Light Mode',
+                themeLightDesk: 'Light',
                 themeLightMob: 'Light',
                 pdfHref: 'CV_Ruben_Barrios_Data_Analyst.pdf',
                 pdfDownload: 'CV_Ruben_Barrios_Data_Analyst.pdf',
                 pdfTitle: 'Download Resume in PDF',
-                pdfTextDesk: 'Download Resume',
+                pdfTextDesk: 'PDF',
                 pdfTextMob: 'PDF',
                 perfilTitle: '<i class="fas fa-user-tie"></i>Professional Summary',
                 perfilText: '<strong>Data Analyst</strong> with over 4 years of experience analyzing fraud metrics in the logistics and e-commerce sectors, and over 15 years of experience in the banking sector, specifically in Foreign Trade and International Operations.<br><br>I combine business experience with tools such as Power BI, Excel, SQL, and Python to extract, transform, and visualize data that translate into evidence-based decisions. I also bring experience in digital analytics using tools such as GTM, GA4, BigQuery, and Data Studio, applying that same analytical approach to user behavior analysis and product KPI tracking.',
