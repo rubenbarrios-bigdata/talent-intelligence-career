@@ -204,18 +204,38 @@
             line-height: 1.2;
             letter-spacing: 0.3px;
             white-space: nowrap;
+            background: rgba(255, 255, 255, 0.12) !important;
+            border: 1px solid rgba(255, 255, 255, 0.25) !important;
+            color: var(--text) !important;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: none !important;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        [data-theme="light"] .action-bar .btn-action {
+            background: rgba(0, 0, 0, 0.05) !important;
+            border-color: rgba(0, 0, 0, 0.12) !important;
+            color: var(--text) !important;
+        }
+
+        .action-bar .btn-action:hover,
+        .action-bar .btn-action:active {
+            border-color: var(--accent) !important;
+            color: var(--accent) !important;
+            background: rgba(37, 99, 235, 0.12) !important;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25) !important;
+        }
+
+        .action-bar .btn-action i,
+        .action-bar .btn-action span {
+            color: inherit !important;
         }
 
         .action-bar .btn-action i {
             font-size: 0.80rem;
-        }
-
-        .btn-action:hover,
-        .btn-action:active {
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: none !important;
-            box-shadow: var(--shadow-sm);
         }
 
         .btn-primary-action {
@@ -239,37 +259,29 @@
             box-shadow: var(--shadow-sm);
         }
 
-        /* Botón PDF estilo Adobe Acrobat Red - Estático sin movimiento al tocar o mover la pantalla */
+        /* Botón PDF estilizado con el mismo diseño glass capsule que el selector ES/EN y Tema */
         .btn-pdf-action {
-            background: #e1251b !important;
-            color: #ffffff !important;
-            border-color: #e1251b !important;
-            box-shadow: 0 2px 6px rgba(225, 37, 27, 0.28);
-            transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
             transform: none !important;
         }
 
-        .btn-pdf-action i,
-        .btn-pdf-action span {
-            color: #ffffff !important;
-        }
-
         .btn-pdf-action i {
             display: inline-block;
+            font-size: 0.80rem;
+            color: inherit !important;
             transform: none !important;
+        }
+
+        .btn-pdf-action span {
+            color: inherit !important;
         }
 
         .btn-pdf-action:hover,
         .btn-pdf-action:active,
         .btn-pdf-action.pdf-touch-active {
-            background: #c51912 !important;
-            border-color: #c51912 !important;
-            color: #ffffff !important;
             transform: none !important;
             animation: none !important;
-            box-shadow: 0 3px 8px rgba(225, 37, 27, 0.35);
         }
 
         .btn-pdf-action:hover i,
@@ -277,6 +289,7 @@
         .btn-pdf-action.pdf-touch-active i {
             transform: none !important;
             animation: none !important;
+            color: inherit !important;
         }
 
         .container {
@@ -1910,11 +1923,11 @@
                 background: rgba(255, 255, 255, 0.94) !important;
                 border-bottom: 1px solid var(--border) !important;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
-                padding: 5px 6px !important;
+                padding: 7px 12px !important;
                 display: flex !important;
-                justify-content: space-between !important;
+                justify-content: flex-end !important;
                 align-items: center !important;
-                gap: 4px !important;
+                gap: 6px !important;
                 width: 100% !important;
                 height: 44px !important;
                 box-sizing: border-box !important;
@@ -1931,14 +1944,30 @@
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4) !important;
         }
 
+        .action-bar .lang-switch {
+            height: 29px !important;
+            padding: 1px !important;
+            border-radius: 20px !important;
+            box-sizing: border-box !important;
+            flex: 0 0 auto !important;
+        }
+
+        .action-bar .lang-btn {
+            padding: 4px 8px !important;
+            font-size: 0.72rem !important;
+            font-weight: 700 !important;
+            border-radius: 16px !important;
+            height: 25px !important;
+        }
+
         .action-bar .btn-action {
             font-size: 0.72rem !important;
             font-weight: 700 !important;
-            padding: 4px 8px !important;
+            padding: 4px 10px !important;
             gap: 4px !important;
-            flex: 1 1 0 !important;
+            flex: 0 0 auto !important;
             justify-content: center !important;
-            border-radius: 16px !important;
+            border-radius: 20px !important;
             white-space: nowrap !important;
             min-width: 0 !important;
             height: 29px !important;
@@ -1948,6 +1977,12 @@
         .action-bar .btn-action i {
             font-size: 0.76rem !important;
             flex-shrink: 0 !important;
+        }
+
+        .action-bar .btn-action span {
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            white-space: nowrap !important;
         }
 
         /* Header Ejecutivo Proporcionado */
@@ -2669,7 +2704,7 @@
                     const isLocal = pathname.includes('cv_ruben_barrios') || (window.location.protocol === 'file:');
                     const target = isLocal ? 'CV_Ruben_Barrios.html' : 'index.html';
                     const params = new URLSearchParams(window.location.search);
-                    if (!params.has('v')) params.set('v', '2');
+                    if (!params.has('v') || params.get('v') === '2') params.set('v', '3');
                     const search = params.toString() ? ('?' + params.toString()) : '';
                     const hash = window.location.hash || '';
                     return target + search + hash;
