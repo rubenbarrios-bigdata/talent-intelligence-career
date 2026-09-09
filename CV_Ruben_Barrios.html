@@ -230,6 +230,29 @@
             box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25) !important;
         }
 
+        .action-bar #themeToggleBtn {
+            width: 31px !important;
+            height: 31px !important;
+            padding: 0 !important;
+            border-radius: 50% !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .action-bar #themeToggleBtn i {
+            font-size: 0.84rem !important;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .action-bar #themeToggleBtn:hover i {
+            transform: rotate(20deg) scale(1.12);
+        }
+
+        .action-bar #themeToggleBtn:active i {
+            transform: rotate(45deg) scale(0.9);
+        }
+
         .action-bar .btn-action i,
         .action-bar .btn-action span {
             color: inherit !important;
@@ -1772,6 +1795,16 @@
             }
             .action-bar #themeToggleBtn {
                 justify-self: center !important;
+                width: 29px !important;
+                height: 29px !important;
+                padding: 0 !important;
+                border-radius: 50% !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            .action-bar #themeToggleBtn i {
+                font-size: 0.80rem !important;
             }
             .action-bar #pdfDownloadBtn {
                 justify-self: end !important;
@@ -2428,10 +2461,8 @@
             <button type="button" class="lang-btn active" id="langBtnEs" onclick="setLanguage('es')" title="Ver en Español">ES</button>
             <button type="button" class="lang-btn" id="langBtnEn" onclick="setLanguage('en')" title="View in English">EN</button>
         </div>
-        <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar a Modo Claro">
+        <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar a Modo Claro" aria-label="Cambiar a Modo Claro">
             <i class="fas fa-sun" id="themeIcon"></i>
-            <span id="themeText" translate="no" class="btn-text-desktop">Claro</span>
-            <span id="themeTextMobile" translate="no" class="btn-text-mobile">Claro</span>
         </button>
         <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" title="Descargar CV en PDF">
             <i class="fas fa-file-pdf"></i>
@@ -3694,27 +3725,17 @@
 
         function updateThemeButton(theme) {
             const icon = document.getElementById('themeIcon');
-            const textDesk = document.getElementById('themeText');
-            const textMob = document.getElementById('themeTextMobile');
             const isDark = theme === 'dark';
             const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
-            const dict = (typeof i18n !== 'undefined' && i18n[lang]) ? i18n[lang] : null;
-
-            const deskLabel = isDark ? (dict ? dict.themeLightDesk : 'Modo Claro') : (dict ? dict.themeDarkDesk : 'Modo Oscuro');
-            const mobLabel = isDark ? (dict ? dict.themeLightMob : 'Claro') : (dict ? dict.themeDarkMob : 'Oscuro');
 
             if (icon) {
                 icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
             }
-            if (textDesk) {
-                textDesk.innerText = deskLabel;
-            }
-            if (textMob) {
-                textMob.innerText = mobLabel;
-            }
             const btn = document.getElementById('themeToggleBtn');
             if (btn) {
-                btn.title = isDark ? (lang === 'en' ? 'Switch to Light Mode' : 'Cambiar a Modo Claro') : (lang === 'en' ? 'Switch to Dark Mode' : 'Cambiar a Modo Oscuro');
+                const titleText = isDark ? (lang === 'en' ? 'Switch to Light Mode' : 'Cambiar a Modo Claro') : (lang === 'en' ? 'Switch to Dark Mode' : 'Cambiar a Modo Oscuro');
+                btn.title = titleText;
+                btn.setAttribute('aria-label', titleText);
             }
         }
 
