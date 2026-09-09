@@ -488,23 +488,97 @@
             color: inherit;
             cursor: pointer;
             position: relative;
+            animation: kpiSoftGlow 3.6s ease-in-out infinite;
         }
+
+        .stat-arrow {
+            position: absolute;
+            top: 5px;
+            right: 6px;
+            width: 17px;
+            height: 17px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.56rem;
+            color: var(--accent);
+            opacity: 0.85;
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid rgba(37, 99, 235, 0.15);
+            transition: all 0.25s ease;
+        }
+
+        /* Brillo tenue ambiental para tarjetas KPI en móvil */
+        @keyframes kpiSoftGlow {
+            0%, 100% {
+                border-color: rgba(226, 232, 240, 0.95);
+                box-shadow: 0 3px 8px -2px rgba(0, 0, 0, 0.05), 0 0 0 0 rgba(37, 99, 235, 0);
+            }
+            50% {
+                border-color: rgba(37, 99, 235, 0.45);
+                box-shadow: 0 4px 14px -2px rgba(37, 99, 235, 0.18), 0 0 9px 1px rgba(37, 99, 235, 0.14);
+            }
+        }
+
+        @keyframes kpiSoftGlowDark {
+            0%, 100% {
+                border-color: rgba(56, 189, 248, 0.18);
+                box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(56, 189, 248, 0);
+            }
+            50% {
+                border-color: rgba(56, 189, 248, 0.5);
+                box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.5), 0 0 11px 1px rgba(56, 189, 248, 0.25);
+            }
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0s; }
+        .stat-card:nth-child(2) { animation-delay: 0.9s; }
+        .stat-card:nth-child(3) { animation-delay: 1.8s; }
+        .stat-card:nth-child(4) { animation-delay: 2.7s; }
 
         .stat-card:hover {
             transform: translateY(-2px);
             border-color: var(--accent);
-            box-shadow: 0 8px 20px -3px rgba(37, 99, 235, 0.12), 0 3px 6px -1px rgba(0, 0, 0, 0.04), inset 0 1px 0 0 rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 20px -3px rgba(37, 99, 235, 0.18), 0 3px 6px -1px rgba(0, 0, 0, 0.04), inset 0 1px 0 0 rgba(255, 255, 255, 1);
+        }
+
+        .stat-card:hover .stat-arrow {
+            opacity: 1;
+            color: #ffffff;
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translate(1px, -1px);
+        }
+
+        .stat-card:active {
+            transform: scale(0.97);
+            border-color: var(--accent) !important;
         }
 
         [data-theme="dark"] .stat-card {
             background: linear-gradient(180deg, #182232 0%, #121924 100%);
             border: 1px solid rgba(56, 189, 248, 0.16);
             box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.48), 0 2px 6px 0 rgba(0, 0, 0, 0.32), inset 0 1px 0 0 rgba(255, 255, 255, 0.07);
+            animation: kpiSoftGlowDark 3.6s ease-in-out infinite;
+        }
+
+        [data-theme="dark"] .stat-arrow {
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.14);
+            border-color: rgba(56, 189, 248, 0.25);
+            opacity: 0.95;
         }
 
         [data-theme="dark"] .stat-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 10px 24px -3px rgba(56, 189, 248, 0.24), 0 4px 8px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 24px -3px rgba(56, 189, 248, 0.3), 0 4px 8px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+        }
+
+        [data-theme="dark"] .stat-card:hover .stat-arrow {
+            color: #0b1329;
+            background: #38bdf8;
+            border-color: #38bdf8;
         }
 
         .stat-icon {
@@ -2149,6 +2223,7 @@
 
         .stat-card {
             padding: 9px 8px !important;
+            padding-right: 22px !important;
             gap: 7px !important;
             box-sizing: border-box !important;
             border-radius: var(--radius-md) !important;
@@ -2817,6 +2892,7 @@
         <!-- Métricas & Logros Clave -->
         <div class="stats-banner" id="statsBanner">
             <a href="#exp-fraude" class="stat-card" id="kpi-fraude" onclick="scrollToTarget('exp-fraude'); return false;" title="Ver experiencia en Prevención de Fraudes">
+                <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-chart-column"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">+4 Años</div>
@@ -2824,6 +2900,7 @@
                 </div>
             </a>
             <a href="#logro-fraude" class="stat-card" id="kpi-ratio" onclick="scrollToTarget('logro-fraude'); return false;" title="Ver logro en reducción de ratio de fraude">
+                <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">0,150 ➔ 0,030</div>
@@ -2831,6 +2908,7 @@
                 </div>
             </a>
             <a href="#exp-bancaria" class="stat-card" id="kpi-bancaria" onclick="scrollToTarget('exp-bancaria'); return false;" title="Ver experiencia en sector bancario">
+                <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-university"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">+15 Años</div>
@@ -2838,6 +2916,7 @@
                 </div>
             </a>
             <a href="#proyectosSection" class="stat-card" id="kpi-proyectos" onclick="scrollToTarget('proyectosSection'); return false;" title="Ver proyectos de Análisis de Datos">
+                <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-diagram-project"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">9 Proyectos</div>
@@ -3375,6 +3454,7 @@
         function renderKpis(kpis, container) {
             container.innerHTML = kpis.map(kpi => `
                 <a href="#${kpi.target}" class="stat-card" id="${kpi.id}" onclick="scrollToTarget('${kpi.target}'); return false;" title="${kpi.tooltip}" data-kpi-id="${kpi.id}">
+                    <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                     <div class="stat-icon"><i class="${kpi.icon}"></i></div>
                     <div class="stat-content">
                         <div class="stat-number">${kpi.number}</div>
