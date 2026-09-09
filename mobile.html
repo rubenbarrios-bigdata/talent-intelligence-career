@@ -589,10 +589,15 @@
         }
 
         .summary-text {
-            font-size: 0.95rem;
-            line-height: 1.8;
+            font-size: 0.90rem;
+            line-height: 1.65;
             color: var(--text-secondary);
             text-align: justify;
+        }
+
+        .summary-text strong {
+            color: var(--text);
+            font-weight: 700;
         }
 
         /* Experience Section */
@@ -2232,9 +2237,14 @@
         }
 
         .summary-text {
-            font-size: 0.85rem !important;
-            line-height: 1.6 !important;
+            font-size: 0.81rem !important;
+            line-height: 1.55 !important;
             text-align: justify !important;
+        }
+
+        .summary-text strong {
+            color: var(--text) !important;
+            font-weight: 700 !important;
         }
 
         /* Sección de Experiencia */
@@ -2732,7 +2742,7 @@
                     const isLocal = pathname.includes('cv_ruben_barrios') || (window.location.protocol === 'file:');
                     const target = isLocal ? 'CV_Ruben_Barrios.html' : 'index.html';
                     const params = new URLSearchParams(window.location.search);
-                    if (!params.has('v') || params.get('v') === '2' || params.get('v') === '3') params.set('v', '4');
+                    if (!params.has('v') || params.get('v') === '2' || params.get('v') === '3' || params.get('v') === '4') params.set('v', '5');
                     const search = params.toString() ? ('?' + params.toString()) : '';
                     const hash = window.location.hash || '';
                     return target + search + hash;
