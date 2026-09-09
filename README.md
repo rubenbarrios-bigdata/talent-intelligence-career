@@ -1,7 +1,8 @@
-# 📊 CV Interactivo: Rubén David Barrios Bello
+# 📊 Talent Intelligence Career (TIC)® — CV Interactivo: Rubén David Barrios Bello
 
 <div align="center">
 
+[![TIC Architecture](https://img.shields.io/badge/Architecture-Talent%20Intelligence%20Career%20(TIC)%C2%AE-0284c7?style=for-the-badge&logo=shield&logoColor=white)](Plan_Estrategico_Talent_Intelligence_Career_TIC_Ruben_Barrios.pdf)
 [![Live Demo en GitHub Pages](https://img.shields.io/badge/🌐%20Live%20Demo-GitHub%20Pages-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white)](https://rubenbarrios-bigdata.github.io/cv-html-ruben-barrios/)
 [![Ver CV en HTML](https://img.shields.io/badge/📄%20CV%20en%20HTML-CV__Ruben__Barrios.html-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://rubenbarrios-bigdata.github.io/cv-html-ruben-barrios/CV_Ruben_Barrios.html)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Rubén%20Barrios-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ruben-barrios)
@@ -58,8 +59,8 @@ Este CV fue concebido e implementado bajo los principios de diseño de un **Exec
 
 | KPI | Métrica Clave | Enfoque de Negocio & Impacto Analítico |
 | :---: | :---: | :--- |
-| <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/shield-halved.svg" width="22" height="22"></div> | **`+4 Años`**<br><sub>Fraudes E-Commerce</sub> | **Detección temprana y control de riesgos:** Análisis de métricas transaccionales, detección de anomalías y prevención de contracargos en operaciones de alto volumen para logística y comercio electrónico. |
-| <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/chart-line.svg" width="22" height="22"></div> | **`0,150 ➔ 0,030`**<br><sub>Reducción Ratio Fraude</sub> | **Impacto económico directo:** Descenso del **80%** en el ratio de fraude mediante la optimización de reglas de negocio, scoring predictivo y seguimiento periódico de indicadores de riesgo. |
+| <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/shield-halved.svg" width="22" height="22"></div> | **`+4 Años`**<br><sub>Analizando Métricas</sub> | **Detección temprana y control de riesgos:** Análisis de métricas transaccionales, detección de anomalías y prevención de contracargos en operaciones de alto volumen para logística y comercio electrónico. |
+| <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/chart-line.svg" width="22" height="22"></div> | **`0,150 ➔ 0,030`**<br><sub>Ratio Fraude (-80%)</sub> | **Impacto económico directo:** Descenso del **80%** en el ratio de fraude mediante la optimización de reglas de negocio, scoring predictivo y seguimiento periódico de indicadores de riesgo. |
 | <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/building-columns.svg" width="22" height="22"></div> | **`+15 Años`**<br><sub>Sector Bancario</sub> | **Sólido criterio de negocio y finanzas:** Dominio operativo en Comercio Exterior, Operaciones Internacionales, conciliaciones transaccionales y normativas cambiarias bancarias. |
 | <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/diagram-project.svg" width="22" height="22"></div> | **`9 Proyectos`**<br><sub>Análisis de Datos</sub> | **Soluciones analíticas aplicadas:** Portafolio técnico de dashboards y productos de datos en Power BI, DAX, Excel Avanzado, SQL, Python, GTM, GA4 y Data Studio. |
 
@@ -192,6 +193,27 @@ cd cv-html-ruben-barrios
 python -m http.server 8000
 ```
 Luego abrí tu navegador en: `http://localhost:8000`
+
+---
+
+## 🛡️ Propiedad Intelectual, Autoría & Registro de TIC®
+
+### 📌 Declaración Oficial de Autoría y Creación
+**Talent Intelligence Career (TIC)®** es una plataforma tecnológica e interactiva de visualización curricular y métricas profesionales concebida con mentalidad de *executive dashboard*, desacoplamiento estricto de capa de datos (`data.json`), diseño responsivo nativo y analítica digital integrada.
+
+- **Obra / Plataforma**: **Talent Intelligence Career (TIC)®**
+- **Autor, Diseñador y Desarrollador**: **Rubén David Barrios Bello**
+- **Perfil Biográfico del Autor**: Profesional de **origen venezolano**, radicado y con actividad profesional en **Buenos Aires, Argentina desde el año 2018**. Licenciado en Banca y Finanzas con más de 16 años de trayectoria profesional combinada en el sector bancario (comercio exterior, conciliaciones, regulaciones cambiarias) y analítica avanzada (Data Analyst, Business Intelligence, prevención de fraudes y reducción de contracargos en e-commerce).
+- **Lugar y Fecha de Creación**: Buenos Aires, Argentina — 2026.
+- **Carácter de la Obra**: Software / Aplicación Web Interactiva de Inteligencia Curricular (CV Interactivo y Dashboard de KPIs desacoplado).
+
+### ⚖️ Marco Legal y Protección de Derechos
+1. **Derechos de Autor (Ley 11.723 - República Argentina)**:
+   La estructura, diseño visual, código fuente (HTML5, CSS3, JavaScript ES6+), esquema de datos (`data.json`) y el concepto funcional **Talent Intelligence Career (TIC)®** constituyen una obra técnica e intelectual original protegida bajo la Ley de Propiedad Intelectual N° 11.723 de la República Argentina y convenios internacionales (Convenio de Berna).
+2. **Depósito y Registro Oficial**:
+   Obra técnica y software en proceso de registro formal ante la **Dirección Nacional del Derecho de Autor (DNDA)** del Ministerio de Justicia de la República Argentina a través de la plataforma oficial de Trámites a Distancia (**TAD**).
+3. **Documentación Estratégica**:
+   El dossier metodológico completo, arquitectura técnica y hoja de ruta evolutiva se encuentran documentados en el informe maestro: [`Plan_Estrategico_Talent_Intelligence_Career_TIC_Ruben_Barrios.pdf`](Plan_Estrategico_Talent_Intelligence_Career_TIC_Ruben_Barrios.pdf).
 
 ---
 
