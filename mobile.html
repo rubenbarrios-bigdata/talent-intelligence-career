@@ -2891,12 +2891,12 @@
                         </div>
                     </div>
 
-                    <!-- Webpack / Mercado Libre Logistics -->
+                    <!-- Webpack / Empresa Logística Certificada por Mercado Libre -->
                     <div class="experience-item" id="exp-fraude">
                         <div class="exp-header">
                             <div>
                                 <div class="exp-role" id="webpackRole">Analista de Prevención de Fraudes y Reclamos</div>
-                                <div class="exp-company"><i class="fas fa-chart-column"></i> Webpack S.R.L. — Mercado Libre Logistics</div>
+                                <div class="exp-company" id="webpackCompany"><i class="fas fa-chart-column"></i> Webpack S.R.L. — Empresa Logística Certificada por Mercado Libre</div>
                             </div>
                             <span class="exp-date">Mar 2020 - Oct 2024</span>
                         </div>
@@ -4099,6 +4099,7 @@
                     <li>Definición, instrumentación y seguimiento continuo de KPIs estratégicos de rendimiento.</li>
                 </ul>`,
                 webpackRole: 'Analista de Prevención de Fraudes y Reclamos',
+                webpackCompany: '<i class="fas fa-chart-column"></i> Webpack S.R.L. — Empresa Logística Certificada por Mercado Libre',
                 webpackLoc: '<i class="fas fa-map-pin"></i> Buenos Aires, Argentina (4 años 8 meses)',
                 webpackDesc: `<ul>
                     <li>Responsable absoluto del sector de prevención de fraudes para la logística certificada por Mercado Libre.</li>
@@ -4210,6 +4211,7 @@
                     <li>Definition, instrumentation, and continuous tracking of strategic performance KPIs.</li>
                 </ul>`,
                 webpackRole: 'Fraud Prevention & Claims Analyst',
+                webpackCompany: '<i class="fas fa-chart-column"></i> Webpack S.R.L. — Certified Logistics Company for Mercado Libre',
                 webpackLoc: '<i class="fas fa-map-pin"></i> Buenos Aires, Argentina (4 years 8 months)',
                 webpackDesc: `<ul>
                     <li>Fully accountable for the fraud prevention department within Mercado Libre certified logistics operations.</li>
@@ -4419,6 +4421,9 @@
 
             const webpackRole = document.getElementById('webpackRole');
             if (webpackRole) webpackRole.innerText = t.webpackRole;
+
+            const webpackCompany = document.getElementById('webpackCompany');
+            if (webpackCompany) webpackCompany.innerHTML = t.webpackCompany;
 
             const webpackLoc = document.getElementById('webpackLoc');
             if (webpackLoc) webpackLoc.innerHTML = t.webpackLoc;
