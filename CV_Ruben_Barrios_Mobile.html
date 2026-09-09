@@ -269,7 +269,7 @@
             box-shadow: var(--shadow-sm);
         }
 
-        /* Botón PDF estilo Adobe Acrobat Red con tamaño exacto capsule */
+        /* Botón PDF estilo Adobe Acrobat Red circular */
         .btn-pdf-action,
         .action-bar .btn-pdf-action,
         [data-theme="light"] .action-bar .btn-pdf-action,
@@ -277,23 +277,27 @@
             background: #e1251b !important;
             border: 1px solid #e1251b !important;
             color: #ffffff !important;
-            box-shadow: 0 2px 6px rgba(225, 37, 27, 0.3) !important;
+            box-shadow: 0 2px 6px rgba(225, 37, 27, 0.35) !important;
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
+            width: 31px !important;
+            height: 31px !important;
+            padding: 0 !important;
+            border-radius: 50% !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-decoration: none !important;
             transform: none !important;
         }
 
         .btn-pdf-action i,
-        .btn-pdf-action span,
-        .action-bar .btn-pdf-action i,
-        .action-bar .btn-pdf-action span {
-            color: #ffffff !important;
-        }
-
-        .btn-pdf-action i {
+        .action-bar .btn-pdf-action i {
             display: inline-block;
-            font-size: 0.80rem;
+            font-size: 1.05rem !important;
+            color: #ffffff !important;
             transform: none !important;
+            transition: transform 0.25s ease;
         }
 
         .btn-pdf-action:hover,
@@ -304,22 +308,19 @@
             background: #c51912 !important;
             border-color: #c51912 !important;
             color: #ffffff !important;
-            box-shadow: 0 3px 8px rgba(225, 37, 27, 0.45) !important;
-            transform: none !important;
-            animation: none !important;
+            box-shadow: 0 3px 10px rgba(225, 37, 27, 0.5) !important;
+            transform: translateY(-1px) !important;
         }
 
         .btn-pdf-action:hover i,
-        .btn-pdf-action:active i,
-        .btn-pdf-action:hover span,
-        .btn-pdf-action:active span,
-        .btn-pdf-action.pdf-touch-active i,
-        .btn-pdf-action.pdf-touch-active span,
-        .action-bar .btn-pdf-action:hover i,
-        .action-bar .btn-pdf-action:hover span {
+        .action-bar .btn-pdf-action:hover i {
+            transform: scale(1.12) !important;
             color: #ffffff !important;
-            transform: none !important;
-            animation: none !important;
+        }
+
+        .btn-pdf-action:active i,
+        .action-bar .btn-pdf-action:active i {
+            transform: scale(0.92) !important;
         }
 
         .container {
@@ -2089,8 +2090,21 @@
             transform: rotate(45deg) scale(0.9);
         }
 
-        .action-bar #pdfDownloadBtn {
+        .action-bar #pdfDownloadBtn,
+        .action-bar .btn-pdf-action {
             justify-self: end !important;
+            width: 31px !important;
+            height: 31px !important;
+            padding: 0 !important;
+            border-radius: 50% !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .action-bar #pdfDownloadBtn i,
+        .action-bar .btn-pdf-action i {
+            font-size: 1.05rem !important;
         }
 
         .action-bar .btn-action {
@@ -2882,9 +2896,8 @@
         <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar a Modo Claro" aria-label="Cambiar a Modo Claro">
             <i class="fas fa-sun" id="themeIcon"></i>
         </button>
-        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" title="Descargar CV en PDF">
+        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" title="Descargar CV en PDF" aria-label="Descargar CV en PDF">
             <i class="fas fa-file-pdf"></i>
-            <span id="pdfBtnTextMobile">PDF</span>
         </a>
     </div>
 
