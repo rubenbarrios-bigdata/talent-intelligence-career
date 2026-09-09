@@ -635,9 +635,76 @@
 
         .stat-content .stat-number {
             font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--primary);
+            font-weight: 900;
             line-height: 1.15;
+            display: inline-block;
+            position: relative;
+            background: linear-gradient(
+                90deg,
+                var(--primary) 0%,
+                #0284c7 20%,
+                #38bdf8 38%,
+                #ffffff 50%,
+                #38bdf8 62%,
+                #0284c7 80%,
+                var(--primary) 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: kpiShimmerSweep 2.2s linear infinite, kpiLuminousGlow 2.2s ease-in-out infinite;
+        }
+
+        [data-theme="dark"] .stat-content .stat-number {
+            background: linear-gradient(
+                90deg,
+                #38bdf8 0%,
+                #7dd3fc 20%,
+                #bae6fd 38%,
+                #ffffff 50%,
+                #bae6fd 62%,
+                #7dd3fc 80%,
+                #38bdf8 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: kpiShimmerSweep 2.2s linear infinite, kpiLuminousGlowDark 2.2s ease-in-out infinite;
+        }
+
+        .stat-card:hover .stat-number {
+            animation-duration: 1.1s;
+        }
+
+        @keyframes kpiShimmerSweep {
+            0% {
+                background-position: 200% center;
+            }
+            100% {
+                background-position: -200% center;
+            }
+        }
+
+        @keyframes kpiLuminousGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 2px rgba(2, 132, 199, 0.35));
+                transform: scale(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.95)) drop-shadow(0 0 20px rgba(56, 189, 248, 0.75));
+                transform: scale(1.03);
+            }
+        }
+
+        @keyframes kpiLuminousGlowDark {
+            0%, 100% {
+                filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.6));
+                transform: scale(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 14px rgba(56, 189, 248, 1)) drop-shadow(0 0 28px rgba(125, 211, 252, 0.9)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.85));
+                transform: scale(1.04);
+            }
         }
 
         .stat-content .stat-label {
@@ -3021,7 +3088,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p id="footerCopy">CV Web Profesional • Rubén David Barrios Bello • Actualizado 2026</p>
+            <p id="footerCopy">Talent Intelligence Career (TIC)® • Rubén David Barrios Bello • Marca Registrada ® • Actualizado 2026</p>
             <p style="margin-top: 6px;">
                 <a href="tel:+5491170259429"><i class="fas fa-phone-alt"></i> +54 9 11 7025-9429</a> • 
                 <a href="mailto:rubendavid1809@gmail.com"><i class="fas fa-envelope"></i> <span id="footerContactText">Contacto directo</span></a> • 
@@ -3907,7 +3974,7 @@
                 langEnBadge: 'Técnico / Lectura y Documentación',
                 refTitle: '<i class="fas fa-user-check"></i>Referencias',
                 refRole: 'IT Project Management',
-                footerCopy: 'CV Web Profesional • Rubén David Barrios Bello • Actualizado 2026',
+                footerCopy: 'Talent Intelligence Career (TIC)® • Rubén David Barrios Bello • Marca Registrada ® • Actualizado 2026',
                 footerContact: 'Contacto directo',
                 dockWa: 'WhatsApp',
                 dockCall: 'Llamar',
@@ -3996,18 +4063,42 @@
                 certTitle: '<i class="fas fa-certificate"></i>Certifications',
                 certCountBadgeSuffix: 'Available',
                 filterAll: 'All',
-                filterData: 'Data Analysis',
-                filterBi: 'Power BI & BI',
-                filterAi: 'AI & Future',
-                filterProg: 'Programming',
+                navContact: 'Contact',
+                navKpis: 'KPIs',
+                navSkills: 'Skills',
+                navExp: 'Experience',
+                navProjects: 'Projects',
+                navCerts: 'Certifications',
+                navEdu: 'Education',
+                navLang: 'Languages',
+                navRefs: 'References',
+                statsBannerLabel: 'Executive Dashboard & Professional KPIs',
+                skillsTitle: '<i class="fas fa-tools"></i>Technical Skills & Analytical Stack',
+                skillsSubtitle: 'Strategic tools and technologies applied to risk analysis, business intelligence, data governance, and analytics pipelines.',
+                skillsCategory1: 'Data Analytics & Business Intelligence',
+                skillsCategory2: 'Databases & Query Languages',
+                skillsCategory3: 'Data Stack & Machine Learning',
+                skillsCategory4: 'Banking Domain & Fraud Risk Management',
+                skillsCategory5: 'Digital Analytics & Tag Management',
+                skillsCategory6: 'Office & Advanced Productivity',
+                expTitle: '<i class="fas fa-briefcase"></i>Work Experience',
+                expToggleExpand: 'Expand all',
+                expToggleCollapse: 'Collapse all',
+                projectsTitle: '<i class="fas fa-diagram-project"></i>Data Analytics & Business Intelligence Projects',
+                certsTitle: '<i class="fas fa-certificate"></i>Professional Certifications & Validated Credentials',
+                certsFilterAll: 'All Creds',
+                certsFilterData: 'Data & BI',
+                certsFilterAi: 'AI & ML',
+                certsFilterDev: 'Dev & Programming',
+                certsFilterRemote: 'Remote Work',
                 eduTitle: '<i class="fas fa-graduation-cap"></i>Education',
-                eduDeg1: 'Associate Degree in Data Science & Artificial Intelligence',
-                eduSchool1: 'IFTS Nº 11 (Higher Technical Training Institute)',
-                eduDate1: '2026 - Present',
-                eduStatus1: 'In Progress (1st Year)',
-                eduDeg2: 'B.A. in Materials & Financial Resources Administration',
-                eduSchool2: 'Universidad Nacional Experimental Simón Rodríguez',
-                eduDate2: '2008 - 2012',
+                eduDeg1: 'Bachelor in Banking and Finance Administration',
+                eduSchool1: 'Universidad Santa María',
+                eduDate1: '2005 - 2011',
+                eduStatus1: 'Graduated',
+                eduDeg2: 'Diploma in Integral Fraud Management',
+                eduSchool2: 'Asociación de Bancos Argentinos (ADEBA)',
+                eduDate2: '2024',
                 eduStatus2: 'Graduated',
                 eduDeg3: 'Associate Degree in Physical & Financial Resources Administration',
                 eduSchool3: 'Colegio Universitario Fermín Toro',
@@ -4019,13 +4110,12 @@
                 langEnBadge: 'Technical / Reading & Documentation',
                 refTitle: '<i class="fas fa-user-check"></i>References',
                 refRole: 'IT Project Management',
-                footerCopy: 'Professional Web Resume • Rubén David Barrios Bello • Updated 2026',
+                footerCopy: 'Talent Intelligence Career (TIC)® • Rubén David Barrios Bello • Registered Trademark ® • Updated 2026',
                 footerContact: 'Direct Contact',
                 dockWa: 'WhatsApp',
                 dockCall: 'Call',
                 dockEmail: 'Email',
                 dockCallTitle: 'Call Rubén Barrios',
-                scrollTopTitle: 'Back to top of resume',
                 
             }
         };
@@ -4039,9 +4129,9 @@
             ],
             en: [
                 { id: "kpi-fraude", number: "+4 Years", label: "Analyzing E-Commerce Fraud Metrics", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "View Fraud Prevention experience" },
-                { id: "kpi-ratio", number: "0.150 ➔ 0.030", label: "Fraud Ratio Reduction (-80%)", icon: "fas fa-chart-line", target: "logro-fraude", tooltip: "View high-impact achievement in fraud reduction" },
+                { id: "kpi-ratio", number: "0.150 ➔ 0.030", label: "Fraud Ratio Reduction (-80%)", icon: "fas fa-chart-line", target: "logro-fraude", tooltip: "View fraud ratio reduction achievement" },
                 { id: "kpi-bancaria", number: "+15 Years", label: "Banking Sector", icon: "fas fa-university", target: "exp-bancaria", tooltip: "View banking sector experience" },
-                { id: "kpi-proyectos", number: "9 Projects", label: "Data Analysis", icon: "fas fa-diagram-project", target: "proyectosSection", tooltip: "View Data Analysis projects" }
+                { id: "kpi-proyectos", number: "9 Projects", label: "Data Analytics", icon: "fas fa-diagram-project", target: "proyectosSection", tooltip: "View Data Analytics projects" }
             ]
         };
 
@@ -4301,7 +4391,7 @@
 
             // Footer
             const footerCopy = document.getElementById('footerCopy');
-            if (footerCopy) footerCopy.innerText = t.footerCopy;
+            if (footerCopy) footerCopy.innerHTML = t.footerCopy;
 
             const footerContact = document.getElementById('footerContactText');
             if (footerContact) footerContact.innerText = t.footerContact;
