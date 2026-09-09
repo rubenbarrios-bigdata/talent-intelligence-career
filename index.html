@@ -635,75 +635,56 @@
 
         .stat-content .stat-number {
             font-size: 1.35rem;
-            font-weight: 900;
+            font-weight: 800;
             line-height: 1.15;
             display: inline-block;
             position: relative;
             background: linear-gradient(
-                90deg,
+                110deg,
                 var(--primary) 0%,
-                #0284c7 20%,
-                #38bdf8 38%,
+                var(--primary) 32%,
+                rgba(255, 255, 255, 0.45) 44%,
                 #ffffff 50%,
-                #38bdf8 62%,
-                #0284c7 80%,
+                rgba(255, 255, 255, 0.45) 56%,
+                var(--primary) 68%,
                 var(--primary) 100%
             );
-            background-size: 200% auto;
+            background-size: 250% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: kpiShimmerSweep 2.2s linear infinite, kpiLuminousGlow 2.2s ease-in-out infinite;
+            animation: kpiWhiteGleam 3.5s ease-in-out infinite;
         }
 
         [data-theme="dark"] .stat-content .stat-number {
             background: linear-gradient(
-                90deg,
+                110deg,
                 #38bdf8 0%,
-                #7dd3fc 20%,
-                #bae6fd 38%,
+                #38bdf8 32%,
+                rgba(255, 255, 255, 0.45) 44%,
                 #ffffff 50%,
-                #bae6fd 62%,
-                #7dd3fc 80%,
+                rgba(255, 255, 255, 0.45) 56%,
+                #38bdf8 68%,
                 #38bdf8 100%
             );
-            background-size: 200% auto;
+            background-size: 250% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: kpiShimmerSweep 2.2s linear infinite, kpiLuminousGlowDark 2.2s ease-in-out infinite;
+            animation: kpiWhiteGleam 3.5s ease-in-out infinite;
         }
 
         .stat-card:hover .stat-number {
-            animation-duration: 1.1s;
+            animation-duration: 1.8s;
         }
 
-        @keyframes kpiShimmerSweep {
+        @keyframes kpiWhiteGleam {
             0% {
-                background-position: 200% center;
+                background-position: 150% 0;
+            }
+            38% {
+                background-position: -150% 0;
             }
             100% {
-                background-position: -200% center;
-            }
-        }
-
-        @keyframes kpiLuminousGlow {
-            0%, 100% {
-                filter: drop-shadow(0 0 2px rgba(2, 132, 199, 0.35));
-                transform: scale(1);
-            }
-            50% {
-                filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.95)) drop-shadow(0 0 20px rgba(56, 189, 248, 0.75));
-                transform: scale(1.03);
-            }
-        }
-
-        @keyframes kpiLuminousGlowDark {
-            0%, 100% {
-                filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.6));
-                transform: scale(1);
-            }
-            50% {
-                filter: drop-shadow(0 0 14px rgba(56, 189, 248, 1)) drop-shadow(0 0 28px rgba(125, 211, 252, 0.9)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.85));
-                transform: scale(1.04);
+                background-position: -150% 0;
             }
         }
 
@@ -2620,7 +2601,7 @@
                 <div class="stat-icon"><i class="fas fa-chart-column"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">+4 Años</div>
-                    <div class="stat-label">Analizando Métricas de Fraudes E-Commerce</div>
+                    <div class="stat-label">Analizando Métricas</div>
                 </div>
             </a>
             <a href="#logro-fraude" class="stat-card" id="kpi-ratio" onclick="scrollToTarget('logro-fraude'); return false;" title="Ver logro en reducción de ratio de fraude">
@@ -2628,7 +2609,7 @@
                 <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">0,150 ➔ 0,030</div>
-                    <div class="stat-label">Reducción Ratio Fraude (-80%)</div>
+                    <div class="stat-label">Ratio Fraude (-80%)</div>
                 </div>
             </a>
             <a href="#exp-bancaria" class="stat-card" id="kpi-bancaria" onclick="scrollToTarget('exp-bancaria'); return false;" title="Ver experiencia en sector bancario">
@@ -4122,14 +4103,14 @@
 
         const fallbackKpis = {
             es: [
-                { id: "kpi-fraude", number: "+4 Años", label: "Analizando Métricas de Fraudes E-Commerce", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "Ver experiencia en Prevención de Fraudes" },
-                { id: "kpi-ratio", number: "0,150 ➔ 0,030", label: "Reducción Ratio Fraude (-80%)", icon: "fas fa-chart-line", target: "logro-fraude", tooltip: "Ver logro en reducción de ratio de fraude" },
+                { id: "kpi-fraude", number: "+4 Años", label: "Analizando Métricas", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "Ver experiencia en Prevención de Fraudes" },
+                { id: "kpi-ratio", number: "0,150 ➔ 0,030", label: "Ratio Fraude (-80%)", icon: "fas fa-chart-line", target: "logro-fraude", tooltip: "Ver logro en reducción de ratio de fraude" },
                 { id: "kpi-bancaria", number: "+15 Años", label: "Sector Bancario", icon: "fas fa-university", target: "exp-bancaria", tooltip: "Ver experiencia en sector bancario" },
                 { id: "kpi-proyectos", number: "9 Proyectos", label: "Análisis de Datos", icon: "fas fa-diagram-project", target: "proyectosSection", tooltip: "Ver proyectos de Análisis de Datos" }
             ],
             en: [
-                { id: "kpi-fraude", number: "+4 Years", label: "Analyzing E-Commerce Fraud Metrics", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "View Fraud Prevention experience" },
-                { id: "kpi-ratio", number: "0.150 ➔ 0.030", label: "Fraud Ratio Reduction (-80%)", icon: "fas fa-chart-line", target: "logro-fraude", tooltip: "View fraud ratio reduction achievement" },
+                { id: "kpi-fraude", number: "+4 Years", label: "Analyzing Metrics", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "View Fraud Prevention experience" },
+                { id: "kpi-ratio", number: "0.150 ➔ 0.030", label: "Fraud Ratio (-80%)", icon: "fas fa-chart-line", target: "logro-fraude", tooltip: "View fraud ratio reduction achievement" },
                 { id: "kpi-bancaria", number: "+15 Years", label: "Banking Sector", icon: "fas fa-university", target: "exp-bancaria", tooltip: "View banking sector experience" },
                 { id: "kpi-proyectos", number: "9 Projects", label: "Data Analytics", icon: "fas fa-diagram-project", target: "proyectosSection", tooltip: "View Data Analytics projects" }
             ]

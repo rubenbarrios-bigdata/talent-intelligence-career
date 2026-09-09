@@ -14,7 +14,7 @@
     {
       "id": "kpi-fraude",
       "number": "+4 Years",
-      "label": "Analyzing E-Commerce Fraud Metrics",
+      "label": "Analyzing Metrics",
       "icon": "fas fa-chart-column",
       "target": "exp-fraude",
       "tooltip": "View Fraud Prevention experience",
@@ -24,7 +24,7 @@
     {
       "id": "kpi-ratio",
       "number": "0.150 ➔ 0.030",
-      "label": "Fraud Ratio Reduction (-80%)",
+      "label": "Fraud Ratio (-80%)",
       "icon": "fas fa-chart-line",
       "target": "logro-fraude",
       "tooltip": "View high-impact achievement in fraud reduction",
