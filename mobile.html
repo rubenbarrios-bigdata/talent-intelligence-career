@@ -718,51 +718,57 @@
             display: inline-block;
             position: relative;
             background: linear-gradient(
-                110deg,
+                115deg,
                 var(--primary) 0%,
-                var(--primary) 32%,
-                rgba(255, 255, 255, 0.45) 44%,
+                var(--primary) 28%,
+                rgba(255, 255, 255, 0.45) 42%,
                 #ffffff 50%,
-                rgba(255, 255, 255, 0.45) 56%,
-                var(--primary) 68%,
+                rgba(255, 255, 255, 0.45) 58%,
+                var(--primary) 72%,
                 var(--primary) 100%
             );
-            background-size: 250% 100%;
+            background-size: 280% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: kpiWhiteGleam 3.5s ease-in-out infinite;
+            animation: kpiWaveGleam 6.5s ease-in-out infinite;
         }
 
         [data-theme="dark"] .stat-content .stat-number {
             background: linear-gradient(
-                110deg,
+                115deg,
                 #38bdf8 0%,
-                #38bdf8 32%,
-                rgba(255, 255, 255, 0.45) 44%,
+                #38bdf8 28%,
+                rgba(255, 255, 255, 0.45) 42%,
                 #ffffff 50%,
-                rgba(255, 255, 255, 0.45) 56%,
-                #38bdf8 68%,
+                rgba(255, 255, 255, 0.45) 58%,
+                #38bdf8 72%,
                 #38bdf8 100%
             );
-            background-size: 250% 100%;
+            background-size: 280% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: kpiWhiteGleam 3.5s ease-in-out infinite;
+            animation: kpiWaveGleam 6.5s ease-in-out infinite;
         }
+
+        /* Efecto ola ondeante escalonada entre los KPIs (como bandera suave) */
+        .stat-card:nth-child(1) .stat-number { animation-delay: 0s; }
+        .stat-card:nth-child(2) .stat-number { animation-delay: 0.5s; }
+        .stat-card:nth-child(3) .stat-number { animation-delay: 1.0s; }
+        .stat-card:nth-child(4) .stat-number { animation-delay: 1.5s; }
 
         .stat-card:hover .stat-number {
-            animation-duration: 1.8s;
+            animation-duration: 3s;
         }
 
-        @keyframes kpiWhiteGleam {
+        @keyframes kpiWaveGleam {
             0% {
-                background-position: 150% 0;
+                background-position: 100% 0;
             }
-            38% {
-                background-position: -150% 0;
+            50% {
+                background-position: 0% 0;
             }
             100% {
-                background-position: -150% 0;
+                background-position: 100% 0;
             }
         }
 
