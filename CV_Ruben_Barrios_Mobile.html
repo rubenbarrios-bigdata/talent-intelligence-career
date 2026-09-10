@@ -3097,7 +3097,7 @@
 
         <!-- Métricas & Logros Clave -->
         <div class="stats-banner" id="statsBanner">
-            <a href="#exp-fraude" class="stat-card" id="kpi-fraude" onclick="scrollToTarget('exp-fraude'); return false;" title="Ver experiencia en Prevención de Fraudes">
+            <a href="#exp-fraude" class="stat-card" id="kpi-fraude" onclick="handleKpiClick('kpi-fraude', '+4 Años', 'Analizando Métricas', 'exp-fraude'); scrollToTarget('exp-fraude'); return false;" title="Ver experiencia en Prevención de Fraudes">
                 <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-chart-column"></i></div>
                 <div class="stat-content">
@@ -3105,7 +3105,7 @@
                     <div class="stat-label">Analizando Métricas</div>
                 </div>
             </a>
-            <a href="#logro-fraude" class="stat-card" id="kpi-ratio" onclick="scrollToTarget('logro-fraude'); return false;" title="Ver logro en reducción de ratio de fraude">
+            <a href="#logro-fraude" class="stat-card" id="kpi-ratio" onclick="handleKpiClick('kpi-ratio', '0,150 ➔ 0,030', 'Ratio Fraude (-80%)', 'logro-fraude'); scrollToTarget('logro-fraude'); return false;" title="Ver logro en reducción de ratio de fraude">
                 <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
                 <div class="stat-content">
@@ -3113,7 +3113,7 @@
                     <div class="stat-label">Ratio Fraude (-80%)</div>
                 </div>
             </a>
-            <a href="#exp-bancaria" class="stat-card" id="kpi-bancaria" onclick="scrollToTarget('exp-bancaria'); return false;" title="Ver experiencia en sector bancario">
+            <a href="#exp-bancaria" class="stat-card" id="kpi-bancaria" onclick="handleKpiClick('kpi-bancaria', '+15 Años', 'Sector Bancario', 'exp-bancaria'); scrollToTarget('exp-bancaria'); return false;" title="Ver experiencia en sector bancario">
                 <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-university"></i></div>
                 <div class="stat-content">
@@ -3121,7 +3121,7 @@
                     <div class="stat-label">Sector Bancario</div>
                 </div>
             </a>
-            <a href="#proyectosSection" class="stat-card" id="kpi-proyectos" onclick="scrollToTarget('proyectosSection'); return false;" title="Ver proyectos de Análisis de Datos">
+            <a href="#proyectosSection" class="stat-card" id="kpi-proyectos" onclick="handleKpiClick('kpi-proyectos', '9 Proyectos', 'Análisis de Datos', 'proyectosSection'); scrollToTarget('proyectosSection'); return false;" title="Ver proyectos de Análisis de Datos">
                 <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-diagram-project"></i></div>
                 <div class="stat-content">
@@ -3661,7 +3661,9 @@ function trackTicEvent(eventName, eventParams = {}) {
     console.log(`%c[TIC Telemetry] %c${eventName}`, 'color: #0284c7; font-weight: bold;', 'color: #38bdf8;', eventPayload);
 }
 
+let lastTrackedKpiTime = 0;
 function trackKpiClick(kpiId, kpiNumber, kpiLabel, targetAnchor) {
+    lastTrackedKpiTime = Date.now();
     trackTicEvent("cv_kpi_interaction", {
         kpi_id: kpiId,
         kpi_number: kpiNumber,
@@ -3669,6 +3671,17 @@ function trackKpiClick(kpiId, kpiNumber, kpiLabel, targetAnchor) {
         target_anchor: targetAnchor
     });
 }
+
+function handleKpiClick(kpiId, kpiNumber, kpiLabel, targetAnchor) {
+    try {
+        trackKpiClick(kpiId, kpiNumber, kpiLabel, targetAnchor);
+    } catch (err) {
+        console.warn('[TIC Telemetry] Error in handleKpiClick:', err);
+    }
+}
+window.trackTicEvent = trackTicEvent;
+window.trackKpiClick = trackKpiClick;
+window.handleKpiClick = handleKpiClick;
 
 function trackCertFilter(category, count = 0) {
     trackTicEvent("cv_cert_filter", {
@@ -3799,7 +3812,7 @@ function initTelemetryListeners() {
 
         function renderKpis(kpis, container) {
             container.innerHTML = kpis.map(kpi => `
-                <a href="#${kpi.target}" class="stat-card" id="${kpi.id}" onclick="scrollToTarget('${kpi.target}'); return false;" title="${kpi.tooltip}" data-kpi-id="${kpi.id}">
+                <a href="#${kpi.target}" class="stat-card" id="${kpi.id}" onclick="handleKpiClick('${kpi.id}', '${kpi.number}', '${kpi.label}', '${kpi.target}'); scrollToTarget('${kpi.target}'); return false;" title="${kpi.tooltip}" data-kpi-id="${kpi.id}">
                     <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                     <div class="stat-icon"><i class="${kpi.icon}"></i></div>
                     <div class="stat-content">
@@ -4480,6 +4493,19 @@ function initTelemetryListeners() {
 
         // Navegación suave con realce visual a las secciones desde los KPIs
         function scrollToTarget(id) {
+            const kpiTargetMap = {
+                'exp-fraude': { id: 'kpi-fraude', num: '+4 Años', label: 'Analizando Métricas' },
+                'logro-fraude': { id: 'kpi-ratio', num: '0,150 ➔ 0,030', label: 'Ratio Fraude (-80%)' },
+                'exp-bancaria': { id: 'kpi-bancaria', num: '+15 Años', label: 'Sector Bancario' },
+                'proyectosSection': { id: 'kpi-proyectos', num: '9 Proyectos', label: 'Análisis de Datos' }
+            };
+            if (kpiTargetMap[id] && (Date.now() - lastTrackedKpiTime > 800)) {
+                const info = kpiTargetMap[id];
+                if (typeof trackKpiClick === 'function') {
+                    trackKpiClick(info.id, info.num, info.label, id);
+                }
+            }
+
             const el = document.getElementById(id);
             if (!el) return;
             const blockAlign = (id === 'proyectosSection' || id === 'certificationsSection' || id === 'exp-bancaria') ? 'start' : 'center';
