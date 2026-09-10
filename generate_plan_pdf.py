@@ -430,35 +430,65 @@ def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barr
         body_style
     ))
 
+    # =========================================================================
+    # PÁGINA 5: MACRO-FASE 3 (PLATAFORMA SAAS MULTIUSUARIO TIC®) Y ROADMAP GLOBAL
+    # =========================================================================
+    story.append(PageBreak())
+    story.append(Paragraph("6. Macro-Fase 3: Plataforma SaaS Multiusuario — TIC® Cloud Platform", h1_style))
+    story.append(Paragraph(
+        "La culminación estratégica de TIC® trasciende el portafolio individual y evoluciona hacia una <b>plataforma tecnológica "
+        "multiusuario (Software as a Service - SaaS)</b> que permite a cualquier profesional o candidato transformar su currículum estático "
+        "en un Executive Dashboard interactivo con telemetría en tiempo real y asistente de inteligencia artificial.",
+        body_style
+    ))
+
+    story.append(Paragraph("6.1. Pilares de la Arquitectura SaaS Multiusuario", h2_style))
+    story.append(Paragraph(
+        "• <b>Ingestión y Parser Inteligente de CVs (AI Onboarding):</b> El usuario sube su CV en formato PDF o enlaza su perfil de LinkedIn; "
+        "un motor multimodal con Google Gemini analiza la trayectoria, sintetiza los 4 KPIs clave de negocio y genera automáticamente el "
+        "archivo estructurado de datos (<code>data.json</code>) sin necesidad de que el usuario programe código.<br/>"
+        "• <b>Portal de Telemetría para el Postulante (Recruiter Insights):</b> Cada usuario dispone de un panel privado donde monitorea en tiempo "
+        "real el impacto de sus postulaciones: empresas que abrieron su enlace, tiempo promedio de lectura, KPIs con más clics y descargas de PDF.<br/>"
+        "• <b>Motor de Enlaces Dinámicos y Marca Blanca:</b> Asignación de URLs personalizadas (ej. <code>tic.career/@usuario</code>) con soporte "
+        "para dominios propios y exportación de versiones PDF optimizadas contra filtros ATS de selección.<br/>"
+        "• <b>Growth Loop Viral Orgánico:</b> Cada CV generado incluye al pie la leyenda <i>'Desarrollado con Talent Intelligence Career (TIC)®'</i>, "
+        "convirtiendo cada postulación enviada en un canal de adquisición natural de nuevos usuarios para la plataforma.",
+        body_style
+    ))
+
     story.append(Spacer(1, 4))
-    story.append(Paragraph("6. Matriz Cronológica de Ejecución y Próximos Pasos", h1_style))
+    story.append(Paragraph("6.2. Matriz Cronológica Integral de Ejecución (Macro-Fases 1, 2 y 3)", h1_style))
 
     roadmap_data = [
-        [Paragraph("<b>Hito / Entregable</b>", meta_label), Paragraph("<b>Alcance y Acciones Clave</b>", meta_label), Paragraph("<b>Tecnologías Involucradas</b>", meta_label), Paragraph("<b>Estado</b>", meta_label)],
-        [Paragraph("<b>Fase 1: Consolidación V1</b>", body_style),
-         Paragraph("Cierre formal del CV interactivo, revisión responsive y expediente para registro de autoría en DNDA.", body_style),
-         Paragraph("HTML5, CSS3, JS Vanilla, JSON, GitHub Pages, TAD DNDA", body_style),
-         Paragraph("<font color='#059669'><b>Completado / Por Registrar</b></font>", body_style)],
-        [Paragraph("<b>Fase 2: Paso 0 & 1</b><br/>Organización + Analytics", body_style),
-         Paragraph("Documentar evolución en README e instrumentar DataLayer, Google Tag Manager y Google Analytics 4.", body_style),
+        [Paragraph("<b>Fase / Hito</b>", meta_label), Paragraph("<b>Alcance y Entregables Clave</b>", meta_label), Paragraph("<b>Tecnologías Involucradas</b>", meta_label), Paragraph("<b>Estado</b>", meta_label)],
+        [Paragraph("<b>Fase 1: Consolidación V1</b><br/>Executive Dashboard", body_style),
+         Paragraph("CV interactivo desktop/móvil, desacoplamiento data.json, autoría formal y dossier DNDA/TAD.", body_style),
+         Paragraph("HTML5, CSS3, JS Vanilla, JSON, TAD DNDA, GitHub Pages", body_style),
+         Paragraph("<font color='#059669'><b>Completado / Dossier Listo</b></font>", body_style)],
+        [Paragraph("<b>Fase 2: Pasos 0 & 1</b><br/>Telemetría DataLayer", body_style),
+         Paragraph("Inyección de window.dataLayer nativo en el CV insignia y configuración de triggers en GTM/GA4.", body_style),
          Paragraph("JavaScript (dataLayer.push), GTM Container, GA4 Admin", body_style),
-         Paragraph("<b>Próximo Paso Inmediato</b>", body_style)],
+         Paragraph("<font color='#0284C7'><b>Próximo Paso Inmediato</b></font>", body_style)],
         [Paragraph("<b>Fase 2: Paso 2</b><br/>BigQuery + Looker", body_style),
-         Paragraph("Vinculación de datos crudos a Google Cloud, consultas de modelado SQL y diseño del dashboard público.", body_style),
+         Paragraph("Exportación de eventos a Google Cloud, vistas SQL analíticas y dashboard público embebido.", body_style),
          Paragraph("Google BigQuery, SQL (UNNEST), Looker Studio", body_style),
          Paragraph("<b>Planificado</b>", body_style)],
         [Paragraph("<b>Fase 2: Paso 3</b><br/>Asistente Ask Rubén AI", body_style),
-         Paragraph("Desarrollo de la interfaz conversacional con Gemini API, deep linking al portafolio y telemetría de preguntas.", body_style),
-         Paragraph("Google Gemini API, Prompt Engineering, JS UI Controls", body_style),
-         Paragraph("<b>Planificado</b>", body_style)]
+         Paragraph("Agente conversacional Gemini API con Smart Navigator (deep linking) y Matcher ATS de vacantes.", body_style),
+         Paragraph("Google Gemini API, Prompt Engineering, JS Controls", body_style),
+         Paragraph("<b>Planificado</b>", body_style)],
+        [Paragraph("<b>Fase 3: SaaS Platform</b><br/>TIC® Cloud Multiusuario", body_style),
+         Paragraph("Plataforma web con autenticación, parser automático de PDFs con IA y portal de métricas para postulantes.", body_style),
+         Paragraph("Next.js/Python, PostgreSQL/Supabase, Gemini Multimodal", body_style),
+         Paragraph("<b>Visión Estratégica</b>", body_style)]
     ]
-    t_roadmap = Table(roadmap_data, colWidths=[1.5*inch, 2.8*inch, 1.7*inch, 1.2*inch])
+    t_roadmap = Table(roadmap_data, colWidths=[1.5*inch, 2.7*inch, 1.8*inch, 1.2*inch])
     t_roadmap.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,0), C_BG_LIGHT),
         ('BOX', (0,0), (-1,-1), 0.75, C_BORDER),
         ('INNERGRID', (0,0), (-1,-1), 0.5, C_BORDER),
-        ('TOPPADDING', (0,0), (-1,-1), 3.5),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 3.5),
+        ('TOPPADDING', (0,0), (-1,-1), 3),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 3),
         ('LEFTPADDING', (0,0), (-1,-1), 5),
         ('RIGHTPADDING', (0,0), (-1,-1), 5),
     ]))
@@ -468,9 +498,9 @@ def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barr
 
     cta_content = [
         [Paragraph(
-            "<b>PLAN DE ACCIÓN RECOMENDADO:</b><br/>"
-            "<b>1. Cierre Formal de Fase 1:</b> Generar el tag <code>v1.0.0</code> en Git y armar la carpeta con capturas y código para el trámite DNDA en TAD.<br/>"
-            "<b>2. Inicio de Fase 2 (Paso 0 y 1):</b> Diseñar el bloque de código del <code>dataLayer.push</code> en el HTML y configurar las etiquetas en GTM.",
+            "<b>PLAN DE ACCIÓN INMEDIATO RECOMENDADO:</b><br/>"
+            "<b>1. Resguardo de Activos V1:</b> El dossier oficial DNDA (.zip con hash SHA-256 y memoria técnica) está generado y listo para su presentación en TAD.<br/>"
+            "<b>2. Instrumentación de Telemetría (Fase 2 - Paso 1):</b> Implementar el objeto <code>window.dataLayer</code> nativo en el código para iniciar la captación de eventos analíticos que validen la plataforma.",
             callout_style
         )]
     ]
@@ -478,8 +508,8 @@ def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barr
     t_cta.setStyle(TableStyle([
         ('BACKGROUND', (0,0), (-1,-1), colors.HexColor("#EFF6FF")),
         ('BOX', (0,0), (-1,-1), 1, C_ACCENT),
-        ('TOPPADDING', (0,0), (-1,-1), 6),
-        ('BOTTOMPADDING', (0,0), (-1,-1), 6),
+        ('TOPPADDING', (0,0), (-1,-1), 5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 5),
         ('LEFTPADDING', (0,0), (-1,-1), 8),
         ('RIGHTPADDING', (0,0), (-1,-1), 8),
     ]))

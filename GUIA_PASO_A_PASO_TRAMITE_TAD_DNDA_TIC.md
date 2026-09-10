@@ -14,11 +14,11 @@ En la carpeta del proyecto ya tienes generados los dos archivos maestros para el
    - **Contenido:** Código HTML5, CSS3, JavaScript ES6+, capas de datos `data.json` y `data_en.json`, documentación `README.md`, assets gráficos y capturas de renderizado.
    - **Huella SHA-256 Inalterable:**
      ```
-     6a73b6b4aa68711ca2d9d633294acd7990a4758b2db99e5b8aa85e419cef98d2
+     07b97ed3df6e33ebc5c6f03d6892df8413453ab2f7bfe774a024b2ab6ba9287f
      ```
    - **Huella MD5:**
      ```
-     a5abd939ff1da8d577d3c5828bd4e925
+     ab95cb372081a16edc505ac92ec6cd17
      ```
 
 2. **Memoria Técnica y Descriptiva Oficial (.PDF):**
@@ -114,5 +114,5 @@ En la carpeta del proyecto ya tienes generados los dos archivos maestros para el
 
 Para cualquier cotejo o verificación posterior, el archivo `.zip` depositado responde a las siguientes firmas criptográficas exactas:
 
-- **Algoritmo SHA-256:** `6a73b6b4aa68711ca2d9d633294acd7990a4758b2db99e5b8aa85e419cef98d2`
-- **Algoritmo MD5:** `a5abd939ff1da8d577d3c5828bd4e925`
+- **Algoritmo SHA-256:** `07b97ed3df6e33ebc5c6f03d6892df8413453ab2f7bfe774a024b2ab6ba9287f`
+- **Algoritmo MD5:** `ab95cb372081a16edc505ac92ec6cd17`
