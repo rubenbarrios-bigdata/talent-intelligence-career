@@ -1,28 +1,31 @@
 import json
 
 def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
+    num_acc = "10000001"
+    num_cnt = "20000001"
+    
     container = {
         "exportFormatVersion": 2,
-        "exportTime": "2026-09-09 21:55:00",
+        "exportTime": "2026-09-09 22:00:00",
         "containerVersion": {
-            "path": f"accounts/1000/containers/{gtm_id}/versions/0",
-            "accountId": "1000",
-            "containerId": gtm_id,
+            "path": f"accounts/{num_acc}/containers/{num_cnt}/versions/0",
+            "accountId": num_acc,
+            "containerId": num_cnt,
             "containerVersionId": "0",
             "name": "Talent Intelligence Career (TIC)®",
             "publicId": gtm_id,
             "container": {
-                "path": f"accounts/1000/containers/{gtm_id}",
-                "accountId": "1000",
-                "containerId": gtm_id,
+                "path": f"accounts/{num_acc}/containers/{num_cnt}",
+                "accountId": num_acc,
+                "containerId": num_cnt,
                 "name": "Talent Intelligence Career",
                 "publicId": gtm_id,
                 "usageContext": ["WEB"]
             },
             "tag": [
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "tagId": "1",
                     "name": "Google Tag - GA4 Configuration (TIC)",
                     "type": "googtag",
@@ -33,8 +36,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "firingTriggerId": ["2147479553"]  # All Pages
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "tagId": "2",
                     "name": "GA4 Event - cv_kpi_interaction",
                     "type": "gaawe",
@@ -86,8 +89,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "firingTriggerId": ["101"]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "tagId": "3",
                     "name": "GA4 Event - cv_cert_filter",
                     "type": "gaawe",
@@ -118,8 +121,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "firingTriggerId": ["102"]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "tagId": "4",
                     "name": "GA4 Event - cv_document_download",
                     "type": "gaawe",
@@ -150,8 +153,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "firingTriggerId": ["103"]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "tagId": "5",
                     "name": "GA4 Event - cv_scroll_depth",
                     "type": "gaawe",
@@ -175,8 +178,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "firingTriggerId": ["104"]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "tagId": "6",
                     "name": "GA4 Event - cv_theme_toggle",
                     "type": "gaawe",
@@ -200,8 +203,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "firingTriggerId": ["105"]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "tagId": "7",
                     "name": "GA4 Event - cv_language_switch",
                     "type": "gaawe",
@@ -225,8 +228,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "firingTriggerId": ["106"]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "tagId": "8",
                     "name": "GA4 Event - cv_external_click",
                     "type": "gaawe",
@@ -259,8 +262,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
             ],
             "trigger": [
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "triggerId": "101",
                     "name": "Custom Event - cv_kpi_interaction",
                     "type": "CUSTOM_EVENT",
@@ -275,8 +278,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "triggerId": "102",
                     "name": "Custom Event - cv_cert_filter",
                     "type": "CUSTOM_EVENT",
@@ -291,8 +294,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "triggerId": "103",
                     "name": "Custom Event - cv_document_download",
                     "type": "CUSTOM_EVENT",
@@ -307,8 +310,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "triggerId": "104",
                     "name": "Custom Event - cv_scroll_depth",
                     "type": "CUSTOM_EVENT",
@@ -323,8 +326,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "triggerId": "105",
                     "name": "Custom Event - cv_theme_toggle",
                     "type": "CUSTOM_EVENT",
@@ -339,8 +342,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "triggerId": "106",
                     "name": "Custom Event - cv_language_switch",
                     "type": "CUSTOM_EVENT",
@@ -355,8 +358,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "triggerId": "107",
                     "name": "Custom Event - cv_external_click",
                     "type": "CUSTOM_EVENT",
@@ -373,8 +376,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
             ],
             "variable": [
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "201",
                     "name": "dlv - kpi_id",
                     "type": "v",
@@ -385,8 +388,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "202",
                     "name": "dlv - kpi_number",
                     "type": "v",
@@ -397,8 +400,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "203",
                     "name": "dlv - kpi_label",
                     "type": "v",
@@ -409,8 +412,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "204",
                     "name": "dlv - target_anchor",
                     "type": "v",
@@ -421,8 +424,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "205",
                     "name": "dlv - filter_category",
                     "type": "v",
@@ -433,8 +436,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "206",
                     "name": "dlv - document_type",
                     "type": "v",
@@ -445,8 +448,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "207",
                     "name": "dlv - document_name",
                     "type": "v",
@@ -457,8 +460,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "208",
                     "name": "dlv - depth_percentage",
                     "type": "v",
@@ -469,8 +472,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "209",
                     "name": "dlv - theme_applied",
                     "type": "v",
@@ -481,8 +484,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "210",
                     "name": "dlv - selected_language",
                     "type": "v",
@@ -493,8 +496,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "211",
                     "name": "dlv - link_type",
                     "type": "v",
@@ -505,8 +508,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "212",
                     "name": "dlv - target_url",
                     "type": "v",
@@ -517,8 +520,8 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     ]
                 },
                 {
-                    "accountId": "1000",
-                    "containerId": gtm_id,
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
                     "variableId": "213",
                     "name": "dlv - candidate_id",
                     "type": "v",

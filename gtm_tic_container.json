@@ -1,17 +1,17 @@
 {
   "exportFormatVersion": 2,
-  "exportTime": "2026-09-09 21:55:00",
+  "exportTime": "2026-09-09 22:00:00",
   "containerVersion": {
-    "path": "accounts/1000/containers/GTM-P2Z4TZ4Z/versions/0",
-    "accountId": "1000",
-    "containerId": "GTM-P2Z4TZ4Z",
+    "path": "accounts/10000001/containers/20000001/versions/0",
+    "accountId": "10000001",
+    "containerId": "20000001",
     "containerVersionId": "0",
     "name": "Talent Intelligence Career (TIC)®",
     "publicId": "GTM-P2Z4TZ4Z",
     "container": {
-      "path": "accounts/1000/containers/GTM-P2Z4TZ4Z",
-      "accountId": "1000",
-      "containerId": "GTM-P2Z4TZ4Z",
+      "path": "accounts/10000001/containers/20000001",
+      "accountId": "10000001",
+      "containerId": "20000001",
       "name": "Talent Intelligence Career",
       "publicId": "GTM-P2Z4TZ4Z",
       "usageContext": [
@@ -20,8 +20,8 @@
     },
     "tag": [
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "tagId": "1",
         "name": "Google Tag - GA4 Configuration (TIC)",
         "type": "googtag",
@@ -42,8 +42,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "tagId": "2",
         "name": "GA4 Event - cv_kpi_interaction",
         "type": "gaawe",
@@ -145,8 +145,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "tagId": "3",
         "name": "GA4 Event - cv_cert_filter",
         "type": "gaawe",
@@ -203,8 +203,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "tagId": "4",
         "name": "GA4 Event - cv_document_download",
         "type": "gaawe",
@@ -261,8 +261,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "tagId": "5",
         "name": "GA4 Event - cv_scroll_depth",
         "type": "gaawe",
@@ -304,8 +304,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "tagId": "6",
         "name": "GA4 Event - cv_theme_toggle",
         "type": "gaawe",
@@ -347,8 +347,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "tagId": "7",
         "name": "GA4 Event - cv_language_switch",
         "type": "gaawe",
@@ -390,8 +390,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "tagId": "8",
         "name": "GA4 Event - cv_external_click",
         "type": "gaawe",
@@ -450,8 +450,8 @@
     ],
     "trigger": [
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "triggerId": "101",
         "name": "Custom Event - cv_kpi_interaction",
         "type": "CUSTOM_EVENT",
@@ -474,8 +474,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "triggerId": "102",
         "name": "Custom Event - cv_cert_filter",
         "type": "CUSTOM_EVENT",
@@ -498,8 +498,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "triggerId": "103",
         "name": "Custom Event - cv_document_download",
         "type": "CUSTOM_EVENT",
@@ -522,8 +522,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "triggerId": "104",
         "name": "Custom Event - cv_scroll_depth",
         "type": "CUSTOM_EVENT",
@@ -546,8 +546,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "triggerId": "105",
         "name": "Custom Event - cv_theme_toggle",
         "type": "CUSTOM_EVENT",
@@ -570,8 +570,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "triggerId": "106",
         "name": "Custom Event - cv_language_switch",
         "type": "CUSTOM_EVENT",
@@ -594,8 +594,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "triggerId": "107",
         "name": "Custom Event - cv_external_click",
         "type": "CUSTOM_EVENT",
@@ -620,8 +620,8 @@
     ],
     "variable": [
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "201",
         "name": "dlv - kpi_id",
         "type": "v",
@@ -644,8 +644,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "202",
         "name": "dlv - kpi_number",
         "type": "v",
@@ -668,8 +668,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "203",
         "name": "dlv - kpi_label",
         "type": "v",
@@ -692,8 +692,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "204",
         "name": "dlv - target_anchor",
         "type": "v",
@@ -716,8 +716,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "205",
         "name": "dlv - filter_category",
         "type": "v",
@@ -740,8 +740,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "206",
         "name": "dlv - document_type",
         "type": "v",
@@ -764,8 +764,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "207",
         "name": "dlv - document_name",
         "type": "v",
@@ -788,8 +788,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "208",
         "name": "dlv - depth_percentage",
         "type": "v",
@@ -812,8 +812,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "209",
         "name": "dlv - theme_applied",
         "type": "v",
@@ -836,8 +836,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "210",
         "name": "dlv - selected_language",
         "type": "v",
@@ -860,8 +860,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "211",
         "name": "dlv - link_type",
         "type": "v",
@@ -884,8 +884,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "212",
         "name": "dlv - target_url",
         "type": "v",
@@ -908,8 +908,8 @@
         ]
       },
       {
-        "accountId": "1000",
-        "containerId": "GTM-P2Z4TZ4Z",
+        "accountId": "10000001",
+        "containerId": "20000001",
         "variableId": "213",
         "name": "dlv - candidate_id",
         "type": "v",
