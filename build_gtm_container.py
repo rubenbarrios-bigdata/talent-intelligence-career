@@ -42,7 +42,7 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "name": "GA4 Event - cv_kpi_interaction",
                     "type": "gaawe",
                     "parameter": [
-                        {"type": "TEMPLATE", "key": "measurementId", "value": ga4_id},
+                        {"type": "TEMPLATE", "key": "measurementIdOverride", "value": ga4_id},
                         {"type": "TEMPLATE", "key": "eventName", "value": "cv_kpi_interaction"},
                         {
                             "type": "LIST",
@@ -95,7 +95,7 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "name": "GA4 Event - cv_cert_filter",
                     "type": "gaawe",
                     "parameter": [
-                        {"type": "TEMPLATE", "key": "measurementId", "value": ga4_id},
+                        {"type": "TEMPLATE", "key": "measurementIdOverride", "value": ga4_id},
                         {"type": "TEMPLATE", "key": "eventName", "value": "cv_cert_filter"},
                         {
                             "type": "LIST",
@@ -127,7 +127,7 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "name": "GA4 Event - cv_document_download",
                     "type": "gaawe",
                     "parameter": [
-                        {"type": "TEMPLATE", "key": "measurementId", "value": ga4_id},
+                        {"type": "TEMPLATE", "key": "measurementIdOverride", "value": ga4_id},
                         {"type": "TEMPLATE", "key": "eventName", "value": "cv_document_download"},
                         {
                             "type": "LIST",
@@ -159,7 +159,7 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "name": "GA4 Event - cv_scroll_depth",
                     "type": "gaawe",
                     "parameter": [
-                        {"type": "TEMPLATE", "key": "measurementId", "value": ga4_id},
+                        {"type": "TEMPLATE", "key": "measurementIdOverride", "value": ga4_id},
                         {"type": "TEMPLATE", "key": "eventName", "value": "cv_scroll_depth"},
                         {
                             "type": "LIST",
@@ -184,7 +184,7 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "name": "GA4 Event - cv_theme_toggle",
                     "type": "gaawe",
                     "parameter": [
-                        {"type": "TEMPLATE", "key": "measurementId", "value": ga4_id},
+                        {"type": "TEMPLATE", "key": "measurementIdOverride", "value": ga4_id},
                         {"type": "TEMPLATE", "key": "eventName", "value": "cv_theme_toggle"},
                         {
                             "type": "LIST",
@@ -209,7 +209,7 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "name": "GA4 Event - cv_language_switch",
                     "type": "gaawe",
                     "parameter": [
-                        {"type": "TEMPLATE", "key": "measurementId", "value": ga4_id},
+                        {"type": "TEMPLATE", "key": "measurementIdOverride", "value": ga4_id},
                         {"type": "TEMPLATE", "key": "eventName", "value": "cv_language_switch"},
                         {
                             "type": "LIST",
@@ -234,7 +234,7 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "name": "GA4 Event - cv_external_click",
                     "type": "gaawe",
                     "parameter": [
-                        {"type": "TEMPLATE", "key": "measurementId", "value": ga4_id},
+                        {"type": "TEMPLATE", "key": "measurementIdOverride", "value": ga4_id},
                         {"type": "TEMPLATE", "key": "eventName", "value": "cv_external_click"},
                         {
                             "type": "LIST",
