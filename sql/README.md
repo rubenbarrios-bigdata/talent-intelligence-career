@@ -24,7 +24,7 @@ flowchart LR
 
 Los eventos exportados por GA4 contienen el esquema nativo de Google Analytics, donde cada evento incluye un array anidado de tipo `ARRAY<STRUCT<key STRING, value STRUCT<...>>>` denominado `event_params`.
 
-A continuación se presentan los **3 modelos analíticos en producción** junto con la **evidencia de los resultados reales ejecutados en Google Cloud BigQuery**:
+A continuación se presentan los **3 modelos analíticos en producción**, con el **código SQL de cada consulta** y la **evidencia de los resultados reales ejecutados en Google Cloud BigQuery**:
 
 ---
 
@@ -32,7 +32,7 @@ A continuación se presentan los **3 modelos analíticos en producción** junto 
 * **Archivo:** [`01_vw_kpi_interactions.sql`](01_vw_kpi_interactions.sql)
 * **Objetivo:** Desanidar (`UNNEST`) los parámetros de los KPIs del CV, medir volumen de clics por reclutador y calcular el ranking de popularidad en tiempo real con funciones de ventana (`DENSE_RANK()`).
 
-#### Consulta SQL (Extracto Clave):
+#### Consulta SQL:
 ```sql
 SELECT
   fecha,
@@ -67,12 +67,36 @@ ORDER BY
 * **Archivo:** [`02_vw_recruiter_engagement_funnel.sql`](02_vw_recruiter_engagement_funnel.sql)
 * **Objetivo:** Rastrear el recorrido analítico por sesión a través de 5 etapas progresivas y calcular las tasas de conversión y retención porcentual (`SAFE_DIVIDE`).
 
-#### Etapas del Embudo:
-1. **Llegada:** Carga inicial del CV (`page_view`).
-2. **Lectura Profunda:** Scroll vertical superior al 50% (`cv_scroll_depth >= 50`).
-3. **Exploración:** Clic en tarjetas de KPI (`cv_kpi_interaction`).
-4. **Validación:** Interacción con filtros de certificaciones (`cv_cert_filter`).
-5. **Conversión Final:** Descarga de CV en PDF (`cv_document_download`) o contacto directo.
+#### Consulta SQL:
+```sql
+WITH session_stages AS (
+  SELECT
+    session_id,
+    MAX(IF(event_name = 'page_view', 1, 0)) AS paso_1_llegada,
+    MAX(IF(event_name = 'cv_scroll_depth' AND scroll_depth >= 50, 1, 0)) AS paso_2_lectura_50,
+    MAX(IF(event_name = 'cv_kpi_interaction', 1, 0)) AS paso_3_exploro_kpis,
+    MAX(IF(event_name = 'cv_cert_filter', 1, 0)) AS paso_4_filtro_certs,
+    MAX(IF(event_name = 'cv_document_download', 1, 0)) AS paso_5_descargo_cv
+  FROM
+    `talent-intelligence-career-tic.analytics_tic.events_*`
+  GROUP BY
+    session_id
+)
+SELECT
+  COUNT(session_id) AS total_sesiones,
+  SUM(paso_1_llegada) AS etapa_1_visitas,
+  SUM(paso_2_lectura_50) AS etapa_2_lectura_profunda,
+  SUM(paso_3_exploro_kpis) AS etapa_3_interaccion_kpis,
+  SUM(paso_4_filtro_certs) AS etapa_4_filtro_certificaciones,
+  SUM(paso_5_descargo_cv) AS etapa_5_descarga_cv_pdf,
+
+  -- Tasas de Conversión Analíticas (%)
+  ROUND(SAFE_DIVIDE(SUM(paso_2_lectura_50), SUM(paso_1_llegada)) * 100, 1) AS tasa_retencion_lectura_pct,
+  ROUND(SAFE_DIVIDE(SUM(paso_3_exploro_kpis), SUM(paso_1_llegada)) * 100, 1) AS tasa_interes_kpis_pct,
+  ROUND(SAFE_DIVIDE(SUM(paso_5_descargo_cv), SUM(paso_1_llegada)) * 100, 1) AS tasa_conversion_final_pct
+FROM
+  session_stages;
+```
 
 #### 📊 Resultado Real en BigQuery:
 | Total Sesiones | Etapa 1: Visitas | Etapa 2: Lectura >50% | Etapa 3: Clic KPIs | Etapa 4: Filtro Certs | Etapa 5: Descarga PDF | Tasa Retención Lectura | Tasa Interés KPIs | Tasa Conversión Final |
@@ -86,6 +110,24 @@ ORDER BY
 ### 3. Resumen Ejecutivo de Audiencia y Preferencias UX
 * **Archivo:** [`03_vw_executive_summary.sql`](03_vw_executive_summary.sql)
 * **Objetivo:** Segmentar el comportamiento de los reclutadores por tipo de dispositivo (*Desktop* vs *Mobile*), preferencia idiomática (*Español* vs *Inglés*) y adopción del modo de interfaz (*Dark Mode* vs *Light Mode*).
+
+#### Consulta SQL:
+```sql
+SELECT
+  dispositivo,
+  COUNT(1) AS total_sesiones,
+  COUNTIF(idioma = 'es') AS prefieren_espanol,
+  COUNTIF(idioma = 'en') AS prefieren_ingles,
+  COUNTIF(tema = 'dark') AS prefieren_modo_oscuro,
+  COUNTIF(tema = 'light') AS prefieren_modo_claro,
+  ROUND(SAFE_DIVIDE(COUNTIF(tema = 'dark'), COUNT(1)) * 100, 1) AS adopcion_dark_mode_pct
+FROM
+  `talent-intelligence-career-tic.analytics_tic.events_*`
+GROUP BY
+  dispositivo
+ORDER BY
+  total_sesiones DESC;
+```
 
 #### 📊 Resultado Real en BigQuery:
 | Dispositivo | Total Sesiones | Prefieren Español | Prefieren Inglés | Prefieren Modo Oscuro | Prefieren Modo Claro | % Adopción Dark Mode |
