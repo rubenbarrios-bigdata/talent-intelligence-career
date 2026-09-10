@@ -2678,7 +2678,7 @@
 
         <!-- Métricas & Logros Clave -->
         <div class="stats-banner" id="statsBanner">
-            <a href="#exp-fraude" class="stat-card" id="kpi-fraude" onclick="if(typeof trackKpiClick===\'function\') trackKpiClick(\'${kpi.id}\', \'${kpi.number}\', \'${kpi.label}\', \'${kpi.target}\'); scrollToTarget(\'${kpi.target}\'); return false;" title="Ver experiencia en Prevención de Fraudes">
+            <a href="#exp-fraude" class="stat-card" id="kpi-fraude" onclick="scrollToTarget('exp-fraude'); return false;" title="Ver experiencia en Prevención de Fraudes">
                 <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-chart-column"></i></div>
                 <div class="stat-content">
@@ -2686,7 +2686,7 @@
                     <div class="stat-label">Analizando Métricas</div>
                 </div>
             </a>
-            <a href="#logro-fraude" class="stat-card" id="kpi-ratio" onclick="if(typeof trackKpiClick===\'function\') trackKpiClick(\'${kpi.id}\', \'${kpi.number}\', \'${kpi.label}\', \'${kpi.target}\'); scrollToTarget(\'${kpi.target}\'); return false;" title="Ver logro en reducción de ratio de fraude">
+            <a href="#logro-fraude" class="stat-card" id="kpi-ratio" onclick="scrollToTarget('logro-fraude'); return false;" title="Ver logro en reducción de ratio de fraude">
                 <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
                 <div class="stat-content">
@@ -2694,7 +2694,7 @@
                     <div class="stat-label">Ratio Fraude (-80%)</div>
                 </div>
             </a>
-            <a href="#exp-bancaria" class="stat-card" id="kpi-bancaria" onclick="if(typeof trackKpiClick===\'function\') trackKpiClick(\'${kpi.id}\', \'${kpi.number}\', \'${kpi.label}\', \'${kpi.target}\'); scrollToTarget(\'${kpi.target}\'); return false;" title="Ver experiencia en sector bancario">
+            <a href="#exp-bancaria" class="stat-card" id="kpi-bancaria" onclick="scrollToTarget('exp-bancaria'); return false;" title="Ver experiencia en sector bancario">
                 <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-university"></i></div>
                 <div class="stat-content">
@@ -2702,7 +2702,7 @@
                     <div class="stat-label">Sector Bancario</div>
                 </div>
             </a>
-            <a href="#proyectosSection" class="stat-card" id="kpi-proyectos" onclick="if(typeof trackKpiClick===\'function\') trackKpiClick(\'${kpi.id}\', \'${kpi.number}\', \'${kpi.label}\', \'${kpi.target}\'); scrollToTarget(\'${kpi.target}\'); return false;" title="Ver proyectos de Análisis de Datos">
+            <a href="#proyectosSection" class="stat-card" id="kpi-proyectos" onclick="scrollToTarget('proyectosSection'); return false;" title="Ver proyectos de Análisis de Datos">
                 <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-diagram-project"></i></div>
                 <div class="stat-content">
@@ -2780,7 +2780,7 @@
                             <div class="achievement-highlight" id="logro-fraude" data-kpi="kpi-ratio" title="Logro vinculado al KPI de Reducción de Ratio de Fraude">
                                 <strong><i class="fas fa-trophy"></i> Logro de Alto Impacto:</strong> Reducción histórica del ratio de fraude de <strong>0,150 a 0,030</strong> (el más bajo del mercado logístico), disminuyendo el gasto mensual por siniestros y posicionando a Webpack como modelo de referencia operativa.
                                 <div class="achievement-kpi-link">
-                                    <a href="#kpi-ratio" onclick="if(typeof trackKpiClick===\'function\') trackKpiClick(\'${kpi.id}\', \'${kpi.number}\', \'${kpi.label}\', \'${kpi.target}\'); scrollToTarget(\'${kpi.target}\'); return false;" class="kpi-badge-link" title="Ver métrica vinculada en el panel de KPIs">
+                                    <a href="#kpi-ratio" onclick="scrollToTarget('exp-fraude'); return false;" class="kpi-badge-link" title="Ver métrica vinculada en el panel de KPIs">
                                         <i class="fas fa-chart-line"></i> <span>Métrica vinculada al KPI: <strong>0,150 ➔ 0,030 (-80%)</strong></span> <i class="fas fa-arrow-up"></i>
                                     </a>
                                 </div>
@@ -3217,6 +3217,7 @@
         // Demuestra separación estricta de Capa de Datos (data.json) y Capa de Presentación
         // ==========================================
         
+
 // =========================================================================
 // TIC TELEMETRY ENGINE: Capa de Telemetría & DataLayer Multiusuario
 // Plataforma: Talent Intelligence Career (TIC)®
@@ -3305,18 +3306,45 @@ function initScrollDepthTracking() {
 function initTelemetryListeners() {
     initScrollDepthTracking();
 
-    // Descargas PDF
-    document.querySelectorAll('a[href*=".pdf"], #pdfDownloadBtn, .btn-pdf-action').forEach(el => {
-        el.addEventListener('click', () => {
-            const href = el.getAttribute('href') || 'CV_Ruben_Barrios_Analista_De_Datos.pdf';
-            trackDocumentDownload('pdf', href);
-        });
-    });
+    // 1. Delegación de Clics en KPIs con fase de captura para máxima confiabilidad
+    document.addEventListener('click', (e) => {
+        const card = e.target.closest('.stat-card');
+        if (card) {
+            const kpiId = card.id || card.getAttribute('data-kpi-id') || 'kpi';
+            const numEl = card.querySelector('.stat-number');
+            const labelEl = card.querySelector('.stat-label');
+            const kpiNum = numEl ? numEl.innerText.trim() : '';
+            const kpiLab = labelEl ? labelEl.innerText.trim() : '';
+            const target = card.getAttribute('href') ? card.getAttribute('href').replace('#', '') : '';
+            trackKpiClick(kpiId, kpiNum, kpiLab, target);
+        }
+    }, true);
 
-    // Enlaces de contacto y externos
-    document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"], a[href*="wa.me"], a[href*="linkedin.com"], a[href*="github.com"]').forEach(el => {
-        el.addEventListener('click', () => {
-            const href = el.getAttribute('href') || '';
+    // 2. Delegación de Clics en Filtros de Certificados
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.filter-btn');
+        if (btn) {
+            const cat = btn.id ? btn.id.replace('filterBtn', '').toLowerCase() : 'all';
+            const countEl = document.getElementById('certCountBadge');
+            const count = countEl ? parseInt(countEl.innerText) || 0 : 0;
+            trackCertFilter(cat, count);
+        }
+    }, true);
+
+    // 3. Descargas PDF
+    document.addEventListener('click', (e) => {
+        const pdfLink = e.target.closest('a[href*=".pdf"], #pdfDownloadBtn, .btn-pdf-action');
+        if (pdfLink) {
+            const href = pdfLink.getAttribute('href') || 'CV_Ruben_Barrios_Analista_De_Datos.pdf';
+            trackDocumentDownload('pdf', href);
+        }
+    }, true);
+
+    // 4. Enlaces de contacto y externos
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href^="mailto:"], a[href^="tel:"], a[href*="wa.me"], a[href*="linkedin.com"], a[href*="github.com"]');
+        if (link) {
+            const href = link.getAttribute('href') || '';
             let type = 'other';
             if (href.includes('linkedin.com')) type = 'linkedin';
             else if (href.includes('github.com')) type = 'github';
@@ -3324,8 +3352,8 @@ function initTelemetryListeners() {
             else if (href.startsWith('mailto:')) type = 'email';
             else if (href.startsWith('tel:')) type = 'phone';
             trackExternalClick(type, href);
-        });
-    });
+        }
+    }, true);
 }
 
         async function loadKpis(lang = null) {
@@ -3352,7 +3380,7 @@ function initTelemetryListeners() {
 
         function renderKpis(kpis, container) {
             container.innerHTML = kpis.map(kpi => `
-                <a href="#${kpi.target}" class="stat-card" id="${kpi.id}" onclick="if(typeof trackKpiClick===\'function\') trackKpiClick(\'${kpi.id}\', \'${kpi.number}\', \'${kpi.label}\', \'${kpi.target}\'); scrollToTarget(\'${kpi.target}\'); return false;" title="${kpi.tooltip}" data-kpi-id="${kpi.id}">
+                <a href="#${kpi.target}" class="stat-card" id="${kpi.id}" onclick="scrollToTarget('${kpi.target}'); return false;" title="${kpi.tooltip}" data-kpi-id="${kpi.id}">
                     <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                     <div class="stat-icon"><i class="${kpi.icon}"></i></div>
                     <div class="stat-content">
@@ -4088,7 +4116,7 @@ function initTelemetryListeners() {
                 </ul>`,
                 webpackAchievement: `<strong><i class="fas fa-trophy"></i> Logro de Alto Impacto:</strong> Reducción histórica del ratio de fraude de <strong>0,150 a 0,030</strong> (el más bajo del mercado logístico), disminuyendo el gasto mensual por siniestros y posicionando a Webpack como modelo de referencia operativa.
                 <div class="achievement-kpi-link">
-                    <a href="#kpi-ratio" onclick="if(typeof trackKpiClick===\'function\') trackKpiClick(\'${kpi.id}\', \'${kpi.number}\', \'${kpi.label}\', \'${kpi.target}\'); scrollToTarget(\'${kpi.target}\'); return false;" class="kpi-badge-link" title="Ver métrica vinculada en el panel de KPIs">
+                    <a href="#kpi-ratio" onclick="scrollToTarget('exp-fraude'); return false;" class="kpi-badge-link" title="Ver métrica vinculada en el panel de KPIs">
                         <i class="fas fa-chart-line"></i> <span>Métrica vinculada al KPI: <strong>0,150 ➔ 0,030 (-80%)</strong></span> <i class="fas fa-arrow-up"></i>
                     </a>
                 </div>`,
@@ -4200,7 +4228,7 @@ function initTelemetryListeners() {
                 </ul>`,
                 webpackAchievement: `<strong><i class="fas fa-trophy"></i> High-Impact Achievement:</strong> Historical reduction of the fraud ratio from <strong>0.150 to 0.030</strong> (the lowest benchmark in the logistics industry), drastically lowering monthly incident losses and establishing Webpack as an operational standard.
                 <div class="achievement-kpi-link">
-                    <a href="#kpi-ratio" onclick="if(typeof trackKpiClick===\'function\') trackKpiClick(\'${kpi.id}\', \'${kpi.number}\', \'${kpi.label}\', \'${kpi.target}\'); scrollToTarget(\'${kpi.target}\'); return false;" class="kpi-badge-link" title="View metric in KPIs panel">
+                    <a href="#kpi-ratio" onclick="scrollToTarget('exp-fraude'); return false;" class="kpi-badge-link" title="View metric in KPIs panel">
                         <i class="fas fa-chart-line"></i> <span>Linked KPI Metric: <strong>0.150 ➔ 0.030 (-80%)</strong></span> <i class="fas fa-arrow-up"></i>
                     </a>
                 </div>`,
