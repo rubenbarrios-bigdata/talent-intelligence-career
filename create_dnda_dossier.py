@@ -197,7 +197,7 @@ def generate_pdf(zip_meta):
         [Paragraph("<b>Radicación y Residencia:</b>", body_style), Paragraph("Ciudad Autónoma de Buenos Aires, República Argentina (desde 2018)", body_style)],
         [Paragraph("<b>Perfil Profesional:</b>", body_style), Paragraph("Licenciado en Banca y Finanzas • Data Analyst & BI Specialist", body_style)],
         [Paragraph("<b>Lugar y Año de Fijación:</b>", body_style), Paragraph("Buenos Aires, República Argentina — 2026", body_style)],
-        [Paragraph("<b>Dominio / Repositorio Público:</b>", body_style), Paragraph("https://rubenbarrios-bigdata.github.io/cv-html-ruben-barrios/", code_style)]
+        [Paragraph("<b>Dominio / Repositorio Público:</b>", body_style), Paragraph("https://rubenbarrios-bigdata.github.io/talent-intelligence-career/", code_style)]
     ]
     t_meta = Table(meta_table_data, colWidths=[160, 344])
     t_meta.setStyle(TableStyle([

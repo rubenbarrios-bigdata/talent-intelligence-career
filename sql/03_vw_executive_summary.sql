@@ -2,7 +2,7 @@
 -- Talent Intelligence Career (TIC)® - Telemetry Analytics Engine
 -- Modelo: Resumen Ejecutivo Diario de Audiencia y Preferencias UX
 -- Autor: Rubén David Barrios Bello | Data Analyst
--- Repositorio: cv-html-ruben-barrios / TIC Platform
+-- Repositorio: talent-intelligence-career / TIC Platform
 -- Motor: Google Cloud BigQuery (Standard SQL)
 -- =========================================================================
 

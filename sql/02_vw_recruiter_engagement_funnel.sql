@@ -2,7 +2,7 @@
 -- Talent Intelligence Career (TIC)® - Telemetry Analytics Engine
 -- Modelo: Embudo de Conversión de Reclutadores (Recruiter Engagement Funnel)
 -- Autor: Rubén David Barrios Bello | Data Analyst
--- Repositorio: cv-html-ruben-barrios / TIC Platform
+-- Repositorio: talent-intelligence-career / TIC Platform
 -- Motor: Google Cloud BigQuery (Standard SQL)
 -- =========================================================================
 -- Descripción:

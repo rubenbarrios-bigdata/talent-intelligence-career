@@ -185,7 +185,7 @@ def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barr
          Paragraph("<b>Fecha:</b>", meta_label), Paragraph("Septiembre 2026", meta_val)],
         [Paragraph("<b>Autor:</b>", meta_label), Paragraph("Rubén David Barrios Bello", meta_val),
          Paragraph("<b>Estado:</b>", meta_label), Paragraph("Fase 1 Operativa (v1.0.0)", meta_val)],
-        [Paragraph("<b>Repositorio:</b>", meta_label), Paragraph("rubenbarrios-bigdata/cv-html-ruben-barrios", meta_val),
+        [Paragraph("<b>Repositorio:</b>", meta_label), Paragraph("rubenbarrios-bigdata/talent-intelligence-career", meta_val),
          Paragraph("<b>Enfoque:</b>", meta_label), Paragraph("2 Fases: Diseño CV + Inteligencia & Analytics", meta_val)]
     ]
     t_meta = Table(meta_data, colWidths=[1.0*inch, 2.7*inch, 0.9*inch, 2.6*inch])
