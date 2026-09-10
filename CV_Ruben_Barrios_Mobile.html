@@ -3064,7 +3064,7 @@
         <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar a Modo Claro" aria-label="Cambiar a Modo Claro">
             <i class="fas fa-sun" id="themeIcon"></i>
         </button>
-        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" title="Descargar CV en PDF" aria-label="Descargar CV en PDF">
+        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" onclick="if(typeof trackDocumentDownload==='function') trackDocumentDownload('pdf', 'CV_Ruben_Barrios_Analista_De_Datos.pdf');" title="Descargar CV en PDF" aria-label="Descargar CV en PDF">
             <i class="fas fa-file-pdf"></i>
         </a>
     </div>
@@ -3682,6 +3682,11 @@ function handleKpiClick(kpiId, kpiNumber, kpiLabel, targetAnchor) {
 window.trackTicEvent = trackTicEvent;
 window.trackKpiClick = trackKpiClick;
 window.handleKpiClick = handleKpiClick;
+window.trackCertFilter = trackCertFilter;
+window.trackDocumentDownload = trackDocumentDownload;
+window.trackThemeToggle = trackThemeToggle;
+window.trackLanguageSwitch = trackLanguageSwitch;
+window.trackExternalClick = trackExternalClick;
 
 function trackCertFilter(category, count = 0) {
     trackTicEvent("cv_cert_filter", {
@@ -4351,7 +4356,7 @@ function initTelemetryListeners() {
             if (btnElement) btnElement.classList.add('active');
 
             renderCertificates(cat);
-            if (typeof trackCertFilter === 'function') trackCertFilter(cat);
+            const countBadge = document.getElementById('certCountBadge'); const count = countBadge ? parseInt(countBadge.innerText) || 0 : 0; if (typeof trackCertFilter === 'function') trackCertFilter(cat, count);
             allExpanded = false;
             const lang = typeof getCurrentLanguage === 'function' ? getCurrentLanguage() : 'es';
             const toggleAllEl = document.getElementById('toggleAllText');
