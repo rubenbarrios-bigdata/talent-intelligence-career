@@ -35,4 +35,4 @@ Este archivo contiene:
 ---
 
 ## 🎉 ¡Listo!
-A partir de ese momento, cada persona que entre a tu CV en vivo ([https://rubenbarrios-bigdata.github.io/talent-intelligence-career/](https://rubenbarrios-bigdata.github.io/talent-intelligence-career/)) y haga clic en un KPI, descargue el PDF o use los filtros, enviará los eventos en tiempo real directo a tu panel de **Google Analytics 4** (`G-NQC5PHY67R`).
+A partir de ese momento, cada persona que entre a tu CV en vivo ([https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/](https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/)) y haga clic en un KPI, descargue el PDF o use los filtros, enviará los eventos en tiempo real directo a tu panel de **Google Analytics 4** (`G-NQC5PHY67R`).

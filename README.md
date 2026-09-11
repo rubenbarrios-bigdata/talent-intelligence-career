@@ -1,10 +1,10 @@
-# 📊 Talent Intelligence Career (TIC)® — CV Interactivo: Rubén David Barrios Bello
+# 📊 CV Ejecutivo Inteligente — CV Interactivo: Rubén David Barrios Bello
 
 <div align="center">
 
 [![TIC Architecture](https://img.shields.io/badge/Architecture-Talent%20Intelligence%20Career%20(TIC)%C2%AE-0284c7?style=for-the-badge&logo=shield&logoColor=white)](Plan_Estrategico_Talent_Intelligence_Career_TIC_Ruben_Barrios.pdf)
-[![Live Demo en GitHub Pages](https://img.shields.io/badge/🌐%20Live%20Demo-GitHub%20Pages-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white)](https://rubenbarrios-bigdata.github.io/talent-intelligence-career/)
-[![Ver CV en HTML](https://img.shields.io/badge/📄%20CV%20en%20HTML-CV__Ruben__Barrios.html-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://rubenbarrios-bigdata.github.io/talent-intelligence-career/CV_Ruben_Barrios.html)
+[![Live Demo en GitHub Pages](https://img.shields.io/badge/🌐%20Live%20Demo-GitHub%20Pages-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white)](https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/)
+[![Ver CV en HTML](https://img.shields.io/badge/📄%20CV%20en%20HTML-CV__Ruben__Barrios.html-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/CV_Ruben_Barrios.html)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Rubén%20Barrios-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ruben-barrios)
 [![GitHub](https://img.shields.io/badge/GitHub-rubenbarrios--bigdata-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rubenbarrios-bigdata)
 
@@ -34,10 +34,10 @@ El repositorio incluye el **CV completo en formato HTML nativo**, estructurado c
 
 | Formato | Archivo en el Repositorio | Enlace de Visualización Directa | Descripción |
 | :--- | :--- | :--- | :--- |
-| **CV Web Desktop (HTML Principal)** | [`CV_Ruben_Barrios.html`](CV_Ruben_Barrios.html) & [`index.html`](index.html) | 🌐 [Abrir CV Web en GitHub Pages](https://rubenbarrios-bigdata.github.io/talent-intelligence-career/CV_Ruben_Barrios.html) | Experiencia interactiva completa: 4 KPIs dinámicos, navegación por anclas, alternador de Modo Oscuro/Claro y filtros de certificaciones. |
-| **CV Web Mobile (HTML)** | [`CV_Ruben_Barrios_Mobile.html`](CV_Ruben_Barrios_Mobile.html) & [`mobile.html`](mobile.html) | 📱 [Abrir versión Mobile en GitHub Pages](https://rubenbarrios-bigdata.github.io/talent-intelligence-career/CV_Ruben_Barrios_Mobile.html) | Versión adaptada con navegación vertical optimizada para pantallas táctiles de celulares. |
-| **Descarga Directa del Código HTML** | [`CV_Ruben_Barrios.html`](CV_Ruben_Barrios.html) | 📥 [Descargar archivo .html](https://raw.githubusercontent.com/rubenbarrios-bigdata/talent-intelligence-career/main/CV_Ruben_Barrios.html) | Podés descargarlo y abrirlo con doble clic en cualquier navegador (Chrome, Edge, Safari, Firefox) sin necesidad de internet ni servidores. |
-| **Versión en Documento PDF** | [`CV_Ruben_Barrios_Analista_De_Datos.pdf`](CV_Ruben_Barrios_Analista_De_Datos.pdf) | 📕 [Ver / Descargar PDF](https://github.com/rubenbarrios-bigdata/talent-intelligence-career/raw/main/CV_Ruben_Barrios_Analista_De_Datos.pdf) | Documento tradicional listo para adjuntar en sistemas de selección ATS o procesos estándar. |
+| **CV Web Desktop (HTML Principal)** | [`CV_Ruben_Barrios.html`](CV_Ruben_Barrios.html) & [`index.html`](index.html) | 🌐 [Abrir CV Web en GitHub Pages](https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/CV_Ruben_Barrios.html) | Experiencia interactiva completa: 4 KPIs dinámicos, navegación por anclas, alternador de Modo Oscuro/Claro y filtros de certificaciones. |
+| **CV Web Mobile (HTML)** | [`CV_Ruben_Barrios_Mobile.html`](CV_Ruben_Barrios_Mobile.html) & [`mobile.html`](mobile.html) | 📱 [Abrir versión Mobile en GitHub Pages](https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/CV_Ruben_Barrios_Mobile.html) | Versión adaptada con navegación vertical optimizada para pantallas táctiles de celulares. |
+| **Descarga Directa del Código HTML** | [`CV_Ruben_Barrios.html`](CV_Ruben_Barrios.html) | 📥 [Descargar archivo .html](https://raw.githubusercontent.com/rubenbarrios-bigdata/cv-ejecutivo-inteligente/main/CV_Ruben_Barrios.html) | Podés descargarlo y abrirlo con doble clic en cualquier navegador (Chrome, Edge, Safari, Firefox) sin necesidad de internet ni servidores. |
+| **Versión en Documento PDF** | [`CV_Ruben_Barrios_Analista_De_Datos.pdf`](CV_Ruben_Barrios_Analista_De_Datos.pdf) | 📕 [Ver / Descargar PDF](https://github.com/rubenbarrios-bigdata/cv-ejecutivo-inteligente/raw/main/CV_Ruben_Barrios_Analista_De_Datos.pdf) | Documento tradicional listo para adjuntar en sistemas de selección ATS o procesos estándar. |
 
 > 💡 **Ventaja de un CV en HTML para un Analista de Datos**:
 > Presentar el currículum en formato HTML demuestra en la práctica conocimientos fundamentales en tecnologías web (DOM, CSS, JavaScript, JSON y APIs), habilidades indispensables para la implementación de analítica digital (GA4, GTM), medición de eventos y desarrollo de interfaces interactivas de Business Intelligence.
@@ -141,8 +141,8 @@ Como prueba del criterio analítico y de ingeniería de software, los datos del 
 
 ### 🌐 Acceso al CV en Vivo:
 El CV interactivo se encuentra publicado y operativo a través de **GitHub Pages**:
-- **Versión Principal**: [https://rubenbarrios-bigdata.github.io/talent-intelligence-career/](https://rubenbarrios-bigdata.github.io/talent-intelligence-career/)
-- **Enlace directo al HTML**: [https://rubenbarrios-bigdata.github.io/talent-intelligence-career/CV_Ruben_Barrios.html](https://rubenbarrios-bigdata.github.io/talent-intelligence-career/CV_Ruben_Barrios.html)
+- **Versión Principal**: [https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/](https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/)
+- **Enlace directo al HTML**: [https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/CV_Ruben_Barrios.html](https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/CV_Ruben_Barrios.html)
 
 ### 💼 Cómo destacar este proyecto en LinkedIn:
 
@@ -150,7 +150,7 @@ Para maximizar la visibilidad ante reclutadores técnicos y hiring managers en L
 
 1. **Sección "Destacados" (Featured) del Perfil de LinkedIn**:
    - En tu perfil de LinkedIn, hacé clic en **Añadir sección** ➔ **Destacados** ➔ **+ Enlaces**.
-   - Pegá la URL: `https://rubenbarrios-bigdata.github.io/talent-intelligence-career/`
+   - Pegá la URL: `https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/`
    - **Título**: `📊 CV Interactivo — Dashboard de Métricas Profesionales & Data Analytics`
    - **Descripción**: `Mi CV interactivo estructurado como un dashboard ejecutivo con 4 KPIs clave sobre mi trayectoria en prevención de fraudes, finanzas bancarias y analítica de datos.`
    - Podés adjuntar como miniatura la captura `screenshots/01_kpis_dashboard_header.png`.
@@ -184,10 +184,10 @@ Simplemente hacé doble clic en el archivo [`CV_Ruben_Barrios.html`](CV_Ruben_Ba
 ### Opción 2: Clonar y servir con servidor local
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/rubenbarrios-bigdata/talent-intelligence-career.git
+git clone https://github.com/rubenbarrios-bigdata/cv-ejecutivo-inteligente.git
 
 # 2. Ingresar a la carpeta
-cd talent-intelligence-career
+cd cv-ejecutivo-inteligente
 
 # 3. Iniciar un servidor local (con Python)
 python -m http.server 8000
@@ -199,9 +199,9 @@ Luego abrí tu navegador en: `http://localhost:8000`
 ## 🛡️ Propiedad Intelectual, Autoría & Registro de TIC®
 
 ### 📌 Declaración Oficial de Autoría y Creación
-**Talent Intelligence Career (TIC)®** es una plataforma tecnológica e interactiva de visualización curricular y métricas profesionales concebida con mentalidad de *executive dashboard*, desacoplamiento estricto de capa de datos (`data.json`), diseño responsivo nativo y analítica digital integrada.
+**CV Ejecutivo Inteligente** es una plataforma tecnológica e interactiva de visualización curricular y métricas profesionales concebida con mentalidad de *executive dashboard*, desacoplamiento estricto de capa de datos (`data.json`), diseño responsivo nativo y analítica digital integrada.
 
-- **Obra / Plataforma**: **Talent Intelligence Career (TIC)®**
+- **Obra / Plataforma**: **CV Ejecutivo Inteligente**
 - **Autor, Diseñador y Desarrollador**: **Rubén David Barrios Bello**
 - **Perfil Biográfico del Autor**: Profesional de **origen venezolano**, radicado y con actividad profesional en **Buenos Aires, Argentina desde el año 2018**. Licenciado en Banca y Finanzas con más de 16 años de trayectoria profesional combinada en el sector bancario (comercio exterior, conciliaciones, regulaciones cambiarias) y analítica avanzada (Data Analyst, Business Intelligence, prevención de fraudes y reducción de contracargos en e-commerce).
 - **Lugar y Fecha de Creación**: Buenos Aires, Argentina — 2026.
@@ -209,7 +209,7 @@ Luego abrí tu navegador en: `http://localhost:8000`
 
 ### ⚖️ Marco Legal y Protección de Derechos
 1. **Derechos de Autor (Ley 11.723 - República Argentina)**:
-   La estructura, diseño visual, código fuente (HTML5, CSS3, JavaScript ES6+), esquema de datos (`data.json`) y el concepto funcional **Talent Intelligence Career (TIC)®** constituyen una obra técnica e intelectual original protegida bajo la Ley de Propiedad Intelectual N° 11.723 de la República Argentina y convenios internacionales (Convenio de Berna).
+   La estructura, diseño visual, código fuente (HTML5, CSS3, JavaScript ES6+), esquema de datos (`data.json`) y el concepto funcional **CV Ejecutivo Inteligente** constituyen una obra técnica e intelectual original protegida bajo la Ley de Propiedad Intelectual N° 11.723 de la República Argentina y convenios internacionales (Convenio de Berna).
 2. **Depósito y Registro Oficial**:
    Obra técnica y software en proceso de registro formal ante la **Dirección Nacional del Derecho de Autor (DNDA)** del Ministerio de Justicia de la República Argentina a través de la plataforma oficial de Trámites a Distancia (**TAD**).
 3. **Documentación Estratégica**:
