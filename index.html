@@ -622,15 +622,21 @@
             display: inline-flex;
             align-items: center;
             gap: 3px;
-            color: #e2e8f0;
+            font-size: 0.72rem;
+            color: #94a3b8;
         }
 
         .contact-item i {
             width: auto;
             text-align: center;
             color: #38bdf8;
-            font-size: 0.85rem;
+            font-size: 0.74rem;
             margin-right: 2px;
+        }
+
+        #headerLocation {
+            font-size: 0.72rem;
+            color: #94a3b8;
         }
 
         .contact-item a {
@@ -867,8 +873,8 @@
         }
 
         .summary-text {
-            font-size: 0.90rem;
-            line-height: 1.65;
+            font-size: 0.94rem;
+            line-height: 1.68;
             color: var(--text-secondary);
             text-align: justify;
         }
@@ -2867,16 +2873,16 @@
             .status-badge {
                 bottom: -2px !important;
                 right: -2px !important;
-                padding: 3px 8px !important;
-                font-size: 0.65rem !important;
-                font-weight: 800 !important;
+                padding: 1.5px 5.5px !important;
+                font-size: 0.52rem !important;
+                font-weight: 700 !important;
                 border-width: 1px !important;
                 border-radius: 999px !important;
             }
 
             .status-dot {
-                width: 6px !important;
-                height: 6px !important;
+                width: 4.5px !important;
+                height: 4.5px !important;
             }
 
             /* Badge CV Ejecutivo Inteligente afinado */
@@ -2929,25 +2935,44 @@
             }
 
             /* Emoji de ubicación pegado a la dirección */
+                        /* Dirección de ubicación afinada y reducida */
             .contact-grid {
-                font-size: 0.62rem !important;
+                font-size: 0.53rem !important;
                 gap: 2px !important;
-                margin-top: 2px !important;
+                margin-top: 1px !important;
                 color: #94a3b8 !important;
             }
 
             .contact-item {
                 display: inline-flex !important;
                 align-items: center !important;
-                gap: 3px !important;
+                gap: 2.5px !important;
+                font-size: 0.53rem !important;
             }
 
             .contact-item i {
                 width: auto !important;
                 margin-right: 2px !important;
-                font-size: 0.68rem !important;
+                font-size: 0.58rem !important;
                 color: #38bdf8 !important;
-                margin-right: 0 !important;
+            }
+
+            #headerLocation {
+                font-size: 0.53rem !important;
+                line-height: 1.2 !important;
+                color: #94a3b8 !important;
+                font-weight: 500 !important;
+            }
+
+            .exp-location {
+                font-size: 0.58rem !important;
+                margin-bottom: 4px !important;
+                gap: 2.5px !important;
+            }
+
+            .exp-location i {
+                font-size: 0.58rem !important;
+                margin-right: 2px !important;
             }
 
             /* ========================================================
@@ -3003,8 +3028,16 @@
             }
 
             /* Letras del contenido: TODAS unificadas al estándar Mate-Mático (0.72rem / line-height 1.42) */
+            /* Contenido de Perfil Profesional: ampliado para lectura óptima */
             .summary-text,
-            .summary-text p,
+            .summary-text p {
+                font-size: 0.82rem !important;
+                line-height: 1.50 !important;
+                color: var(--text-secondary) !important;
+                text-align: justify !important;
+            }
+
+            /* Resto de contenidos unificados al estándar Mate-Mático (0.72rem / line-height 1.42) */
             .exp-responsibilities li,
             .exp-desc,
             .experience-item p,
@@ -3014,11 +3047,6 @@
             .project-impact {
                 font-size: 0.72rem !important;
                 line-height: 1.42 !important;
-            }
-
-            .summary-text {
-                color: var(--text-secondary) !important;
-                text-align: justify !important;
             }
 
             .exp-responsibilities,
