@@ -497,10 +497,12 @@
         .smart-cv-badge {
             display: inline-flex !important;
             align-items: center !important;
-            gap: 5px !important;
-            padding: 3px 10px !important;
+            gap: 3.5px !important;
+            padding: 2px 8px 2px 4px !important;
+            margin: 0 0 4px -2px !important;
+            align-self: flex-start !important;
             border-radius: 999px !important;
-            font-size: 0.78rem !important;
+            font-size: 0.74rem !important;
             font-weight: 800 !important;
             letter-spacing: 0.2px !important;
             margin-bottom: 8px !important;
@@ -517,7 +519,7 @@
         }
 
         .smart-cv-badge .smart-cv-icon {
-            font-size: 0.85rem !important;
+            font-size: 0.65rem !important;
             line-height: 1 !important;
             display: inline-flex !important;
             align-items: center !important;
@@ -2885,12 +2887,13 @@
                 height: 4.5px !important;
             }
 
-            /* Badge CV Ejecutivo Inteligente afinado */
+            /* Badge CV Ejecutivo Inteligente alineado a la izquierda con emoji afinado */
             .smart-cv-badge {
-                margin: 0 0 3px 0 !important;
-                font-size: 0.54rem !important;
-                padding: 1.5px 6px !important;
-                gap: 3px !important;
+                margin: 0 0 3px -3px !important;
+                align-self: flex-start !important;
+                font-size: 0.52rem !important;
+                padding: 1.5px 5.5px 1.5px 3.5px !important;
+                gap: 2.5px !important;
                 letter-spacing: 0.2px !important;
                 border-width: 1px !important;
                 box-shadow: 0 0 8px rgba(56, 189, 248, 0.25) !important;
@@ -2898,13 +2901,17 @@
             }
 
             .smart-cv-badge .smart-cv-icon {
-                font-size: 0.60rem !important;
+                font-size: 0.44rem !important;
                 line-height: 1 !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
             }
 
             .smart-cv-badge .smart-cv-text {
-                font-size: 0.54rem !important;
+                font-size: 0.52rem !important;
                 font-weight: 800 !important;
+                line-height: 1 !important;
             }
 
             /* Nombre */
@@ -3182,7 +3189,7 @@
                 </div>
                 <h1 class="name">Rub&eacute;n David Barrios Bello</h1>
                 <div class="title">
-                    <span id="headerTitleSpan">Data Analyst | Digital Analyst | Business Intelligence | Fraud Prevention | Lic. en Banca y Finanzas</span>
+                    <span id="headerTitleSpan">Data Analyst | Digital Analyst | Business Intelligence <span style="white-space: nowrap;">Fraud Prevention</span> | Lic. en Banca y Finanzas</span>
                     
                 </div>
                 <div class="contact-grid">
@@ -4662,7 +4669,7 @@ function initTelemetryListeners() {
             es: {
                 htmlLang: 'es',
                 metaDesc: 'CV Web Profesional de Rubén David Barrios Bello - Data Analyst, Business Intelligence & Fraud Prevention.',
-                headerTitle: 'Data Analyst | Digital Analyst | Business Intelligence | Fraud Prevention | Lic. en Banca y Finanzas',
+                headerTitle: 'Data Analyst | Digital Analyst | Business Intelligence <span style="white-space: nowrap;">Fraud Prevention</span> | Lic. en Banca y Finanzas',
                 headerLocation: 'Parque Patricios, CABA - Argentina',
                 statusText: 'Disponible',
                 statusTitle: 'Disponible para roles de Data Analyst & BI',
@@ -4774,7 +4781,7 @@ function initTelemetryListeners() {
             en: {
                 htmlLang: 'en',
                 metaDesc: 'Professional Web Resume of Rubén David Barrios Bello - Data Analyst, Business Intelligence & Fraud Prevention.',
-                headerTitle: 'Data Analyst | Digital Analyst | Business Intelligence | Fraud Prevention | B.A. in Banking and Finance',
+                headerTitle: 'Data Analyst | Digital Analyst | Business Intelligence <span style="white-space: nowrap;">Fraud Prevention</span> | B.A. in Banking and Finance',
                 headerLocation: 'Parque Patricios, Buenos Aires - Argentina',
                 statusText: 'Available',
                 statusTitle: 'Available for Data Analyst & BI roles',
@@ -4985,7 +4992,7 @@ function initTelemetryListeners() {
 
             // Header & Profile
             const headerTitle = document.getElementById('headerTitleSpan');
-            if (headerTitle) headerTitle.innerText = t.headerTitle;
+            if (headerTitle) headerTitle.innerHTML = t.headerTitle;
 
             const headerLoc = document.getElementById('headerLocation');
             if (headerLoc) headerLoc.innerText = t.headerLocation;
