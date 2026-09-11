@@ -1163,7 +1163,10 @@
         }
 
         .scroll-target-highlight {
-            animation: highlightPulse 2s ease-in-out;
+            animation: highlightPulse 2.5s cubic-bezier(0.22, 1, 0.36, 1) !important;
+            border-radius: var(--radius-md) !important;
+            position: relative !important;
+            z-index: 10 !important;
         }
 
         #proyectosSection,
@@ -1188,14 +1191,22 @@
 
         @keyframes highlightPulse {
             0% {
-                box-shadow: 0 0 0 4px var(--accent), 0 10px 25px rgba(37, 99, 235, 0.4);
-                transform: scale(1.01);
+                outline: 3px solid #38bdf8 !important;
+                box-shadow: 0 0 25px rgba(56, 189, 248, 0.95), 0 0 55px rgba(37, 99, 235, 0.65), inset 0 0 20px rgba(56, 189, 248, 0.35) !important;
+                transform: scale(1.02);
             }
-            50% {
-                box-shadow: 0 0 0 4px var(--accent), 0 10px 30px rgba(37, 99, 235, 0.5);
+            35% {
+                outline: 3.5px solid #38bdf8 !important;
+                box-shadow: 0 0 40px rgba(56, 189, 248, 1), 0 0 75px rgba(37, 99, 235, 0.85), inset 0 0 30px rgba(56, 189, 248, 0.45) !important;
+                transform: scale(1.025);
+            }
+            70% {
+                outline: 2px solid rgba(56, 189, 248, 0.6) !important;
+                box-shadow: 0 0 22px rgba(56, 189, 248, 0.5), inset 0 0 12px rgba(56, 189, 248, 0.2) !important;
                 transform: scale(1.01);
             }
             100% {
+                outline: 0px solid transparent;
                 box-shadow: var(--shadow-sm);
                 transform: scale(1);
             }
@@ -2660,7 +2671,8 @@
     <!-- Detección y Redirección Automática Responsive (Escritorio en PC, Móvil en Celulares) -->
     
 
-    <!-- Master Layout Override: Always Row (Photo Left, Text Right) on All Screens -->
+    
+    <!-- Master Layout Override: Always Row, Clean Compact Hierarchy, Blue KPI Glow, Scroll Top Button -->
     <style id="master-profile-layout">
         header.header,
         .header {
@@ -2715,7 +2727,49 @@
             text-align: left !important;
         }
 
-        /* Mobile Executive Polish (<= 768px): Más pequeño, limpio y profesional */
+        /* Botón Flotante Subir Arriba - Alta Visibilidad y Z-Index Superior */
+        .btn-scroll-top {
+            position: fixed !important;
+            bottom: 84px !important;
+            right: 18px !important;
+            width: 44px !important;
+            height: 44px !important;
+            border-radius: 50% !important;
+            z-index: 1050 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: var(--card-bg, #111c2e) !important;
+            color: #38bdf8 !important;
+            border: 2px solid #38bdf8 !important;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 12px rgba(56, 189, 248, 0.45) !important;
+            cursor: pointer !important;
+            font-size: 1.15rem !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            transform: translateY(12px) !important;
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease !important;
+        }
+
+        .btn-scroll-top.visible {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            transform: translateY(0) !important;
+        }
+
+        @media (min-width: 769px) {
+            .btn-scroll-top {
+                bottom: 30px !important;
+                right: 30px !important;
+            }
+        }
+
+        /* ========================================================
+           OPTIMIZACIÓN MÓVIL EJECUTIVA (<= 768px)
+           Nombre, rol y todo el contenido afinados, compactos y limpios
+           ======================================================== */
         @media (max-width: 768px) {
             header.header,
             .header {
@@ -2734,10 +2788,10 @@
             }
 
             .photo {
-                width: 70px !important;
-                height: 70px !important;
-                min-width: 70px !important;
-                min-height: 70px !important;
+                width: 66px !important;
+                height: 66px !important;
+                min-width: 66px !important;
+                min-height: 66px !important;
                 border-width: 2px !important;
                 box-shadow: 0 0 10px rgba(56, 189, 248, 0.3) !important;
             }
@@ -2746,35 +2800,36 @@
                 bottom: -2px !important;
                 right: -2px !important;
                 padding: 1.5px 5px !important;
-                font-size: 0.52rem !important;
+                font-size: 0.50rem !important;
                 border-width: 1px !important;
             }
 
             .smart-cv-badge {
                 margin: 0 0 3px 0 !important;
-                font-size: 0.58rem !important;
-                padding: 2px 7px !important;
+                font-size: 0.55rem !important;
+                padding: 2px 6px !important;
                 gap: 4px !important;
                 letter-spacing: 0.2px !important;
                 border-width: 1px !important;
-                box-shadow: 0 0 10px rgba(56, 189, 248, 0.25) !important;
+                box-shadow: 0 0 8px rgba(56, 189, 248, 0.25) !important;
                 white-space: nowrap !important;
             }
 
+            /* Nombre: más pequeño, refinado y elegante */
             .name {
-                font-size: 1.05rem !important;
+                font-size: 0.98rem !important;
                 line-height: 1.15 !important;
-                margin-bottom: 3px !important;
+                margin-bottom: 2px !important;
                 font-weight: 700 !important;
                 letter-spacing: -0.2px !important;
             }
 
-            /* Tipografía del Rol: Ultra limpia, refinada y profesional */
+            /* Rol: ultra limpio y sutil estilo computadora */
             .title {
-                font-size: 0.67rem !important;
-                line-height: 1.35 !important;
-                margin-bottom: 5px !important;
-                gap: 3px !important;
+                font-size: 0.63rem !important;
+                line-height: 1.32 !important;
+                margin-bottom: 4px !important;
+                gap: 2px !important;
                 color: #94a3b8 !important;
             }
 
@@ -2784,69 +2839,150 @@
                 color: #cbd5e1 !important;
                 font-weight: 500 !important;
                 letter-spacing: 0.1px !important;
-                line-height: 1.35 !important;
+                line-height: 1.32 !important;
             }
 
             .title-badge {
-                font-size: 0.60rem !important;
-                padding: 2px 7px !important;
+                font-size: 0.58rem !important;
+                padding: 2px 6px !important;
                 margin-left: 0 !important;
                 margin-top: 2px !important;
                 white-space: normal !important;
                 text-align: left !important;
                 border-radius: 6px !important;
-                border: 1px solid rgba(56, 189, 248, 0.25) !important;
+                border: 1px solid rgba(56, 189, 248, 0.22) !important;
                 background: rgba(15, 30, 50, 0.75) !important;
                 color: #e2e8f0 !important;
-                line-height: 1.3 !important;
+                line-height: 1.25 !important;
             }
 
             .title-badge i {
-                font-size: 0.65rem !important;
+                font-size: 0.62rem !important;
             }
 
             .contact-grid {
-                font-size: 0.65rem !important;
+                font-size: 0.62rem !important;
                 gap: 2px !important;
-                margin-top: 3px !important;
+                margin-top: 2px !important;
                 color: #94a3b8 !important;
             }
 
             .contact-item i {
-                font-size: 0.65rem !important;
+                font-size: 0.62rem !important;
                 color: #38bdf8 !important;
             }
-        }
 
-        /* Pantallas muy estrechas (<= 360px) */
-        @media (max-width: 360px) {
-            header.header,
-            .header {
-                padding: 8px 10px !important;
-                gap: 10px !important;
+            /* ----------------------------------------------------
+               LETRAS A PARTIR DE PERFIL PROFESIONAL (Más pequeñas y limpias)
+               ---------------------------------------------------- */
+            .section-title {
+                font-size: 0.88rem !important;
+                margin-bottom: 8px !important;
+                gap: 6px !important;
             }
 
-            .photo {
-                width: 64px !important;
-                height: 64px !important;
-                min-width: 64px !important;
-                min-height: 64px !important;
+            .section-title i {
+                font-size: 0.82rem !important;
             }
 
-            .name {
-                font-size: 0.98rem !important;
+            .summary-text {
+                font-size: 0.73rem !important;
+                line-height: 1.50 !important;
+                color: var(--text-secondary) !important;
             }
 
-            #headerTitleSpan {
+            .card {
+                padding: 12px 14px !important;
+                margin-bottom: 12px !important;
+                border-radius: 12px !important;
+            }
+
+            .exp-role {
+                font-size: 0.82rem !important;
+                line-height: 1.25 !important;
+            }
+
+            .exp-company {
+                font-size: 0.70rem !important;
+                margin-bottom: 3px !important;
+            }
+
+            .exp-period {
+                font-size: 0.64rem !important;
+                padding: 1px 6px !important;
+            }
+
+            .exp-responsibilities li,
+            .exp-desc,
+            .experience-item p {
+                font-size: 0.71rem !important;
+                line-height: 1.44 !important;
+            }
+
+            .achievement-highlight {
+                font-size: 0.71rem !important;
+                padding: 8px 12px !important;
+                line-height: 1.44 !important;
+                margin-top: 8px !important;
+            }
+
+            .project-card {
+                padding: 12px !important;
+                border-radius: 10px !important;
+            }
+
+            .project-title {
+                font-size: 0.80rem !important;
+            }
+
+            .project-desc,
+            .project-impact {
+                font-size: 0.69rem !important;
+                line-height: 1.40 !important;
+            }
+
+            .project-tag,
+            .tech-pill {
+                font-size: 0.58rem !important;
+                padding: 2px 5px !important;
+            }
+
+            .cert-card {
+                padding: 9px 11px !important;
+            }
+
+            .cert-name {
+                font-size: 0.76rem !important;
+            }
+
+            .cert-issuer,
+            .cert-date {
                 font-size: 0.64rem !important;
             }
 
-            .title-badge {
-                font-size: 0.58rem !important;
+            .skill-category h4,
+            .skill-category-title {
+                font-size: 0.72rem !important;
+            }
+
+            .skill-pill,
+            .skill-tag {
+                font-size: 0.63rem !important;
+                padding: 2px 7px !important;
+            }
+
+            .edu-degree {
+                font-size: 0.78rem !important;
+            }
+
+            .edu-school,
+            .edu-period {
+                font-size: 0.66rem !important;
             }
         }
     </style>
 </head>
+
 
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -4348,7 +4484,9 @@ function initTelemetryListeners() {
             el.scrollIntoView({ behavior: 'smooth', block: blockAlign });
             el.classList.remove('scroll-target-highlight');
             void el.offsetWidth;
-            el.classList.add('scroll-target-highlight');
+            setTimeout(() => {
+                el.classList.add('scroll-target-highlight');
+            }, 50);
         }
 
 
@@ -4628,13 +4766,18 @@ function initTelemetryListeners() {
         function initScrollTopButton() {
             const btn = document.getElementById('btnScrollTop');
             if (!btn) return;
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 250) {
+            function checkScrollPos() {
+                const y = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+                if (y > 90) {
                     btn.classList.add('visible');
                 } else {
                     btn.classList.remove('visible');
                 }
-            }, { passive: true });
+            }
+            window.addEventListener('scroll', checkScrollPos, { passive: true });
+            window.addEventListener('touchmove', checkScrollPos, { passive: true });
+            document.addEventListener('scroll', checkScrollPos, { passive: true });
+            checkScrollPos();
         }
 
                 function getCurrentLanguage() {
